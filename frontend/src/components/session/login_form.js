@@ -42,8 +42,12 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
-    this.props.login(user); 
+    this.props.login(user).then(this.props.closeModal);
   }
+
+  // componentWillUnmount(){
+  //   this.props.clearErrors();
+  // }
 
   // Render the session errors if there are any
   renderErrors() {
@@ -61,6 +65,8 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div>
+        <p className="form-close-button" onClick={()=> this.props.closeModal()}>X</p> 
+        <h2>Login Form</h2>
         <form onSubmit={this.handleSubmit}>
           <div>
               <input type="text"
