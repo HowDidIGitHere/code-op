@@ -6,44 +6,28 @@ const validateLoginInput = require("../validation/login");
 
 const User = require("../models/User")
 
-exports.login = catchAsync((req, res) => {
+exports.login = catchAsync( async (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
 
-  if (!isValid) {
+  if (!isValid)
     return res.status(400).json(errors);
-  }
 
   const email = req.body.email;
   const password = req.body.password;
+  const user = await User.findOne({ email });
 
-  User.findOne({ email })
-    .then(user => {
-      if (!user) {
-        // no user with this email found
-        errors.email = "User not found";
-        return res.status(404).json(errors);
-      }
-
-      bcrypt.compare(password, user.password)
-        .then(isMatch => {
-          if (isMatch) {
-            const payload = { id: user.id, username: user.username };
-            
-            jwt.sign(
-              payload,
-              keys.secretOrKey,
-              // Key expires in 1 hr
-              { expiresIn: 3600 },
-              (error, token) => {
-                res.json({
-                  success: true,
-                  token: 'Bearer ' + token
-                });
-              });
-          } else {
-            errors.password = "Incorrect password";
-            return res.status(400).json(errors);
-          }
-        });
+  if (!user)
+    return res.status(400).json({ message: 'Invalid username or password' });
+  
+  const passwordIsMatch = await bcrypt.compare(password, user.password);
+  if (passwordIsMatch) {
+    const payload = { id: user.id, username: user.username };
+    const token = await jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 });
+    return res.json({
+      success: true,
+      token: 'Bearer ' + token
     });
+  } else {
+    return res.status(400).json({ message: 'Invalid username or password' });
+  }
 });
