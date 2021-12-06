@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+require('../models/User');
 
 const databaseURL = require("../config/keys").mongoURI;
 
@@ -10,7 +11,7 @@ const connectToDatabase = (databaseURL) => {
   mongoose.connect(databaseURL);
 };
 
-module.exports = async () => {
+module.exports = () => {
   setDatabaseOptions();
   connectToDatabase(databaseURL);
 };
