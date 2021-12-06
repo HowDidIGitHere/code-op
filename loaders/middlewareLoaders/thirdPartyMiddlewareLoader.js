@@ -26,7 +26,7 @@ module.exports = app => {
 
   // Passport for session tokens
   app.use(passport.initialize());
-  require("./config/passport")(passport);
+  require("../../config/passport")(passport);
 
   // Body parser: reading data from body into req.body
   app.use(bodyParser.urlencoded({ extended: false }));
