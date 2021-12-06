@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './navbar.css'
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -27,8 +28,8 @@ class NavBar extends React.Component {
       } else {
         return (
             <div>
-                <Link to={'/signup'}>Signup</Link>
-                <Link to={'/login'}>Login</Link>
+                <Link className='signup' to={'/signup'}>Signup</Link>
+                <Link className='login' to={'/login'}>Login</Link>
             </div>
         );
       }
@@ -36,9 +37,21 @@ class NavBar extends React.Component {
 
   render() {
       return (
-        <div>
-            <h1>code-op</h1>
-            { this.getLinks() }
+        <div className='navbar'>
+          <div className='left-nav'>
+            <img className='logo' src="https://res.cloudinary.com/dzixdb9eu/image/upload/v1638811421/letter-c-o-logo-vector-260nw-532313890_hdhaz3.jpg" alt="fake-logo" />
+            <h1>CODE-OP</h1>
+          </div>
+          <div className='right-nav'>
+            <div className='right-nav-links'>
+              <div>
+                <a href="x">About Us</a>
+              </div>
+            </div>
+            <div className='right-nav-button'>
+              { this.getLinks() }
+            </div>
+          </div>
         </div>
       );
   }
