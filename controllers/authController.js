@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const passport = require("passport");
 const keys = require("../config/keys");
 const catchAsync = require('../utils/catchAsync');
 
@@ -59,4 +60,13 @@ exports.login = catchAsync( async (req, res) => {
   } else {
     return res.status(400).json({ message: 'Invalid username or password' });
   }
+});
+
+exports.protect = catchAsync( async (req, res, next) => {
+  await passport.authenticate('jwt', { session: false }, function(error, user, info) {
+    if (error) return next(error);
+    if (!user) return res.status(404).json({ message: 'Please sign in' });
+    req.user = user;
+    next();
+  })(req, res, next);
 });
