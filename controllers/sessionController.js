@@ -22,7 +22,7 @@ exports.login = catchAsync( async (req, res) => {
   const passwordIsMatch = await bcrypt.compare(password, user.password);
   if (passwordIsMatch) {
     const payload = { id: user.id, username: user.username };
-    const token = await jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 });
+    const token = jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 });
     return res.json({
       success: true,
       token: 'Bearer ' + token
