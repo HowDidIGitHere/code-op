@@ -3,7 +3,7 @@
 const userRouter = require("../../routers/userRouter");
 
 module.exports = app => {
-  app.use("/api/v1/users", userRouter);
+  app.use("/api/users", userRouter);
   // app.use("/", viewRouter);
   return app;
 };
