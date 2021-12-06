@@ -62,4 +62,4 @@ exports.login = catchAsync( async (req, res) => {
   }
 });
 
-exports.protect = passport.authenticate('jwt', { session: false });
+exports.protect = catchAsync(passport.authenticate('jwt', { session: false }));
