@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const passport = require("passport");
 const keys = require("../config/keys");
 const catchAsync = require('../utils/catchAsync');
 
@@ -60,3 +61,5 @@ exports.login = catchAsync( async (req, res) => {
     return res.status(400).json({ message: 'Invalid username or password' });
   }
 });
+
+exports.protect = passport.authenticate('jwt', { session: false });
