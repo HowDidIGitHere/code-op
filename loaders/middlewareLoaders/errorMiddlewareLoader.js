@@ -1,4 +1,4 @@
-const ServerError = require("../../utils/serverError");
+const ServerError = require("../../utils/ServerError")
 const globalErrorHandler = require("../../controllers/errorsController");
 
 module.exports = app => {
