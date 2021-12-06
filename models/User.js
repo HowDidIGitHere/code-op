@@ -23,6 +23,8 @@ UserSchema.pre('save', async function(next) {
     return next();
 
   if(this.password && this.passwordConfirm) {
+    const saltRounds = 10;
+    const salt = await bcrypt.genSalt(saltRounds);
     this.password = await bcrypt.hash(this.password, 12);
     this.passwordConfirm = undefined;
   }
