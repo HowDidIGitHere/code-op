@@ -2,19 +2,13 @@
 const mongoose = require('mongoose');
 
 // Local modules
-const {
-  bindFunctions,
-  ModelProbe,
-} = require('./../utils');
 
 class Service {
   constructor(model) {
     this.model = model;
-    this.modelProbe = new ModelProbe(model);
-    bindFunctions(this); // Bind functions for inheritance
   }
 
-  async get(query) {
+  get = async query => {
     let { fields, skip, limit, sort } = query; 
     let data = {};
 
@@ -28,14 +22,14 @@ class Service {
     delete query.limit;
     delete query.sort;
 
-    // If _id specified, convert to ObjectId (this will result in one doc returned)
-    if (query._id) {
-      try {
-        query._id = new mongoose.mongo.ObjectId(query._id);
-      } catch (error) {
-        console.log("Not able to generate mongoose id with content", query._id);
-      }
-    }
+    // // If _id specified, convert to ObjectId (this will result in one doc returned)
+    // if (query._id) {
+    //   try {
+    //     query._id = new mongoose.mongo.ObjectId(query._id);
+    //   } catch (error) {
+    //     console.log("Not able to generate mongoose id with content", query._id);
+    //   }
+    // }
 
     try {
       const docs = await this.model
@@ -46,16 +40,10 @@ class Service {
         .sort(sort);
       const total = await this.model.count();
 
-      // Save docs to data with appropriate name
-      if(total > 1)
-        data[this.modelProbe.modelNamePlural()] = docs;
-      else
-        data[this.modelProbe.modelNameSingular()] = docs;
-
       return {
         error: false,
         statusCode: 200,
-        data,
+        data: docs,
         total
       };
     } catch (errors) {
@@ -67,7 +55,26 @@ class Service {
     }
   }
 
-  async insert(data) {
+  getSingle = async id => {
+    try {
+      const doc = await this.modal.findOne({ id });
+
+      return {
+        error: false,
+        statusCode: 200,
+        data: doc
+      }
+    } catch (errors) {
+      console.log("error", errors);
+      return {
+        error: true,
+        statusCode: 500,
+        errors
+      }
+    }
+  }
+
+  create = async data => {
     try {
       const doc = await this.model.create(data);
       if (doc)
@@ -87,7 +94,7 @@ class Service {
     }
   }
 
-  async update(id, data) {
+  update = async (id, data) => {
     try {
       let doc = await this.model.findByIdAndUpdate(id, data, { new: true });
       return {
@@ -103,7 +110,7 @@ class Service {
     }
   }
 
-  async delete(id) {
+  delete = async id => {
     try {
       let doc = await this.model.findByIdAndDelete(id);
       if (!doc)
