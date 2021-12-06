@@ -1,6 +1,5 @@
 const ServerError = require("../../utils/serverError");
 const globalErrorHandler = require("../../controllers/errorsController");
-const { catchAsync } = require("../../utils");
 
 module.exports = app => {
   app.use((req, res, next) => {
