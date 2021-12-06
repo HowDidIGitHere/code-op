@@ -8,7 +8,7 @@ import MainPage from './main/main_page';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import ProfileContainer from './profile/profile_container';
-import ProjectIndexContainer from './projects/projects_index_container';
+import ProjectIndexContainer from './projects/index/projects_index_container';
 
 const App = () => (
   <div>

@@ -1,5 +1,6 @@
 import React from 'react';
-import CategoryChecklist from './index_helpers/category_checklist';
+import './project_index.css'
+import CategoryChecklist from './category_checklist';
 
 class ProjectsIndex extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class ProjectsIndex extends React.Component {
     return(
       <div className="projects-index">
         <div className='left-filter-column'>
-          <h1 className='header'>Projects</h1>
+          <h1 className='header'>PROJECTS</h1>
           <div className='category-checkboxes'>
             <CategoryChecklist />
             <CategoryChecklist />
