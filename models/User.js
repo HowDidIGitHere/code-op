@@ -12,8 +12,20 @@ const UserSchema = new Schema({
   },
   password: {
     type: String,
-    required: true
-  }
+    required: [true, 'Please enter a password'],
+    minlength: [8, 'Passwords must be 8 or more characters'],
+    select: false
+  },
+  passwordConfirm: {
+    type: String,
+    required: [true, 'Please confirm your password'],
+    validate: {
+      validator: function(val) {
+        return this.password === val;
+      },
+      message: 'Password confirmation failed'
+    }
+  },
 }, {
   timestamps: true
 });
@@ -25,7 +37,7 @@ UserSchema.pre('save', async function(next) {
   if(this.password && this.passwordConfirm) {
     const saltRounds = 10;
     const salt = await bcrypt.genSalt(saltRounds);
-    this.password = await bcrypt.hash(this.password, 12);
+    this.password = await bcrypt.hash(this.password, salt);
     this.passwordConfirm = undefined;
   }
 
