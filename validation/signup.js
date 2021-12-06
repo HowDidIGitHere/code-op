@@ -9,12 +9,12 @@ const validateSignupInput = data => {
   data.password = validText(data.password) ? data.password : "";
   // data.password2 = validText(data.password2) ? data.password2 : "";
 
-  if (!Validator.isLength(data.username, { min: 1, max: 30 })) {
-    errors.username = "Username must be between 1 and 30 characters";
-  }
-
   if (Validator.isEmpty(data.username)) {
     errors.username = "Username is required";
+  }
+
+  if (!Validator.isLength(data.username, { min: 1, max: 30 })) {
+    errors.username = "Username cannot be greater than 30 characters";
   }
 
   if (Validator.isEmpty(data.email)) {
