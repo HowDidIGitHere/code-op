@@ -1,0 +1,49 @@
+.navbar {
+  padding-top: 10px;
+}
+
+.left-nav {
+  float: left;
+  padding-left: 15px;
+}
+
+.right-nav {
+  float: right;
+  padding-right: 15px;
+  margin-top: 15px;
+}
+  
+.logo {
+  width: 35px;
+}
+
+.left-nav > h1 {
+  float: right;
+  color: black;
+  font-weight: 600;
+  font-size: 15px;
+  margin: 10px 0 0 10px;
+}
+
+.right-nav-links {
+  float:left;
+  margin-right: 10px;
+}
+
+.right-nav-button {
+  float: right;
+  font-size: 13px;
+  border-radius: 15px;
+}
+
+
+.login {
+  padding: 5px;
+  border: 1px solid lightgrey;
+  margin-left: 10px;
+}
+
+.signup {
+  padding: 5px;
+  background-color: lightseagreen;
+}
