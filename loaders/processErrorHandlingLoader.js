@@ -1,4 +1,3 @@
-const ServerError = require("./utils/serverError");
 const { catchAsync } = require("../utils");
 
 module.exports = catchAsync( async () => {
@@ -18,6 +17,4 @@ module.exports = catchAsync( async () => {
     console.log("SIGTERM RECEIVED. Shutting down gracefully");
     process.exit(1);
   });
-
-  return app;
 });

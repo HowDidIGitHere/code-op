@@ -1,12 +1,11 @@
 const databaseLoader = require("./databaseLoader");
 const { catchAsync } = require("../utils");
 const middlewareLoaders = require("./middlewareLoaders/middlewareLoader");
-const processErrorHandlingLoader = require("./processErrorHandlingLoaders");
+const processErrorHandlingLoader = require("./processErrorHandlingLoader");
 
 const init = catchAsync( async data => {
   await databaseLoader();
   await processErrorHandlingLoader();
-  await thirdpartyMiddlewareLoader(data.app);
   await middlewareLoaders.init(data.app);
 });
 

@@ -1,13 +1,18 @@
+const customMiddlewareLoader = require("./customMiddlewareLoader");
+const errorMiddlewareLoader = require("./errorMiddlewareLoader");
+const routersLoader = require("./routersLoader");
+const thirdPartyMiddlewareLoader = require("./thirdPartyMiddlewareLoader")
+
 module.exports = {
-  customMiddlewareLoader: require("./customMiddlewareLoader"),
-  errorMiddlewareLoader: require("./errorMiddlewareLoader"),
-  routersLoader: require("./routersLoader"),
-  thirdPartyMiddlewareLoader: require("./thirdPartyMiddlewareLoader"),
+  customMiddlewareLoader,
+  errorMiddlewareLoader,
+  routersLoader,
+  thirdPartyMiddlewareLoader,
   init: async (app) => {
-    await this.thirdPartyMiddlewareLoader(app);
-    await this.customMiddlewareLoader(app);
-    await this.routersLoader(app);
-    await this.errorMiddlewareLoader(app);
+    await thirdPartyMiddlewareLoader(app);
+    await customMiddlewareLoader(app);
+    await routersLoader(app);
+    await errorMiddlewareLoader(app);
     return app;
   }
 };
