@@ -1,4 +1,5 @@
 const ServerError = require('../utils/ServerError');
+const keys = requrie('../config/keys')
 
 const handleCastErrorDB = err => {
   const message = `Invalid ${err.path}: ${err.value}`;
@@ -61,9 +62,9 @@ module.exports = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
   err.status = err.status || 'error';
 
-  if (process.env.NODE_ENV === 'development') {
+  if (keys.node_env === 'development') {
     sendErrorDev(err, res);
-  } else if (process.env.NODE_ENV === 'production') {
+  } else if (keys.node_env === 'production') {
     // make copy of err object
     let error = JSON.parse(JSON.stringify(err));
     error.message = err.message;
