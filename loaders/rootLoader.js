@@ -1,6 +1,6 @@
 const databaseLoader = require("./databaseLoader");
 const { catchAsync } = require("../utils");
-const middlewareLoaders = require("./middlewareLoaders");
+const middlewareLoaders = require("./middlewareLoaders/middlewareLoader");
 const processErrorHandlingLoader = require("./processErrorHandlingLoaders");
 
 const init = catchAsync( async data => {

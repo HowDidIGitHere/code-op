@@ -34,7 +34,7 @@
 const express = require("express");
 const app = express();
 
-const loaders = require("./loaders");
+const loaders = require("./loaders/rootLoader");
 const { catchAsync } = require("./utils");
 
 const startServer = catchAsync( async () => {
