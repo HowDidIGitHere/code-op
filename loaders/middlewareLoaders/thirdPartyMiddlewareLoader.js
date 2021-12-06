@@ -1,6 +1,5 @@
 // TO ADD ADDITIONAL MIDDLEWARE LATER
 
-const device = require("express-device");
 const helmet = require("helmet");
 const hpp = require("hpp");
 const mongoSanitize = require("express-mongo-sanitize");

@@ -1,5 +1,5 @@
 const ServerError = require('../utils/ServerError');
-const keys = requrie('../config/keys')
+const keys = require('../config/keys')
 
 const handleCastErrorDB = err => {
   const message = `Invalid ${err.path}: ${err.value}`;
