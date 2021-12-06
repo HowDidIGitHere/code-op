@@ -1,4 +1,9 @@
-const validateLoginInput = require("../../validation/login");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const keys = require("../config/keys");
+const validateLoginInput = require("../validation/login");
+
+const User = require("../models/User")
 
 export const login = (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
