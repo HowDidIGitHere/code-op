@@ -1,11 +1,12 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../config/keys");
+const catchAsync = require('../utils/catchAsync');
 const validateLoginInput = require("../validation/login");
 
 const User = require("../models/User")
 
-export const login = (req, res) => {
+exports.login = catchAsync((req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
 
   if (!isValid) {
@@ -45,4 +46,4 @@ export const login = (req, res) => {
           }
         });
     });
-}
+});
