@@ -8,11 +8,11 @@ module.exports = {
   errorMiddlewareLoader,
   routersLoader,
   thirdPartyMiddlewareLoader,
-  init: async (app) => {
-    await thirdPartyMiddlewareLoader(app);
-    await customMiddlewareLoader(app);
-    await routersLoader(app);
-    await errorMiddlewareLoader(app);
+  init: app => {
+    thirdPartyMiddlewareLoader(app);
+    customMiddlewareLoader(app);
+    routersLoader(app);
+    errorMiddlewareLoader(app);
     return app;
   }
 };

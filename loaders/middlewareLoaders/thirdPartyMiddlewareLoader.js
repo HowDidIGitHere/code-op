@@ -10,9 +10,7 @@ const xss = require("xss-clean");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 
-const { catchAsync } = require("../../utils");
-
-module.exports = catchAsync( async app => {
+module.exports = app => {
   // Sets security http headers
   app.use(helmet());
 
@@ -48,4 +46,4 @@ module.exports = catchAsync( async app => {
   }));
 
   return app;
-});
+}

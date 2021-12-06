@@ -1,6 +1,6 @@
 const { catchAsync } = require("../utils");
 
-module.exports = catchAsync( async () => {
+module.exports = () => {
   process.on('uncaughtException', error => {
     console.log("UNCAUGHT EXCEPTION! Shutting down...");
     console.error(error);
@@ -17,4 +17,4 @@ module.exports = catchAsync( async () => {
     console.log("SIGTERM RECEIVED. Shutting down gracefully");
     process.exit(1);
   });
-});
+};
