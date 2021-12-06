@@ -20,16 +20,14 @@ exports.signup = catchAsync( async (req, res) => {
   if (user)
     return res.status(400).json({ message: 'An error occurred' });
   
-  const newUser = new User({
+  const newUser = await User.create({
     username: req.body.username,
     email: req.body.email,
     password: req.body.password,
     passwordConfirm: req.body.passwordConfirm
   });
 
-  await newUser.save();
-
-  const payload = { id: user.id, username: user.username };
+  const payload = { id: newUser.id, username: newUser.username };
   const token = jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 });
   return res.json({
     success: true,
