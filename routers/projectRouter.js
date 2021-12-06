@@ -3,10 +3,10 @@ const router = express.Router();
 
 const projectController = require("../controllers/projectController");
 
-router.get("/index", projectController.index);
-router.get("/show", projectController.show);
-router.post("/create", projectController.create);
-router.put("/update", projectController.update);
-router.delete("/delete", projectController.delete);
+router.get("/", projectController.index);
+router.get("/:id", projectController.show);
+router.post("/", projectController.create);
+router.put("/:id", projectController.update);
+router.delete("/:id", projectController.delete);
 
 module.exports = router;
