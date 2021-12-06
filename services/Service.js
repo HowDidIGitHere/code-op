@@ -62,13 +62,13 @@ class Service {
 
   async getSingle(id) {
     try {
-      const doc = await this.modal.findOne({ id: id });
-
+      const doc = await this.model.findOne({ _id: id });
+      
       return {
         error: false,
         statusCode: 200,
-        data: doc
-      }
+        doc
+      };
     } catch (errors) {
       console.log("error", errors);
       return {
