@@ -7,15 +7,20 @@ class Tag {
   initSchema() {
 
     const TagSchema = new Schema({
-      it: {
-        // type: Schema.Types.ObjectId,
-        // ref: "User",
-        // required: true
-      },
       name: {
         type: String,
         required: [true, "Please enter a tag name"]
       },
+      it: {
+        type: Schema.Types.ObjectId,
+        refPath: "modelType",
+        required: true
+      },
+      modelType: {
+        type: String,
+        required: true,
+        enum: ['Project', 'User']
+      }
     }, {
       timestamps: true
     });
