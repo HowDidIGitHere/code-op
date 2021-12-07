@@ -16,13 +16,9 @@ class ProjectListingRow extends React.Component {
           </div>
           <div className='underline'></div>
         <div className='listing-carousel'>
-          <ProjectListing />
-          <ProjectListing />
-          <ProjectListing />
-          <ProjectListing />
-          <ProjectListing />
-          <ProjectListing />
-          <ProjectListing />
+          {this.props.projects.map((project) => {
+            return  <ProjectListing project={project}/>
+          })}
         </div>
       </div>
     </div>
