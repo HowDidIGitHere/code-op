@@ -3,11 +3,6 @@ const { catchAsync } = require('../utils')
 class Controller {
   constructor(service) {
     this.service = service;
-    this.get = this.get.bind(this);
-    this.getSingle = this.getSingle.bind(this);
-    this.create = this.create.bind(this);
-    this.update = this.update.bind(this);
-    this.delete = this.delete.bind(this);
   }
 
   get = catchAsync(async (req, res) => {
