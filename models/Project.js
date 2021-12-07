@@ -5,18 +5,6 @@ const Schema = mongoose.Schema;
 class Project {
 
   initSchema() {
-    const PositionSchema = new Schema({
-      role: {
-        type: String,
-        required: true
-      },
-      filled: {
-        type: Boolean,
-        required: true,
-        default: false
-      }
-    });
-
     const ProjectSchema = new Schema({
       creator: {
         type: Schema.Types.ObjectId,
@@ -38,7 +26,6 @@ class Project {
           message: "Please enter a valid Github URL"
         }
       },
-      positions: [PositionSchema],
       collaborators: [{ type: Schema.Types.ObjectId, ref: 'User' }],
       goals: [{ type: Schema.Types.ObjectId, ref: 'Goal' }]
     }, {

@@ -3,7 +3,6 @@ const Validator = require("validator");
 const Schema = mongoose.Schema;
 
 class Tag {
-
   initSchema() {
 
     const TagSchema = new Schema({
