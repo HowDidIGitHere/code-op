@@ -77,17 +77,31 @@
   transform: rotate(45deg);
 }
 
-.right-index-listings {
-  display: grid;
+.right-index {
+  display: block;
+  padding-left: 30px;
   width: 100%;
-  grid-template-columns: repeat(4, 1fr);
-  margin-right: 70px;
-  padding-left: 20px;
+  margin-right: 30px;
 }
 
-.index-item {
-  margin-left: 20px;
+.right-header {
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
 }
+
+.right-index-listings {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-right: 70px;
+}
+
+.index-listing-component {
+  margin-bottom: 30px;
+  margin-right: 10px;
+}
+
 
 .index-listing-component > h1 {
   font-size: 15px;
