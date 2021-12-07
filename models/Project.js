@@ -49,12 +49,11 @@ class Project {
       timestamps: true
     });
     
-    mongoose.model("Project", ProjectSchema);
+    return mongoose.models.Project || mongoose.model("Project", ProjectSchema);
   }
 
   getInstance() {
-    this.initSchema();
-    return mongoose.model("Project");
+    return this.initSchema();
   }
 }
 

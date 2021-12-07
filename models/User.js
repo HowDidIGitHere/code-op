@@ -47,12 +47,11 @@ class User {
       next();
     });
     
-    mongoose.model("User", UserSchema);
+    return mongoose.models.User || mongoose.model("User", UserSchema);
   }
 
   getInstance() {
-    this.initSchema();
-    return mongoose.model('User');
+    return this.initSchema();
   }
 }
 
