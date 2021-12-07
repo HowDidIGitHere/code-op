@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // We will create this component shortly
-import Root from './components/root';
+import Root from './root';
 
 // We set this up in the last section
 import configureStore from './store/store';
@@ -48,6 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   // Render our root component and pass in the store as a prop
   const root = document.getElementById('root');
-
+  window.store = store
+  window.getState = store.getState
+  
   ReactDOM.render(<Root store={store} />, root);
 });

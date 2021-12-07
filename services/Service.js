@@ -2,16 +2,15 @@
 const mongoose = require('mongoose');
 
 // Local modules
-const {
-  bindFunctions,
-  ModelProbe,
-} = require('./../utils');
 
 class Service {
   constructor(model) {
     this.model = model;
-    this.modelProbe = new ModelProbe(model);
-    bindFunctions(this); // Bind functions for inheritance
+    this.get = this.get.bind(this);
+    this.getSingle = this.getSingle.bind(this);
+    this.create = this.create.bind(this);
+    this.update = this.update.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
   async get(query) {
@@ -28,14 +27,14 @@ class Service {
     delete query.limit;
     delete query.sort;
 
-    // If _id specified, convert to ObjectId (this will result in one doc returned)
-    if (query._id) {
-      try {
-        query._id = new mongoose.mongo.ObjectId(query._id);
-      } catch (error) {
-        console.log("Not able to generate mongoose id with content", query._id);
-      }
-    }
+    // // If _id specified, convert to ObjectId (this will result in one doc returned)
+    // if (query._id) {
+    //   try {
+    //     query._id = new mongoose.mongo.ObjectId(query._id);
+    //   } catch (error) {
+    //     console.log("Not able to generate mongoose id with content", query._id);
+    //   }
+    // }
 
     try {
       const docs = await this.model
@@ -46,16 +45,10 @@ class Service {
         .sort(sort);
       const total = await this.model.count();
 
-      // Save docs to data with appropriate name
-      if(total > 1)
-        data[this.modelProbe.modelNamePlural()] = docs;
-      else
-        data[this.modelProbe.modelNameSingular()] = docs;
-
       return {
         error: false,
         statusCode: 200,
-        data,
+        data: docs,
         total
       };
     } catch (errors) {
@@ -67,7 +60,26 @@ class Service {
     }
   }
 
-  async insert(data) {
+  async getSingle(id) {
+    try {
+      const doc = await this.model.findOne({ _id: id });
+      
+      return {
+        error: false,
+        statusCode: 200,
+        doc
+      };
+    } catch (errors) {
+      console.log("error", errors);
+      return {
+        error: true,
+        statusCode: 500,
+        errors
+      }
+    }
+  }
+
+  async create(data) {
     try {
       const doc = await this.model.create(data);
       if (doc)
