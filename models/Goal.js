@@ -6,6 +6,19 @@ const Validator = require("validator");
 
 class Goal {
   initSchema() {
+    const TaskSchema = new Schema({
+      body: {
+        type: String,
+        maxlength: [50, 'Task body must be less than or equal to 50'],
+        required: true
+      },
+      completed: {
+        type: Boolean,
+        required: true,
+        default: false
+      }
+    });
+    
     const GoalSchema = new Schema({
       title: {
         type: String,
@@ -15,16 +28,7 @@ class Goal {
         type: String,
         required: [true, "Please add a brief description"]
       },
-      github: {
-        type: String,
-        validate: {
-          validator: Validator.isURL,
-          message: "Please enter a valid Github URL"
-        }
-      },
-      positions: [PositionSchema],
-      collaborators: [{ type: Schema.Types.ObjectId, ref: 'users' }],
-      goals: [{ type: Schema.Types.ObjectId, ref: 'Goal' }]
+      tasks: [TaskSchema],
     }, {
       timestamps: true
     });
