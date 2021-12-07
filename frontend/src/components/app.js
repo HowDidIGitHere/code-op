@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Route } from 'react-router';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Switch } from 'react-router-dom';
 import NavBarContainer from './nav/navbar_container';
@@ -19,7 +20,7 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
-      <ProtectedRoute exact path="/projects" component={ProjectIndexContainer} />
+      <Route exact path="/projects" component={ProjectIndexContainer} />
     </Switch>
   </div>
 );

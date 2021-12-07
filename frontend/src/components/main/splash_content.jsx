@@ -1,11 +1,14 @@
 import React from 'react';
 
-const SplashContent = () => {
+const SplashContent = ({ handleClick }) => {
   return (
     <div className='splash-content'>
       <div className='splash-img-contents'>
           <h1>Find your next passion project</h1>
-          <button className='cta'>Discover Here</button>
+          <button 
+            className='cta'
+            onClick={handleClick}
+            >Discover Here</button>
         </div>
     </div>
   )
