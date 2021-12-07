@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// const validateProjectInput = require("../validation/projects");
+const Validator = require("validator");
+
 class Project {
 
   initSchema() {
@@ -33,7 +36,11 @@ class Project {
         required: [true, "Please add a brief description"]
       },
       github: {
-        type: String
+        type: String,
+        validate: {
+          validator: Validator.isURL,
+          message: "Please enter a valid Github URL"
+        }
       },
       positions: [PositionSchema],
       collaborators: [{ type: Schema.Types.ObjectId, ref: 'users' }],
