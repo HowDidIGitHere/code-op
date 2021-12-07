@@ -22,7 +22,7 @@ class Project {
     const ProjectSchema = new Schema({
       creator: {
         type: Schema.Types.ObjectId,
-        ref: "users",
+        ref: "User",
         required: true
       },
       title: {
@@ -43,7 +43,7 @@ class Project {
         }
       },
       positions: [PositionSchema],
-      collaborators: [{ type: Schema.Types.ObjectId, ref: 'users' }],
+      collaborators: [{ type: Schema.Types.ObjectId, ref: 'User' }],
       goals: [{ type: Schema.Types.ObjectId, ref: 'Goal' }]
     }, {
       timestamps: true
