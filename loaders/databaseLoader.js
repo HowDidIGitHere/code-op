@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 // Must load models here before loading routes
-require('../models/User');
 
 const databaseURL = require("../config/keys").mongoURI;
 
