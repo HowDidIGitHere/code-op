@@ -56,5 +56,3 @@ class Project {
 }
 
 module.exports = Project;
-
-// module.exports = Project = mongoose.model("Project", ProjectSchema);
