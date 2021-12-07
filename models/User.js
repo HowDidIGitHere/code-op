@@ -48,8 +48,7 @@ class User {
           message: "Please enter a valid Github URL"
         }
       },
-      positions: [PositionSchema],
-      projects: [{ type: Schema.Types.ObjectId, ref: "Project" }]
+      positions: [PositionSchema]
     }, {
       timestamps: true
     });
