@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-
-// const validateProjectInput = require("../validation/projects");
 const Validator = require("validator");
+const Schema = mongoose.Schema;
 
 class Project {
 
