@@ -108,3 +108,11 @@
   font-weight: 600;
   padding-bottom: 5px;
 }
+
+.index-listing-component > p {
+  font-size: 14px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+}
