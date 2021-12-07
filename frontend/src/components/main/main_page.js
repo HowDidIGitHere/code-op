@@ -5,11 +5,16 @@ import ProjectListingRow from './project_listing_row';
 
 class MainPage extends React.Component {
 
+  handleClick(e) {
+    e.preventDefault();
+    this.props.history.push(`/projects`);
+  }
+
   render() {
     return (
       <div>
         <div className='splash-content'>
-          <SplashContent />
+          <SplashContent handleClick={this.handleClick.bind(this)}/>
         </div>
         <div className='listings'>
           <ProjectListingRow />
