@@ -1,6 +1,11 @@
 .projects-index {
+  display: flex;
   margin: 60px 40px 40px 40px;
-  width:200px;
+  width:100%;
+}
+
+.left-filter-column {
+  display: block;
 }
 
 .header {
@@ -69,4 +74,22 @@
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+.right-index-listings {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  margin-right: 70px;
+  padding-left: 20px;
+}
+
+.index-item {
+  margin-left: 20px;
+}
+
+.index-listing-component > h1 {
+  font-size: 15px;
+  font-weight: 600;
+  padding-bottom: 5px;
 }
