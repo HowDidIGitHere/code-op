@@ -33,13 +33,16 @@ class Project {
       timestamps: true
     });
 
-    ProjectSchema.pre(/^find/, function(next) {
-      let { tags } = this._conditions;
-      tags = tags.split(',');
+    ProjectSchema.pre(/^find/, async function(next) {
+      const { tags } = this._conditions;
+      const tagsList = tags.split(',');
+      const tagDocs = await Tag.find({ name: tagsList, modelType: 'Project' });
 
-      Tag.find({ name: tags, modelType: 'Project' });
+      this._conditions._ids = tagDocs.map( tagDoc => tagDoc.it )
+      this._conditions.tags = undefined; 
+
+      console.log(this);
       
-      this._conditions.tags = undefined;      
       next();
     });
     
