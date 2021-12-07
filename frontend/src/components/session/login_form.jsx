@@ -84,6 +84,13 @@ class LoginForm extends React.Component {
             <br/>
             <button className="login-form-button" type="submit" >Login</button>
             {this.renderErrors()}
+
+            <div className="line"></div>
+
+            <div className="login-form-footer">
+              <h4>Don't have an account?</h4>
+              <h5 onClick={() => this.props.openSignupModal()}>Sign up</h5>
+            </div>
           </div>
         </form>
       </div>

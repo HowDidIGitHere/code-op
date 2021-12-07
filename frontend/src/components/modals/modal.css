@@ -17,3 +17,30 @@
   padding: 20px;
   border-radius: 5px;
 }
+
+.line{
+  background-color: #d1d1d1;
+  width: 24vw;
+  padding: 0.5px;
+  margin-top: 4vh;
+}
+
+.login-form-footer{
+  display: flex;
+  justify-content: center;
+}
+
+.login-form-footer > h4{
+  font-size: 15px;
+  font-weight: 100;
+}
+
+.login-form-footer > h5{
+  margin-left: 3vw;
+  color: blue;
+  font-weight: 700;
+}
+
+.login-form-footer > h5:hover{
+  cursor: pointer;
+}
