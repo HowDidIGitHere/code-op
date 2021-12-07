@@ -5,7 +5,8 @@ import UserProfile from './user_profile_component';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    currentUser: state.session.user
+    // currentUser: state.user[state.session.currentUserId]
+
   };
 };
 

@@ -37,15 +37,32 @@
 }
 
 .column-left{
+  padding-top: 20vh;
+  padding-left: 3vw;
   font-family: sans-serif;
-  width: 50%;
+  width: 40%;
+  height: 100%;
   background-color: #ececec;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+}
+
+.column-left > h1 {
+  color: lightseagreen;
+  font-size: large;
 }
 
 .column-right{
+  padding-top: 27vh;
+  font-family: sans-serif;
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.column-right > h1 {
+  color: lightseagreen;
+  font-size: large;
 }
