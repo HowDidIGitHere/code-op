@@ -1,0 +1,54 @@
+.create-project {
+  background-color: #EAEBEA;
+  width: 100%;
+  margin-top: 63px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  position: fixed;
+}
+
+.create-project-form {
+  position: relative;
+  background-color: white;
+  left: 50%;
+  width: 700px;
+  height: 520px;
+  margin: 50px 70px 50px -350px;
+}
+
+.form-body {
+  display: flex;
+  margin-top: 5px;
+  padding-top: 80px;
+}
+
+.save-button { 
+  color: white;
+  float: right;
+  background-color: #DC011B;
+  margin: 30px;
+  font-size: 12px;
+  padding: 10px;
+  border-radius: 0 10px 10px 0;
+}
+
+.form-body > input { 
+  border-bottom: 1px solid lightgrey;
+}
+
+.project-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.project-description {
+  color: rgb(238, 237, 237);
+  margin-top: 30px;
+  font-size: 14px;
+  width: 325px;
+  border: 1px solid lightgrey;
+}
