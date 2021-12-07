@@ -11,7 +11,3 @@ export const updateUser = userId => {
 export const deleteUser = userId => {
   return axios.delete(`/api/users/${userId}`)
 }
-
-export const getUserProjects = userId => {
-  return axios.get(`/api/users/${userId}/projects`)
-}
