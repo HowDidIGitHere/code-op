@@ -12,43 +12,60 @@
 
 .create-project-form {
   position: relative;
+  text-align: center;
   background-color: white;
   left: 50%;
-  width: 700px;
-  height: 520px;
-  margin: 50px 70px 50px -350px;
+  width: 650px;
+  height: 450px;
+  margin: 50px 70px 50px -325px;
+  border-radius: 10px;
+}
+
+.form-header > p {
+  font-size: 25px;
+  font-weight: 600;
+  padding-top: 30px;
 }
 
 .form-body {
   display: flex;
-  margin-top: 5px;
-  padding-top: 80px;
+  margin: 5px 20px 0 30px;
+  padding-top: 30px;
+  text-align: left;
+}
+
+.project-title, .project-git {
+  width: 300px;
+  font-size: 15px;
+  font-weight: 600;
+  border-bottom: 1px solid lightgrey;
+  margin-top:15px ;
+}
+
+.project-description {
+  color: rgb(172, 170, 170);
+  margin-top: 30px;
+  font-size: 14px;
+  width: 275px;
+  height: 80px;
+  border: 1px solid lightgrey;
+}
+
+.right-form {
+  columns: 2;
+  padding-left: 40px;
+}
+
+
+.form-footer {
+  align-items: center;
 }
 
 .save-button { 
   color: white;
-  float: right;
   background-color: #DC011B;
   margin: 30px;
   font-size: 12px;
   padding: 10px;
-  border-radius: 0 10px 10px 0;
-}
-
-.form-body > input { 
-  border-bottom: 1px solid lightgrey;
-}
-
-.project-title {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.project-description {
-  color: rgb(238, 237, 237);
-  margin-top: 30px;
-  font-size: 14px;
-  width: 325px;
-  border: 1px solid lightgrey;
+  border-radius: 10px;
 }

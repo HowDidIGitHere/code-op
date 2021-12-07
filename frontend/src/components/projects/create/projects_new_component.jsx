@@ -1,4 +1,5 @@
 import React from 'react';
+import CategoryChecklist from '../index/category_checklist';
 import './project_create.css'
 
 class ProjectsNew extends React.Component {
@@ -18,11 +19,11 @@ class ProjectsNew extends React.Component {
       // <p>hiii</p>
       <div className='create-project'>
         <form className='create-project-form' onSubmit={this.handleSubmit}>
-          <p>Create a New Project</p>
           <div className='form-header'>
-            <button className='save-button' type='submit'>Save</button>
+            <p>Create a New Project</p>
           </div>
           <div className='form-body'>
+            <div className='left-form'>
             <input className='project-title'
               type="text"
               placeholder="Add your title"
@@ -30,14 +31,29 @@ class ProjectsNew extends React.Component {
               // onChange={this.update('title')}
             />
             <br />
+            <input className='project-git'
+              type="text"
+              placeholder="Add your Github repository"
+              // value={this.state.title}
+              // onChange={this.update('title')}
+            />
+            <br />
             <textarea 
-              rows='5'
-              cols='50'
               className='project-description'
               placeholder="Tell everyone what your project is about"
               // value={this.state.description}
               // onChange={this.update('description')}
             />
+            </div>
+            <div className='right-form'>
+              <CategoryChecklist />
+              <CategoryChecklist />
+              <CategoryChecklist />
+              <CategoryChecklist />
+            </div>
+          </div>
+          <div className='form-footer'>
+            <button className='save-button' type='submit'>Save</button>
           </div>
         </form>
       </div>
