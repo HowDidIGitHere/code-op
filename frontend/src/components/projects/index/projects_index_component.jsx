@@ -27,17 +27,22 @@ class ProjectsIndex extends React.Component {
             <CategoryChecklist />
           </div>
         </div>
-        <div className='right-index-listings'>
-          <div className='index-item'><IndexProjectListing/></div>          
-          <div className='index-item'><IndexProjectListing/></div>          
-          <div className='index-item'><IndexProjectListing/></div>          
-          <div className='index-item'><IndexProjectListing/></div>          
-          <div className='index-item'><IndexProjectListing/></div>          
-          <div className='index-item'><IndexProjectListing/></div>          
-          <div className='index-item'><IndexProjectListing/></div>          
-          <div className='index-item'><IndexProjectListing/></div>          
-          <div className='index-item'><IndexProjectListing/></div>          
-          <div className='index-item'><IndexProjectListing/></div>          
+        <div className='right-index'>
+          <div>
+            <h1 className='right-header'>DISCOVER YOUR NEXT PROJECT</h1>
+          </div>
+          <div className='right-index-listings'>
+            <div className='index-item'><IndexProjectListing/></div>          
+            <div className='index-item'><IndexProjectListing/></div>          
+            <div className='index-item'><IndexProjectListing/></div>          
+            <div className='index-item'><IndexProjectListing/></div>          
+            <div className='index-item'><IndexProjectListing/></div>          
+            <div className='index-item'><IndexProjectListing/></div>          
+            <div className='index-item'><IndexProjectListing/></div>          
+            <div className='index-item'><IndexProjectListing/></div>          
+            <div className='index-item'><IndexProjectListing/></div>          
+            <div className='index-item'><IndexProjectListing/></div>          
+          </div>
         </div>
       </div>
     )
