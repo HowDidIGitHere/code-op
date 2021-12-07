@@ -16,17 +16,17 @@ export const removeUser = userId => ({
 
 //================================================================THUNK
 
-export const requestUser = (userId) = dispatch => (
+export const requestUser = (userId) => dispatch => (
   userApiUtil.fetchUser(userId)
     .then(user => dispatch(receiveUser(user)))
 )
 
-export const updateUser = (user) = dispatch => (
+export const updateUser = (user) => dispatch => (
   userApiUtil.updateUser(user)
     .then(user => dispatch(receiveUser(user)))
 )
 
 export const deleteUser = (userId) => dispatch => (
   userApiUtil.deleteUser(userId)
-    .then(() => dispatch(removeListing(userId)))
+    .then(() => dispatch(removeUser(userId)))
 )

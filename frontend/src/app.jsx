@@ -9,7 +9,7 @@ import MainPage from './components/main/main_page';
 
 import LoginFormContainer from './components/session/login_form_container';
 import SignupFormContainer from './components/session/signup_form_container';
-import ProfileContainer from './components/profile/profile_container';
+import UserProfileContainer from './components/user/user_profile_container'
 import ProjectIndexContainer from './components/projects/index/projects_index_container';
 
 const App = () => (
@@ -24,7 +24,7 @@ const App = () => (
       
       <Route exact path="/projects" component={props => <ProjectIndexContainer {...props} />} />
 
-      <ProtectedRoute exact path="/profile" component={ProfileContainer} />
+      <ProtectedRoute exact path="/profile" component={UserProfileContainer} />
     </Switch>
   </div>
 );
