@@ -13,30 +13,33 @@ class UserService extends Service {
   }
 
   async signup(userInfo) {
-    const { errors, isValid } = validateSignupInput(req.body);
+    const { errors, isValid } = validateSignupInput(userInfo);
     const error = {
       error: true, 
-      messgae: 'Invalid email or password',
       statusCode: 400
     }
 
     if (!isValid)
-      return  error;
+      return  { ...error, errors };
     
-    const { docs } = await this.model.findOne({ fields: { email: req.body.email } });
+    const { docs } = await this.model.findOne({ fields: { email: userInfo.email } });
   
     if (user)
-      return res.status(400).json({ message: 'An error occurred' });
+      return { ...error, message: 'An error occured' };
     
-    const newUser = await User.create({
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
-      passwordConfirm: req.body.passwordConfirm
+    const newUser = await this.model.create({
+      username: userInfo.username,
+      email: userInfo.email,
+      password: userInfo.password,
+      passwordConfirm: userInfo.passwordConfirm
     });
   
     const payload = { id: newUser.id, username: newUser.username };
     const token = jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 });
+    return {
+      statusCode: 200,
+      token: 'Bearer ' + token
+    }
   }
 
   async login(userInfo) {
