@@ -1,6 +1,11 @@
+import React from 'react'
 import "./about_component.css"
+// import { connect } from 'react-redux';
 
-const AboutComponent = () => (
+class AboutComponent extends React.Component{
+
+  render(){
+    return(
       <div className="about">
         <div className="jamie">
           <img className="head" src="https://res.cloudinary.com/de8carnhu/image/upload/v1638916172/jamie_hfvbax.png" />
@@ -52,5 +57,12 @@ const AboutComponent = () => (
 
       </div>
     )
-    
+  } 
+}
+// const mSTP = state => ({
+// })
+
+// const mDTP = dispatch => ({
+// })
+
 export default AboutComponent

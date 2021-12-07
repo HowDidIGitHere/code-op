@@ -21,6 +21,8 @@ function Modal({modal, closeModal}) {
       break;
     case 'about':
       component = <AboutComponent />;
+      break;
+
     default:
       return null;
   }
