@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Validator = require("validator");
+const Tag = (new (require("../models/Tag"))).getInstance();
 const Schema = mongoose.Schema;
 
 class Project {
@@ -30,6 +31,16 @@ class Project {
       goals: [{ type: Schema.Types.ObjectId, ref: 'Goal' }]
     }, {
       timestamps: true
+    });
+
+    ProjectSchema.pre(/^find/, function(next) {
+      let { tags } = this._conditions;
+      tags = tags.split(',');
+
+      Tag.find({ name: tags, modelType: 'Project' });
+      
+      this._conditions.tags = undefined;      
+      next();
     });
     
     return mongoose.models.Project || mongoose.model("Project", ProjectSchema);
