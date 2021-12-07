@@ -2,7 +2,7 @@ const Controller = require("./baseController");
 const GoalService = require("../services/GoalService");
 const Goal = require("../models/Goal");
 
-const projectService = new GoalService(new Goal().getInstance());
+const goalService = new GoalService(new Goal().getInstance());
 
 class GoalController extends Controller {
   constructor(service) {
@@ -10,4 +10,4 @@ class GoalController extends Controller {
   }
 }
 
-module.exports = new GoalController(projectService);
+module.exports = new GoalController(goalService);

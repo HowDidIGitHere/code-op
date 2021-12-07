@@ -1,28 +1,14 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-
-// const validateProjectInput = require("../validation/projects");
 const Validator = require("validator");
+const Schema = mongoose.Schema;
 
 class Project {
 
   initSchema() {
-    const PositionSchema = new Schema({
-      role: {
-        type: String,
-        required: true
-      },
-      filled: {
-        type: Boolean,
-        required: true,
-        default: false
-      }
-    });
-
     const ProjectSchema = new Schema({
       creator: {
         type: Schema.Types.ObjectId,
-        ref: "users",
+        ref: "User",
         required: true
       },
       title: {
@@ -31,8 +17,6 @@ class Project {
       },
       description: {
         type: String,
-        minlength: [100, 'Description must be at least 100'],
-        maxlength: [200, 'Description must be equal to or less than 200'],
         required: [true, "Please add a brief description"]
       },
       github: {
@@ -42,22 +26,18 @@ class Project {
           message: "Please enter a valid Github URL"
         }
       },
-      positions: [PositionSchema],
-      collaborators: [{ type: Schema.Types.ObjectId, ref: 'users' }],
+      collaborators: [{ type: Schema.Types.ObjectId, ref: 'User' }],
       goals: [{ type: Schema.Types.ObjectId, ref: 'Goal' }]
     }, {
       timestamps: true
     });
     
-    mongoose.model("Project", ProjectSchema);
+    return mongoose.models.Project || mongoose.model("Project", ProjectSchema);
   }
 
   getInstance() {
-    this.initSchema();
-    return mongoose.model("Project");
+    return this.initSchema();
   }
 }
 
 module.exports = Project;
-
-// module.exports = Project = mongoose.model("Project", ProjectSchema);

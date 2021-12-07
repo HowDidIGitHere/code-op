@@ -1,9 +1,17 @@
 const bcrypt = require('bcryptjs');
+const Validator = require("validator");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 class User {
   initSchema() {
+    const PositionSchema = new Schema({
+      role: {
+        type: String,
+        required: true
+      }
+    });
+
     const UserSchema = new Schema({
       username: {
         type: String,
@@ -29,6 +37,18 @@ class User {
           message: 'Password confirmation failed'
         }
       },
+      bio: {
+        type: String,
+        maxlength: [800, "Bio cannot excede 800 characters"]
+      },
+      github: {
+        type: String,
+        validate: {
+          validator: Validator.isURL,
+          message: "Please enter a valid Github URL"
+        }
+      },
+      positions: [PositionSchema]
     }, {
       timestamps: true
     });
@@ -47,12 +67,11 @@ class User {
       next();
     });
     
-    mongoose.model("User", UserSchema);
+    return mongoose.models.User || mongoose.model("User", UserSchema);
   }
 
   getInstance() {
-    this.initSchema();
-    return mongoose.model('User');
+    return this.initSchema();
   }
 }
 

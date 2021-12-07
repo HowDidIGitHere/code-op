@@ -33,12 +33,11 @@ class Goal {
       timestamps: true
     });
     
-    mongoose.model("Goal", GoalSchema);
+    return mongoose.models.Goal || mongoose.model("Goal", GoalSchema);
   }
 
   getInstance() {
-    this.initSchema();
-    return mongoose.model("Goal");
+    return this.initSchema();
   }
 }
 
