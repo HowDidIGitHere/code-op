@@ -1,0 +1,46 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.line{
+  background-color: #d1d1d1;
+  width: 24vw;
+  padding: 0.5px;
+  margin-top: 4vh;
+}
+
+.login-form-footer{
+  display: flex;
+  justify-content: center;
+}
+
+.login-form-footer > h4{
+  font-size: 15px;
+  font-weight: 100;
+}
+
+.login-form-footer > h5{
+  margin-left: 3vw;
+  color: blue;
+  font-weight: 700;
+}
+
+.login-form-footer > h5:hover{
+  cursor: pointer;
+}

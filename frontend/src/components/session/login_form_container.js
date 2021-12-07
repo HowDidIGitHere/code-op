@@ -3,7 +3,7 @@ import { login } from '../../actions/session_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 // import {clearErrors} from "../../actions/session_actions"
 
-import LoginForm from './login_form';
+import LoginForm from "./login_form.jsx"
 
 const mapStateToProps = (state) => {
   return {
@@ -15,6 +15,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     login: user => dispatch(login(user)),
+    openSignupModal: () => dispatch(openModal('signup')),
 
     closeModal: () => dispatch(closeModal()),
     // logout: () => dispatch(logout()),

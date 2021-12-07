@@ -1,12 +1,13 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import "./login.css"
 
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       email: '',
-      handle: '',
+      username: '',
       password: '',
       passwordConfirm: '',
       errors: {}
@@ -56,10 +57,10 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div className="signup-form-container">
-        <p className="form-close-button" onClick={()=> this.props.closeModal()}>X</p> 
-
-        <form onSubmit={this.handleSubmit}>
+      <div className="login-modal">
+        <p className="login-form-close-button" onClick={()=> this.props.closeModal()}>X</p> 
+        <h2>Sign Up</h2>
+        <form className="login-form" onSubmit={this.handleSubmit}>
           <div className="signup-form">
             <br/>
               <input type="text"
@@ -69,9 +70,9 @@ class SignupForm extends React.Component {
               />
             <br/>
               <input type="text"
-                value={this.state.handle}
-                onChange={this.update('handle')}
-                placeholder="Handle"
+                value={this.state.username}
+                onChange={this.update('username')}
+                placeholder="Username"
               />
             <br/>
               <input type="password"
@@ -81,13 +82,20 @@ class SignupForm extends React.Component {
               />
             <br/>
               <input type="password"
-                value={this.state.password2}
-                onChange={this.update('password2')}
+                value={this.state.confirmPassword}
+                onChange={this.update('confirmPassword')}
                 placeholder="Confirm Password"
               />
             <br/>
-            <input type="submit" value="Submit" />
+            <button className="login-form-button" type="submit" value="Submit">Sign Up</button>
             {this.renderErrors()}
+
+            <div className="line"></div>
+
+            <div className="login-form-footer">
+              <h4>Already have an account?</h4>
+              <h5 onClick={() => this.props.openLoginModal()}>Sign up</h5>
+            </div>
           </div>
         </form>
       </div>

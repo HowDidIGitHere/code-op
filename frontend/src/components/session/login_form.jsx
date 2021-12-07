@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import "./login.css"
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -64,10 +65,10 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <p className="form-close-button" onClick={()=> this.props.closeModal()}>X</p> 
-        <h2>Login Form</h2>
-        <form onSubmit={this.handleSubmit}>
+      <div className="login-modal">
+        <p className="login-form-close-button" onClick={()=> this.props.closeModal()}>X</p> 
+        <h2>Login</h2>
+        <form className="login-form" onSubmit={this.handleSubmit}>
           <div>
               <input type="text"
                 value={this.state.email}
@@ -81,8 +82,15 @@ class LoginForm extends React.Component {
                 placeholder="Password"
               />
             <br/>
-            <input type="submit" value="Submit" />
+            <button className="login-form-button" type="submit" >Login</button>
             {this.renderErrors()}
+
+            <div className="line"></div>
+
+            <div className="login-form-footer">
+              <h4>Don't have an account?</h4>
+              <h5 onClick={() => this.props.openSignupModal()}>Sign up</h5>
+            </div>
           </div>
         </form>
       </div>
