@@ -13,33 +13,11 @@ const userService = new UserService(new User().getInstance());
 
 class AuthController {
   signup = catchAsync( async (req, res) => {
-    const { errors, isValid } = validateSignupInput(req.body);
-  
-    // if (!isValid)
-    //   return res.status(400).json(errors);
-    
-    // const { docs } = await UserService.get({ fields: { email: req.body.email } });
-  
-    // if (user)
-    //   return res.status(400).json({ message: 'An error occurred' });
-    
-    // const newUser = await User.create({
-    //   username: req.body.username,
-    //   email: req.body.email,
-    //   password: req.body.password,
-    //   passwordConfirm: req.body.passwordConfirm
-    // });
-  
-    // const payload = { id: newUser.id, username: newUser.username };
-    // const token = jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 });
-    return res.json({
-      success: true,
-      // token: 'Bearer ' + token
-    });
+    const data = await userService.signup(req.body);
+    return res.status(data.statusCode).json(data);
   });
 
   login = catchAsync( async (req, res) => {
-    const { errors, isValid } = validateLoginInput(req.body);
     const data = await userService.login(req.body);
     console.log(data);
     return res.status(data.statusCode).json(data);

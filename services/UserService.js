@@ -22,7 +22,7 @@ class UserService extends Service {
     if (!isValid)
       return  { ...error, errors };
     
-    const { docs } = await this.model.findOne({ fields: { email: userInfo.email } });
+    const user = await this.model.findOne({ email: userInfo.email });
   
     if (user)
       return { ...error, message: 'An error occured' };
