@@ -6,7 +6,7 @@ export default (state={}, action) => {
 
   switch (action.type) {
     case RECEIVE_USER:
-      nextState[action.user.id] = action.user
+      nextState[action.user.data.id] = action.user.data
       return nextState
 
     case REMOVE_USER:

@@ -25,7 +25,7 @@ const App = () => (
       
       <Route exact path="/projects" component={props => <ProjectIndexContainer {...props} />} />
 
-      <ProtectedRoute exact path="/profile" component={UserProfileContainer} />
+      <ProtectedRoute exact path="/users/:id" component={UserProfileContainer} />
       <ProtectedRoute exact path="/projects/new" component={ProjectsNewContainer} />
     </Switch>
   </div>

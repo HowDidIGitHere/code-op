@@ -4,15 +4,14 @@ import "./user_profile.css"
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
-    
   }
     
   componentDidMount() {
-    this.props.requestUser(this.props.currentUser.id);
+    this.props.requestUser(this.props.user.id);
   }
     
   render() {
-    if (!this.props.currentUser) return "loading...";
+    if (!this.props.user) return "loading...";
 
     return (
       <div className="user-profile">
