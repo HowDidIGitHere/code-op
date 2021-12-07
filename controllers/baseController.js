@@ -33,9 +33,9 @@ class Controller {
 
   update = catchAsync(async (req, res) => {
     const { id } = req.params;
-
     let response = await this.service.update(id, req.body);
-    return res.status(response.statusCode).send(response);
+    let { doc } = response;
+    return res.status(response.statusCode).send(doc);
   });
 
   delete = catchAsync(async (req, res) => {
