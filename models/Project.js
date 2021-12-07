@@ -17,12 +17,15 @@ class Project {
     });
 
     const ProjectSchema = new Schema({
-      // creator: {
-      //   type: Schema.Types.ObjectId,
-      //   ref: "users"
-      // },
+      creator: {
+        type: Schema.Types.ObjectId,
+        ref: "users",
+        required: true
+      },
       title: {
         type: String,
+        minlength: [100, 'Description must be at least 100'],
+        maxlength: [200, 'Description must be equal to or less than 200'],
         required: [true, "Please enter a project title"]
       },
       description: {
