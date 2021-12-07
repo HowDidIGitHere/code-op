@@ -2,31 +2,34 @@ import React from 'react';
 
 class UserProfile extends React.Component {
   constructor(props) {
-      super(props);
-
+    super(props);
     this.state = {
-    
+      username: this.props.currentUser.username,
+      email: this.props.currentUser.email,
+      bio: this.props.currentUser.bio,
+      github: this.props.currentUser.github,
+      positions: this.props.currentUser.positions
     }
   }
     
-  componentWillMount() {
-    console.log(this.props.currentUser.id)
-    this.props.fetchUserTweets(this.props.currentUser.id);
+  componentDidMount() {
+    this.props.requestUser(this.props.currentUser.id);
   }
-
-  componentWillReceiveProps(newState) {
-      
-  }   
     
   render() {
+    if (!this.props.currentUser) return "loading...";
+
     return (
-      <div>
-        <h2>All of This User's Info</h2>
-        
+      <div className="user-profile">
+        <h2>All of {this.props.currentUser.username} Info</h2>
+        {this.state.username}
+        {this.state.email}
+        {this.state.bio}
+        {this.state.github}
+        {this.state.positions}
       </div>
     );
   }
-  
 }
 
 export default UserProfile;
