@@ -17,7 +17,7 @@ class Service {
     let { fields, skip, limit, sort } = query; 
     let data = {};
 
-    fields = fields ? fields.split(','.join(' ')) : '-__v';
+    fields = fields ? fields.split(',').join(' ') : '-__v';
     skip = skip ? Number(skip) : 0;
     limit = limit ? Number(limit) : 10;
     sort = sort ? sort.split(',').join(' ') : '-createdAt';

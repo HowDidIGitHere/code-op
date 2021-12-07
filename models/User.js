@@ -47,8 +47,7 @@ class User {
           validator: Validator.isURL,
           message: "Please enter a valid Github URL"
         }
-      },
-      positions: [PositionSchema]
+      }
     }, {
       timestamps: true
     });

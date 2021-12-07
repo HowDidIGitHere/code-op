@@ -5,9 +5,9 @@ const { protect } = require("../controllers/authController");
 
 const NotificationController = require("../controllers/notificationController");
 
-router.get("/", NotificationController.get);
-router.get("/:id", NotificationController.getSingle);
-router.post("/", NotificationController.create);
-router.delete("/:id", NotificationController.delete);
+router.get("/", protect, NotificationController.get);
+router.get("/:id", protect, NotificationController.getSingle);
+router.post("/", protect, NotificationController.create);
+router.delete("/:id", protect, NotificationController.delete);
 
 module.exports = router;
