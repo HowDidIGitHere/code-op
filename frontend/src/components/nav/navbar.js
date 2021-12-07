@@ -7,6 +7,12 @@ class NavBar extends React.Component {
     super(props);
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    this.props.history.push(`/`);
   }
 
   logoutUser(e) {
@@ -39,7 +45,11 @@ class NavBar extends React.Component {
       return (
         <div className='navbar'>
           <div className='left-nav'>
-            <img className='logo' src="https://res.cloudinary.com/dzixdb9eu/image/upload/v1638811421/letter-c-o-logo-vector-260nw-532313890_hdhaz3.jpg" alt="fake-logo" />
+            <img 
+              className='logo' 
+              onClick={this.handleClick}
+              src="https://res.cloudinary.com/dzixdb9eu/image/upload/v1638811421/letter-c-o-logo-vector-260nw-532313890_hdhaz3.jpg" 
+              alt="fake-logo" />
             <h1>CODE-OP</h1>
           </div>
           <div className='right-nav'>
