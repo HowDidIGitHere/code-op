@@ -43,7 +43,7 @@ class Service {
         .skip(skip)
         .limit(limit)
         .sort(sort);
-      const total = await this.model.count();
+      const total = docs.length;
 
       return {
         error: false,
