@@ -12,7 +12,7 @@ class ProjectsIndex extends React.Component {
   }
 
   componentWillMount() {
-    // this.props.fetchTweets();
+    this.props.fetchProjects();
   }
 
   render() {
@@ -32,16 +32,11 @@ class ProjectsIndex extends React.Component {
             <h1 className='right-header'>DISCOVER YOUR NEXT PROJECT</h1>
           </div>
           <div className='right-index-listings'>
-            <div className='index-item'><IndexProjectListing/></div>          
-            <div className='index-item'><IndexProjectListing/></div>          
-            <div className='index-item'><IndexProjectListing/></div>          
-            <div className='index-item'><IndexProjectListing/></div>          
-            <div className='index-item'><IndexProjectListing/></div>          
-            <div className='index-item'><IndexProjectListing/></div>          
-            <div className='index-item'><IndexProjectListing/></div>          
-            <div className='index-item'><IndexProjectListing/></div>          
-            <div className='index-item'><IndexProjectListing/></div>          
-            <div className='index-item'><IndexProjectListing/></div>          
+            <div className='index-item'>
+              {this.props.projects.map((project) => {
+                return <IndexProjectListing key={project.id} project={project}/>
+              })}
+            </div>                 
           </div>
         </div>
       </div>
