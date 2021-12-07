@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
 // Must load models here before loading routes
-const User = require('../models/User');
-(new User).initSchema();
 
 const databaseURL = require("../config/keys").mongoURI;
 
