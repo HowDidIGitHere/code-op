@@ -1,9 +1,17 @@
 const bcrypt = require('bcryptjs');
+const Validator = require("validator");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 class User {
   initSchema() {
+    const PositionSchema = new Schema({
+      role: {
+        type: String,
+        required: true
+      }
+    });
+
     const UserSchema = new Schema({
       username: {
         type: String,
