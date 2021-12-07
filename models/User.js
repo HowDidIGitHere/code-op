@@ -29,6 +29,19 @@ class User {
           message: 'Password confirmation failed'
         }
       },
+      bio: {
+        type: String,
+        maxlength: [800, "Bio cannot excede 800 characters"]
+      },
+      github: {
+        type: String,
+        validate: {
+          validator: Validator.isURL,
+          message: "Please enter a valid Github URL"
+        }
+      },
+      positions: [PositionSchema],
+      projects: [{ type: Schema.Types.ObjectId, ref: "Project" }]
     }, {
       timestamps: true
     });
