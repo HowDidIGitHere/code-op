@@ -6,14 +6,20 @@ class Controller {
   }
 
   get = catchAsync(async (req, res) => {
-    return res.status(200).send(await this.service.get(req.query));
+    let response = await this.service.get(req.query)
+    let { data } = response;
+    let resObj = {};
+    for (let i = 0; i < data.length; i++) {
+      resObj[data[i]._id] = data[i];
+    };
+    return res.status(200).send(resObj)
   });
 
   getSingle = catchAsync(async (req, res) => {
     const { id } = req.params;
-
     let response = await this.service.getSingle(id);
-    return res.status(response.statusCode).send(response);
+    let { doc } = response;
+    return res.status(response.statusCode).send(doc);
   });
 
   create = catchAsync(async (req, res) => {
@@ -21,7 +27,8 @@ class Controller {
     if (response.error) {
       return res.status(response.statusCode).send(response);
     }
-    return res.status(201).send(response);
+    let { doc } = response;
+    return res.status(201).send(doc);
   });
 
   update = catchAsync(async (req, res) => {
