@@ -24,12 +24,12 @@ class Project {
       },
       title: {
         type: String,
-        minlength: [100, 'Description must be at least 100'],
-        maxlength: [200, 'Description must be equal to or less than 200'],
         required: [true, "Please enter a project title"]
       },
       description: {
         type: String,
+        minlength: [100, 'Description must be at least 100'],
+        maxlength: [200, 'Description must be equal to or less than 200'],
         required: [true, "Please add a brief description"]
       },
       github: {
