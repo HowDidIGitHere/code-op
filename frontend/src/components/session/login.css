@@ -1,0 +1,41 @@
+.login-modal{
+	font-family: sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.login-form-close-button{
+	position: absolute;
+	right: 2vw;
+	color: gray;
+}
+
+.login-modal > h2{
+	font-size: x-large;
+	color: #3c3c3c;
+	padding-top: 2.5vh;
+	padding-bottom: 0.5vh;
+}
+
+.login-form > div{
+	display: flex;
+	flex-direction: column;
+	margin: 2vh;
+}
+
+.login-form > div > input{
+	border-bottom: 1px solid gray;
+	margin-top: 1vw;
+	margin-bottom: 1vw;
+}
+
+.login-form-button{
+	border: 1px solid gray;
+	border-radius: 3px;
+	text-align: center;
+	padding: 1vh;
+	background-color: lightseagreen;
+	color: white;
+	font-size: large;
+}
