@@ -22,15 +22,19 @@ class Service {
     delete query.limit;
     delete query.sort;
 
+    const operator = {
+      _id: groupBy.reduce((acc, field) => { 
+        acc[field] = `$${field}`; 
+        return acc; 
+      }, {})
+    }
     try {
       if (groupBy) {
+        console.log('grouping')
+        console.log(operator);
         var docs = await this.model
           .aggregate()
-          .group({
-            _id: groupBy.reduce((acc, field) => { 
-              acc[field] = field; return acc; 
-            }, {})
-          })
+          .group(operator);
       } else {
         var docs = await this.model
           .find(query)
@@ -48,6 +52,7 @@ class Service {
         total
       };
     } catch (errors) {
+      console.log(errors);
       return {
         error: true,
         statusCode: 500,
