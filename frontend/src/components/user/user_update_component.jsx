@@ -3,16 +3,18 @@ import React from "react";
 class UserUpdateComponent extends React.Component{
   constructor(props){
     super(props);
-    this.state = {
-      username: this.props.user.username,
-      email: this.props.user.email,
-      bio: this.props.user.bio,
-      github: this.props.user.github
-    }
+    this.state = this.props.user
+
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  componentDidMount(){
+  componentWillMount(){
     this.props.requestUser()
+    this.props.fetchCreatorProjects()
+  }
+
+  componentDidUpdate(){
+    if (!this.state) this.setState(this.props.user)
   }
 
   update(field){
@@ -20,27 +22,27 @@ class UserUpdateComponent extends React.Component{
   }
 
   handleSubmit(e){
-    console.log("handling submit")
     e.preventDefault();
 
-    this.props.updateUser()
-    this.props.history.push(`/users/${this.props.user.id}`)
+    this.props.updateUser(this.state)
+    this.props.closeModal()
+
+    this.props.history.push(`/users/${this.props.user._id}`)
   }
 
   render(){
     if(!this.props.user) return "loading";
-    console.log("rendering update")
 
     return(
       <form className="user-update" onSubmit={this.handleSubmit}>
         <h3>Username:</h3>
-          <input className="update-username" onChange={this.update('username')}>{this.state.username}</input>
+          <input className="update-username" onChange={this.update('username')} value={this.state.username}/>
         <h3>Email:</h3>
-          <input className="update-email" onChange={this.update('email')}>{this.state.email}</input>
+          <input className="update-email" onChange={this.update('email')} value={this.state.email}/>
         <h3>Bio:</h3>
-          <input className="update-bio" onChange={this.update('bio')}>{this.state.bio}</input>
+          <input className="update-bio" onChange={this.update('bio')} value={this.state.bio}/>
         <h3>Github:</h3>
-          <input className="update-github" onChange={this.update('github')}>{this.state.github}</input>
+          <input className="update-github" onChange={this.update('github')} value={this.state.github}/>
 
         <button type="submit">Update</button>
       </form>
