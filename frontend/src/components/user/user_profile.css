@@ -25,6 +25,9 @@
   border: 1px;
   padding: 1vw;
   color: white;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+  0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+  0px 1px 18px 0px rgba(0, 0, 0, 0.12);
   background: linear-gradient(0deg, rgba(32,178,170,1) 0%, rgb(138 204 204) 100%);
 }
 
@@ -34,10 +37,13 @@
   height: 70vh;
   margin-top: -15%;
   display: flex;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+  0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+  0px 1px 18px 0px rgba(0, 0, 0, 0.12);
 }
 
 .column-left{
-  padding-top: 20vh;
+  padding-top: 30vh;
   padding-left: 3vw;
   font-family: sans-serif;
   width: 40%;

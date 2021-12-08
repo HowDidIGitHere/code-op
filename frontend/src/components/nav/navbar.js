@@ -27,7 +27,7 @@ class NavBar extends React.Component {
             <div>
                 <Link to={'/projects'}>All Projects</Link>
                 <Link to={'/new_project'}>Create a Tweet</Link>
-                <Link to={'/profile'}>Profile</Link>
+                <Link to={`/users/${this.props.userId}`}>Profile</Link>
                 <button onClick={this.logoutUser}>Logout</button>
             </div>
         );
@@ -43,6 +43,7 @@ class NavBar extends React.Component {
   }
 
   render() {
+    console.log(this.props.userId)
       return (
         <div className='navbar'>
           <div className='left-nav'>

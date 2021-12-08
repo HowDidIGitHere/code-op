@@ -5,9 +5,9 @@ import {openModal, closeModal} from "../../actions/modal_actions"
 
 import NavBar from './navbar';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
   loggedIn: state.session.isAuthenticated,
-
+  userId: state.session.user.id
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -19,7 +19,4 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavBar));
-// export default connect(
-// mapStateToProps,
-//   { logout }
-// )(NavBar);
+
