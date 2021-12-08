@@ -36,63 +36,47 @@
 
 
 /* listings header  */
-.listings {
-  margin: 30px 35px 5px 35px;
+
+.featured-projects {
+  margin: 30px 55px 30px 55px;
 }
 
 .listing-heading {
-  justify-content: space-between;
+  display: flex;
   width: 100%;
-}
-
-.underline {
-  padding-top: 35px;
-  border-bottom: 1px solid lightgrey;
 }
 
 .listing-heading > h1 {
   float: left;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 30px;
-  margin-bottom: 10px;
 }
 
-.listing-heading > a {
-  margin-top: 10px;
-  float: right;
-}
-
-/* listing carousel */
-.listing-carousel {
+.first-project {
   display: flex;
-  flex-direction: row;
   width: 100%;
-
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  margin-top: 30px;
 }
 
-.listing-component {
-  width: 180px;
-  scroll-snap-align: start;
-  flex-shrink: 0;
-
-  margin-right: 30px;
+.first-project > img {
+  position: relative;
+  left: 50%;
+  margin-left: -460px;
   border-radius: 10px;
-  transform-origin: center center;
-  transform: scale(1);
-  transition: transform 0.5s;
+  width: 400px;
 }
 
-.listing-component > h1 {
-  font-weight: 600;
+.first-project-summary {
+  position: relative;
+  display: flex;
+  border-radius: 10px;
+  width: 400px;
+  left: 50%;
+  margin-left: 100px;
 }
-.listing-component > p {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 7;
-  -webkit-box-orient: vertical;
+
+.first-project-summary > p {
+  display: flex;
+  position: relative;
 }
+

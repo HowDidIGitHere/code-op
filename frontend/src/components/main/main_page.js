@@ -21,7 +21,7 @@ class MainPage extends React.Component {
     return (
       <div>
         <SplashContent handleClick={this.handleClick.bind(this)}/>
-        <div className='listings'>
+        <div className='featured-projects'>
           <ProjectListingRow projects={this.props.projects} />
         </div>
       </div>
