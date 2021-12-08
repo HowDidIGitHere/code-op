@@ -12,10 +12,8 @@ const GoalItem = () => {
         </div>
       </div>
       <div className='sub-task-list'>
-        <ul>
-          <li>task 1</li>
-          <li>task 2</li>
-        </ul>
+        <ul>task 1</ul>
+        <ul>task 2</ul>
       </div>
     </div>
   )

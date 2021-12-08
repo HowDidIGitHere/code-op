@@ -29,8 +29,11 @@ class ProjectsShow extends React.Component {
                   <Collaborators />
                 </div>
               </div>
+              <div className='tag-detail-container'>
+
+              </div>
             </div>
-            <div className='right-body'>
+            <div className='mid-body'>
               <div className='goal-header'>
                 <h1>Goals:</h1>
               </div>
@@ -38,6 +41,13 @@ class ProjectsShow extends React.Component {
                 <GoalItem />
                 <GoalItem />
                 <GoalItem />
+              </div>
+            </div>
+            <div className='right-body'>
+            <div className='details-container'>
+                <h1>Project Details</h1>
+                <p>Language: Ruby, Javascript</p>
+                <p>Github Link: Link</p>
               </div>
             </div>
           </div>
