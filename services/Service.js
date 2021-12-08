@@ -6,17 +6,11 @@ const mongoose = require('mongoose');
 class Service {
   constructor(model) {
     this.model = model;
-    this.get = this.get.bind(this);
-    this.getSingle = this.getSingle.bind(this);
-    this.create = this.create.bind(this);
-    this.update = this.update.bind(this);
-    this.delete = this.delete.bind(this);
   }
 
-  async get(query) {
+  get = async (query) => {
     console.log(query);
     let { fields, skip, limit, sort, groupBy } = query; 
-    console.log(breakCodeHere);
 
     fields = fields ? fields.join(' ') : '-__v';
     skip = skip ? Number(skip) : 0;
@@ -62,7 +56,7 @@ class Service {
     }
   }
 
-  async getSingle(id) {
+  getSingle = async (id) => {
     try {
       const doc = await this.model.findOne({ _id: id });
       
@@ -81,7 +75,7 @@ class Service {
     }
   }
 
-  async create(data) {
+   create = async (data) => {
     try {
       const doc = await this.model.create(data);
       if (doc)
@@ -101,7 +95,7 @@ class Service {
     }
   }
 
-  async update(id, data) {
+  update = async (id, data) => {
     try {
       let doc = await this.model.findByIdAndUpdate(id, data, { new: true });
       return {
@@ -117,7 +111,7 @@ class Service {
     }
   }
 
-  async delete(id) {
+  delete = async (id) => {
     try {
       let doc = await this.model.findByIdAndDelete(id);
       if (!doc)
