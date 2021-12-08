@@ -22,7 +22,7 @@ export const removeUser = userId => ({
 })
 
 // Thunk Action Creators
-export const requestCollaborators = collaborators => dispatch => (
+export const fetchCollaborators = collaborators => dispatch => (
   UserApiUtil.getCollaborators(collaborators)
     .then(collaborators => dispatch(receiveCollaborators(collaborators.data)))
     .catch(err => console.log(err))
