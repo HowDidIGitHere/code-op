@@ -78,10 +78,8 @@
 }
 
 .right-index {
-  display: block;
   padding-left: 30px;
   width: 100%;
-  margin-right: 30px;
 }
 
 .right-header {
@@ -91,15 +89,17 @@
   margin-bottom: 15px;
 }
 
-.right-index-listings {
+.right-index-listings > .index-item {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  margin-right: 70px;
+  grid-auto-rows: 200px;
 }
 
 .index-listing-component {
   margin-bottom: 30px;
   margin-right: 10px;
+  width: 170px;
+  height: 100px;
 }
 
 

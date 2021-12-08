@@ -10,7 +10,7 @@ const CategoryChecklist = () => {
           return (
             <label class="checklist-item">{item}
                 <input type="checkbox"/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
           )
         })}
