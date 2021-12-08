@@ -55,9 +55,7 @@ class NavBar extends React.Component {
           </div>
           <div className='right-nav'>
             <div className='right-nav-links'>
-              <div>
-                <a href="x">About Us</a>
-              </div>
+
             </div>
             <div className='right-nav-button'>
               { this.getLinks() }
