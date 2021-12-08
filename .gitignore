@@ -24,7 +24,9 @@ chrome-user-data
 *.swp
 *.swo
 
-config
+config/keys_dev.js
+config/keys.js
+config/passport.js
 
 packages/react-devtools-core/dist
 packages/react-devtools-extensions/chrome/build
