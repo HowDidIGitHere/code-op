@@ -22,22 +22,21 @@ class Service {
     delete query.sort;
 
     if (groupBy) {
-      const operator = {
-          _id: Array.isArray(groupBy) ? groupBy.reduce((acc, field) => { 
-            acc[field] = `$${field}`; 
-            return acc; 
-          }, {}) : `$${groupBy}`,
-          ...(fieldSets ? Array.isArray(fieldSets) ? fieldSets.reduce((acc, field) => { 
-              console.log('in reducer');
-              acc[`${field}s`] = { '$addToSet': `$${field}` }; 
-              return acc; 
-          }, {}) : { [`${fieldSets}s`]: { '$addToSet': `$${fieldSets}` }} : {})
-        }
-
-        console.log(operator);
+      const _id = Array.isArray(groupBy) ? groupBy.reduce((acc, field) => { 
+        acc[field] = `$${field}`; 
+        return acc; 
+      }, {}) : `$${groupBy}`
+      const $fieldSets = fieldSets ? Array.isArray(fieldSets) ? fieldSets.reduce((acc, field) => { 
+          console.log('in reducer');
+          acc[`${field}s`] = { '$addToSet': `$${field}` }; 
+          return acc; 
+      }, {}) : { [`${fieldSets}s`]: { '$addToSet': `$${fieldSets}` }} : {}
       var docs = await this.model
         .aggregate()
-        .group(operator);
+        .group({
+          _id,
+          ...$fieldSets
+        });
     } else {
       var docs = await this.model
         .find(query)
