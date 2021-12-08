@@ -12,7 +12,7 @@ class Controller {
     let response;
     if (collaborators) {
       collaborators = collaborators.split(",")
-      response = await this.service.get({ "_id": { $in:col } })
+      response = await this.service.get({ "_id": { $in:collaborators } })
     } else {
       response = await this.service.get(req.query)
     }
