@@ -1,9 +1,11 @@
 import * as GoalApiUtil from "../util/goals_api_util"
 
+// Action types
 export const RECEIVE_GOALS='RECEIVE_GOALS';
 export const RECEIVE_GOAL ='RECEIVE_GOAL';
 export const REMOVE_GOAL ='REMOVE_GOAL';
 
+// Actions
 export const receiveGoals = goals => ({
   type: RECEIVE_GOALS,
   goals
@@ -19,6 +21,7 @@ export const removeGoal = goalId => ({
   goalId
 })
 
+// Thunk Action Creators
 export const getGoals = () => dispatch => (
   GoalApiUtil.getGoals() 
     .then(goals => dispatch(receiveGoals(goals.data)))
