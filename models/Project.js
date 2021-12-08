@@ -43,6 +43,10 @@ class Project {
       }
       next();
     });
+
+    ProjectSchema.post(/^find/, async function(result) {
+      
+    });
     
     return mongoose.models.Project || mongoose.model("Project", ProjectSchema);
   }
