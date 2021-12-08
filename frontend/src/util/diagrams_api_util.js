@@ -10,7 +10,7 @@ export const createDiagram = data => {
 }
 
 export const updateDiagram = data => {
-  return axios.put(`/api/diagrams/${data.id}`, data);
+  return axios.put(`/api/diagrams/${data._id}`, data);
 }
 
 export const deleteDiagram = id => {
