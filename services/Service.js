@@ -48,7 +48,7 @@ class Service {
     const total = docs.length;
 
     return {
-      statusCode: 200,
+      status: 200,
       data: docs,
       total
     };
@@ -58,7 +58,7 @@ class Service {
     const doc = await this.model.findOne({ _id: id });
     
     return {
-      statusCode: 200,
+      status: 200,
       doc
     };
   }
@@ -75,7 +75,7 @@ class Service {
   update = async (id, data) => {
     let doc = await this.model.findByIdAndUpdate(id, data, { new: true });
     return {
-      statusCode: 202,
+      status: 202,
       doc
     };
   }
@@ -84,13 +84,13 @@ class Service {
     let doc = await this.model.findByIdAndDelete(id);
     if (!doc)
       return {
-        statusCode: 404,
+        status: 404,
         message: "doc not found"
       };
 
     return {
       deleted: true,
-      statusCode: 202,
+      status: 202,
       doc
     };
   }
