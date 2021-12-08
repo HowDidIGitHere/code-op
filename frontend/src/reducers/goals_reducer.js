@@ -1,18 +1,21 @@
-import { RECEIVE_GOALS, RECEIVE_GOAL, REMOVE_GOAL} from "../actions/goal_actions"
+import { 
+  RECEIVE_GOALS, 
+  RECEIVE_GOAL, 
+  REMOVE_GOAL
+} from "../actions/goal_actions"
 
-const GoalsReducer = ( state={}, action ) => {
+const GoalsReducer = (state = {}, action) => {
   Object.freeze(state);
-
-  let newState = Object.assign({}, state);
+  let nextState = Object.assign({}, state);
 
   switch (action.type) {
     case RECEIVE_GOALS:
-      return action.goals.data.data
+      return Object.assign({}, action.goals)
     case RECEIVE_GOAL:
-      newState[action.goal.data.id] = action.goal.data
+      nextState[action.goal._id] = action.goal
     case REMOVE_GOAL:
-      delete newState[action.id]
-      return newState
+      delete nextState[action.goalId]
+      return nextState
     default:
       return state;
   }

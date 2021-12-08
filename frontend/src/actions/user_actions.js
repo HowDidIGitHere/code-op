@@ -1,10 +1,11 @@
-import * as userApiUtil from "../util/user_api_util"
+import * as UserApiUtil from "../util/user_api_util"
 
+// Action types
 export const RECEIVE_COLLABORATORS = "RECEIVE_COLLABORATORS";
 export const RECEIVE_USER = "RECEIVE_USER";
 export const REMOVE_USER = "REMOVE_USER"
 
-//===============================================================ACTION CREATOR
+// Actions
 export const receiveCollaborators = collaborators => ({
   type: RECEIVE_COLLABORATORS,
   collaborators
@@ -20,24 +21,27 @@ export const removeUser = userId => ({
   userId
 })
 
-//================================================================THUNK
-
-export const requestCollaborators = (collaborators) => dispatch => (
-  userApiUtil.fetchCollaborators(collaborators)
+// Thunk Action Creators
+export const requestCollaborators = collaborators => dispatch => (
+  UserApiUtil.getCollaborators(collaborators)
     .then(collaborators => dispatch(receiveCollaborators(collaborators.data)))
+    .catch(err => console.log(err))
 )
 
-export const requestUser = (userId) => dispatch => (
-  userApiUtil.fetchUser(userId)
+export const requestUser = userId => dispatch => (
+  UserApiUtil.getUser(userId)
     .then(user => dispatch(receiveUser(user.data)))
+    .catch(err => console.log(err))
 )
 
-export const updateUser = (user) => dispatch => (
-  userApiUtil.updateUser(user)
+export const updateUser = user => dispatch => (
+  UserApiUtil.updateUser(user)
     .then(user => dispatch(receiveUser(user.data)))
+    .catch(err => console.log(err))
 )
 
-export const deleteUser = (userId) => dispatch => (
-  userApiUtil.deleteUser(userId)
+export const deleteUser = userId => dispatch => (
+  UserApiUtil.deleteUser(userId)
     .then(() => dispatch(removeUser(userId)))
+    .catch(err => console.log(err))
 )
