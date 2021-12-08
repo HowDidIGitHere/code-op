@@ -1,19 +1,18 @@
 import axios from 'axios';
 
-export const fetchCollaborators = collaborators => {
+export const getCollaborators = collaborators => {
   collaborators = collaborators.join(",");
-  console.log(collaborators);
   return axios.get('/api/users', { params: { collaborators } });
 }
 
-export const fetchUser = userId => {
-  return axios.get(`/api/users/${userId}`)
+export const getUser = id => {
+  return axios.get(`/api/users/${id}`)
 }
 
-export const updateUser = userId => {
-  return axios.put(`/api/users/${userId}`)
+export const updateUser = data => {
+  return axios.put(`/api/users/${data._id}`, data)
 }
 
-export const deleteUser = userId => {
-  return axios.delete(`/api/users/${userId}`)
+export const deleteUser = id => {
+  return axios.delete(`/api/users/${id}`)
 }

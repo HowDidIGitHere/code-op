@@ -1,9 +1,11 @@
 import * as ProjectApiUtil from '../util/project_api_util';
 
+// Action types
 export const RECEIVE_PROJECTS='RECEIVE_PROJECTS';
 export const RECEIVE_PROJECT='RECEIVE_PROJECT';
 export const REMOVE_PROJECT='REMOVE_PROJECT';
 
+// Actions
 export const receiveProjects = projects => ({
   type: RECEIVE_PROJECTS,
   projects
@@ -21,10 +23,11 @@ export const removeProject = projectId => ({
 
 export const fetchCreatorProjects = (creatorId) => dispatch => (
   ProjectApiUtil.getCreatorProjects(creatorId)
-    .then(projects => dispatch(receiveProjects(projects)))
+    .then(projects => dispatch(receiveProjects(projects.data)))
     .catch(err => console.log(err))
 )
 
+// Thunk Action Creators
 export const fetchProjects = () => dispatch => (
   ProjectApiUtil.getProjects() 
     .then(projects => dispatch(receiveProjects(projects.data)))

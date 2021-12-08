@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
-import { requestUser } from '../../actions/user_actions';
+import { fetchUser } from '../../actions/user_actions';
 import {fetchCreatorProjects} from '../../actions/project_actions'
+import { openModal } from '../../actions/modal_actions';
+
 import UserProfile from './user_profile_component';
 
 const mapStateToProps = (state, ownProps) => {
@@ -12,8 +14,11 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
+  console.log(typeof ownProps.match.params.id)
   return {
-    requestUser: () => dispatch(requestUser(ownProps.match.params.id)),
+    openUpdateModal: () => dispatch(openModal('update')),
+
+    fetchUser: () => dispatch(fetchUser(ownProps.match.params.id)),
     fetchCreatorProjects: () => dispatch(fetchCreatorProjects(ownProps.match.params.id))
   };
 };

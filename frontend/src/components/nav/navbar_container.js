@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
+import { logout, login } from '../../actions/session_actions';
 import { withRouter } from 'react-router';
 import {openModal, closeModal} from "../../actions/modal_actions"
 
@@ -7,14 +7,16 @@ import NavBar from './navbar';
 
 const mapStateToProps = (state, ownProps) => ({
   loggedIn: state.session.isAuthenticated,
-  userId: state.session.user.id
+  user: state.session.user
 });
 
 const mapDispatchToProps = dispatch => ({
+  
   openLoginModal: () => dispatch(openModal('login')),
   openSignupModal: () => dispatch(openModal('signup')),
   openAboutModal: () => dispatch(openModal('about')),
   closeModal: () => dispatch(closeModal()),
+  login: (user) => dispatch(login(user)),
   logout: () => dispatch(logout())
 })
 

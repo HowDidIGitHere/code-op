@@ -5,9 +5,16 @@ import './navbar.css'
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
+    this.demoUser = {email: 'demo@demo.com', password: 'password'}
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
     this.handleClick = this.handleClick.bind(this);
+  }
+
+  loginDemoUser(e) {
+    e.preventDefault()
+    this.props.login(this.demoUser)
+    this.props.closeModal()
   }
 
   handleClick(e) {
@@ -16,8 +23,9 @@ class NavBar extends React.Component {
   }
 
   logoutUser(e) {
-      e.preventDefault();
-      this.props.logout();
+    e.preventDefault();
+    this.props.logout();
+    this.props.history.push("/");
   }
 
   // Selectively render links dependent on whether the user is logged in
@@ -27,13 +35,14 @@ class NavBar extends React.Component {
             <div>
                 <Link to={'/projects'}>All Projects</Link>
                 <Link to={'/new_project'}>Create a Project</Link>
-                <Link to={`/users/${this.props.userId}`}>Profile</Link>
-                <button onClick={this.logoutUser}>Logout</button>
+                {this.props.user.id ? <Link to={`/users/${this.props.user.id}`}>Profile</Link> : ""}
+                <button onClick={(e) => this.logoutUser(e)}>Logout</button>
             </div>
         );
       } else {
         return (
             <div>
+              <button className="demo-button" onClick={(e) => this.loginDemoUser(e)}>Demo Login</button>
               <button className='signup' onClick={() => this.props.openSignupModal('signup')}>Sign Up</button>
               <button className='login' onClick={() => this.props.openLoginModal('login')}>Login</button>
             </div>

@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-export const getGoals = () => {
-  return axios.get('/api/goals')
+export const getGoals = goals => {
+  goals = goals.join(",");
+  return axios.get('/api/goals', { params: { goals } })
 }
 
 export const getGoal = id => {
@@ -13,7 +14,7 @@ export const createGoal = data => {
 }
 
 export const updateGoal = data => {
-  return axios.put(`/api/goals/${data.id}`, data)
+  return axios.put(`/api/goals/${data._id}`, data)
 }
 
 export const deleteGoal = id => {

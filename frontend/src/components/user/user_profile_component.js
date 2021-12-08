@@ -6,12 +6,12 @@ import "./user_profile.css"
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
-    this.projects = this.props.projects
+    
   }
     
   componentWillMount() {
-    this.props.requestUser();
-    this.props.fetchCreatorProjects()
+    this.props.fetchUser();
+    this.props.fetchCreatorProjects();
   }
     
   render() {
@@ -35,11 +35,12 @@ class UserProfile extends React.Component {
             <h2>{this.props.user.github}</h2>
             <h1>Tags:</h1>
             
+            <div onClick={() => this.props.openUpdateModal()}>Edit</div>
           </div>
 
           <div className="column-right">
             <h1>Projects:</h1>
-              {this.projects.map((project, idx) => 
+              {this.props.projects.map((project, idx) => 
                 <div className="project-list-item" key={idx}>
                   <Link className="project-list-title" to={`projects/${project._id}`}>{project.title}</Link>
                   <div className="project-list-github">{project.github}</div>
