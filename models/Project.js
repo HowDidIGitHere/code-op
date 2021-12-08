@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 const Validator = require("validator");
+const Model = require('./BaseModel');
 const Tag = (new (require("../models/Tag"))).getInstance();
 const Schema = mongoose.Schema;
 
-class Project {
+class Project extends Model {
 
   initSchema() {
     const ProjectSchema = new Schema({
@@ -44,16 +45,8 @@ class Project {
       }
       next();
     });
-
-    ProjectSchema.post(/^find/, async function(result) {
-      
-    });
     
     return mongoose.models.Project || mongoose.model("Project", ProjectSchema);
-  }
-
-  getInstance() {
-    return this.initSchema();
   }
 }
 

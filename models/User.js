@@ -1,9 +1,10 @@
 const bcrypt = require('bcryptjs');
 const Validator = require("validator");
 const mongoose = require("mongoose");
+const Model = require('./BaseModel');
 const Schema = mongoose.Schema;
 
-class User {
+class User extends Model {
   initSchema() {
     const PositionSchema = new Schema({
       role: {
@@ -67,10 +68,6 @@ class User {
     });
     
     return mongoose.models.User || mongoose.model("User", UserSchema);
-  }
-
-  getInstance() {
-    return this.initSchema();
   }
 }
 

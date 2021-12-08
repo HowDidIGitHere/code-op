@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 const Validator = require("validator");
+const Model = require('./BaseModel');
 const Schema = mongoose.Schema;
 
-class Tag {
+class Tag extends Model{
   initSchema() {
     const TagSchema = new Schema({
       name: {
@@ -28,10 +29,6 @@ class Tag {
     });
     
     return mongoose.models.Tag || mongoose.model("Tag", TagSchema);
-  }
-
-  getInstance() {
-    return this.initSchema();
   }
 }
 
