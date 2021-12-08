@@ -7,24 +7,22 @@ class TagService extends Service {
 
   async create(data) {
     try {
+      let doc;
       if (data.names) {
         const names = data.names.split(' ');
-        var docs = this.model.insertMany(names.map(name => {
+        doc = await this.model.insertMany(names.map(name => {
           return { name, it: data.it, modelType: data.modelType }
         }));
       } else {
-        var doc = await this.model.create(data);
+        doc = await this.model.create(data);
       }
 
-      if (doc)
-        return {
-          error: false,
-          status: 201,
-          ...(doc && { doc }),
-          ...(docs ** { docs })
-        };
+      return {
+        error: false,
+        status: 201,
+        doc,
+      };
     } catch (error) {
-      console.log("error", error);
       return {
         error: true,
         statusCode: 500,
