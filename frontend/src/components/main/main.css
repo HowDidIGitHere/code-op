@@ -47,7 +47,9 @@
 }
 
 .listing-heading > h1 {
-  float: left;
+  position: relative;
+  left: 50%;
+  margin-left: -500px;
   font-weight: 500;
   font-size: 30px;
 }
@@ -61,18 +63,20 @@
 .first-project > img {
   position: relative;
   left: 50%;
-  margin-left: -460px;
+  margin-left: -500px;
   border-radius: 10px;
-  width: 400px;
+  width: 450px;
 }
 
 .first-project-summary {
   position: relative;
   display: flex;
   border-radius: 10px;
-  width: 400px;
+  width: 500px;
   left: 50%;
-  margin-left: 100px;
+  margin-left: 80px;
+  font-size: 20px;
+  align-items: center;
 }
 
 .first-project-summary > p {
@@ -80,3 +84,42 @@
   position: relative;
 }
 
+.quote {
+  margin-top: 30px;
+  text-align: center;
+  font-style: italic;
+}
+
+.quoter {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.second-project {
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.second-project > img {
+  position: relative;
+  margin-left: 100px;
+  left: 50%;
+  border-radius: 10px;
+  width: 450px;
+}
+
+.second-project-summary {
+  position: relative;
+  display: flex;
+  border-radius: 10px;
+  width: 500px;
+  left: 50%;
+  margin-left: -500px;
+  font-size: 20px;
+  align-items: center;
+}
+
+.first-project-summary > p {
+  display: flex;
+  position: relative;
+}

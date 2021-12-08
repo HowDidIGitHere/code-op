@@ -1,27 +1,28 @@
 .navbar {
   padding-top: 10px;
   background-color: #494553;
-  height: 60px;
+  height: 80px;
   color: whitesmoke;
   font-size: 40px;
   font-weight: 600;
 }
 
 .left-nav {
+  margin-top: 10px;
   float: left;
-  padding-left: 15px;
+  padding-left: 25px;
   background-color:#494553;
 }
 
 .right-nav {
   float: right;
-  padding-right: 15px;
-  margin-top: 8px;
+  padding-right: 25px;
+  margin-top: 16px;
   background-color: #494553;
 }
   
 .logo {
-  width: 35px;
+  width: 45px;
 }
 
 .logo:hover{
@@ -31,13 +32,13 @@
 .left-nav > h1 {
   float: right;
   font-weight: 600;
-  font-size: 18px;
-  margin: 13px 0 0 10px;
+  font-size: 21px;
+  margin: 13px 0 0 15px;
 }
 
 .right-nav-links {
   float:left;
-  margin: -16px 20px 0 0;
+  margin: -14px 30px 0 0;
 }
 
 .right-nav-button {
@@ -48,8 +49,8 @@
 
 .login, .signup {
   border-radius: 3px;
-  width: 78px;
-  height: 35px;
+  width: 82px;
+  height: 38px;
   text-align: center;
 }
 
@@ -72,7 +73,7 @@
 }
 
 .about-us {
-  font-size: 15px;
+  font-size: 16px;
   background-color:#494553;
   margin-top: -30px;
 }
