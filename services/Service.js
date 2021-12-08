@@ -15,7 +15,7 @@ class Service {
 
   async get(query) {
     console.log(query);
-    let { fields, skip, limit, sort, group } = query; 
+    let { fields, skip, limit, sort, groupBy } = query; 
     console.log(breakCodeHere);
 
     fields = fields ? fields.join(' ') : '-__v';
@@ -29,14 +29,14 @@ class Service {
     delete query.sort;
 
     try {
-      if (group) {
-        const $group = {};        
-        for(const key in group)
-          $group[key] = group[key];
-
+      if (groupBy) {
         var docs = await this.model
           .aggregate()
-          .group($group)
+          .group({
+            _id: groupBy.reduce((acc, field) => { 
+              acc[field] = field; return acc; 
+            }, {})
+          })
       } else {
         var docs = await this.model
           .find(query)
