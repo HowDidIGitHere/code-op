@@ -17,6 +17,10 @@
   width: 35px;
 }
 
+.logo:hover{
+  cursor: pointer;
+}
+
 .left-nav > h1 {
   float: right;
   color: black;
@@ -36,14 +40,32 @@
   border-radius: 15px;
 }
 
-
 .login {
   padding: 5px;
   border: 1px solid lightgrey;
   margin-left: 10px;
 }
 
+.login:hover{
+  cursor: pointer;
+}
+
 .signup {
   padding: 5px;
   background-color: lightseagreen;
+}
+
+.signup:hover{
+  cursor: pointer;
+}
+
+.about-us {
+  border: gray solid 1px;
+  padding: 5px;
+  background: linear-gradient(
+  0deg, rgba(203,255,255,1) 0%, rgba(32,178,170,1) 100%);
+}
+
+.about-us:hover{
+  cursor: pointer;
 }
