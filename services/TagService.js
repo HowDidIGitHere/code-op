@@ -7,17 +7,18 @@ class TagService extends Service {
 
   async create(data) {
     try {
-      let doc;
       if (data.names) {
-        doc = this.model.insertMany()
+        var docs = this.model.insertMany()
       } else {
-        const doc = await this.model.create(data);
+        var doc = await this.model.create(data);
       }
+
       if (doc)
         return {
           error: false,
           status: 201,
-          doc
+          ...(doc && { doc }),
+          ...(docs ** { docs })
         };
     } catch (error) {
       console.log("error", error);
