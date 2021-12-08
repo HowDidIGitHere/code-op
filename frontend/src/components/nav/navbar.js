@@ -26,8 +26,8 @@ class NavBar extends React.Component {
         return (
             <div>
                 <Link to={'/projects'}>All Projects</Link>
-                <Link to={'/new_project'}>Create a Tweet</Link>
-                <Link to={'/profile'}>Profile</Link>
+                <Link to={'/new_project'}>Create a Project</Link>
+                <Link to={`/users/${this.props.userId}`}>Profile</Link>
                 <button onClick={this.logoutUser}>Logout</button>
             </div>
         );

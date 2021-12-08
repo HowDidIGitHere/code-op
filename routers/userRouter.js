@@ -10,6 +10,7 @@ router.post("/signup", authController.signup);
 router.post("/login", authController.login);
 
 // Anyone can view a user
+router.get("/", userController.get);
 router.get("/:id", userController.getSingle);
 
 // Restrict to only respective User
