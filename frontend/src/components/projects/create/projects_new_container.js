@@ -1,16 +1,18 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
+import { createProject } from '../../../actions/project_actions';
 import ProjectsNew from './projects_new_component';
 
 const mapStateToProps = (state) => {
   return {
-    // tweets: Object.values(state.tweets.all)
+    user: state.session.user,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    // fetchTweets: () => dispatch(fetchTweets())
+    createProject: data => dispatch(createProject(data))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectsNew);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectsNew));

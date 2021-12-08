@@ -17,7 +17,7 @@ class ProjectListingRow extends React.Component {
           <div className='underline'></div>
         <div className='listing-carousel'>
           {this.props.projects.map((project) => {
-            return  <ProjectListing project={project}/>
+            return  <ProjectListing key={project.id} project={project}/>
           })}
         </div>
       </div>

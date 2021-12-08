@@ -7,16 +7,31 @@ class ProjectsNew extends React.Component {
     super(props);
 
     this.state = {
+      title: "",
+      desctiption: "",
     }
+    this.handleSubmit=this.handleSubmit.bind(this)
   }
 
-  componentWillMount() {
-    // this.props.fetchTweets();
+  update(type) {
+    return e => this.setState({ [type]: e.currentTarget.value })
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    let project = {
+      title: this.state.title,
+      description: this.state.description,
+      creator: this.props.user.id,
+    }
+
+    this.props.createProject(project)
+      .then(this.props.history.push('/projects'))
+      .then(window.location.reload());
   }
 
   render() {
     return(
-      // <p>hiii</p>
       <div className='create-project'>
         <form className='create-project-form' onSubmit={this.handleSubmit}>
           <div className='form-header'>
@@ -27,8 +42,8 @@ class ProjectsNew extends React.Component {
             <input className='project-title'
               type="text"
               placeholder="Add your title"
-              // value={this.state.title}
-              // onChange={this.update('title')}
+              value={this.state.title}
+              onChange={this.update('title')}
             />
             <br />
             <input className='project-git'
@@ -41,8 +56,8 @@ class ProjectsNew extends React.Component {
             <textarea 
               className='project-description'
               placeholder="Tell everyone what your project is about"
-              // value={this.state.description}
-              // onChange={this.update('description')}
+              value={this.state.description}
+              onChange={this.update('description')}
             />
             </div>
             <div className='right-form'>
