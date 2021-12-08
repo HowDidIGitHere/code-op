@@ -40,10 +40,20 @@
   border-radius: 15px;
 }
 
-.login {
+.demo-button{
+  border: gray solid 1px;
+  border-radius: 5px;
   padding: 5px;
-  border: 1px solid lightgrey;
-  margin-left: 10px;
+  background: linear-gradient( 
+    0deg, rgba(203,255,255,1) 0%, rgba(32,178,170,1) 100%);
+}
+
+.login {
+  border: gray solid 1px;
+  border-radius: 5px;
+  padding: 5px;
+  background: linear-gradient( 
+    0deg, rgba(203,255,255,1) 0%, rgba(32,178,170,1) 100%);
 }
 
 .login:hover{
@@ -51,8 +61,11 @@
 }
 
 .signup {
+  border: gray solid 1px;
+  border-radius: 5px;
   padding: 5px;
-  background-color: lightseagreen;
+  background: linear-gradient( 
+    0deg, rgba(203,255,255,1) 0%, rgba(32,178,170,1) 100%);
 }
 
 .signup:hover{
