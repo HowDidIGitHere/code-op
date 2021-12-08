@@ -20,10 +20,8 @@ class MainPage extends React.Component {
   render() {
     return (
       <div>
-        <div className='splash-content'>
-          <SplashContent handleClick={this.handleClick.bind(this)}/>
-        </div>
-        <div className='listings'>
+        <SplashContent handleClick={this.handleClick.bind(this)}/>
+        <div className='featured-projects'>
           <ProjectListingRow projects={this.props.projects} />
         </div>
       </div>

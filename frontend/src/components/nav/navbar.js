@@ -45,7 +45,6 @@ class NavBar extends React.Component {
               <button className="demo-button" onClick={(e) => this.loginDemoUser(e)}>Demo Login</button>
               <button className='signup' onClick={() => this.props.openSignupModal('signup')}>Sign Up</button>
               <button className='login' onClick={() => this.props.openLoginModal('login')}>Login</button>
-              <button className='about-us' onClick={() => this.props.openAboutModal('about')}>About Us</button>
             </div>
         );
       }
@@ -58,13 +57,13 @@ class NavBar extends React.Component {
             <img 
               className='logo' 
               onClick={this.handleClick}
-              src="https://res.cloudinary.com/dzixdb9eu/image/upload/v1638811421/letter-c-o-logo-vector-260nw-532313890_hdhaz3.jpg" 
-              alt="fake-logo" />
+              src="https://res.cloudinary.com/dzixdb9eu/image/upload/v1638985865/Infinity_t10mft.png" 
+              alt="infinity" />
             <h1>CODE-OP</h1>
           </div>
           <div className='right-nav'>
             <div className='right-nav-links'>
-
+              <button className='about-us' onClick={() => this.props.openAboutModal('about')}>About Us</button>
             </div>
             <div className='right-nav-button'>
               { this.getLinks() }

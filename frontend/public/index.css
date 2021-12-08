@@ -14,8 +14,12 @@ span, article, footer, time, small {
   vertical-align: inherit;
   box-sizing: inherit;
   background: transparent;
+<<<<<<< HEAD
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+=======
 
   font-family: sans-serif;
+>>>>>>> main
 }
 ​
 ul {
