@@ -1,5 +1,5 @@
 const express = require("express");
-const { protect } = require("../controllers/authController");
+const { protect, restrict } = require("../controllers/authController");
 const router = express.Router();
 
 const authController = require("../controllers/authController");
@@ -13,7 +13,7 @@ router.post("/login", authController.login);
 router.get("/:id", userController.getSingle);
 
 // Restrict to only respective User
-router.put("/:id", protect, userController.update);
-router.delete("/:id", protect, userController.delete);
+router.put("/:id", protect, restrict, userController.update);
+router.delete("/:id", protect, restrict, userController.delete);
 
 module.exports = router;
