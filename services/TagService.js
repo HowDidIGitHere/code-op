@@ -9,7 +9,7 @@ class TagService extends Service {
     try {
       let doc;
       if (data.names) {
-        const names = data.names.split(' ');
+        const names = data.names.split(',');
         doc = await this.model.insertMany(names.map(name => {
           return { name, it: data.it, modelType: data.modelType }
         }));
