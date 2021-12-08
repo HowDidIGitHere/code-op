@@ -17,8 +17,12 @@
   left: 50%;
   width: 650px;
   height: 450px;
-  margin: 50px 70px 50px -325px;
+  margin: 50px 0px 50px -325px;
   border-radius: 10px;
+}
+
+.main-form {
+  display: flex;
 }
 
 .form-header > p {
@@ -29,7 +33,7 @@
 
 .form-body {
   display: flex;
-  margin: 5px 20px 0 30px;
+  margin: 5px -70px 0 30px;
   padding-top: 30px;
   text-align: left;
 }
@@ -39,14 +43,15 @@
   font-size: 15px;
   font-weight: 600;
   border-bottom: 1px solid lightgrey;
-  margin-top:15px ;
+  margin-top:5px ;
+  margin-bottom: 15px;
 }
 
 .project-description {
   color: rgb(172, 170, 170);
-  margin-top: 30px;
   font-size: 14px;
-  width: 275px;
+  margin-top: 5px;
+  width: 400px;
   height: 80px;
   border: 1px solid lightgrey;
 }
@@ -56,15 +61,25 @@
   padding-left: 40px;
 }
 
+.user-checks > .category-checklist-container {
+  margin: 0 20px 10px 0;
+}
+
 
 .form-footer {
   align-items: center;
 }
 
+.user-checks {
+  display: flex;
+  margin: 10px 0 10px 0;
+  width: 100%;
+}
+
 .save-button { 
   color: white;
   background-color: #DC011B;
-  margin: 30px;
+  margin-top: 18px;
   font-size: 12px;
   padding: 10px;
   border-radius: 10px;
