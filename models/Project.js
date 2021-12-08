@@ -44,7 +44,7 @@ class Project {
       next();
     });
 
-    ProjectSchema.pre(/^find/, async function(next) {
+    ProjectSchema.post(/^find/, async function(result) {
       
     });
     

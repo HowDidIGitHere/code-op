@@ -9,6 +9,10 @@ class Tag {
         type: String,
         required: [true, "Please enter a tag name"]
       },
+      category: {
+        type: String,
+        required: [true, "Please enter a tag category"]
+      },
       it: {
         type: Schema.Types.ObjectId,
         refPath: "modelType",
