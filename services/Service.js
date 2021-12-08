@@ -14,7 +14,9 @@ class Service {
   }
 
   async get(query) {
+    console.log(query);
     let { fields, skip, limit, sort, group } = query; 
+    console.log(breakCodeHere);
 
     fields = fields ? fields.join(' ') : '-__v';
     skip = skip ? Number(skip) : 0;
@@ -27,12 +29,22 @@ class Service {
     delete query.sort;
 
     try {
-      const docs = await this.model
-        .find(query)
-        .select(fields)
-        .skip(skip)
-        .limit(limit)
-        .sort(sort)
+      if (group) {
+        const $group = {};        
+        for(const key in group)
+          $group[key] = group[key];
+
+        var docs = await this.model
+          .aggregate()
+          .group($group)
+      } else {
+        var docs = await this.model
+          .find(query)
+          .select(fields)
+          .skip(skip)
+          .limit(limit)
+          .sort(sort)
+      }
       const total = docs.length;
 
       return {

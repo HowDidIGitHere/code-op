@@ -6,17 +6,7 @@ class Controller {
   }
 
   get = catchAsync(async (req, res) => {
-
-    // PROBABLY NEED TO REFACTOR
-    let { collaborators } = req.query;
-    let response;
-    if (collaborators) {
-      collaborators = collaborators.split(",")
-      response = await this.service.get({ "_id": { $in:collaborators } })
-    } else {
-      response = await this.service.get(req.query)
-    }
-    
+    let response = await this.service.get(req.query)
     let { data } = response;
     let resObj = {};
     for (let i = 0; i < data.length; i++) {
