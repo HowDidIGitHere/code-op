@@ -25,7 +25,7 @@ class Service {
       
       var docs = await this.model
         .aggregate()
-        .group(createAggregatorOperator({ 
+        .group(createAggregateOperator({ 
           groupBy, 
           fieldSets 
         }));
@@ -88,17 +88,23 @@ class Service {
   }
 }
 
-function createAggregatorOperator({ groupBy, fieldSets }) {
-  const _id = Array.isArray(groupBy) ? groupBy.reduce((acc, field) => { 
-    acc[field] = `$${field}`; 
-    return acc; 
-  }, {}) : `$${groupBy}`
+function createAggregateOperator({ groupBy, fieldSets }) {
+  const _id = parseGroupBy(groupBy);
   const $fieldSets = fieldSets ? Array.isArray(fieldSets) ? fieldSets.reduce((acc, field) => { 
       console.log('in reducer');
       acc[`${field}s`] = { '$addToSet': `$${field}` }; 
       return acc; 
   }, {}) : { [`${fieldSets}s`]: { '$addToSet': `$${fieldSets}` }} : {}
   return { _id, ...$fieldSets};
+}
+
+function parseGroupBy(groupBy) {
+  if (Array.isArray(groupBy))
+    return groupBy.reduce((acc, field) => { 
+      acc[field] = `$${field}`; 
+      return acc; 
+    }, {})
+  return `$${groupBy}`
 }
 
 module.exports = Service;
