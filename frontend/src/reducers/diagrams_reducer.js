@@ -2,7 +2,7 @@ import {
   RECEIVE_DIAGRAMS,
   RECEIVE_DIAGRAM,
   REMOVE_DIAGRAM
-} from "../util/diagrams_api_util";
+} from "../actions/diagram_actions";
 
 const DiagramsReducer = (state = {}, action) => {
   Object.freeze(state);

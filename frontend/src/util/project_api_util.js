@@ -1,5 +1,9 @@
 import axios from 'axios';
 
+export const getCreatorProjects = (id) => {
+  return axios.get('/api/projects', {params: {creator: id}})
+}
+
 export const getProjects = () => {
   return axios.get('/api/projects')
 }
@@ -13,13 +17,9 @@ export const createProject = data => {
 }
 
 export const updateProject = data => {
-  return axios.put(`/api/projects/${data.id}`, data)
+  return axios.put(`/api/projects/${data._id}`, data)
 }
 
 export const deleteProject = id => {
   return axios.delete(`/api/projects/${id}`)
-}
-
-export const getCreatorProjects = (id) => {
-  return axios.get('/api/projects', {params: {creator: id}})
 }

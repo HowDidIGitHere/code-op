@@ -29,7 +29,7 @@ class Project {
       },
       collaborators: [{ type: Schema.Types.ObjectId, ref: 'User' }],
       goals: [{ type: Schema.Types.ObjectId, ref: 'Goal' }],
-      diagrams: [{ tye: Schema.Types.ObjectId, ref: "Diagram" }]
+      diagrams: [{ type: Schema.Types.ObjectId, ref: "Diagram" }]
     }, {
       timestamps: true
     });

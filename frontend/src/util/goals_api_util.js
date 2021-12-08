@@ -13,7 +13,7 @@ export const createGoal = data => {
 }
 
 export const updateGoal = data => {
-  return axios.put(`/api/goals/${data.id}`, data)
+  return axios.put(`/api/goals/${data._id}`, data)
 }
 
 export const deleteGoal = id => {
