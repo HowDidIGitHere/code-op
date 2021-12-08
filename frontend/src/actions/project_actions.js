@@ -21,25 +21,25 @@ export const removeProject = project => ({
 
 export const fetchProjects = () => dispatch => (
   ProjectApiUtil.getProjects() 
-    .then(projects => dispatch(receiveProjects(projects)))
+    .then(projects => dispatch(receiveProjects(projects.data)))
     .catch(err => console.log(err))
 );
 
 export const fetchProject = id => dispatch => (
   ProjectApiUtil.getProject(id) 
-    .then(project => dispatch(receiveProject(project)))
+    .then(project => dispatch(receiveProject(project.data)))
     .catch(err => console.log(err))
 );
 
 export const createProject = data => dispatch => (
   ProjectApiUtil.createProject(data) 
-    .then(project => dispatch(receiveProject(project)))
+    .then(project => dispatch(receiveProject(project.data)))
     .catch(err => console.log(err))
 );
 
 export const updateProject = data => dispatch => (
   ProjectApiUtil.updateProject(data) 
-    .then(project => dispatch(receiveProject(project)))
+    .then(project => dispatch(receiveProject(project.data)))
     .catch(err => console.log(err))
 );
 

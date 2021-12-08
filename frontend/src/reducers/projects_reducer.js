@@ -7,9 +7,9 @@ const ProjectsReducer = ( state={}, action ) => {
 
   switch (action.type) {
     case RECEIVE_PROJECTS:
-      return action.projects.data
+      return action.projects
     case RECEIVE_PROJECT:
-      newState[action.project.id] = action.project
+      newState[action.project._id] = action.project
     case REMOVE_PROJECT:
       delete newState[action.id]
       return newState
