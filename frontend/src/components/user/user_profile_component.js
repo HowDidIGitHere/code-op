@@ -10,7 +10,7 @@ class UserProfile extends React.Component {
   }
     
   componentWillMount() {
-    this.props.requestUser();
+    this.props.fetchUser();
     this.props.fetchCreatorProjects();
   }
     

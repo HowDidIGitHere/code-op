@@ -9,7 +9,7 @@ class UserUpdateComponent extends React.Component{
   }
 
   componentWillMount(){
-    this.props.requestUser()
+    this.props.fetchUser()
   }
 
   componentDidUpdate(){
