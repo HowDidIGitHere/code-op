@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const getCollaborators = collaborators => {
   collaborators = collaborators.join(",");
-  return axios.get('/api/users', { params: { collaborators } });
+  return axios.get('/api/users', { params: { _id: collaborators } });
 }
 
 export const getUser = id => {
