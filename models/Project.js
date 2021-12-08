@@ -43,6 +43,10 @@ class Project {
       }
       next();
     });
+
+    ProjectSchema.pre(/^find/, async function(next) {
+      
+    });
     
     return mongoose.models.Project || mongoose.model("Project", ProjectSchema);
   }
