@@ -1,4 +1,5 @@
 import React from "react";
+import "./goals_create.css"
 
 class GoalsCreate extends React.Component{
   constructor(props){
@@ -7,11 +8,11 @@ class GoalsCreate extends React.Component{
       title: "",
       description: "",
       tasks: [],
-      subTask: {
-        body: "",
-        completed: false
-      }
+      subTask: {body: ""}
     }
+
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.addSubTaskToArray = this.addSubTaskToArray.bind(this)
   }
 
   update(field){
@@ -19,12 +20,16 @@ class GoalsCreate extends React.Component{
   }
 
   updateSubTask(field){
-    return e => this.setState({subTask: {[field]: e.currentTarget.value} })
+    // console.log("updateSubTask", this.state)
+    return e => this.setState({subTask: {[field]: e.currentTarget.value, completed: false} })
   }
 
   addSubTaskToArray(){
+    // console.log("1-addSubTaskToArray", this.state)
     this.setState({tasks: this.state.tasks.concat([this.state.subTask])})
     this.setState({subTask: {body: "", completed: false}})
+    // console.log("2-addSubTaskToArray", this.state)
+
   }
 
   handleSubmit(e){
@@ -35,12 +40,12 @@ class GoalsCreate extends React.Component{
   render(){
     return(
       <div className="goals-create-form">
-        <input className="title" onChange={this.update('title')} type="text" value={this.state.title}/>
-        <textarea className="description" onChange={this.update('description')} type="text" value={this.state.description} />
+        <input className="title" onChange={this.update('title')} type="text" placeholder="Title" value={this.state.title}/>
+        <textarea className="description" onChange={this.update('description')} type="text" placeholder="Description" value={this.state.description} />
         
-        <input className="subtask" onChange={this.updateSubTask('body')} type="text" />
-        <input className="subtask" onChange={this.updateSubTask('completed')} type="text" />
-        <button onClick={this.addSubTaskToArray}></button>
+        <h3>Create a new task</h3>
+        <input className="subtask" onChange={this.updateSubTask('body')} type="text" placeholder="body" value={this.state.subTask.body}/>
+        <button onClick={this.addSubTaskToArray}>Add Task</button>
       </div>
     )
   }

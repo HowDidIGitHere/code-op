@@ -59,10 +59,5 @@ class AboutComponent extends React.Component{
     )
   } 
 }
-// const mSTP = state => ({
-// })
-
-// const mDTP = dispatch => ({
-// })
 
 export default AboutComponent

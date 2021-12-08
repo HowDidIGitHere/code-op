@@ -13,7 +13,7 @@ import ProjectIndexContainer from './components/projects/index/projects_index_co
 import MainPageContainer from './components/main/main_page_container';
 import ProjectsNewContainer from './components/projects/create/projects_new_container';
 import ProjectsShowContainer from './components/projects/show/projects_show_container';
-
+import GoalsCreateContainer from './components/goals/goals_create_container';
 
 const App = () => (
   <div>
@@ -26,6 +26,7 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       
       <Route exact path="/projects" component={props => <ProjectIndexContainer {...props} />} />
+      <Route exact path="/goals/new" component={props => <GoalsCreateContainer {...props} />} />
 
       <ProtectedRoute exact path="/users/:id" component={UserProfileContainer} />
       <ProtectedRoute exact path="/projects/new" component={ProjectsNewContainer} />
