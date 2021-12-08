@@ -22,8 +22,8 @@ export const removeGoal = goalId => ({
 })
 
 // Thunk Action Creators
-export const fetchGoals = () => dispatch => (
-  GoalApiUtil.getGoals() 
+export const fetchGoals = goals => dispatch => (
+  GoalApiUtil.getGoals(goals) 
     .then(goals => dispatch(receiveGoals(goals.data)))
     .catch(err => console.log(err))
 );

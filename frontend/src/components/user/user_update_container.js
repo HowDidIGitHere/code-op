@@ -1,4 +1,4 @@
-import { updateUser, requestUser } from "../../actions/user_actions";
+import { updateUser, fetchUser } from "../../actions/user_actions";
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
 import { closeModal } from '../../actions/modal_actions';
@@ -19,7 +19,7 @@ const mDTP = (dispatch, ownProps) => {
   closeModal: () => dispatch(closeModal()),
 
   updateUser: user => dispatch(updateUser(user)),
-  requestUser: () => dispatch(requestUser(location[2])),
+  fetchUser: () => dispatch(fetchUser(location[2])),
 
 }}
 
