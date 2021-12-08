@@ -12,6 +12,7 @@ import UserProfileContainer from './components/user/user_profile_container'
 import ProjectIndexContainer from './components/projects/index/projects_index_container';
 import MainPageContainer from './components/main/main_page_container';
 import ProjectsNewContainer from './components/projects/create/projects_new_container';
+import ProjectsShowContainer from './components/projects/show/projects_show_container';
 
 
 const App = () => (
@@ -28,6 +29,7 @@ const App = () => (
 
       <ProtectedRoute exact path="/users/:id" component={UserProfileContainer} />
       <ProtectedRoute exact path="/projects/new" component={ProjectsNewContainer} />
+      <ProtectedRoute exact path="/projects/hi" component={ProjectsShowContainer} />
     </Switch>
   </div>
 );

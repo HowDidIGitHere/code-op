@@ -1,0 +1,71 @@
+.projects-show-page {
+  position: fixed;
+  margin-top: 60px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  background-color: rgb(214, 214, 214);
+}
+
+.project-show-container {
+  background-color: white;
+  border-radius: 10px;
+  margin: 30px;
+  height: 90%;
+}
+
+.project-title-header > h1 {
+  font-size: 40px;
+  padding: 15px 0 15px 40px;
+}
+
+.project-body {
+  display: flex;
+}
+
+.left-body {
+  border: 1px solid lightgrey;
+  margin: 15px 0 15px 40px;
+  padding: 15px 0 15px 10px;
+  width: 200px;
+}
+
+.collaborators-container > h1 {
+  font-size: 25px;
+}
+
+.collaborator > p {
+  font-size: 15px;
+  padding: 5px 0 5px 0;
+}
+
+.mid-body {
+  margin: 15px 20px 0 20px;
+  width: 50%;
+}
+
+.goal-header > h1 {
+  font-size: 40px;
+}
+
+.goal {
+  border: 1px solid lightgrey;
+}
+
+.right-body {
+  border: 1px solid lightgrey;
+  margin: 15px 0 15px 5px;
+  padding: 15px 0 15px 10px;
+  width: 200px;
+}
+
+.details-container > h1 {
+  font-size: 25px;
+}
+
+.details-container > p {
+  font-size: 15px;
+  padding: 5px 0 5px 0;
+}
