@@ -32,6 +32,17 @@ module.exports = app => {
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
 
+  // Convert query array values to array object
+  app.use(function(req, res, next) {
+    for (let key in req.query) {
+      if (/\w+,\w*/.test(req.query[key])) {
+        req.query[key] = req.query[key].split(',');
+      }
+    }
+    console.log(req.query);
+    next();
+  });
+
   // Sanitize data against NoSQL query injections
   app.use(mongoSanitize());
 

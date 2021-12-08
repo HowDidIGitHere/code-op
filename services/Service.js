@@ -14,35 +14,32 @@ class Service {
   }
 
   async get(query) {
-    let { fields, skip, limit, sort } = query; 
-    let data = {};
+    console.log(query)
+    let { fields, skip, limit, sort, group } = query; 
 
-    fields = fields ? fields.split(',').join(' ') : '-__v';
+    fields = fields ? fields.join(' ') : '-__v';
     skip = skip ? Number(skip) : 0;
     limit = limit ? Number(limit) : 10;
-    sort = sort ? sort.split(',').join(' ') : '-createdAt';
+    sort = sort ? sort.join(' ') : '-createdAt';
 
     delete query.fields;
     delete query.skip;
     delete query.limit;
     delete query.sort;
 
-    // // If _id specified, convert to ObjectId (this will result in one doc returned)
-    // if (query._id) {
-    //   try {
-    //     query._id = new mongoose.mongo.ObjectId(query._id);
-    //   } catch (error) {
-    //     console.log("Not able to generate mongoose id with content", query._id);
-    //   }
-    // }
-
     try {
+      // if (group) {
+      //   var docs = await this.model
+      //     .aggregate()
+      //     .group(group && {[group.field]: group.value})
+      // } else {
+      // }
       const docs = await this.model
         .find(query)
         .select(fields)
         .skip(skip)
         .limit(limit)
-        .sort(sort);
+        .sort(sort)
       const total = docs.length;
 
       return {
