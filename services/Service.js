@@ -10,7 +10,7 @@ class Service {
 
   get = async (query) => {
     console.log(query);
-    let { fields, skip, limit, sort, groupBy } = query; 
+    let { fields, skip, limit, sort, groupBy, fieldSets } = query; 
 
     fields = fields ? fields.join(' ') : '-__v';
     skip = skip ? Number(skip) : 0;
@@ -22,19 +22,17 @@ class Service {
     delete query.limit;
     delete query.sort;
 
-    const operator = {
-      _id: groupBy.reduce((acc, field) => { 
-        acc[field] = `$${field}`; 
-        return acc; 
-      }, {})
-    }
     try {
       if (groupBy) {
-        console.log('grouping')
-        console.log(operator);
         var docs = await this.model
           .aggregate()
-          .group(operator);
+          .group({
+            _id: Array.isArray(groupBy) ? groupBy.reduce((acc, field) => { 
+              acc[field] = `$${field}`; 
+              return acc; 
+            }
+          });
+          console.log(docs);
       } else {
         var docs = await this.model
           .find(query)
