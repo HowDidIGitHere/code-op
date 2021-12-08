@@ -28,12 +28,12 @@ class Tag {
       const { name } = this._conditions;
       const names = name.split(' ').splice(1);
       if (names.length > 1) {
-        // const namesList = tags.split(',');
-        // const insertions = tagsList.map( tag => {
-        //   return { name: tag,  }
-        // });
-        // this._conditions._id = tagDocs.map( tagDoc => tagDoc.it)
-        // delete this._conditions.tags; 
+        const names = name.split(',');
+        const tags = names.map( name => {
+          return { name, it: this.it, modelType: this.modelType }
+        });
+        mongoose.models.Tag.insertMany(tags)
+        this.name = names[0];
       }
       return;
       // next();
