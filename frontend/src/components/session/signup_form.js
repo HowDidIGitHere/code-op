@@ -37,12 +37,16 @@ class SignupForm extends React.Component {
     e.preventDefault();
     let user = {
       email: this.state.email,
-      handle: this.state.handle,
+      username: this.state.username,
       password: this.state.password,
-      passwordConfirm: this.state.password2
+      passwordConfirm: this.state.passwordConfirm,
+      bio: this.state.bio,
+      github: this.state.github,
     };
 
-    this.props.signup(user, this.props.history); 
+    this.props.signup(user);
+    this.props.closeModal();
+    this.props.history.push("/"); 
   }
 
   renderErrors() {
@@ -84,8 +88,8 @@ class SignupForm extends React.Component {
               />
             <br/>
               <input type="password"
-                value={this.state.confirmPassword}
-                onChange={this.update('confirmPassword')}
+                value={this.state.passwordConfirm}
+                onChange={this.update('passwordConfirm')}
                 placeholder="Confirm Password"
               />
             <br/>
@@ -96,7 +100,7 @@ class SignupForm extends React.Component {
 
             <div className="login-form-footer">
               <h4>Already have an account?</h4>
-              <h5 onClick={() => this.props.openLoginModal()}>Sign up</h5>
+              <h5 onClick={() => this.props.openLoginModal()}>Login</h5>
             </div>
           </div>
         </form>
