@@ -17,5 +17,5 @@ export const updateProject = data => {
 }
 
 export const deleteProject = id => {
-  return axios.put(`/api/projects/${id}`)
+  return axios.delete(`/api/projects/${id}`)
 }
