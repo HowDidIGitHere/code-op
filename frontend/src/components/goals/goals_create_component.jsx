@@ -6,12 +6,25 @@ class GoalsCreate extends React.Component{
     this.state = {
       title: "",
       description: "",
-      tasks: []
+      tasks: [],
+      subTask: {
+        body: "",
+        completed: false
+      }
     }
   }
 
   update(field){
     return e => this.setState({[field]: e.currentTarget.value})
+  }
+
+  updateSubTask(field){
+    return e => this.setState({subTask: {[field]: e.currentTarget.value} })
+  }
+
+  addSubTaskToArray(){
+    this.setState({tasks: this.state.tasks.concat([this.state.subTask])})
+    this.setState({subTask: {body: "", completed: false}})
   }
 
   handleSubmit(e){
@@ -25,7 +38,9 @@ class GoalsCreate extends React.Component{
         <input className="title" onChange={this.update('title')} type="text" value={this.state.title}/>
         <textarea className="description" onChange={this.update('description')} type="text" value={this.state.description} />
         
-        <input className="task" type="text" />
+        <input className="subtask" onChange={this.updateSubTask('body')} type="text" />
+        <input className="subtask" onChange={this.updateSubTask('completed')} type="text" />
+        <button onClick={this.addSubTaskToArray}></button>
       </div>
     )
   }
