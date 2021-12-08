@@ -14,32 +14,32 @@ export const receiveGoal = goal => ({
   goal
 })
 
-export const removeGoal = goal => ({
+export const removeGoal = goalId => ({
   type: REMOVE_GOAL,
-  goal
+  goalId
 })
 
-export const fetchGoals = () => dispatch => (
+export const getGoals = () => dispatch => (
   GoalApiUtil.getGoals() 
-    .then(goals => dispatch(receiveGoals(goals)))
+    .then(goals => dispatch(receiveGoals(goals.data)))
     .catch(err => console.log(err))
 );
 
-export const fetchGoal = id => dispatch => (
+export const getGoal = id => dispatch => (
   GoalApiUtil.getGoal(id) 
-    .then(goal => dispatch(receiveGoal(goal)))
+    .then(goal => dispatch(receiveGoal(goal.data)))
     .catch(err => console.log(err))
 );
 
 export const createGoal = data => dispatch => (
   GoalApiUtil.createGoal(data) 
-    .then(goal => dispatch(receiveGoal(goal)))
+    .then(goal => dispatch(receiveGoal(goal.data)))
     .catch(err => console.log(err))
 );
 
 export const updateGoal = data => dispatch => (
   GoalApiUtil.updateGoal(data) 
-    .then(goal => dispatch(receiveGoal(goal)))
+    .then(goal => dispatch(receiveGoal(goal.data)))
     .catch(err => console.log(err))
 );
 
