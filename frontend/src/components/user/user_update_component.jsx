@@ -10,7 +10,6 @@ class UserUpdateComponent extends React.Component{
 
   componentWillMount(){
     this.props.requestUser()
-    this.props.fetchCreatorProjects()
   }
 
   componentDidUpdate(){
@@ -26,7 +25,6 @@ class UserUpdateComponent extends React.Component{
 
     this.props.updateUser(this.state)
     this.props.closeModal()
-
     this.props.history.push(`/users/${this.props.user._id}`)
   }
 
