@@ -30,6 +30,11 @@ class Service {
             acc[field] = `$${field}`; 
             return acc; 
           }, {}) : `$${groupBy}`,
+          ...(fieldSets && Array.isArray(fieldSets) ? fieldSets.reduce((acc, field) => { 
+              console.log('in reducer');
+              acc[`${field}s`] = { $addToSet: `$${field}` }; 
+              return acc; 
+          }, {}) : { $addToSet: `$${fieldSets}` })
         });
         console.log(docs);
     } else {
