@@ -107,7 +107,6 @@ function parseGroupBy(groupBy) {
 function parseFieldSets(fieldSets) {
   if (Array.isArray(fieldSets))
     return fieldSets.reduce((acc, field) => { 
-      console.log('in reducer');
       acc[`${field}s`] = { '$addToSet': `$${field}` }; 
       return acc; 
     }, {});
