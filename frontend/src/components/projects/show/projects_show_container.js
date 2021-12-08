@@ -1,15 +1,16 @@
 import { connect } from 'react-redux';
 import ProjectsShow from './projects_show_component';
+import './project_show.css'
 
 const mapStateToProps = (state) => {
   return {
-    // tweets: Object.values(state.tweets.all)
+    users: state.entities.users
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    // fetchTweets: () => dispatch(fetchTweets())
+    fetchGoals:() => dispatch(fetchGoals())
   };
 };
 
