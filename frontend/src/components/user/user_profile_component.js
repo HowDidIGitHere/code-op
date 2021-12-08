@@ -35,6 +35,7 @@ class UserProfile extends React.Component {
             <h2>{this.props.user.github}</h2>
             <h1>Tags:</h1>
             
+            <div onClick={() => this.props.openUpdateModal()}>Edit</div>
           </div>
 
           <div className="column-right">
