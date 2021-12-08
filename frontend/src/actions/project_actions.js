@@ -19,6 +19,12 @@ export const removeProject = project => ({
   project
 })
 
+export const fetchCreatorProjects = (creatorId) => dispatch => (
+  ProjectApiUtil.getCreatorProjects(creatorId)
+    .then(projects => dispatch(receiveProjects(projects)))
+    .catch(err => console.log(err))
+)
+
 export const fetchProjects = () => dispatch => (
   ProjectApiUtil.getProjects() 
     .then(projects => dispatch(receiveProjects(projects)))

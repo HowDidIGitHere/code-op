@@ -1,15 +1,17 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+
 import "./user_profile.css"
 
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
+    this.projects = this.props.projects
   }
     
-  componentDidMount() {
+  componentWillMount() {
     this.props.requestUser();
-    this.props.fetchProjects().then(projects => this.projects = projects)
-    console.log(this.projects)
+    this.props.fetchCreatorProjects()
   }
     
   render() {
@@ -19,7 +21,7 @@ class UserProfile extends React.Component {
       <div className="user-profile">
         <div className="header-bg">
           <div>
-            <h2>All of {this.props.user.username}'s Info</h2>
+            <h2>welcome, {this.props.user.username}</h2>
           </div>
         </div>
         <div className="profile-column">
@@ -37,7 +39,13 @@ class UserProfile extends React.Component {
 
           <div className="column-right">
             <h1>Projects:</h1>
-            {}
+              {this.projects.map((project, idx) => 
+                <div className="project-list-item" key={idx}>
+                  <Link className="project-list-title" to={`projects/${project._id}`}>{project.title}</Link>
+                  <div className="project-list-github">{project.github}</div>
+                  <div className="project-list-collaborator">{project.collaborators}</div>
+                </div>
+                )}
           </div>
         </div>
 

@@ -19,3 +19,7 @@ export const updateProject = data => {
 export const deleteProject = id => {
   return axios.put(`/api/projects/${id}`)
 }
+
+export const getCreatorProjects = (id) => {
+  return axios.get('/api/projects', {params: {creator: id}})
+}

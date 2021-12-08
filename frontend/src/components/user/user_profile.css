@@ -9,19 +9,23 @@
   background: linear-gradient(0deg, rgba(32,178,170,1) 0%, rgb(138 204 204) 100%);
   height: 100%;
   width: 150vw;
+  margin-left: -9vw;
   transform: rotate(354deg);
   transform-origin: bottom left;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+  0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+  0px 1px 18px 0px rgba(0, 0, 0, 0.12);
 }
 
 .header-bg>div>h2{
   transform: rotate(6deg);
   font-family: sans-serif;
   font-size: xxx-large;
-  margin-right: 50vw;
-  margin-bottom: 20vh;
+  margin-right: 37vw;
+  margin-bottom: 17vh;
   border: 1px;
   padding: 1vw;
   color: white;
@@ -37,9 +41,7 @@
   height: 70vh;
   margin-top: -15%;
   display: flex;
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
-  0px 6px 10px 0px rgba(0, 0, 0, 0.14),
-  0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  
 }
 
 .column-left{
@@ -52,6 +54,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+  0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+  0px 1px 18px 0px rgba(0, 0, 0, 0.12);
 }
 
 .column-left > h1 {
@@ -63,6 +68,7 @@
   padding-top: 27vh;
   font-family: sans-serif;
   width: 50%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,5 +76,21 @@
 
 .column-right > h1 {
   color: lightseagreen;
-  font-size: large;
+  font-size: x-large;
+  margin-bottom: 1vh;
+}
+
+.project-list-item{
+  box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
+  width: 70%;
+  height: 20%;
+  padding: 1vw;
+  margin-bottom: 1vh;
+  border-radius: 5px;
+  border: 1px solid #bbb8b8;
+}
+
+.project-list-item > .project-list-title{
+  font-size: x-large;
+  color: #3c8585;
 }
