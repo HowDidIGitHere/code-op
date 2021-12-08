@@ -43,7 +43,8 @@
 
 .right-nav-button {
   float: right;
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 600;
   border-radius: 15px;
 }
 
@@ -61,7 +62,9 @@
 }
 
 .login {
-  border: gray solid 1px;
+  margin-left: 10px;
+  background-color: white;
+  color: #21A59A;
 }
 
 .login:hover{
