@@ -89,9 +89,10 @@ class Service {
 }
 
 function createAggregation({ groupBy, fieldSets }) {
-  const _id = parseGroupBy(groupBy);
-  const $fieldSets = parseGroupBy(fieldSets);
-  return { _id, ...$fieldSets};
+  return {
+    _id: parseGroupBy(groupBy),
+    ...parseFieldSets(fieldSets)
+  }
 }
 
 function parseGroupBy(groupBy) {
