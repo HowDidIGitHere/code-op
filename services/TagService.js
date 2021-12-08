@@ -8,7 +8,10 @@ class TagService extends Service {
   async create(data) {
     try {
       if (data.names) {
-        var docs = this.model.insertMany()
+        const names = data.names.split(' ');
+        var docs = this.model.insertMany(names.map(name => {
+          return { name, it: data.it, modelType: data.modelType }
+        }));
       } else {
         var doc = await this.model.create(data);
       }

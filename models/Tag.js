@@ -4,10 +4,6 @@ const Schema = mongoose.Schema;
 
 class Tag {
   initSchema() {
-    const insertion = {
-      type: 'single'
-    };
-
     const TagSchema = new Schema({
       name: {
         type: String,
@@ -25,25 +21,6 @@ class Tag {
       }
     }, {
       timestamps: true
-    });
-    
-    TagSchema.pre('save', function(next) {
-      const names = this.name.split(' ');
-      if (names.length > 1) {
-        const tags = names.split(1).map( name => {
-          return { name, it: this.it, modelType: this.modelType }
-        });
-        insertion.type = 'many';
-        insertion.tags = tags;
-        mongoose.models.Tag.insertMany(tags)
-        this.name = names[0];
-      }
-      next();
-    });
-
-    TagSchema.post('save', function(next) {
-      // this.test = 'testing';
-      // console.log(this);
     });
     
     return mongoose.models.Tag || mongoose.model("Tag", TagSchema);
