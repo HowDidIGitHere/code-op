@@ -8,10 +8,11 @@ import Modal from './components/modals/modal';
 
 import LoginFormContainer from './components/session/login_form_container';
 import SignupFormContainer from './components/session/signup_form_container';
-import ProfileContainer from './components/profile/profile_container';
+import UserProfileContainer from './components/user/user_profile_container'
 import ProjectIndexContainer from './components/projects/index/projects_index_container';
-import ProjectsNewContainer from './components/projects/create/projects_new_container';
 import MainPageContainer from './components/main/main_page_container';
+import ProjectsNewContainer from './components/projects/create/projects_new_container';
+
 
 const App = () => (
   <div>
@@ -19,12 +20,13 @@ const App = () => (
     <Modal />
 
     <Switch>
-      <AuthRoute exact path="/" component={MainPageContainer} />
+      <Route exact path="/" component={props => <MainPageContainer {...props} />} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       
       <Route exact path="/projects" component={props => <ProjectIndexContainer {...props} />} />
-      <ProtectedRoute exact path="/profile" component={ProfileContainer} />
+
+      <ProtectedRoute exact path="/users/:id" component={UserProfileContainer} />
       <ProtectedRoute exact path="/projects/new" component={ProjectsNewContainer} />
     </Switch>
   </div>

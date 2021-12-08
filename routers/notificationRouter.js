@@ -1,13 +1,16 @@
 const express = require("express");
 const router = express.Router();
 
-const { protect } = require("../controllers/authController");
+const { protect, restrict } = require("../controllers/authController");
 
 const NotificationController = require("../controllers/notificationController");
 
-router.get("/", protect, NotificationController.get);
-router.get("/:id", protect, NotificationController.getSingle);
+// Restrict only to recipient
+router.get("/", protect, restrict, NotificationController.get);
+router.get("/:id", protect, restrict, NotificationController.getSingle);
+router.delete("/:id", protect, restrict, NotificationController.delete);
+
+// Anyone can post
 router.post("/", protect, NotificationController.create);
-router.delete("/:id", protect, NotificationController.delete);
 
 module.exports = router;

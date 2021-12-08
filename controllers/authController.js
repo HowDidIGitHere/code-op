@@ -27,9 +27,16 @@ class AuthController {
     await passport.authenticate('jwt', { session: false }, function(error, user, info) {
       if (error) return next(error);
       if (!user) return res.status(404).json({ message: 'Please sign in' });
+      // console.log(user);
+      // console.log(req.params)
       req.user = user;
       next();
     })(req, res, next);
+  });
+
+  restrict = catchAsync( async (req, res, next) => {
+    req.restrict = true;
+    next();
   });
 }
 
