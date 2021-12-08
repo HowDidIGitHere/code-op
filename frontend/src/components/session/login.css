@@ -11,6 +11,10 @@
 	color: gray;
 }
 
+.login-form-close-button:hover{
+	cursor: pointer;
+}
+
 .login-modal > h2{
 	font-size: x-large;
 	color: #3c3c3c;

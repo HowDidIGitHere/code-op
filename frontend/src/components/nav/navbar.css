@@ -74,6 +74,7 @@
 
 .about-us {
   border: gray solid 1px;
+  border-radius: 5px;
   padding: 5px;
   background: linear-gradient(
   0deg, rgba(203,255,255,1) 0%, rgba(32,178,170,1) 100%);
