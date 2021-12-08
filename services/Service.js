@@ -22,21 +22,13 @@ class Service {
     delete query.sort;
 
     if (groupBy) {
-      const _id = Array.isArray(groupBy) ? groupBy.reduce((acc, field) => { 
-        acc[field] = `$${field}`; 
-        return acc; 
-      }, {}) : `$${groupBy}`
-      const $fieldSets = fieldSets ? Array.isArray(fieldSets) ? fieldSets.reduce((acc, field) => { 
-          console.log('in reducer');
-          acc[`${field}s`] = { '$addToSet': `$${field}` }; 
-          return acc; 
-      }, {}) : { [`${fieldSets}s`]: { '$addToSet': `$${fieldSets}` }} : {}
+      
       var docs = await this.model
         .aggregate()
-        .group({
-          _id,
-          ...$fieldSets
-        });
+        .group(createAggregatorOperator({ 
+          groupBy, 
+          fieldSets 
+        }));
     } else {
       var docs = await this.model
         .find(query)
@@ -94,6 +86,19 @@ class Service {
       doc
     };
   }
+}
+
+function createAggregatorOperator({ groupBy, fieldSets }) {
+  const _id = Array.isArray(groupBy) ? groupBy.reduce((acc, field) => { 
+    acc[field] = `$${field}`; 
+    return acc; 
+  }, {}) : `$${groupBy}`
+  const $fieldSets = fieldSets ? Array.isArray(fieldSets) ? fieldSets.reduce((acc, field) => { 
+      console.log('in reducer');
+      acc[`${field}s`] = { '$addToSet': `$${field}` }; 
+      return acc; 
+  }, {}) : { [`${fieldSets}s`]: { '$addToSet': `$${fieldSets}` }} : {}
+  return { _id, ...$fieldSets};
 }
 
 module.exports = Service;
