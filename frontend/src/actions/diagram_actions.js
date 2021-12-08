@@ -24,19 +24,19 @@ export const removeDiagram = diagramId => ({
 // Thunk Action Creators
 export const getDiagrams = diagramsArr => dispatch => (
   DiagramApiUtil.getDiagrams(diagramsArr)
-    .then(diagrams => dispatch(receiveDiagrams(diagrams)))
+    .then(diagrams => dispatch(receiveDiagrams(diagrams.data)))
     .catch(err => console.log(err))
 )
 
 export const createDiagram = data => dispatch => (
   DiagramApiUtil.createDiagram(data)
-    .then(diagram => dispatch(receiveDiagram(diagram)))
+    .then(diagram => dispatch(receiveDiagram(diagram.data)))
     .catch(err => console.log(err))
 )
 
 export const updateDiagram = data => dispatch => (
   DiagramApiUtil.updateDiagram(data)
-    .then(diagram => dispatch(receiveDiagram(diagram)))
+    .then(diagram => dispatch(receiveDiagram(diagram.data)))
     .catch(err => console.log(err))
 )
 
