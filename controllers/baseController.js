@@ -6,7 +6,6 @@ class Controller {
   }
 
   get = catchAsync(async (req, res) => {
-    console.log(req.query);
     let response = await this.service.get(req.query)
     let { data } = response;
     let resObj = {};

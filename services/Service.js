@@ -14,7 +14,6 @@ class Service {
   }
 
   async get(query) {
-    console.log(query)
     let { fields, skip, limit, sort, group } = query; 
 
     fields = fields ? fields.join(' ') : '-__v';
@@ -28,12 +27,6 @@ class Service {
     delete query.sort;
 
     try {
-      // if (group) {
-      //   var docs = await this.model
-      //     .aggregate()
-      //     .group(group && {[group.field]: group.value})
-      // } else {
-      // }
       const docs = await this.model
         .find(query)
         .select(fields)
