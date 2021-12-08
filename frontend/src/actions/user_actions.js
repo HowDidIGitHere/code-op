@@ -28,7 +28,7 @@ export const requestCollaborators = collaborators => dispatch => (
     .catch(err => console.log(err))
 )
 
-export const requestUser = userId => dispatch => (
+export const fetchUser = userId => dispatch => (
   UserApiUtil.getUser(userId)
     .then(user => dispatch(receiveUser(user.data)))
     .catch(err => console.log(err))
