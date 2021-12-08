@@ -15,7 +15,7 @@ class ProjectsUpdate extends React.Component {
   render() {
     return(
       <div className="projects-update">
-
+        <p>hi</p>
       </div>
     )
   }
