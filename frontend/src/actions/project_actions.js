@@ -14,9 +14,9 @@ export const receiveProject = project => ({
   project
 })
 
-export const removeProject = project => ({
+export const removeProject = projectId => ({
   type: REMOVE_PROJECT,
-  project
+  projectId
 })
 
 export const fetchProjects = () => dispatch => (
