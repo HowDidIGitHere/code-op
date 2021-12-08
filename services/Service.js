@@ -22,120 +22,78 @@ class Service {
     delete query.limit;
     delete query.sort;
 
-    try {
-      if (groupBy) {
-        var docs = await this.model
-          .aggregate()
-          .group({
-            _id: Array.isArray(groupBy) ? groupBy.reduce((acc, field) => { 
-              acc[field] = `$${field}`; 
-              return acc; 
-            }
-          });
-          console.log(docs);
-      } else {
-        var docs = await this.model
-          .find(query)
-          .select(fields)
-          .skip(skip)
-          .limit(limit)
-          .sort(sort)
-      }
-      const total = docs.length;
-
-      return {
-        error: false,
-        statusCode: 200,
-        data: docs,
-        total
-      };
-    } catch (errors) {
-      console.log(errors);
-      return {
-        error: true,
-        statusCode: 500,
-        errors
-      };
+    if (groupBy) {
+      var docs = await this.model
+        .aggregate()
+        .group({
+          _id: Array.isArray(groupBy) ? groupBy.reduce((acc, field) => { 
+            acc[field] = `$${field}`; 
+            return acc; 
+          }, {}) : `$${groupBy}`,
+        });
+        console.log(docs);
+    } else {
+      var docs = await this.model
+        .find(query)
+        .select(fields)
+        .skip(skip)
+        .limit(limit)
+        .sort(sort)
     }
+    const total = docs.length;
+
+    return {
+      error: false,
+      statusCode: 200,
+      data: docs,
+      total
+    };
   }
 
   getSingle = async (id) => {
-    try {
-      const doc = await this.model.findOne({ _id: id });
-      
-      return {
-        error: false,
-        statusCode: 200,
-        doc
-      };
-    } catch (errors) {
-      console.log("error", errors);
-      return {
-        error: true,
-        statusCode: 500,
-        errors
-      }
-    }
+    const doc = await this.model.findOne({ _id: id });
+    
+    return {
+      error: false,
+      statusCode: 200,
+      doc
+    };
   }
 
    create = async (data) => {
-    try {
-      const doc = await this.model.create(data);
-      if (doc)
-        return {
-          error: false,
-          status: 201,
-          doc
-        };
-    } catch (error) {
-      console.log("error", error);
+    const doc = await this.model.create(data);
+    if (doc)
       return {
-        error: true,
-        statusCode: 500,
-        message: error.errmsg || "Not able to create doc",
-        errors: error.errors
+        error: false,
+        status: 201,
+        doc
       };
-    }
   }
 
   update = async (id, data) => {
-    try {
-      let doc = await this.model.findByIdAndUpdate(id, data, { new: true });
-      return {
-        error: false,
-        statusCode: 202,
-        doc
-      };
-    } catch (error) {
-      return {
-        error: error || true,
-        statusCode: 500
-      };
-    }
+    let doc = await this.model.findByIdAndUpdate(id, data, { new: true });
+    return {
+      error: false,
+      statusCode: 202,
+      doc
+    };
   }
 
   delete = async (id) => {
-    try {
-      let doc = await this.model.findByIdAndDelete(id);
-      if (!doc)
-        return {
-          error: true,
-          statusCode: 404,
-          message: "doc not found"
-        };
+    let doc = await this.model.findByIdAndDelete(id);
+    if (!doc)
+      return {
+        error: true,
+        statusCode: 404,
+        message: "doc not found"
+      };
 
-      return {
-        error: false,
-        deleted: true,
-        statusCode: 202,
-        doc
-      };
-    } catch (error) {
-      return {
-        error: error || true,
-        statusCode: 500
-      };
-    }
+    return {
+      error: false,
+      deleted: true,
+      statusCode: 202,
+      doc
+    };
   }
 }
 
