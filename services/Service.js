@@ -9,7 +9,6 @@ class Service {
   }
 
   get = async (query) => {
-    console.log(query);
     let { fields, skip, limit, sort, groupBy, fieldSets } = query; 
 
     fields = fields ? fields.join(' ') : '-__v';
@@ -23,20 +22,22 @@ class Service {
     delete query.sort;
 
     if (groupBy) {
-      var docs = await this.model
-        .aggregate()
-        .group({
+      const operator = {
           _id: Array.isArray(groupBy) ? groupBy.reduce((acc, field) => { 
             acc[field] = `$${field}`; 
             return acc; 
           }, {}) : `$${groupBy}`,
-          ...(fieldSets && Array.isArray(fieldSets) ? fieldSets.reduce((acc, field) => { 
+          ...(fieldSets ? Array.isArray(fieldSets) ? fieldSets.reduce((acc, field) => { 
               console.log('in reducer');
-              acc[`${field}s`] = { $addToSet: `$${field}` }; 
+              acc[`${field}s`] = { '$addToSet': `$${field}` }; 
               return acc; 
-          }, {}) : { $addToSet: `$${fieldSets}` })
-        });
-        console.log(docs);
+          }, {}) : { [`${fieldSets}s`]: { '$addToSet': `$${fieldSets}` }} : {})
+        }
+
+        console.log(operator);
+      var docs = await this.model
+        .aggregate()
+        .group(operator);
     } else {
       var docs = await this.model
         .find(query)
