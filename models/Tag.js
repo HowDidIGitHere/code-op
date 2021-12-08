@@ -28,7 +28,7 @@ class Tag {
     });
     
     TagSchema.pre('save', function(next) {
-      const names = this.name.split(' ').splice(1);
+      const names = this.name.split(' ');
       if (names.length > 1) {
         const tags = names.map( name => {
           return { name, it: this.it, modelType: this.modelType }
@@ -36,12 +36,14 @@ class Tag {
         insertion.type = 'many';
         insertion.tags = tags;
         mongoose.models.Tag.insertMany(tags)
+        this.name = names[0];
       }
       next();
     });
 
     TagSchema.post('save', function(next) {
       console.log(this);
+      this.test = 'testing';
     });
     
     return mongoose.models.Tag || mongoose.model("Tag", TagSchema);
