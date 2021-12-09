@@ -1,9 +1,23 @@
 
 .about{
+  background: linear-gradient(0deg, rgba(203,255,255,1) 0%, rgba(32,178,170,1) 100%);
+  border-radius: 15px;
+}
+
+.connect{
+  color: white;
+  font-size: xxx-large;
+  
+  padding: 15px;
+  padding-left: 105px;
+
+}
+
+.about-container{
   display: flex;
 }
 
-.about > div{
+.about-container > div {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,30 +26,26 @@
 
 .head{
   width: 40%;
-  height: 65%;
-  border-radius: 5px;
+  height: 55%;
+  border-radius: 100px;
+  object-fit: cover;
 }
 
 .social{
   width: 20vw;
   display: flex;
-  align-items: flex-start;
+  justify-content: center;
 }
 
-.social > a > img {
-  width: 40%;
-  height: 40%;
+.social > a > i{
+  font-size: xx-large;
 }
 
 .github{
-  display: flex;
-  justify-content: flex-end;
+  margin-right: 0.5vw;
+}
+.linkedin{
+  color: rgb(0, 119, 181);
+  margin-left: 0.5vw;
 }
 
-.jamie, .nicole{
-  background: linear-gradient(0deg, rgba(32,178,170,1) 0%, rgba(203,255,255,1) 100%);
-}
-
-.abraham, .kenny{
-  background: linear-gradient(0deg, rgba(203,255,255,1) 0%, rgba(32,178,170,1) 100%);
-}
