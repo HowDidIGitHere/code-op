@@ -39,14 +39,15 @@ class NavBar extends React.Component {
                 <Link className='drop-item' to={'/projects'}>All Projects</Link>
                 {this.props.user.id ? <Link className='drop-item' to={`/users/${this.props.user.id}`}>Profile</Link> : ""}
                 <p className='drop-item logout' onClick={(e) => this.logoutUser(e)}>Logout</p>
-                </div>
+                <h1 onClick={() => this.props.openNotificationsModal()}>Notifications</h1>
             </div>
+          </div>
         );
       } else {
         return (
             <div>
-              <button className='signup' onClick={() => this.props.openSignupModal('signup')}>Sign Up</button>
-              <button className='login' onClick={() => this.props.openLoginModal('login')}>Login</button>
+              <button className='signup' onClick={() => this.props.openSignupModal()}>Sign Up</button>
+              <button className='login' onClick={() => this.props.openLoginModal()}>Login</button>
             </div>
         );
       }
