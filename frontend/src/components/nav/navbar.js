@@ -34,7 +34,6 @@ class NavBar extends React.Component {
         return (
           <div>
                       <button className='dem-button' onClick={() => this.props.openCreateGoalModal()}>Create Goal</button>
-                      <button className='dem-button' onClick={() => this.props.openUpdateGoalModal()}>Update Goal</button>
 
             <Link to={'/projects'}>All Projects</Link>
             <Link to={'/new_project'}>Create a Project</Link>
