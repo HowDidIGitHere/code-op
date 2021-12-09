@@ -1,9 +1,9 @@
 const express = require("express");
+const { protect, restrict } = require("../controllers/authController");
+const goalController = require("../controllers/goalController");
+
 const router = express.Router();
 
-const { protect, restrict } = require("../controllers/authController");
-
-const goalController = require("../controllers/goalController");
 
 // Restrict to Collaborators
 router.get("/", protect, restrict, goalController.get);

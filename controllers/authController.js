@@ -1,15 +1,6 @@
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
 const passport = require("passport");
-const keys = require("../config/keys");
 const catchAsync = require('../utils/catchAsync');
-
-const validateSignupInput = require("../validation/signup");
-const validateLoginInput = require("../validation/login");
-
-const User = require("../models/User");
-const UserService = require('../services/UserService');
-const userService = new UserService(new User().getInstance());
+const userService = require('../services/userService');
 
 class AuthController {
   signup = catchAsync( async (req, res) => {

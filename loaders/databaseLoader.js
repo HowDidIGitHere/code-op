@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
-// Must load models here before loading routes
-
-const databaseURL = require("../config/keys").mongoURI;
+const { mongoUri } = require("../config/keys");
 
 const setDatabaseOptions = () => {
   mongoose.set("useCreateIndex", true);
@@ -10,11 +8,11 @@ const setDatabaseOptions = () => {
   mongoose.set("useUnifiedTopology", true);
 };
 
-const connectToDatabase = (databaseURL) => {
-  mongoose.connect(databaseURL);
+const connectToDatabase = (mongoUri) => {
+  mongoose.connect(mongoUri);
 };
 
 module.exports = () => {
   setDatabaseOptions();
-  connectToDatabase(databaseURL);
+  connectToDatabase(mongoUri);
 };

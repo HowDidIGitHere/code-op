@@ -1,13 +1,16 @@
 const express = require("express");
-const { protect, restrict } = require("../controllers/authController");
+const { 
+  login, 
+  signup,
+  protect, 
+  restrict 
+} = require("../controllers/authController");
+const userController = require("../controllers/userController");
 const router = express.Router();
 
-const authController = require("../controllers/authController");
-const userController = require("../controllers/userController");
-
 // Auth
-router.post("/signup", authController.signup);
-router.post("/login", authController.login);
+router.post("/signup", signup);
+router.post("/login", login);
 
 // Anyone can view a user
 router.get("/", userController.get);
