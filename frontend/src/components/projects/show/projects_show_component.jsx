@@ -45,7 +45,7 @@ class ProjectsShow extends React.Component {
             })
         }
       }));
-    // this.props.fetchTweets();
+    this.props.fetchCreatorProjects(this.props.user.id);
   }
 
   handleDiagramChange(e) {

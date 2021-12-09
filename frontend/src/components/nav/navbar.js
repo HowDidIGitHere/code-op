@@ -5,17 +5,10 @@ import './navbar.css'
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-    // this.demoUser = {email: 'demo@demo.com', password: 'password'}
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
-
-  // loginDemoUser(e) {
-  //   e.preventDefault()
-  //   this.props.login(this.demoUser)
-  //   this.props.closeModal()
-  // }
 
   handleClick(e) {
     e.preventDefault();
@@ -36,8 +29,14 @@ class NavBar extends React.Component {
             <button className="dropdown-btn"><i class="fas fa-bars fa-2x"></i></button>
             <div className='dropdown-content-2'>
                 <Link className='drop-item' to={'/projects/new'}>Create a Project</Link>
-                <Link className='drop-item' to={'/projects'}>All Projects</Link>
+                <Link className='drop-item' to={'/projects'}>Discover Page</Link>
+                <p>Notifications</p>
                 {this.props.user.id ? <Link className='drop-item' to={`/users/${this.props.user.id}`}>Profile</Link> : ""}
+                <p tabIndex='1'>Current Projects</p>
+                {this.props.projects.map((project) => {
+                  if (project.creator === this.props.user.id)
+                    return <Link className='hidden-project' to={`/projects/${project.id}`}>{project.title}</Link>
+                })}
                 <p className='drop-item logout' onClick={(e) => this.logoutUser(e)}>Logout</p>
                 </div>
             </div>
@@ -53,6 +52,7 @@ class NavBar extends React.Component {
   }
 
   render() {
+    console.log(this.props.projects)
       return (
         <div className='navbar'>
           <div className='left-nav'>
