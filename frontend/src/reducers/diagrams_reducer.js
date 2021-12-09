@@ -1,22 +1,15 @@
 import {
-  RECEIVE_DIAGRAMS,
   RECEIVE_DIAGRAM,
   REMOVE_DIAGRAM
 } from "../actions/diagram_actions";
 
 const DiagramsReducer = (state = {}, action) => {
-  Object.freeze(state);
-  let nextState = Object.assign({}, state);
 
   switch (action.type) {
-    case RECEIVE_DIAGRAMS:
-      return Object.assign({}, action.diagrams);
     case RECEIVE_DIAGRAM:
-      nextState[action.diagram._id] = action.diagram;
-      return nextState;
+      return Object.assign({}, action.diagram);
     case REMOVE_DIAGRAM:
-      delete nextState[action.diagramId];
-      return nextState;
+      return {};
     default:
       return state;
   }
