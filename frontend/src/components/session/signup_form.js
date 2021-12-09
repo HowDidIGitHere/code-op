@@ -100,7 +100,7 @@ class SignupForm extends React.Component {
 
             <div className="login-form-footer">
               <h4>Already have an account?</h4>
-              <h5 onClick={() => this.props.openLoginModal()}>Login</h5>
+              <h2 onClick={() => this.props.openLoginModal()}>Login</h2>
             </div>
           </div>
         </form>

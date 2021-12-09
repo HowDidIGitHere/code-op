@@ -5,17 +5,17 @@ import './navbar.css'
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-    this.demoUser = {email: 'demo@demo.com', password: 'password'}
+    // this.demoUser = {email: 'demo@demo.com', password: 'password'}
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
-  loginDemoUser(e) {
-    e.preventDefault()
-    this.props.login(this.demoUser)
-    this.props.closeModal()
-  }
+  // loginDemoUser(e) {
+  //   e.preventDefault()
+  //   this.props.login(this.demoUser)
+  //   this.props.closeModal()
+  // }
 
   handleClick(e) {
     e.preventDefault();
@@ -43,7 +43,7 @@ class NavBar extends React.Component {
       } else {
         return (
             <div>
-              <button className="demo-button" onClick={(e) => this.loginDemoUser(e)}>Demo Login</button>
+              {/* <button className="demo-button" onClick={(e) => this.loginDemoUser(e)}>Demo Login</button> */}
               <button className='signup' onClick={() => this.props.openSignupModal('signup')}>Sign Up</button>
               <button className='login' onClick={() => this.props.openLoginModal('login')}>Login</button>
             </div>
