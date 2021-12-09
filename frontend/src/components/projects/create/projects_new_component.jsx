@@ -1,5 +1,5 @@
 import React from 'react';
-import CategoryChecklist from '../index/category_checklist';
+import CategoryChecklist from './category_checklist';
 import './project_create.css'
 
 class ProjectsNew extends React.Component {
