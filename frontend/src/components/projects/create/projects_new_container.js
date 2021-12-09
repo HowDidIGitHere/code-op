@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { createProject } from '../../../actions/project_actions';
+import { createProject, fetchCreatorProjects } from '../../../actions/project_actions';
+import { fetchTags } from '../../../actions/tag_actions'
 import ProjectsNew from './projects_new_component';
 
 const mapStateToProps = (state) => {
@@ -11,7 +12,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createProject: data => dispatch(createProject(data))
+    createProject: data => dispatch(createProject(data)),
+    fetchTags: params => dispatch(fetchTags(params)),
+    fetchCreatorProjects: id => dispatch(fetchCreatorProjects(id))
   };
 };
 

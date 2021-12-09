@@ -13,6 +13,11 @@ class ProjectsNew extends React.Component {
     this.handleSubmit=this.handleSubmit.bind(this)
   }
 
+  componentWillMount() {
+    this.props.fetchTags({ namesByCategory: "position,software,platform"})
+    this.props.fetchCreatorProjects(this.props.user.id);
+  }
+
   update(type) {
     return e => this.setState({ [type]: e.currentTarget.value })
   }
