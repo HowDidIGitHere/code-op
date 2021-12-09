@@ -3,7 +3,7 @@ import {
   REMOVE_DIAGRAM
 } from "../actions/diagram_actions";
 
-const DiagramsReducer = (state = {}, action) => {
+const DiagramReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_DIAGRAM:
@@ -15,4 +15,4 @@ const DiagramsReducer = (state = {}, action) => {
   }
 }
 
-export default DiagramsReducer;
+export default DiagramReducer;
