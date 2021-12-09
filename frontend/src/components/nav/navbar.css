@@ -62,15 +62,11 @@
   color: #21A59A;
 }
 
-.login:hover{
-  cursor: pointer;
-}
-
 .signup {
   background-color:#21A59A;
 }
 
-.signup:hover{
+.signup:hover, .about-us:hover, .login:hover, .logout:hover{
   cursor: pointer;
 }
 
@@ -78,10 +74,6 @@
   font-size: 16px;
   background-color:#494553;
   margin-top: -30px;
-}
-
-.about-us:hover{
-  cursor: pointer;
 }
 
 .dropdown-content-2 {
