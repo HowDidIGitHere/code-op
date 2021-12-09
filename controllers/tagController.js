@@ -1,5 +1,5 @@
 const Controller = require("./baseController");
-const tagService = require("../services/TagService");
+const tagService = require("../services/tagService");
 
 class TagController extends Controller {
   constructor(service) {
