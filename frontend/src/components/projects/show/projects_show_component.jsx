@@ -1,4 +1,5 @@
 import React from 'react';
+import Diagram from '../../diagram/diagram';
 import Collaborators from './collaborators';
 import GoalItem from './goals';
 
@@ -16,13 +17,18 @@ class ProjectsShow extends React.Component {
   componentWillMount() {
     this.props.fetchProject()
       .then(res => {
-        if (res.project.collaborators) {
+        console.log(res)
+        if (res.project.collaborators !== 0) {
           this.props.fetchCollaborators(res.project.collaborators)
         }
-        if (res.goals) {
+        if (res.project.goals.length !== 0) {
           this.props.fetchGoals(res.project.goals)
         }
-      });
+        if (res.project.diagrams.length !== 0) {
+          this.props.fetchDiagrams(res.project.diagrams)
+        }
+      })
+      // .catch((err) => console.log('bok'));
       
     // this.props.fetchProject()
     //   .then(res => this.setState({ project: res.project }, () => {
@@ -43,6 +49,7 @@ class ProjectsShow extends React.Component {
     if (!this.props.project) {
       return "...loading";
     }
+
     return(
       <div className="projects-show-page">
         <div className='project-show-container'>
@@ -65,10 +72,23 @@ class ProjectsShow extends React.Component {
               <div className='goal-header'>
                 <h1>Goals:</h1>
               </div>
+              {/* <div className='goal-list'>
+                <GoalItem />
+                <GoalItem />
+                <GoalItem />
+              </div> */}
               <div className='goal-list'>
-                <GoalItem />
-                <GoalItem />
-                <GoalItem />
+                {
+                  this.props.diagrams ? 
+                    (<ul>
+                      {this.props.diagrams.map((diagram, idx) => {
+                        // this.console.log(diagram)
+                        return <Diagram chart={diagram.content} />
+                      })}
+                    </ul>) : (
+                      null
+                    )
+                }
               </div>
             </div>
             <div className='right-body'>
