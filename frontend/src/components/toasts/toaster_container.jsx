@@ -4,7 +4,7 @@ import { removeError } from "../../actions/error_actions";
 import orderToastMessages from '../../util/order_toast_messages';
 import Toaster from "./toaster";
 
-const mapStateToProps = ({errors}) => ({
+const mapStateToProps = ({ errors }) => ({
   messages: orderToastMessages(errors)
 })
 
