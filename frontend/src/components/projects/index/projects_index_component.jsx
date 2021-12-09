@@ -20,7 +20,7 @@ class ProjectsIndex extends React.Component {
     e.preventDefault();
 
     this.props.requestModal();
-    this.props.fetchProject(e.target.id)
+    this.props.oneProject(e.target.id)
   }
 
   render() {

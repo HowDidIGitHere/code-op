@@ -1,7 +1,7 @@
 import { 
   RECEIVE_PROJECTS,
   RECEIVE_PROJECT,
-  REMOVE_PROJECT 
+  REMOVE_PROJECT ,
 } from "../actions/project_actions";
 
 const ProjectsReducer = (state = {}, action) => {

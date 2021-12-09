@@ -4,7 +4,8 @@ import ProjectRequest from './project_request'
 
 
 const mSTP = (state, ownProps) => ({
-  user: state.session.user
+  user: state.session.user,
+  project: state.entities.singleProject
 })
 
 const mDTP = (dispatch, ownProps) => ({

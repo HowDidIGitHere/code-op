@@ -13,12 +13,12 @@ class ProjectRequest extends React.Component {
   }
 
   render() {
-    const { user } = this.props;
+    const { user, project } = this.props;
     return (
       <form className='project-request' >
         <div className='form-greeting'>
           <p>Hi {user.username},</p>
-          <p>Would you like to join this project?</p>
+          <p>Would you like to join {project.title}?</p>
         </div>
         <div>
           
