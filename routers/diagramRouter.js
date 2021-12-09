@@ -1,9 +1,9 @@
 const express = require("express");
+const { protect } = require("../controllers/authController");
+const diagramController = require("../controllers/diagramController");
+
 const router = express.Router();
 
-const { protect } = require("../controllers/authController");
-
-const diagramController = require("../controllers/diagramController");
 
 router.get("/", protect, diagramController.get);
 router.post("/", protect, diagramController.create);

@@ -1,9 +1,9 @@
 const express = require("express");
+const { protect, restrict } = require("../controllers/authController");
+const projectController = require("../controllers/projectController");
+
 const router = express.Router();
 
-const { protect, restrict } = require("../controllers/authController");
-
-const projectController = require("../controllers/projectController");
 
 // Anyone can view project 
 router.get("/", projectController.get);

@@ -1,9 +1,9 @@
 const express = require("express");
+const { protect, restrict } = require("../controllers/authController");
+const NotificationController = require("../controllers/notificationController");
+
 const router = express.Router();
 
-const { protect, restrict } = require("../controllers/authController");
-
-const NotificationController = require("../controllers/notificationController");
 
 // Restrict only to recipient
 router.get("/", protect, restrict, NotificationController.get);

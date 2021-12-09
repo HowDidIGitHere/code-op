@@ -1,9 +1,9 @@
 const express = require("express");
+const { protect } = require("../controllers/authController");
+const tagController = require("../controllers/tagController");
+
 const router = express.Router();
 
-const { protect } = require("../controllers/authController");
-
-const tagController = require("../controllers/tagController");
 
 router.get("/", tagController.get);
 router.get("/:id", tagController.getSingle);
