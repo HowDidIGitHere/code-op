@@ -1,10 +1,9 @@
 const mongoose = require("mongoose");
+const Validator = require("validator");
+const Model = require('./BaseModel');
 const Schema = mongoose.Schema;
 
-// const validateProjectInput = require("../validation/projects");
-const Validator = require("validator");
-
-class Goal {
+class Goal extends Model {
   initSchema() {
     const TaskSchema = new Schema({
       body: {
@@ -34,10 +33,6 @@ class Goal {
     });
     
     return mongoose.models.Goal || mongoose.model("Goal", GoalSchema);
-  }
-
-  getInstance() {
-    return this.initSchema();
   }
 }
 

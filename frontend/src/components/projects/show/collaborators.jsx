@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Collaborators = () => {
-  let collaborators = ["kenny", "nicole", "abe", "lori", "jamie"]
+const Collaborators = props => {
+  console.log(props.collaborators)
   return (
     <div className='collaborator'>
-      {collaborators.map((person) => 
-        <p>{person}</p> 
+      {props.collaborators.map((person) => 
+        <p>{person.username}</p> 
       )}
     </div>
   )

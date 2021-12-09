@@ -2,16 +2,22 @@ import { connect } from 'react-redux';
 import ProjectsShow from './projects_show_component';
 import './project_show.css'
 import { fetchGoals } from '../../../actions/goal_actions';
+import { fetchCollaborators } from '../../../actions/user_actions';
+import { fetchProject } from '../../../actions/project_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps)=> {
   return {
-    users: state.entities.users
+    project: state.entities.projects[ownProps.match.params.id],
+    collaborators: Object.values(state.entities.users),
+    goals: Object.values(state.entities.goals)
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    fetchGoals:() => dispatch(fetchGoals())
+    fetchProject: () => dispatch(fetchProject(ownProps.match.params.id)),
+    fetchCollaborators: collaboratorsArr => dispatch(fetchCollaborators(collaboratorsArr)),
+    fetchGoals: goalsArr => dispatch(fetchGoals(goalsArr))
   };
 };
 

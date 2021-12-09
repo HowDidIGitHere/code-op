@@ -28,9 +28,6 @@ class ProjectsIndex extends React.Component {
           </div>
         </div>
         <div className='right-index'>
-          <div>
-            <h1 className='right-header'>DISCOVER YOUR NEXT PROJECT</h1>
-          </div>
           <div className='right-index-listings'>
             <div className='index-item'>
               {this.props.projects.map((project) => {

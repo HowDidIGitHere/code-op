@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const getGoals = goals => {
   goals = goals.join(",");
-  return axios.get('/api/goals', { params: { goals } })
+  return axios.get('/api/goals', { params: { _id: goals } })
 }
 
 export const getGoal = id => {

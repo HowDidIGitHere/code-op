@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
+const Model = require('./BaseModel');
 const Schema = mongoose.Schema;
 
 const Validator = require("validator");
 
-class Diagram {
+class Diagram extends Model {
   initSchema() {
     const DiagramSchema = new Schema({
       name: {

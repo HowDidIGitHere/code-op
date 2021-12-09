@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
+const Validator = require("validator");
+const Model = require('./BaseModel');
 const Schema = mongoose.Schema;
 
-const Validator = require("validator");
 
-class Notification {
+class Notification extends Model {
   initSchema() {
     const NotificationSchema = new Schema({
       recipient: {
@@ -22,10 +23,6 @@ class Notification {
     });
 
     return mongoose.models.Notification || mongoose.model("Notification", NotificationSchema);
-  }
-
-  getInstance() {
-    return this.initSchema();
   }
 }
 

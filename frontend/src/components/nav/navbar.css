@@ -1,20 +1,28 @@
 .navbar {
   padding-top: 10px;
+  background-color: #494553;
+  height: 80px;
+  color: whitesmoke;
+  font-size: 40px;
+  font-weight: 600;
 }
 
 .left-nav {
+  margin-top: 10px;
   float: left;
-  padding-left: 15px;
+  padding-left: 25px;
+  background-color:#494553;
 }
 
 .right-nav {
   float: right;
-  padding-right: 15px;
-  margin-top: 15px;
+  padding-right: 25px;
+  margin-top: 16px;
+  background-color: #494553;
 }
   
 .logo {
-  width: 35px;
+  width: 45px;
 }
 
 .logo:hover{
@@ -23,37 +31,40 @@
 
 .left-nav > h1 {
   float: right;
-  color: black;
   font-weight: 600;
-  font-size: 15px;
-  margin: 10px 0 0 10px;
+  font-size: 21px;
+  margin: 13px 0 0 15px;
 }
 
 .right-nav-links {
   float:left;
-  margin-right: 10px;
+  margin: -14px 30px 0 0;
 }
 
 .right-nav-button {
   float: right;
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 600;
   border-radius: 15px;
+}
+
+.login, .signup {
+  border-radius: 3px;
+  width: 82px;
+  height: 38px;
+  text-align: center;
 }
 
 .demo-button{
   border: gray solid 1px;
   border-radius: 5px;
   padding: 5px;
-  background: linear-gradient( 
-    0deg, rgba(203,255,255,1) 0%, rgba(32,178,170,1) 100%);
 }
 
 .login {
-  border: gray solid 1px;
-  border-radius: 5px;
-  padding: 5px;
-  background: linear-gradient( 
-    0deg, rgba(203,255,255,1) 0%, rgba(32,178,170,1) 100%);
+  margin-left: 10px;
+  background-color: white;
+  color: #21A59A;
 }
 
 .login:hover{
@@ -61,11 +72,7 @@
 }
 
 .signup {
-  border: gray solid 1px;
-  border-radius: 5px;
-  padding: 5px;
-  background: linear-gradient( 
-    0deg, rgba(203,255,255,1) 0%, rgba(32,178,170,1) 100%);
+  background-color:#21A59A;
 }
 
 .signup:hover{
@@ -73,11 +80,9 @@
 }
 
 .about-us {
-  border: gray solid 1px;
-  border-radius: 5px;
-  padding: 5px;
-  background: linear-gradient(
-  0deg, rgba(203,255,255,1) 0%, rgba(32,178,170,1) 100%);
+  font-size: 16px;
+  background-color:#494553;
+  margin-top: -30px;
 }
 
 .about-us:hover{
