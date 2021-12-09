@@ -44,7 +44,6 @@ class UserProfile extends React.Component {
                 <div className="project-list-item" key={idx}>
                   <Link className="project-list-title" to={`projects/${project._id}`}>{project.title}</Link>
                   <div className="project-list-github">{project.github}</div>
-                  <div className="project-list-collaborator">{project.collaborators}</div>
                 </div>
                 )}
           </div>
