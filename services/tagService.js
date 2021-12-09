@@ -5,12 +5,12 @@ const tagNames = require('../utils/tags');
 class TagService extends Service {
   constructor(model) {
     super(model);
-    this.get = this.getWrapper(this.get);
+    this.get = this.getAllTagNamesWrapper(this.get);
   }
 
-  getWrapper = get => async (query) => {
+  getAllTagNamesWrapper = get => async (query) => {
     const { categories } = query;
-    const selection = { _id: 'tags' };
+    let selection = { _id: 'tags' };
 
     if (!categories)
       return await get(query);
@@ -21,8 +21,12 @@ class TagService extends Service {
           selection[category] = tagNames[category];
       });
     else if (categories === 'all')
-      return tagNames;
-    return selection;
+      selection = { ...selection, ...tagNames };
+    console.log(selection);
+    return {
+      status: 200,
+      data: [selection]
+    };
   }
 
   create = async (data) => {
