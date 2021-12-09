@@ -3,10 +3,10 @@ import {
   RECEIVE_USERS,
   RECEIVE_USER_ERRORS 
 } from "../../actions/user_actions";
-import { RECEIVE_CURRENT_USER } from "../../actions/auth_actions";
+import { RECEIVE_CURRENT_USER } from "../../actions/session_actions";
 import { REMOVE_ERROR } from "../../actions/error_actions";
 
-const userErrorsReducer = data => {  
+const UserErrorsReducer = data => {  
   return (state={}, action) => {
     Object.freeze(state);
     const nextState = Object.assign({}, state);
@@ -28,4 +28,4 @@ const userErrorsReducer = data => {
   }
 }
 
-export default userErrorsReducer;
+export default UserErrorsReducer;
