@@ -22,7 +22,9 @@ class TagService extends Service {
       });
     else if (categories === 'all')
       selection = { ...selection, ...tagNames };
-    console.log(selection);
+    else
+      if (tagNames[categories])
+        selection[categories] = tagNames[categories];
     return {
       status: 200,
       data: [selection]
