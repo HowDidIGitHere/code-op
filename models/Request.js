@@ -7,12 +7,20 @@ const RequestSchema = new Schema({
     type: Schema.Types.ObjectId, ref: "User",
     required: true
   },
-  sender: {
+  senderId: {
     type: Schema.Types.ObjectId, ref: "User",
     required: true
   },
-  project: {
+  senderName: {
+    type: String,
+    required: true
+  },
+  projectId: {
     type: Schema.Types.ObjectId, ref: "Project",
+    required: true
+  },
+  projectName: {
+    type: String,
     required: true
   },
   message: {
