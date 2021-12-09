@@ -4,6 +4,7 @@
 	flex-direction: column;
 	align-items: center;
   width: 330px;
+  padding: 15px;
 }
 
 .login-form-close-button{
