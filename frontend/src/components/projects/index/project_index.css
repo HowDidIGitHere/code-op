@@ -1,15 +1,12 @@
 .projects-index {
-  /* display: flex; */
   margin: 30px 40px 40px 40px;
 }
 .category-filters {
   display: flex;
-  width: 100%;
   justify-content: space-evenly;
 }
 
 .underline {
-  width: 100%;
   border-bottom: 2px solid #6F6D74;
   align-self: center;
   margin-bottom: 20px;
@@ -109,28 +106,22 @@
   transform: rotate(45deg);
 }
 
-.right-index {
-  width: 100%;
-}
 .right-index-listings {
-  justify-content: center;
+  columns: 240px;
+  column-gap:20px;
 }
 
-.right-index-listings > .index-item {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 370px;
-  justify-items: center;
-  align-items: center;
-}
-
-.index-listing-component {
+.testing123 {
+  height: 320px;
   position: relative;
+}
+.index-listing-component {
+  display: inline-block;
   background-color: #E6F2E2;
   border-radius: 20px;
   margin-bottom: 30px;
-  width: 280px;
-  height: 320px;
+  width: 100%;
+  height: 100%;
 }
 
 .index-listing-content {

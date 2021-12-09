@@ -42,7 +42,7 @@ class UserProfile extends React.Component {
             <h1>Projects:</h1>
               {this.props.projects.map((project, idx) => 
                 <div className="project-list-item" key={idx}>
-                  <Link className="project-list-title" to={`projects/${project._id}`}>{project.title}</Link>
+                  <Link className="project-list-title" to={`/projects/${project._id}`}>{project.title}</Link>
                   <div className="project-list-github">{project.github}</div>
                 </div>
                 )}

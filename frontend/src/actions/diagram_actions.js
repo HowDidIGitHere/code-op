@@ -22,7 +22,7 @@ export const removeDiagram = diagramId => ({
 });
 
 // Thunk Action Creators
-export const getDiagrams = diagramsArr => dispatch => (
+export const fetchDiagrams = diagramsArr => dispatch => (
   DiagramApiUtil.getDiagrams(diagramsArr)
     .then(diagrams => dispatch(receiveDiagrams(diagrams.data)))
     .catch(err => console.log(err))
