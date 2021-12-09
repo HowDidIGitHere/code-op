@@ -10,7 +10,14 @@ const TagsReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_TAGS:
-      return Object.assign({}, action.tags);
+      if (action.tags.namesByCategory) {
+        const namesByCategory = action.tags.namesByCategory;
+        delete namesByCategory._id;
+        nextState['namesByCategory'] = namesByCategory;
+      } else {
+        nextState = Object.assign({}, action.tags);
+      }
+      return nextState;
     case RECEIVE_TAG:
       nextState[action.tag._id] = action.tag
       return nextState;

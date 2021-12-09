@@ -10,7 +10,7 @@ class TagService extends Service {
 
   getAllTagNamesWrapper = get => async (query) => {
     const { namesByCategory } = query;
-    let selection = { _id: 'tags' };
+    let selection = { _id: 'namesByCategory' };
 
     if (!namesByCategory)
       return await get(query);
