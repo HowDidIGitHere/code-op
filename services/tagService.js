@@ -9,22 +9,22 @@ class TagService extends Service {
   }
 
   getAllTagNamesWrapper = get => async (query) => {
-    const { categories } = query;
+    const { namesByCategory } = query;
     let selection = { _id: 'tags' };
 
-    if (!categories)
+    if (!namesByCategory)
       return await get(query);
 
-    if (Array.isArray(categories))
-      categories.forEach(category => {
+    if (Array.isArray(namesByCategory))
+      namesByCategory.forEach(category => {
         if (tagNames[category])
           selection[category] = tagNames[category];
       });
-    else if (categories === 'all')
+    else if (namesByCategory === 'all')
       selection = { ...selection, ...tagNames };
     else
-      if (tagNames[categories])
-        selection[categories] = tagNames[categories];
+      if (tagNames[namesByCategory])
+        selection[namesByCategory] = tagNames[namesByCategory];
     return {
       status: 200,
       data: [selection]

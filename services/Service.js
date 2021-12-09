@@ -56,7 +56,6 @@ class Service {
   }
 
   create = async (data) => {
-    console.log(data);
     const doc = await this.model.create(data);
     if (doc)
     return {
