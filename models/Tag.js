@@ -35,12 +35,4 @@ const TagSchema = new Schema({
   timestamps: true
 });
 
-// TagSchema.pre('save', function(next) {
-  // const tag = this;
-  // const tagCategoryNames = tagNames[tag.category];
-  // if (!tagCategoryNames.includes(tag.name))
-//     return;
-//   next();
-// })
-
 module.exports = mongoose.models.Tag || mongoose.model('Tag', TagSchema);
