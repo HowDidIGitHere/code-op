@@ -9,16 +9,22 @@ class Notifications extends React.Component{
     }
   }
 
-componentDidMount(){
-  this.props.fetchRequests(this.props.currentUser)
-    .then(res => {
-      this.setState({requests: Object.values(res.requests)});
-    }
-    )
-}
+  componentDidMount(){
+    this.props.fetchRequests(this.props.currentUser)
+      .then(res => {
+        this.setState({requests: Object.values(res.requests)});
+      }
+      )
+  }
+
+  handleAccept(projectId, senderId, requestId){
+    this.props.fetchProject(projectId)
+      .then(result => this.props.updateProject({collaborators: result.collaborators.push(senderId)}))
+      .then(() => this.props.deleteRequest(requestId))
+  }
 
   render(){
-    console.log("render state", this.state)
+    // console.log("render state", this.state)
     return(
       <div className="notifications">
         {this.state.requests.map((request, idx) =>
@@ -37,8 +43,11 @@ componentDidMount(){
                 <div>{request.message}</div>
               </div>
               <div className="note-buttons">
-                <button className="accept" onClick={}>Accept</button>
-                <button className="decline">Decline</button>
+                <button className="accept" 
+                  onClick={() => handleAccept(request.projectId, request.senderId, request._id)}
+                >Accept
+                </button>
+                <button className="decline" onClick={() => this.props.deleteRequest(request._id)}>Decline</button>
               </div>
             </div>
 
