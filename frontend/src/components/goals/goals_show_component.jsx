@@ -10,6 +10,7 @@ class GoalsShow extends React.Component{
       <div className="goals-show">
         <div className="goals-title">
           <h1>{this.props.title}</h1>
+          <button>Edit</button> 
         </div>
 
         <div className="goals-dropdown">
