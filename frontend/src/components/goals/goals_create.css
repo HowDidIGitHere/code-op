@@ -1,6 +1,73 @@
 .goals-create-form{
-  position: absolute;
-  top: 10vh;
-  background-color: greenyellow;
-  border: 1px solid black;
+  width: 30vw;
+}
+
+.goals-create-title > h4{
+  margin-bottom: 0.5vh;
+}
+.goals-create-title > input{
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 97%;
+  padding: 0.5vw;
+}
+
+.goals-create-description > h4{
+  margin-bottom: 0.5vh;
+}
+.goals-create-description > input {
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 97%;
+  padding: 0.5vw;
+  padding-bottom: 8vh;
+}
+
+.goals-create-task-list > h4{
+  margin-bottom: 0.5vh;
+}
+
+.create-goal-tasks{
+  list-style-type: circle;
+}
+
+.goals-create-task{
+  display: grid;
+  grid-template-columns: 2fr 0.7fr;
+}
+.goals-create-task > div >h5{
+  margin-bottom: 0.5vh;
+}
+.goals-create-task > div > input{
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 100%;
+  padding: 0.5vw;
+}
+.add-task{
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+.add-task > button {
+  border-radius: 5px;
+  background-color: #cc9839;
+  padding: 8px;
+  color: white;
+}
+
+.add-goal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3vh;
+}
+.add-goal > button{
+  padding: 20px;
+  background-color: lightseagreen;
+  border-radius: 5px;
+  color: white;
+  font-size: 1vw;
+  width: 100%;
+  text-align: center;
 }

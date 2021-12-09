@@ -32,20 +32,21 @@ class NavBar extends React.Component {
   getLinks() {
       if (this.props.loggedIn) {
         return (
-            <div>
-                <Link to={'/projects'}>All Projects</Link>
-                <Link to={'/new_project'}>Create a Project</Link>
-                {this.props.user.id ? <Link to={`/users/${this.props.user.id}`}>Profile</Link> : ""}
-                <button onClick={(e) => this.logoutUser(e)}>Logout</button>
+          <div>
+              <button className='dem-button' onClick={() => this.props.openCreateGoalModal()}>Create Goal</button>
+              <Link to={'/projects'}>All Projects</Link>
+              <Link to={'/new_project'}>Create a Project</Link>
+              {this.props.user.id ? <Link to={`/users/${this.props.user.id}`}>Profile</Link> : ""}
+              <button onClick={(e) => this.logoutUser(e)}>Logout</button>
             </div>
         );
       } else {
         return (
             <div>
               <button className="demo-button" onClick={(e) => this.loginDemoUser(e)}>Demo Login</button>
-              <button className='signup' onClick={() => this.props.openSignupModal('signup')}>Sign Up</button>
-              <button className='login' onClick={() => this.props.openLoginModal('login')}>Login</button>
-              <button className='about-us' onClick={() => this.props.openAboutModal('about')}>About Us</button>
+              <button className='signup' onClick={() => this.props.openSignupModal()}>Sign Up</button>
+              <button className='login' onClick={() => this.props.openLoginModal()}>Login</button>
+              <button className='about-us' onClick={() => this.props.openAboutModal()}>About Us</button>
             </div>
         );
       }

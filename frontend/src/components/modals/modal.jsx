@@ -5,6 +5,7 @@ import LoginFormContainer from '../session/login_form_container';
 import SignupFormContainer from '../session/signup_form_container';
 import AboutComponent from '../about/about_component';
 import UserUpdateContainer from '../user/user_update_container';
+import GoalsCreateContainer from '../goals/goals_create_container';
 
 import './modal.css'
 
@@ -25,6 +26,9 @@ function Modal({modal, closeModal}) {
       break;
     case 'update':
       component = <UserUpdateContainer />;
+      break;
+    case 'create-goal':
+      component = <GoalsCreateContainer/>;
       break;
 
     default:

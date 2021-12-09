@@ -11,10 +11,10 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  
   openLoginModal: () => dispatch(openModal('login')),
   openSignupModal: () => dispatch(openModal('signup')),
   openAboutModal: () => dispatch(openModal('about')),
+  openCreateGoalModal: () => dispatch(openModal('create-goal')),
   closeModal: () => dispatch(closeModal()),
   login: (user) => dispatch(login(user)),
   logout: () => dispatch(logout())

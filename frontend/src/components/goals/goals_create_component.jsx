@@ -30,6 +30,8 @@ class GoalsCreate extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
+
+    // ====doesn't work with const goal :(
     // const goal = {}
     // goal[title] = this.state.title
     // goal[description] = this.state.description
@@ -44,14 +46,44 @@ class GoalsCreate extends React.Component{
 
     return(
       <form className="goals-create-form" onSubmit={this.handleSubmit}>
-        <input className="title" onChange={this.update('title')} type="text" placeholder="Title" value={this.state.title}/>
-        <textarea className="description" onChange={this.update('description')} type="text" placeholder="Description" value={this.state.description} />
-        
-        <h3>Create a new task</h3>
-        <input className="subtask" onChange={this.updateSubTask('body')} type="text" placeholder="body" value={this.state.subTask.body}/>
-        <button onClick={this.addSubTaskToArray}>Add Task</button>
+        <div className="goals-create-title">
+          <h4>Create a title:</h4>
+          <input className="title" onChange={this.update('title')} type="text" placeholder="Title" value={this.state.title}/>
+        </div>
 
-        <button type="submit">Add Goal</button>
+        <div className="goals-create-description">
+          <h4>Create a description:</h4>
+          <input className="description" onChange={this.update('description')} type="text" placeholder="Description" value={this.state.description} />
+        </div>
+
+        <div className="line"></div>
+
+        <div className="goals-create-task">
+          <div>
+            <h5>Create a new task:</h5>
+            <input className="subtask" onChange={this.updateSubTask('body')} type="text" placeholder="body" value={this.state.subTask.body}/>
+          </div>
+          <div className="add-task">
+            <button className="button" onClick={this.addSubTaskToArray}>Add Task</button>
+          </div>
+        </div>
+
+        <div className="line"></div>
+        
+        <div className="goals-create-task-list">
+          <h4>Tasks:</h4>
+          {this.state.tasks.map((task, idx) => 
+            <li className="create-goal-tasks" key={idx}>
+              {task.body}
+            </li>
+          )}
+        </div>
+        
+        <div className="line"></div>
+
+        <div className="add-goal">
+          <button type="submit">Finish</button>
+        </div>
       </form>
     )
   }
