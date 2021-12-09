@@ -32,18 +32,19 @@ class NavBar extends React.Component {
   getLinks() {
       if (this.props.loggedIn) {
         return (
-          <div>
-              <button className='dem-button' onClick={() => this.props.openCreateGoalModal()}>Create Goal</button>
-              <Link to={'/projects'}>All Projects</Link>
-              <Link to={'/new_project'}>Create a Project</Link>
-              {this.props.user.id ? <Link to={`/users/${this.props.user.id}`}>Profile</Link> : ""}
-              <button onClick={(e) => this.logoutUser(e)}>Logout</button>
+          <div className='dropdown'>
+            <button className="dropdown-btn"><i class="fas fa-bars fa-2x"></i></button>
+            <div className='dropdown-content-2'>
+                <Link className='drop-item' to={'/projects'}>All Projects</Link>
+                <Link className='drop-item' to={'/new_project'}>Create a Project</Link>
+                {this.props.user.id ? <Link className='drop-item' to={`/users/${this.props.user.id}`}>Profile</Link> : ""}
+                <p className='drop-item logout' onClick={(e) => this.logoutUser(e)}>Logout</p>
+                </div>
             </div>
         );
       } else {
         return (
             <div>
-              {/* <button className="demo-button" onClick={(e) => this.loginDemoUser(e)}>Demo Login</button> */}
               <button className='signup' onClick={() => this.props.openSignupModal('signup')}>Sign Up</button>
               <button className='login' onClick={() => this.props.openLoginModal('login')}>Login</button>
             </div>
