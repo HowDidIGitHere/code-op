@@ -61,7 +61,7 @@ class GoalsCreate extends React.Component{
         <div className="goals-create-task">
           <div>
             <h5>Create a new task:</h5>
-            <input className="subtask" onChange={this.updateSubTask('body')} type="text" placeholder="body" value={this.state.subTask.body}/>
+            <input className="subtask" onChange={this.updateSubTask('body')} type="text" placeholder="'Deploy for staging'" value={this.state.subTask.body}/>
           </div>
           <div className="add-task">
             <button className="button" onClick={this.addSubTaskToArray}>Add Task</button>
