@@ -19,15 +19,20 @@ class Notifications extends React.Component{
       )
   }
 
-  handleAccept(projectId, senderId, requestId){
+  handleAccept(projectId, senderId, requestId, index){
     this.props.fetchProject(projectId)
-      .then(result =>
-        this.props.updateProject({collaborators: result.project.collaborators.push(senderId)})
-      )
-      .then(() => this.props.deleteRequest(requestId))
+      .then(result => {
+        this.props.updateProject({ ...result.project, [result.project.collaborators]: result.project.collaborators.push(senderId)})
+      })
+      .then(() => {
+        this.state.requests.splice(index, 1)
+        this.setState({requests: this.state.requests});
+        this.props.deleteRequest(requestId);
+      })
   }
 
   render(){
+    console.log("render state:", this.state)
     return(
       <div className="notifications">
         {this.state.requests.map((request, idx) =>
@@ -48,7 +53,7 @@ class Notifications extends React.Component{
             <div className="line"></div>
               <div className="note-buttons">
                 <button className="accept" 
-                  onClick={() => this.handleAccept(request.projectId, request.senderId, request._id)}
+                  onClick={() => this.handleAccept(request.projectId, request.senderId, request._id, idx)}
                 >Accept
                 </button>
                 <button className="decline" onClick={() => this.props.deleteRequest(request._id)}>Decline</button>
