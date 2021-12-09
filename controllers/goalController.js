@@ -1,8 +1,5 @@
 const Controller = require("./baseController");
-const GoalService = require("../services/GoalService");
-const Goal = require("../models/Goal");
-
-const goalService = new GoalService(new Goal().getInstance());
+const goalService = require("../services/goalService");
 
 class GoalController extends Controller {
   constructor(service) {

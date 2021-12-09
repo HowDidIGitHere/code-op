@@ -1,4 +1,5 @@
-const Service = require("./Service")
+const Service = require('./Service');
+const Goal = require('../models/Goal');
 
 class GoalService extends Service {
   constructor(model) {
@@ -6,4 +7,4 @@ class GoalService extends Service {
   }
 }
 
-module.exports = GoalService;
+module.exports = new GoalService(Goal);
