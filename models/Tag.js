@@ -11,9 +11,9 @@ const TagSchema = new Schema({
     validate: {
       validator: function(val) {
         const tagCategoryNames = tagNames[this.category];
-        return tagCategoryNames.includes(tag.name);
+        return tagCategoryNames ? tagCategoryNames.includes(val): false;
       },
-      message: 'Password confirmation failed'
+      message: 'Tag names must match their category'
     }
   },
   category: {
