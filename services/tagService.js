@@ -9,22 +9,22 @@ class TagService extends Service {
   }
 
   getAllTagNamesWrapper = get => async (query) => {
-    const { categories } = query;
-    let selection = { _id: 'tags' };
+    const { namesByCategory } = query;
+    let selection = { _id: 'namesByCategory' };
 
-    if (!categories)
+    if (!namesByCategory)
       return await get(query);
 
-    if (Array.isArray(categories))
-      categories.forEach(category => {
+    if (Array.isArray(namesByCategory))
+      namesByCategory.forEach(category => {
         if (tagNames[category])
           selection[category] = tagNames[category];
       });
-    else if (categories === 'all')
+    else if (namesByCategory === 'all')
       selection = { ...selection, ...tagNames };
     else
-      if (tagNames[categories])
-        selection[categories] = tagNames[categories];
+      if (tagNames[namesByCategory])
+        selection[namesByCategory] = tagNames[namesByCategory];
     return {
       status: 200,
       data: [selection]
@@ -36,7 +36,13 @@ class TagService extends Service {
     if (data.names) {
       const names = data.names.split(',');
       doc = await this.model.insertMany(names.map(name => {
-        return { name, it: data.it, modelType: data.modelType }
+        let category;
+        for (const tagCategory in tagNames) {
+          if (tagNames[tagCategory].includes(name)) {
+            category = tagCategory;
+          }
+        }
+        return { name, it: data.it, modelType: data.modelType, category }
       }));
     } else {
       doc = await this.model.create(data);

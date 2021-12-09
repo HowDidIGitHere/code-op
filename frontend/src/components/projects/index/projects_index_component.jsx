@@ -9,10 +9,18 @@ class ProjectsIndex extends React.Component {
 
     this.state = {
     }
+    this.handleRequest = this.handleRequest.bind(this)
   }
 
   componentWillMount() {
     this.props.fetchProjects();
+  }
+
+  handleRequest(e) {
+    e.preventDefault();
+
+    this.props.requestModal();
+    this.props.oneProject(e.target.id)
   }
 
   render() {
@@ -28,7 +36,12 @@ class ProjectsIndex extends React.Component {
         <div className='right-index'>
           <div className='right-index-listings'>
               {this.props.projects.map((project) => {
-                return <IndexProjectListing key={project.id} project={project}/>
+                return <IndexProjectListing 
+                  key={project.id} 
+                  project={project}
+                  id={project._id}
+                  handleRequest={this.handleRequest}
+                />
               })}             
           </div>
         </div>

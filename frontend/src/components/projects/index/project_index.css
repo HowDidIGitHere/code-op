@@ -111,8 +111,6 @@
   flex-direction: row;
   flex-basis: 100%;
   flex-wrap: wrap;
-  /* columns: 240px;
-  column-gap:20px; */
   width: 100%;
   justify-content: center;
 }
@@ -127,8 +125,6 @@
   background-color: #E6F2E2;
   border-radius: 20px;
   margin:0 10px 40px 10px;
-  /* width: 100%;
-  height: 100%; */
 }
 
 .index-listing-content {

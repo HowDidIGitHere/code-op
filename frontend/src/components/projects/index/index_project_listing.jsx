@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IndexProjectListing = ({ project }) => {
+const IndexProjectListing = ({ project,id, handleRequest }) => {
   return(
     <ul className='index-listing-component'>
       <div className='testing123'>
@@ -10,7 +10,11 @@ const IndexProjectListing = ({ project }) => {
       </div>
       <div className='index-listing-footer'>
         <button className='learn-more'>Learn More</button>
-        <button className='apply-now'>Apply Now</button>
+        <button 
+          className='apply-now' 
+          id={id}
+          onClick={handleRequest}
+          >Apply Now</button>
       </div>
       </div>
     </ul>

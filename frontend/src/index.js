@@ -6,8 +6,7 @@ import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
-import { fetchProjects } from './actions/project_actions'
-import { getProjects } from './util/project_api_util'
+import * as userActions from './actions/user_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -32,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const root = document.getElementById('root');
   window.store = store
+  window.userActions = userActions;
   
   ReactDOM.render(<Root store={store} />, root);
 });

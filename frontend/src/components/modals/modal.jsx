@@ -34,10 +34,9 @@ function Modal({modal, closeModal}) {
     case 'notifications':
       component = <Notifications />;
       break;
-    // case 'project-request':
-    //   component = <ProjectRequestContainer/>
-    // break;
-
+    case 'request':
+      component = <ProjectRequestContainer/>;
+      break;
     default:
       return null;
   }
