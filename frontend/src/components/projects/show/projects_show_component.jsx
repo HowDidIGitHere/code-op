@@ -139,7 +139,7 @@ class ProjectsShow extends React.Component {
                   <ul>
                     {
                       this.state.goals.map((goal, idx) => {
-                        return <GoalsShow key={`goals-list-item-${idx}`} goal={goal}/>
+                        return <GoalsShow key={`goals-list-item-${idx}`} goal={goal} updateGoal={this.props.updateGoal} />
                       })
                     }
                   </ul>
