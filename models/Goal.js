@@ -24,6 +24,10 @@ const GoalSchema = new Schema({
     type: String,
     required: [true, "Please add a brief description"]
   },
+  upvotes: {
+    type: Number,
+    default: 0
+  },
   tasks: [TaskSchema],
 }, {
   timestamps: true

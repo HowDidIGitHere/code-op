@@ -1,16 +1,10 @@
 import * as DiagramApiUtil from "../util/diagrams_api_util";
 
 // Action types
-export const RECEIVE_DIAGRAMS = "RECEIVE_DIAGRAMS";
 export const RECEIVE_DIAGRAM = "RECEIVE_DIAGRAM";
 export const REMOVE_DIAGRAM = "REMOVE_DIAGRAM";
 
 // Actions
-export const receiveDiagrams = diagrams => ({
-  type: RECEIVE_DIAGRAMS,
-  diagrams
-});
-
 export const receiveDiagram = diagram => ({
   type: RECEIVE_DIAGRAM,
   diagram
@@ -22,9 +16,9 @@ export const removeDiagram = diagramId => ({
 });
 
 // Thunk Action Creators
-export const fetchDiagrams = diagramsArr => dispatch => (
-  DiagramApiUtil.getDiagrams(diagramsArr)
-    .then(diagrams => dispatch(receiveDiagrams(diagrams.data)))
+export const fetchDiagram = diagramId => dispatch => (
+  DiagramApiUtil.getDiagram(diagramId)
+    .then(diagram => dispatch(receiveDiagram(diagram.data)))
     .catch(err => console.log(err))
 )
 

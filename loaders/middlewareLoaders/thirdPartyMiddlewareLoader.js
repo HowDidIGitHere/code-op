@@ -4,26 +4,14 @@ const helmet = require("helmet");
 const hpp = require("hpp");
 const mongoSanitize = require("express-mongo-sanitize");
 const morgan = require("morgan");
-const path = require("path");
 const rateLimit = require("express-rate-limit");
-const xss = require("xss-clean");
 const bodyParser = require("body-parser");
 const passport = require("passport");
+const xss = require("../../utils/xssClean");
 
 module.exports = app => {
-  app.use(function(req, res, next) {
-    console.log('\n\n\nTest 1');
-    console.log(req.body);
-    next();
-  })
   // Sets security http headers
   app.use(helmet());
-
-  app.use(function(req, res, next) {
-    console.log('\n\n\nTest 2');
-    console.log(req.body);
-    next();
-  })
 
   // Logs requests
   app.use(morgan("dev"));
@@ -43,27 +31,13 @@ module.exports = app => {
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
 
-  app.use(function(req, res, next) {
-    console.log('\n\n\nTest 3');
-    console.log(req.body);
-    next();
-  })
-
   // Sanitize data against NoSQL query injections
   app.use(mongoSanitize());
-  app.use(function(req, res, next) {
-    console.log('\n\n\nTest 4');
-    console.log(req.body);
-    next();
-  })
 
   // Sanitize data against XSS
-  app.use(xss());
-  app.use(function(req, res, next) {
-    console.log('\n\n\nTest 5');
-    console.log(req.body);
-    next();
-  })
+  app.use(xss({ 
+    allowlist: { body: ['content'] }
+  }));
 
   // Prevent parameter pollution
   app.use(hpp({ whitelist: [] }));

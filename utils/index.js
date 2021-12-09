@@ -1,4 +1,5 @@
 module.exports = {
   catchAsync: require('./catchAsync'),
-  ServerError: require('./ServerError')
+  ServerError: require('./ServerError'),
+  xssClean: require('./xssClean')
 }

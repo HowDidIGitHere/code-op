@@ -1,7 +1,7 @@
 .create-project {
   background-color: #EAEBEA;
   width: 100%;
-  margin-top: 63px;
+  margin-top: 90px;
   top: 0;
   left: 0;
   bottom: 0;
@@ -16,7 +16,7 @@
   background-color: white;
   left: 50%;
   width: 650px;
-  height: 450px;
+  height: 530px;
   margin: 50px 0px 50px -325px;
   border-radius: 10px;
 }
@@ -29,11 +29,12 @@
   font-size: 25px;
   font-weight: 600;
   padding-top: 30px;
+  margin-left: 8px;
 }
 
 .form-body {
   display: flex;
-  margin: 5px -70px 0 30px;
+  margin: 5px -70px 0 15px;
   padding-top: 30px;
   text-align: left;
 }
@@ -78,9 +79,9 @@
 
 .save-button { 
   color: white;
-  background-color: #DC011B;
+  background-color: rgb(30, 160, 154);
   margin-top: 18px;
-  font-size: 12px;
+  font-size: 15px;
   padding: 10px;
   border-radius: 10px;
 }

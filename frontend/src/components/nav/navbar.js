@@ -5,17 +5,17 @@ import './navbar.css'
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-    this.demoUser = {email: 'demo@demo.com', password: 'password'}
+    // this.demoUser = {email: 'demo@demo.com', password: 'password'}
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
-  loginDemoUser(e) {
-    e.preventDefault()
-    this.props.login(this.demoUser)
-    this.props.closeModal()
-  }
+  // loginDemoUser(e) {
+  //   e.preventDefault()
+  //   this.props.login(this.demoUser)
+  //   this.props.closeModal()
+  // }
 
   handleClick(e) {
     e.preventDefault();
@@ -32,19 +32,19 @@ class NavBar extends React.Component {
   getLinks() {
       if (this.props.loggedIn) {
         return (
-          <div>
-                      <button className='dem-button' onClick={() => this.props.openCreateGoalModal()}>Create Goal</button>
-
-            <Link to={'/projects'}>All Projects</Link>
-            <Link to={'/new_project'}>Create a Project</Link>
-            {this.props.user.id ? <Link to={`/users/${this.props.user.id}`}>Profile</Link> : ""}
-            <button onClick={(e) => this.logoutUser(e)}>Logout</button>
-          </div>
+          <div className='dropdown'>
+            <button className="dropdown-btn"><i class="fas fa-bars fa-2x"></i></button>
+            <div className='dropdown-content-2'>
+                <Link className='drop-item' to={'/projects/new'}>Create a Project</Link>
+                <Link className='drop-item' to={'/projects'}>All Projects</Link>
+                {this.props.user.id ? <Link className='drop-item' to={`/users/${this.props.user.id}`}>Profile</Link> : ""}
+                <p className='drop-item logout' onClick={(e) => this.logoutUser(e)}>Logout</p>
+                </div>
+            </div>
         );
       } else {
         return (
             <div>
-              <button className="demo-button" onClick={(e) => this.loginDemoUser(e)}>Demo Login</button>
               <button className='signup' onClick={() => this.props.openSignupModal('signup')}>Sign Up</button>
               <button className='login' onClick={() => this.props.openLoginModal('login')}>Login</button>
             </div>
