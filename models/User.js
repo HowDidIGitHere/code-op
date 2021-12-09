@@ -1,7 +1,6 @@
 const bcrypt = require('bcryptjs');
 const Validator = require("validator");
 const mongoose = require("mongoose");
-const Model = require('./BaseModel');
 const Schema = mongoose.Schema;
 
 const PositionSchema = new Schema({

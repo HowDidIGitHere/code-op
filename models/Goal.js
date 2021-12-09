@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Validator = require("validator");
-const Model = require('./BaseModel');
 const Schema = mongoose.Schema;
 
 const TaskSchema = new Schema({
