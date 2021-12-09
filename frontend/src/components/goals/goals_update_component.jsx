@@ -15,6 +15,10 @@ class GoalsCreate extends React.Component{
     this.addSubTaskToArray = this.addSubTaskToArray.bind(this)
   }
 
+  componentDidMount(){
+    this.props.fetchGoal()
+  }
+
   update(field){
     return e => this.setState({[field]: e.currentTarget.value})
   }
@@ -30,7 +34,7 @@ class GoalsCreate extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.createGoal(this.state)
+    this.props.updateGoal  (this.state)
   }
 
   render(){
