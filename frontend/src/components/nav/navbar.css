@@ -66,7 +66,11 @@
   background-color:#21A59A;
 }
 
-.signup:hover, .about-us:hover, .login:hover, .logout:hover{
+.logout {
+  padding-bottom: 5px;
+}
+
+.signup:hover, .about-us:hover, .login:hover, .logout:hover, .hidden-project:hover{
   cursor: pointer;
 }
 
@@ -103,9 +107,18 @@ margin-top: 10px;
   display: block;
   position: relative;
   font-size: 18px;
-  padding-bottom: 5px;
+  padding-top: 5px;
 }
 
-.drop-item:hover {
+.drop-item:hover, .hidden-project:hover{
   color: lightseagreen
+}
+
+
+.hidden-project {
+  text-align: right;
+}
+
+.current-project:focus {
+  display: block;
 }

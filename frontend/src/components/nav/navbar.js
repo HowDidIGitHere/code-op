@@ -8,6 +8,14 @@ class NavBar extends React.Component {
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.projectClick = this.projectClick.bind(this);
+  }
+
+  projectClick(e) {
+    e.preventDefault()
+    this.props.history.push(`/projects/${e.target.id}`)
+    window.location.reload();
+
   }
 
   handleClick(e) {
@@ -30,13 +38,22 @@ class NavBar extends React.Component {
             <div className='dropdown-content-2'>
                 <Link className='drop-item' to={'/projects/new'}>Create a Project</Link>
                 <Link className='drop-item' to={'/projects'}>Discover Page</Link>
-                <p>Notifications</p>
-                {this.props.user.id ? <Link className='drop-item' to={`/users/${this.props.user.id}`}>Profile</Link> : ""}
-                <p tabIndex='1'>Current Projects</p>
-                {this.props.projects.map((project) => {
-                  if (project.creator === this.props.user.id)
-                    return <Link className='hidden-project' to={`/projects/${project.id}`}>{project.title}</Link>
-                })}
+                <p className='drop-item' >Notifications</p>
+                <p className='drop-item current-project' tabIndex='1'>Current Projects</p>
+                <div className='hidden-projects'>
+                  {this.props.projects.map((project) => {
+                    if (project.creator === this.props.user.id)
+                      return (
+                        <div>
+                          <button 
+                            id={project._id} 
+                            className='hidden-project' 
+                            onClick={this.projectClick}
+                            >{project.title}</button>
+                        </div>
+                  )})}
+                </div>
+                  {this.props.user.id ? <Link className='drop-item' to={`/users/${this.props.user.id}`}>Profile</Link> : ""}
                 <p className='drop-item logout' onClick={(e) => this.logoutUser(e)}>Logout</p>
                 </div>
             </div>
