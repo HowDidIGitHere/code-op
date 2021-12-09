@@ -1,4 +1,4 @@
 {
   "watch": ["*.*"],
-  "ext": "csv, env"
+  "ext": "js, csv, env"
 }

@@ -61,8 +61,6 @@ const sendErrorProd = (err, res) => {
 module.exports = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
   err.status = err.status || 'error';
-  console.log('in error conrtoller');
-  console.log(process.env.NODE_ENV);
 
   if (process.env.NODE_ENV === 'development') {
     sendErrorDev(err, res);
@@ -70,7 +68,6 @@ module.exports = (err, req, res, next) => {
     // make copy of err object
     let error = JSON.parse(JSON.stringify(err));
     error.message = err.message;
-    console.log(error);
 
     if(error.code === 11000) {
       error = handleDuplicateKeyError(error);
