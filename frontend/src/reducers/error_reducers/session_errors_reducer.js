@@ -1,20 +1,20 @@
 import { 
   RECEIVE_CURRENT_USER,
-  REMOVE_CURRENT_USER,
+  RECEIVE_USER_LOGOUT,
   RECEIVE_SESSION_ERRORS
 } from "../../actions/session_actions";
 import { REMOVE_ERROR } from "../../actions/error_actions";
 
-const sessionErrorsReducer = data => {
+const SessionErrorsReducer = data => {
   return (state=[], action) => {
     Object.freeze(state);
     const nextState = Object.assign({}, state);
     switch(action.type) {
-      case REMOVE_CURRENT_USER:
+      case RECEIVE_USER_LOGOUT:
       case RECEIVE_CURRENT_USER:
         return {};
       case RECEIVE_SESSION_ERRORS:
-        const errors = action.errors;
+        const errors = Object.values(action.errors);
         errors.forEach(error => { nextState[data.errorCount+=1] = error; });
         return nextState;
       case REMOVE_ERROR:
@@ -26,4 +26,4 @@ const sessionErrorsReducer = data => {
   }
 }
 
-export default sessionErrorsReducer;
+export default SessionErrorsReducer;

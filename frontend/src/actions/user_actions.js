@@ -2,8 +2,10 @@ import * as UserApiUtil from "../util/user_api_util"
 
 // Action types
 export const RECEIVE_COLLABORATORS = "RECEIVE_COLLABORATORS";
+export const RECEIVE_USERS = "RECEIVE_USERS";
 export const RECEIVE_USER = "RECEIVE_USER";
 export const REMOVE_USER = "REMOVE_USER"
+export const RECEIVE_USER_ERRORS = "RECEIVE_USER_ERRORS";
 
 // Actions
 export const receiveCollaborators = collaborators => ({
@@ -21,27 +23,40 @@ export const removeUser = userId => ({
   userId
 })
 
+export const receiveUserErrors = errors => ({
+  type: RECEIVE_USER_ERRORS,
+  errors
+})
+
 // Thunk Action Creators
 export const fetchCollaborators = collaborators => dispatch => (
   UserApiUtil.getCollaborators(collaborators)
     .then(collaborators => dispatch(receiveCollaborators(collaborators.data)))
-    .catch(err => console.log(err))
+    .catch(({ response }) => (
+        dispatch(receiveUserErrors(response.data.errors))
+    ))
 )
 
 export const fetchUser = userId => dispatch => (
   UserApiUtil.getUser(userId)
     .then(user => dispatch(receiveUser(user.data)))
-    .catch(err => console.log(err))
+    .catch(({ response }) => (
+        dispatch(receiveUserErrors(response.data.errors))
+    ))
 )
 
 export const updateUser = user => dispatch => (
   UserApiUtil.updateUser(user)
     .then(user => dispatch(receiveUser(user.data)))
-    .catch(err => console.log(err))
+    .catch(({ response }) => (
+        dispatch(receiveUserErrors(response.data.errors))
+    ))
 )
 
 export const deleteUser = userId => dispatch => (
   UserApiUtil.deleteUser(userId)
     .then(() => dispatch(removeUser(userId)))
-    .catch(err => console.log(err))
+    .catch(({ response }) => (
+        dispatch(receiveUserErrors(response.data.errors))
+    ))
 )
