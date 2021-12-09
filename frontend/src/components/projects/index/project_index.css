@@ -107,21 +107,28 @@
 }
 
 .right-index-listings {
-  columns: 240px;
-  column-gap:20px;
+  display: flex;
+  flex-direction: row;
+  flex-basis: 100%;
+  flex-wrap: wrap;
+  /* columns: 240px;
+  column-gap:20px; */
+  width: 100%;
+  justify-content: center;
 }
 
 .testing123 {
   height: 320px;
+  width: 220px;
   position: relative;
+  display: inline-block; 
 }
 .index-listing-component {
-  display: inline-block;
   background-color: #E6F2E2;
   border-radius: 20px;
-  margin-bottom: 30px;
-  width: 100%;
-  height: 100%;
+  margin:0 10px 40px 10px;
+  /* width: 100%;
+  height: 100%; */
 }
 
 .index-listing-content {
