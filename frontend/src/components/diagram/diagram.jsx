@@ -64,7 +64,6 @@ export default class Diagram extends React.Component {
   }
 
   render() {
-    console.log(this.props.chart)
     return <div className="mermaid">
       {this.props.chart}
     </div>
