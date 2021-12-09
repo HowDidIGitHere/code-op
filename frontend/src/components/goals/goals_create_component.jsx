@@ -30,14 +30,6 @@ class GoalsCreate extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-
-    // ====doesn't work with const goal :(
-    // const goal = {}
-    // goal[title] = this.state.title
-    // goal[description] = this.state.description
-    // goal[tasks] = this.state.tasks
-
-    // this.props.createGoal(goal)
     this.props.createGoal(this.state)
   }
 

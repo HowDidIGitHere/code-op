@@ -1,8 +1,7 @@
 import axios from "axios";
 
-export const getDiagrams = diagrams => {
-  diagrams = diagrams.join(",");
-  return axios.get("/api/diagrams", { params: { _id: diagrams } })
+export const getDiagram = dataId => {
+  return axios.get(`/api/diagrams/${dataId}`)
 }
 
 export const createDiagram = data => {

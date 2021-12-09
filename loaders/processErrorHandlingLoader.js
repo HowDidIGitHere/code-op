@@ -1,5 +1,3 @@
-const { catchAsync } = require("../utils");
-
 module.exports = () => {
   process.on('uncaughtException', error => {
     console.log("UNCAUGHT EXCEPTION! Shutting down...");

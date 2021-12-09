@@ -55,13 +55,14 @@ class Service {
     };
   }
 
-   create = async (data) => {
+  create = async (data) => {
+    console.log(data);
     const doc = await this.model.create(data);
     if (doc)
-      return {
-        status: 201,
-        doc
-      };
+    return {
+      status: 201,
+      doc
+    };
   }
 
   update = async (id, data) => {

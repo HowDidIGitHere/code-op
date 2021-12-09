@@ -4,7 +4,6 @@ const helmet = require("helmet");
 const hpp = require("hpp");
 const mongoSanitize = require("express-mongo-sanitize");
 const morgan = require("morgan");
-const path = require("path");
 const rateLimit = require("express-rate-limit");
 const bodyParser = require("body-parser");
 const passport = require("passport");

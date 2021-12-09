@@ -24,9 +24,6 @@ class Controller {
 
   create = catchAsync(async (req, res) => {
     let response = await this.service.create(req.body);
-    if (response.error) {
-      return res.status(response.status).send(response);
-    }
     let { doc } = response;
     return res.status(201).send(doc);
   });
