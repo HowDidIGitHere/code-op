@@ -3,6 +3,15 @@ import React from "react";
 class GoalsShow extends React.Component{
   constructor(props){
     super(props)
+    this.toggle = false
+  }
+
+  handleToggle(){
+    if (!this.toggle){
+      this.toggle = true
+    } else {
+      this.toggle = false
+    }
   }
 
   render(){
@@ -10,10 +19,10 @@ class GoalsShow extends React.Component{
       <div className="goals-show">
         <div className="goals-title">
           <h1>{this.props.title}</h1>
-          <button>Edit</button> 
+          <button onClick={this.handleToggle}>Edit</button> 
         </div>
 
-        <div className="goals-dropdown">
+        <div className="goals-dropdown" style={this.toggle ? {display: "block"} : {display: "none"}}>
           <div className="goals-description">{this.props.description}</div>
 
           <div className="line"></div>
