@@ -2,6 +2,7 @@ import React from 'react';
 import Diagram from '../../diagram/diagram';
 import Collaborators from './collaborators';
 import GoalItem from './goals';
+import mermaid from 'mermaid';
 
 class ProjectsShow extends React.Component {
   constructor(props) {
@@ -54,9 +55,12 @@ class ProjectsShow extends React.Component {
   handleDiagramSubmit(e) {
     e.preventDefault();
     e.stopPropagation();
+
+    let x = document.getElementById('potato')
+    x.removeAttribute("data-processed")
+    mermaid.init(undefined, x)
+
     const newDiagram = Object.assign({}, this.state.diagram);
-    console.log(this.state)
-    console.log(newDiagram);
     this.props.updateDiagram(newDiagram);
   }
 
