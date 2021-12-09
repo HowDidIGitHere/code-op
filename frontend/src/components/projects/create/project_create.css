@@ -79,9 +79,9 @@
 
 .save-button { 
   color: white;
-  background-color: #DC011B;
+  background-color: rgb(30, 160, 154);
   margin-top: 18px;
-  font-size: 12px;
+  font-size: 15px;
   padding: 10px;
   border-radius: 10px;
 }
