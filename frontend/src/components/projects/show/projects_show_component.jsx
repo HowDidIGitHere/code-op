@@ -12,6 +12,7 @@ class ProjectsShow extends React.Component {
       project: undefined,
       collaborators: undefined,
       goals: undefined,
+      staticDiagram: undefined,
       diagram: undefined
     }
 
@@ -22,11 +23,13 @@ class ProjectsShow extends React.Component {
   componentWillMount() {
     this.props.fetchProject()
       .then(res => this.setState({ project: res.project }, () => {
-        this.props.fetchCollaborators(this.state.project.collaborators)
-          .then(res => {
-            const nextState = Object.assign({}, this.state, { collaborators: Object.values(res.collaborators) })
-            this.setState(nextState);
-          })
+        if (this.state.project.collaborators.length !== 0) {
+          this.props.fetchCollaborators(this.state.project.collaborators)
+            .then(res => {
+              const nextState = Object.assign({}, this.state, { collaborators: Object.values(res.collaborators) })
+              this.setState(nextState);
+            })
+        }
         if (this.state.project.goals.length !== 0) {
           this.props.fetchGoals(this.state.project.goals)
             .then(res => {
@@ -37,7 +40,7 @@ class ProjectsShow extends React.Component {
         if (this.state.project.diagram) {
           this.props.fetchDiagram(this.state.project.diagram)
             .then(res => {
-              const nextState = Object.assign({}, this.state, { diagram: res.diagram })
+              const nextState = Object.assign({}, this.state, { staticDiagram: res.diagram }, { diagram: res.diagram })
               this.setState(nextState);
             })
         }
@@ -55,15 +58,18 @@ class ProjectsShow extends React.Component {
   handleDiagramSubmit(e) {
     e.preventDefault();
     e.stopPropagation();
-
-    let x = document.getElementById('potato')
-    x.removeAttribute("data-processed")
-    mermaid.init(undefined, x)
-
     const newDiagram = Object.assign({}, this.state.diagram);
-    this.props.updateDiagram(newDiagram);
+    this.props.updateDiagram(newDiagram).then(() => {
+      const nextState = Object.assign({}, this.state, { staticDiagram: newDiagram })
+      this.setState(nextState, () => {
+        if (nextState.staticDiagram.content) {
+          let x = document.getElementById('potato')
+          x.removeAttribute("data-processed")
+          mermaid.init(undefined, x);
+        }
+      })
+    });
   }
-
 
   render() {
     if (!this.state.project) {
@@ -93,11 +99,11 @@ class ProjectsShow extends React.Component {
                 <h1>Goals:</h1>
               </div>
               <div className='goal-list'>
-                <div className='goal-list'>
+                {/* <div className='goal-list'>
                   <GoalItem />
                   <GoalItem />
                   <GoalItem />
-                </div>
+                </div> */}
               </div>
               <div className='diagram-section'>
                 <div className='diagram-header'>
@@ -107,7 +113,7 @@ class ProjectsShow extends React.Component {
                   {
                     this.state.diagram ? (
                       <div>
-                        <Diagram chart={this.state.diagram.content} />
+                        <Diagram chart={this.state.staticDiagram.content} />
                       </div>
                       ) : (
                         null

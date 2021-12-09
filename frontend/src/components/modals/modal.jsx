@@ -6,7 +6,7 @@ import SignupFormContainer from '../session/signup_form_container';
 import AboutComponent from '../about/about_component';
 import UserUpdateContainer from '../user/user_update_container';
 import GoalsCreateContainer from '../goals/goals_create_container';
-import ProjectRequestContainer from '../requests/project_request_container';
+import ProjectRequestContainer from '../requests/project_request_container'
 
 import './modal.css'
 
@@ -31,8 +31,9 @@ function Modal({modal, closeModal}) {
     case 'create-goal':
       component = <GoalsCreateContainer/>;
       break;
-    // case 'project-request':
-    //   component = <ProjectRequestContainer/>
+    case 'request':
+      component = <ProjectRequestContainer/>;
+      break;
     default:
       return null;
   }
