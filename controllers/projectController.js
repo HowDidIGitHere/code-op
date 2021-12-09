@@ -1,5 +1,5 @@
 const Controller = require("./baseController");
-const projectService = require("../services/ProjectService");
+const projectService = require("../services/projectService");
 
 class ProjectController extends Controller {
   constructor(service) {
