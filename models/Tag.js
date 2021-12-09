@@ -9,7 +9,8 @@ const TagSchema = new Schema({
   },
   category: {
     type: String,
-    required: [true, "Please enter a tag category"]
+    required: [true, "Please enter a tag category"],
+    enum: ['skill', 'platform', 'software']
   },
   it: {
     type: Schema.Types.ObjectId,

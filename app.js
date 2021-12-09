@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const loaders = require("./loaders/rootLoader");
 const app = express();
+require('./utils/tags');
 
 const startServer = () => {
   if (process.env.NODE_ENV === 'production') {

@@ -34,7 +34,7 @@ class UserService extends Service {
       passwordConfirm: userInfo.passwordConfirm
     });
   
-    const token = this.createJWT(user);
+    const token = this.createJwt(user);
     return {
       statusCode: 200,
       token: 'Bearer ' + token
@@ -61,7 +61,7 @@ class UserService extends Service {
     
     const passwordIsMatch = await bcrypt.compare(password, user.password);
     if (passwordIsMatch) {
-      const token = this.createJWT(user);
+      const token = this.createJwt(user);
       return {
         statusCode: 200,
         success: true,
@@ -72,7 +72,7 @@ class UserService extends Service {
     }
   }
 
-  createJWT(user) {
+  createJwt(user) {
     const payload = { id: user.id, username: user.username };
     return jwt.sign(payload, keys.secretOrKey, { expiresIn: 60 * 60 * 24 * 90 });
   }
