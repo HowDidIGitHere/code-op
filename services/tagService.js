@@ -36,7 +36,13 @@ class TagService extends Service {
     if (data.names) {
       const names = data.names.split(',');
       doc = await this.model.insertMany(names.map(name => {
-        return { name, it: data.it, modelType: data.modelType }
+        let category;
+        for (const tagCategory in tagNames) {
+          if (tagNames[tagCategory].includes(name)) {
+            category = tagCategory;
+          }
+        }
+        return { name, it: data.it, modelType: data.modelType, category }
       }));
     } else {
       doc = await this.model.create(data);
