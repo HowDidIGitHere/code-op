@@ -1,6 +1,37 @@
 .project-request {
   width: 380px;
   height: 190px;
-  background-color: #E6F2E2;
+  background-color: whitesmoke;
   border-radius: 15px;
+  padding: 15px;
+}
+
+.form-greeting {
+  width: 100%;
+}
+
+.greeting {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.question {
+  padding: 10px 0 20px 0;
+  font-size: 17px;
+}
+
+.roles > p {
+  font-size: 14px;
+}
+
+.submit {
+  position: absolute;
+  background-color: #21A59A;
+  color: whitesmoke;
+  border-radius: 5px;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+  margin: 10px;
+  /* padding-right: 30px; */
 }

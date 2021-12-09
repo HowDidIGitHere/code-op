@@ -17,13 +17,13 @@ class ProjectRequest extends React.Component {
     return (
       <form className='project-request' >
         <div className='form-greeting'>
-          <p>Hi {user.username}!</p>
-          <p>Would you like to send a request to join {project.title}?</p>
+          <p className='greeting'>Hi {user.username}!</p>
+          <p className='question'>Would you like to send a request to join {project.title}?</p>
         </div>
         <div className='roles'>
           <p>Please choose which role you would like to fill: </p>
         </div>
-        <button type='submit'>Send Request</button>
+        <button className='submit' type='submit'>Send Request</button>
       </form>
     )
   }
