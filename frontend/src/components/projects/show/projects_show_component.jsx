@@ -22,11 +22,13 @@ class ProjectsShow extends React.Component {
   componentWillMount() {
     this.props.fetchProject()
       .then(res => this.setState({ project: res.project }, () => {
-        this.props.fetchCollaborators(this.state.project.collaborators)
-          .then(res => {
-            const nextState = Object.assign({}, this.state, { collaborators: Object.values(res.collaborators) })
-            this.setState(nextState);
-          })
+        if (this.state.project.collaborators.length !== 0) {
+          this.props.fetchCollaborators(this.state.project.collaborators)
+            .then(res => {
+              const nextState = Object.assign({}, this.state, { collaborators: Object.values(res.collaborators) })
+              this.setState(nextState);
+            })
+        }
         if (this.state.project.goals.length !== 0) {
           this.props.fetchGoals(this.state.project.goals)
             .then(res => {
@@ -64,7 +66,6 @@ class ProjectsShow extends React.Component {
     this.props.updateDiagram(newDiagram);
   }
 
-
   render() {
     if (!this.state.project) {
       return "...loading";
@@ -93,11 +94,11 @@ class ProjectsShow extends React.Component {
                 <h1>Goals:</h1>
               </div>
               <div className='goal-list'>
-                <div className='goal-list'>
+                {/* <div className='goal-list'>
                   <GoalItem />
                   <GoalItem />
                   <GoalItem />
-                </div>
+                </div> */}
               </div>
               <div className='diagram-section'>
                 <div className='diagram-header'>
