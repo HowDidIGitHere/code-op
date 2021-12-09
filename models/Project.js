@@ -26,7 +26,10 @@ const ProjectSchema = new Schema({
   },
   collaborators: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   goals: [{ type: Schema.Types.ObjectId, ref: 'Goal' }],
-  diagrams: [{ type: Schema.Types.ObjectId, ref: "Diagram" }]
+  diagram: {
+    type: Schema.Types.ObjectId,
+    ref: "Diagram"
+  }
 }, {
   timestamps: true
 });

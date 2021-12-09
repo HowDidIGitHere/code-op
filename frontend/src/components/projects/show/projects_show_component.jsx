@@ -2,51 +2,71 @@ import React from 'react';
 import Diagram from '../../diagram/diagram';
 import Collaborators from './collaborators';
 import GoalItem from './goals';
+import mermaid from 'mermaid';
 
 class ProjectsShow extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.state = {
-    //   project: undefined,
-    //   collaborators: undefined,
-    //   goals: undefined
-    // }
+    this.state = {
+      project: undefined,
+      collaborators: undefined,
+      goals: undefined,
+      diagram: undefined
+    }
+
+    this.handleDiagramChange = this.handleDiagramChange.bind(this);
+    this.handleDiagramSubmit = this.handleDiagramSubmit.bind(this);
   }
 
   componentWillMount() {
     this.props.fetchProject()
-      .then(res => {
-        console.log(res)
-        if (res.project.collaborators !== 0) {
-          this.props.fetchCollaborators(res.project.collaborators)
+      .then(res => this.setState({ project: res.project }, () => {
+        this.props.fetchCollaborators(this.state.project.collaborators)
+          .then(res => {
+            const nextState = Object.assign({}, this.state, { collaborators: Object.values(res.collaborators) })
+            this.setState(nextState);
+          })
+        if (this.state.project.goals.length !== 0) {
+          this.props.fetchGoals(this.state.project.goals)
+            .then(res => {
+              const nextState = Object.assign({}, this.state, { goals: Object.values(res.goals) })
+              this.setState(nextState);
+            })
         }
-        if (res.project.goals.length !== 0) {
-          this.props.fetchGoals(res.project.goals)
+        if (this.state.project.diagram) {
+          this.props.fetchDiagram(this.state.project.diagram)
+            .then(res => {
+              const nextState = Object.assign({}, this.state, { diagram: res.diagram })
+              this.setState(nextState);
+            })
         }
-        if (res.project.diagrams.length !== 0) {
-          this.props.fetchDiagrams(res.project.diagrams)
-        }
-      })
-      // .catch((err) => console.log('bok'));
-      
-    // this.props.fetchProject()
-    //   .then(res => this.setState({ project: res.project }, () => {
-    //     if (this.state.project.collaborators) {
-    //       this.props.fetchCollaborators(this.state.project.collaborators)
-    //         .then(res => this.setState({ collaborators: res.collaborators }));
-    //     }
-    //     if (!this.state.project.goals) {
-    //       this.props.fetchGoals(this.state.project.goals)
-    //         .then(res => this.setState({ goals: res.goals }));
-    //     }
-    //   }));
-
+      }));
     // this.props.fetchTweets();
   }
 
+  handleDiagramChange(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    const nextState = Object.assign({}, this.state, { diagram: Object.assign({}, this.state.diagram, { content: e.target.value } )})
+    this.setState(nextState);
+  }
+
+  handleDiagramSubmit(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    let x = document.getElementById('potato')
+    x.removeAttribute("data-processed")
+    mermaid.init(undefined, x)
+
+    const newDiagram = Object.assign({}, this.state.diagram);
+    this.props.updateDiagram(newDiagram);
+  }
+
+
   render() {
-    if (!this.props.project) {
+    if (!this.state.project) {
       return "...loading";
     }
 
@@ -54,14 +74,14 @@ class ProjectsShow extends React.Component {
       <div className="projects-show-page">
         <div className='project-show-container'>
           <div className='project-title-header'>
-            <h1>{this.props.project.title}</h1>
+            <h1>{this.state.project.title}</h1>
           </div>
           <div className='project-body'>
             <div className='left-body'>
               <div className='collaborators-container'>
                 <h1>Collaborators</h1>
                 <div className='collaborator-list'>
-                  <Collaborators collaborators={this.props.collaborators} />
+                  {this.state.collaborators ? <Collaborators collaborators={this.state.collaborators} /> : null}
                 </div>
               </div>
               <div className='tag-detail-container'>
@@ -72,23 +92,34 @@ class ProjectsShow extends React.Component {
               <div className='goal-header'>
                 <h1>Goals:</h1>
               </div>
-              {/* <div className='goal-list'>
-                <GoalItem />
-                <GoalItem />
-                <GoalItem />
-              </div> */}
               <div className='goal-list'>
-                {
-                  this.props.diagrams ? 
-                    (<ul>
-                      {this.props.diagrams.map((diagram, idx) => {
-                        // this.console.log(diagram)
-                        return <Diagram chart={diagram.content} />
-                      })}
-                    </ul>) : (
-                      null
-                    )
-                }
+                <div className='goal-list'>
+                  <GoalItem />
+                  <GoalItem />
+                  <GoalItem />
+                </div>
+              </div>
+              <div className='diagram-section'>
+                <div className='diagram-header'>
+                  <h1>Diagram:</h1>
+                </div>
+                <div className='diagram-viewbox'>
+                  {
+                    this.state.diagram ? (
+                      <div>
+                        <Diagram chart={this.state.diagram.content} />
+                      </div>
+                      ) : (
+                        null
+                      )
+                  }
+                </div>
+                <div className='diagram-textbox'>
+                  <form onSubmit={this.handleDiagramSubmit}>
+                    <textarea onChange={this.handleDiagramChange} value={this.state.diagram ? this.state.diagram.content : ""} cols="30" rows="10"></textarea>
+                    <button type='submit'>Finalize</button>
+                  </form>
+                </div>
               </div>
             </div>
             <div className='right-body'>
