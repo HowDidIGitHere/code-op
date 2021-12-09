@@ -20,33 +20,39 @@ class GoalsCreate extends React.Component{
   }
 
   updateSubTask(field){
-    // console.log("updateSubTask", this.state)
     return e => this.setState({subTask: {[field]: e.currentTarget.value, completed: false} })
   }
 
   addSubTaskToArray(){
-    // console.log("1-addSubTaskToArray", this.state)
     this.setState({tasks: this.state.tasks.concat([this.state.subTask])})
     this.setState({subTask: {body: "", completed: false}})
-    // console.log("2-addSubTaskToArray", this.state)
-
   }
 
   handleSubmit(e){
-    e.preventDefault()
+    e.preventDefault();
+    // const goal = {}
+    // goal[title] = this.state.title
+    // goal[description] = this.state.description
+    // goal[tasks] = this.state.tasks
+
+    // this.props.createGoal(goal)
     this.props.createGoal(this.state)
   }
 
   render(){
+    if(!this.state) return "loading";
+
     return(
-      <div className="goals-create-form">
+      <form className="goals-create-form" onSubmit={this.handleSubmit}>
         <input className="title" onChange={this.update('title')} type="text" placeholder="Title" value={this.state.title}/>
         <textarea className="description" onChange={this.update('description')} type="text" placeholder="Description" value={this.state.description} />
         
         <h3>Create a new task</h3>
         <input className="subtask" onChange={this.updateSubTask('body')} type="text" placeholder="body" value={this.state.subTask.body}/>
         <button onClick={this.addSubTaskToArray}>Add Task</button>
-      </div>
+
+        <button type="submit">Add Goal</button>
+      </form>
     )
   }
 }
