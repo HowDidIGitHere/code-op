@@ -10,7 +10,7 @@ class TagService extends Service {
     console.log(data);
     let doc;
     if (data.names) {
-      docs = {}
+      doc = {}
       // const names = data.names.split(',');
       // doc = await this.model.insertMany(names.map(name => {
       //   return { name, it: data.it, modelType: data.modelType }
@@ -20,7 +20,6 @@ class TagService extends Service {
     }
 
     return {
-      error: false,
       status: 201,
       doc,
     };
