@@ -37,10 +37,17 @@ class ProjectsNew extends React.Component {
       types = types.concat(checkboxes[i].value, ",")
     }
 
-    this.props.createTag({})
     this.props.createProject(project)
-      .then(this.props.history.push('/projects'))
-      .then(window.location.reload());
+      .then(res => {
+        let tags = {}
+        tags['it'] = res.project._id;
+        tags['modelType'] = 'Project';
+        tags['names']= types
+        console.log(tags)
+        this.props.createTag(tags)
+      })
+      // .then(this.props.history.push('/projects'))
+      // .then(window.location.reload());
   }
 
   render() {
