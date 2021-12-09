@@ -1,8 +1,8 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../config/keys");
-const catchAsync = require("../utils/catchAsync");
-const Service = require('../services/Service');
+const Service = require('./Service');
+const User = require('../models/User');
 
 const validateLoginInput = require('../validation/login');
 const validateSignupInput = require('../validation/signup');
@@ -34,8 +34,7 @@ class UserService extends Service {
       passwordConfirm: userInfo.passwordConfirm
     });
   
-    const payload = { id: newUser.id, username: newUser.username };
-    const token = jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 });
+    const token = this.createJWT(user);
     return {
       statusCode: 200,
       token: 'Bearer ' + token
@@ -62,8 +61,7 @@ class UserService extends Service {
     
     const passwordIsMatch = await bcrypt.compare(password, user.password);
     if (passwordIsMatch) {
-      const payload = { id: user.id, username: user.username };
-      const token = jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 });
+      const token = this.createJWT(user);
       return {
         statusCode: 200,
         success: true,
@@ -73,6 +71,11 @@ class UserService extends Service {
       return error;
     }
   }
+
+  createJWT(user) {
+    const payload = { id: user.id, username: user.username };
+    return jwt.sign(payload, keys.secretOrKey, { expiresIn: 60 * 60 * 24 * 90 });
+  }
 }
 
-module.exports = UserService;
+module.exports = new UserService(User);

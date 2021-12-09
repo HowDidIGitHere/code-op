@@ -1,8 +1,6 @@
 const Controller = require("./baseController");
-const UserService = require("../services/UserService");
+const userService = require("../services/userService");
 const User = require("../models/User");
-
-const userService = new UserService(new User().getInstance());
 
 class UserController extends Controller {
   constructor(service) {

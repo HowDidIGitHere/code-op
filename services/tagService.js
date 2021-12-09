@@ -1,4 +1,5 @@
-const Service = require("./Service")
+const Service = require('./Service');
+const Tag = require('../models/Tag');
 
 class TagService extends Service {
   constructor(model) {
@@ -26,11 +27,11 @@ class TagService extends Service {
       return {
         error: true,
         statusCode: 500,
-        message: error.errmsg || "Not able to create doc",
+        message: error.errmsg || 'Not able to create doc',
         errors: error.errors
       };
     }
   }
 }
 
-module.exports = TagService;
+module.exports = new TagService(Tag);
