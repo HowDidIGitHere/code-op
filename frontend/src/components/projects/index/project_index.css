@@ -81,7 +81,7 @@
 }
 
 .checklist-item input:checked ~ .checkmark {
-  background-color: #2196F3;
+  background-color: rgb(30, 160, 154);
 }
 
 .checkmark:after {

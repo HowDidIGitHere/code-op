@@ -30,12 +30,27 @@ class ProjectsNew extends React.Component {
       creator: this.props.user.id,
     }
 
+    let types = "";
+    var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+
+    for (var i = 0; i < checkboxes.length; i++) {
+      types = types.concat(checkboxes[i].value, ",")
+    }
+
+    this.props.createTag({})
     this.props.createProject(project)
       .then(this.props.history.push('/projects'))
       .then(window.location.reload());
   }
 
   render() {
+    if (!this.props.tags) return null
+    const { tags } = this.props;
+    const categories = [
+      ['Software', tags.software.slice(0,15)],
+      ['Platform', tags.platform], 
+      ['Position', tags.position], 
+    ]
     return(
       <div className='create-project'>
         <form className='create-project-form' onSubmit={this.handleSubmit}>
@@ -60,9 +75,9 @@ class ProjectsNew extends React.Component {
             />
             <br />
             <div className='user-checks'>
-              <CategoryChecklist />
-              <CategoryChecklist />
-              <CategoryChecklist />
+              { categories.map((category) => {
+                return <CategoryChecklist category={category} />
+              })}
             </div>
             <label className='input-field'>Add a description of your project</label>
             <textarea 
