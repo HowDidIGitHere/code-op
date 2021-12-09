@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Validator = require("validator");
 const Model = require('./BaseModel');
-const Tag = (new (require("../models/Tag"))).getInstance();
+const Tag = require("../models/Tag");
 const Schema = mongoose.Schema;
 
 class Project extends Model {
