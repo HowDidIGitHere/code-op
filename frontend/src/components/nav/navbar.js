@@ -33,12 +33,14 @@ class NavBar extends React.Component {
       if (this.props.loggedIn) {
         return (
           <div>
-              <button className='dem-button' onClick={() => this.props.openCreateGoalModal()}>Create Goal</button>
-              <Link to={'/projects'}>All Projects</Link>
-              <Link to={'/new_project'}>Create a Project</Link>
-              {this.props.user.id ? <Link to={`/users/${this.props.user.id}`}>Profile</Link> : ""}
-              <button onClick={(e) => this.logoutUser(e)}>Logout</button>
-            </div>
+                      <button className='dem-button' onClick={() => this.props.openCreateGoalModal()}>Create Goal</button>
+                      <button className='dem-button' onClick={() => this.props.openUpdateGoalModal()}>Update Goal</button>
+
+            <Link to={'/projects'}>All Projects</Link>
+            <Link to={'/new_project'}>Create a Project</Link>
+            {this.props.user.id ? <Link to={`/users/${this.props.user.id}`}>Profile</Link> : ""}
+            <button onClick={(e) => this.logoutUser(e)}>Logout</button>
+          </div>
         );
       } else {
         return (

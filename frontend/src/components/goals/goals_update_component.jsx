@@ -34,7 +34,7 @@ class GoalsCreate extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.updateGoal  (this.state)
+    this.props.updateGoal(this.state)
   }
 
   render(){
@@ -44,12 +44,12 @@ class GoalsCreate extends React.Component{
       <form className="goals-create-form" onSubmit={this.handleSubmit}>
         <div className="goals-create-title">
           <h4>Create a title:</h4>
-          <input className="title" onChange={this.update('title')} type="text" placeholder="Title" value={this.state.title}/>
+          <input className="title" onChange={this.update('title')} type="text" value={this.state.title}/>
         </div>
 
         <div className="goals-create-description">
           <h4>Create a description:</h4>
-          <input className="description" onChange={this.update('description')} type="text" placeholder="Description" value={this.state.description} />
+          <input className="description" onChange={this.update('description')} type="text" value={this.state.description} />
         </div>
 
         <div className="line"></div>
@@ -57,7 +57,7 @@ class GoalsCreate extends React.Component{
         <div className="goals-create-task">
           <div>
             <h5>Create a new task:</h5>
-            <input className="subtask" onChange={this.updateSubTask('body')} type="text" placeholder="'Deploy for staging'" value={this.state.subTask.body}/>
+            <input className="subtask" onChange={this.updateSubTask('body')} type="text" value={this.state.subTask.body}/>
           </div>
           <div className="add-task">
             <button className="button" onClick={this.addSubTaskToArray}>Add Task</button>
@@ -78,7 +78,7 @@ class GoalsCreate extends React.Component{
         <div className="line"></div>
 
         <div className="add-goal">
-          <button type="submit">Finish</button>
+          <button type="submit">Update</button>
         </div>
       </form>
     )
