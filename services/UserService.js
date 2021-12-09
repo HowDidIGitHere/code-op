@@ -1,8 +1,8 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../config/keys");
-const catchAsync = require("../utils/catchAsync");
-const Service = require('../services/Service');
+const Service = require('./Service');
+const User = require('../models/User');
 
 const validateLoginInput = require('../validation/login');
 const validateSignupInput = require('../validation/signup');
@@ -75,4 +75,4 @@ class UserService extends Service {
   }
 }
 
-module.exports = UserService;
+module.exports = new UserService(User);
