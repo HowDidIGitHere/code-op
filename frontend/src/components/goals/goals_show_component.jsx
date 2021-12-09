@@ -3,33 +3,33 @@ import React from "react";
 class GoalsShow extends React.Component{
   constructor(props){
     super(props)
-    this.toggle = false
+    this.state = {
+      toggle: false
+    }
+    this.handleToggle = this.handleToggle.bind(this);
   }
 
   handleToggle(){
-    if (!this.toggle){
-      this.toggle = true
-    } else {
-      this.toggle = false
-    }
+    this.setState({ toggle: !this.state.toggle})
   }
 
   render(){
     return(
       <div className="goals-show">
         <div className="goals-title">
-          <h1>{this.props.title}</h1>
+          <h1>{this.props.goal.title}</h1>
           <button onClick={this.handleToggle}>Edit</button> 
         </div>
 
-        <div className="goals-dropdown" style={this.toggle ? {display: "block"} : {display: "none"}}>
-          <div className="goals-description">{this.props.description}</div>
+        <div className="goals-dropdown" style={this.state.toggle ? {display: "block"} : {display: "none"}}>
+          <div className="goals-description">{this.props.goal.description}</div>
 
           <div className="line"></div>
 
           <div className="goals-tasks">
+            
             <h4>Tasks:</h4>
-            {this.props.tasks.map((task, idx) => 
+            {this.props.goal.tasks.map((task, idx) => 
               <li className="goal-tasks" key={idx}>
                 {task.body}
               </li>

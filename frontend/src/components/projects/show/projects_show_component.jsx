@@ -3,6 +3,7 @@ import Diagram from '../../diagram/diagram';
 import Collaborators from './collaborators';
 import GoalItem from './goals';
 import mermaid from 'mermaid';
+import GoalsShow from '../../goals/goals_show_component';
 
 class ProjectsShow extends React.Component {
   constructor(props) {
@@ -93,47 +94,59 @@ class ProjectsShow extends React.Component {
               <div className='tag-detail-container'>
 
               </div>
-            </div>
-            <div className='mid-body'>
-              <div className='goal-header'>
-                <h1>Goals:</h1>
-              </div>
-              <div className='goal-list'>
-                {/* <div className='goal-list'>
-                  <GoalItem />
-                  <GoalItem />
-                  <GoalItem />
-                </div> */}
-              </div>
-              <div className='diagram-section'>
-                <div className='diagram-header'>
-                  <h1>Diagram:</h1>
-                </div>
-                <div className='diagram-viewbox'>
-                  {
-                    this.state.diagram ? (
-                      <div>
-                        <Diagram chart={this.state.staticDiagram.content} />
-                      </div>
-                      ) : (
-                        null
-                      )
-                  }
-                </div>
-                <div className='diagram-textbox'>
-                  <form onSubmit={this.handleDiagramSubmit}>
-                    <textarea onChange={this.handleDiagramChange} value={this.state.diagram ? this.state.diagram.content : ""} cols="30" rows="10"></textarea>
-                    <button type='submit'>Finalize</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-            <div className='right-body'>
-            <div className='details-container'>
+              <div className='details-container'>
                 <h1>Project Details</h1>
                 <p>Language: Ruby, Javascript</p>
                 <p>Github Link: Link</p>
               </div>
+            </div>
+            {/* <div className='right-body'>
+            </div> */}
+            <div className='mid-body'>
+              <div className='diagram-section'>
+                <div className='diagram-header'>
+                  <h1>Diagram:</h1>
+                </div>
+                <div className='diagram-container'>
+                  <div className='diagram-viewbox'>
+                    {
+                      this.state.diagram ? (
+                        <div>
+                          <Diagram chart={this.state.staticDiagram.content} />
+                        </div>
+                        ) : (
+                          null
+                        )
+                    }
+                  </div>
+                  <div className='diagram-textbox'>
+                    <form onSubmit={this.handleDiagramSubmit}>
+                      <textarea onChange={this.handleDiagramChange} value={this.state.diagram ? this.state.diagram.content : ""} cols="30" rows="10"></textarea>
+                      <button type='submit'>Finalize</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='goal-container'>
+            <div className='goal-header'>
+                <h1>Goals:</h1>
+            </div>
+            <div className='goal-list'>
+              {
+                this.state.goals ? (
+                  <ul>
+                    {
+                      this.state.goals.map((goal, idx) => {
+                        return <GoalsShow key={`goals-list-item-${idx}`} goal={goal}/>
+                      })
+                    }
+                  </ul>
+                ) : (
+                  null
+                )
+              }
             </div>
           </div>
         </div>
