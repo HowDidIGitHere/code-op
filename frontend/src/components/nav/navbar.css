@@ -85,7 +85,7 @@
   width: 10px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  color: black;
+  color: #494553;
 }
 
 .dropdown:hover .dropdown-content-2 {
@@ -103,4 +103,10 @@ margin-top: 10px;
 .drop-item {
   display: block;
   position: relative;
+  font-size: 18px;
+  padding-bottom: 5px;
+}
+
+.drop-item:hover {
+  color: lightseagreen
 }
