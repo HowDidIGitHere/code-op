@@ -12,6 +12,7 @@ class ProjectsShow extends React.Component {
       project: undefined,
       collaborators: undefined,
       goals: undefined,
+      staticDiagram: undefined,
       diagram: undefined
     }
 
@@ -39,7 +40,7 @@ class ProjectsShow extends React.Component {
         if (this.state.project.diagram) {
           this.props.fetchDiagram(this.state.project.diagram)
             .then(res => {
-              const nextState = Object.assign({}, this.state, { diagram: res.diagram })
+              const nextState = Object.assign({}, this.state, { staticDiagram: res.diagram }, { diagram: res.diagram })
               this.setState(nextState);
             })
         }
@@ -57,13 +58,17 @@ class ProjectsShow extends React.Component {
   handleDiagramSubmit(e) {
     e.preventDefault();
     e.stopPropagation();
-
-    let x = document.getElementById('potato')
-    x.removeAttribute("data-processed")
-    mermaid.init(undefined, x)
-
     const newDiagram = Object.assign({}, this.state.diagram);
-    this.props.updateDiagram(newDiagram);
+    this.props.updateDiagram(newDiagram).then(() => {
+      const nextState = Object.assign({}, this.state, { staticDiagram: newDiagram })
+      this.setState(nextState, () => {
+        if (nextState.staticDiagram.content) {
+          let x = document.getElementById('potato')
+          x.removeAttribute("data-processed")
+          mermaid.init(undefined, x);
+        }
+      })
+    });
   }
 
   render() {
@@ -108,7 +113,7 @@ class ProjectsShow extends React.Component {
                   {
                     this.state.diagram ? (
                       <div>
-                        <Diagram chart={this.state.diagram.content} />
+                        <Diagram chart={this.state.staticDiagram.content} />
                       </div>
                       ) : (
                         null
