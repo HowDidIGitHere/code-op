@@ -1,8 +1,5 @@
 const Controller = require("./baseController");
-const DiagramService = require("../services/DiagramService");
-const Diagram = require("../models/Diagram");
-
-const diagramService = new DiagramService(new Diagram().getInstance());
+const diagramService = require("../services/diagramService");
 
 class DiagramController extends Controller {
   constructor(service) {
