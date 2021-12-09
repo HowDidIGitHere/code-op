@@ -1,6 +1,7 @@
 const Service = require('./Service');
 const Tag = require('../models/Tag');
-const tagNames = require('../utils/tags');
+const tagNamesByCategory = require('../utils/tags');
+const findTagNameCategory = require('../utils/tags/findTagNameCategory');
 
 class TagService extends Service {
   constructor(model) {
@@ -17,14 +18,14 @@ class TagService extends Service {
 
     if (Array.isArray(namesByCategory))
       namesByCategory.forEach(category => {
-        if (tagNames[category])
-          selection[category] = tagNames[category];
+        if (tagNamesByCategory[category])
+          selection[category] = tagNamesByCategory[category];
       });
     else if (namesByCategory === 'all')
-      selection = { ...selection, ...tagNames };
+      selection = { ...selection, ...tagNamesByCategory };
     else
-      if (tagNames[namesByCategory])
-        selection[namesByCategory] = tagNames[namesByCategory];
+      if (tagNamesByCategory[namesByCategory])
+        selection[namesByCategory] = tagNamesByCategory[namesByCategory];
     return {
       status: 200,
       data: [selection]
@@ -34,15 +35,15 @@ class TagService extends Service {
   create = async (data) => {
     let doc;
     if (data.names) {
-      const names = data.names.split(',');
-      doc = await this.model.insertMany(names.map(name => {
-        let category;
-        for (const tagCategory in tagNames) {
-          if (tagNames[tagCategory].includes(name)) {
-            category = tagCategory;
-          }
+      const tagNames = data.names.split(',');
+      doc = await this.model.insertMany(tagNames.map(tagName => {
+        const category = findTagNameCategory(tagName);
+        return { 
+          name: tagName, 
+          it: data.it, 
+          modelType: data.modelType, 
+          category 
         }
-        return { name, it: data.it, modelType: data.modelType, category }
       }));
     } else {
       doc = await this.model.create(data);
