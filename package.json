@@ -35,10 +35,5 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-  },
-  "nodemonConfig": {
-    "env": {
-      "NODE_ENV": "development"
-    }
   }
 }
