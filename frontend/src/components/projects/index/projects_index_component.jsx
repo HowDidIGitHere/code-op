@@ -1,6 +1,6 @@
 import React from 'react';
 import './project_index.css'
-import CategoryChecklist from './category_checklist';
+import CategoryDropdown from './category_dropdown'
 import IndexProjectListing from './index_project_listing';
 
 class ProjectsIndex extends React.Component {
@@ -16,17 +16,15 @@ class ProjectsIndex extends React.Component {
   }
 
   render() {
+    const categories = ['Industry', 'Skill Type', 'Platform', 'Language']
     return(
       <div className="projects-index">
-        <div className='left-filter-column'>
-          <h1 className='header'>PROJECTS</h1>
-          <div className='category-checkboxes'>
-            <CategoryChecklist />
-            <CategoryChecklist />
-            <CategoryChecklist />
-            <CategoryChecklist />
-          </div>
+        <div className='category-filters'>
+          {categories.map((category) => {
+            return <CategoryDropdown category={category}/>
+          })}
         </div>
+        <div className="underline"></div>
         <div className='right-index'>
           <div className='right-index-listings'>
             <div className='index-item'>
