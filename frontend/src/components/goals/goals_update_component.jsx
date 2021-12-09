@@ -5,9 +5,9 @@ class GoalsCreate extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      title: "",
-      description: "",
-      tasks: [],
+      title: this.props.goal.title,
+      description: this.props.goal.description,
+      tasks: this.props.goal.tasks,
       subTask: {body: ""}
     }
 
