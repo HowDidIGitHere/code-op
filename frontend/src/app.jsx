@@ -29,7 +29,7 @@ const App = () => (
 
       <ProtectedRoute exact path="/users/:id" component={UserProfileContainer} />
       <ProtectedRoute exact path="/projects/new" component={ProjectsNewContainer} />
-      <ProtectedRoute exact path="/projects/hi" component={ProjectsShowContainer} />
+      <ProtectedRoute exact path="/projects/:id" component={ProjectsShowContainer} />
     </Switch>
   </div>
 );
