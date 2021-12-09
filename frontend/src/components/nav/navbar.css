@@ -17,7 +17,7 @@
 .right-nav {
   float: right;
   padding-right: 25px;
-  margin-top: 16px;
+  margin-top: 14px;
   background-color: #494553;
 }
   
@@ -38,7 +38,7 @@
 
 .right-nav-links {
   float:left;
-  margin: -14px 30px 0 0;
+  margin: -10px 30px 0 0;
 }
 
 .right-nav-button {
@@ -62,24 +62,50 @@
   color: #21A59A;
 }
 
-.login:hover{
-  cursor: pointer;
-}
-
 .signup {
   background-color:#21A59A;
 }
 
-.signup:hover{
+.signup:hover, .about-us:hover, .login:hover, .logout:hover{
   cursor: pointer;
 }
 
 .about-us {
-  font-size: 16px;
+  font-size: 18px;
   background-color:#494553;
-  margin-top: -30px;
 }
 
-.about-us:hover{
-  cursor: pointer;
+.dropdown-content-2 {
+  display: none;
+  position: absolute;
+  background-color: #fdfdfd;
+  border-radius: 5px;
+  padding: 10px;
+  width: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  color: #494553;
+}
+
+.dropdown:hover .dropdown-content-2 {
+  display: block;
+  right:0;
+  left: auto;
+  width: 150px;
+  text-align: right;
+}
+
+.dropdown-btn {
+margin-top: 10px;
+} 
+
+.drop-item {
+  display: block;
+  position: relative;
+  font-size: 18px;
+  padding-bottom: 5px;
+}
+
+.drop-item:hover {
+  color: lightseagreen
 }

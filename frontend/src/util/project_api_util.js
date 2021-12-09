@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const getCreatorProjects = (id) => {
-  return axios.get('/api/projects', {params: {creator: id}})
+  return axios.get('/api/projects?limit=7', {params: {creator: id}})
 }
 
 export const getProjects = () => {
