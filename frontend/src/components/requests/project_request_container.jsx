@@ -1,12 +1,12 @@
-import { connect } from "react-redux";
-import { withRouter } from "react-router";
+// import { connect } from "react-redux";
+// import { withRouter } from "react-router";
 
-const mSTP = (state, ownProps) => ({
+// const mSTP = (state, ownProps) => ({
 
-})
+// })
 
-const mDTP = (dispatch, ownProps) => ({
-  createGoal: data => dispatch(createGoal(data))
-})
+// const mDTP = (dispatch, ownProps) => ({
+//   createGoal: data => dispatch(createGoal(data))
+// })
 
-export default withRouter(connect(mSTP, mDTP)(RequestCreate))
+// export default withRouter(connect(mSTP, mDTP)(RequestCreate))

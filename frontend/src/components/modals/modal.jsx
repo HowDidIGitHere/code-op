@@ -31,8 +31,8 @@ function Modal({modal, closeModal}) {
     case 'create-goal':
       component = <GoalsCreateContainer/>;
       break;
-    case 'project-request':
-      component = <ProjectRequestContainer/>
+    // case 'project-request':
+    //   component = <ProjectRequestContainer/>
     default:
       return null;
   }
