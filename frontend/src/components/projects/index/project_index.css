@@ -1,38 +1,68 @@
 .projects-index {
-  display: flex;
+  /* display: flex; */
   margin: 30px 40px 40px 40px;
-  width:100%;
+}
+.category-filters {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
-.left-filter-column {
-  display: block;
-  width: 200px;
-  margin-right: 20px;
-}
-
-.header {
-  font-size: 20px;
-  font-weight: 600;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid lightgrey;
+.underline {
+  width: 100%;
+  border-bottom: 2px solid #6F6D74;
+  align-self: center;
+  margin-bottom: 20px;
 }
 
 .checklist {
   margin-left: 20px;
 }
 
-/* .category-header {
-  margin: 15px 0 5px 0;
-} */
+.dropdown {
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+} 
+
+.dropdownbtn {
+  height: 40px;
+  width: 170px;
+  background-color: #E5E5E5;
+  color: #494553;
+  font-size: 20px;
+  font-weight: 300;
+  padding-left: 20px;
+  border-radius: 10px;
+}
+
+.dropdownbtn > i {
+  float: right;
+  margin: -18px 10px 0 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fdfdfd;
+  border-radius: 5px;
+  padding: 10px;
+  width: 170px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 .checklist-item {
   display: block;
   position: relative;
-  padding-left: 20px;
-  margin-bottom: 0px;
+  padding-left: 40px;
+  padding-bottom: 10px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 16.5px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -43,8 +73,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 15px;
-  width: 15px;
+  height: 25px;
+  width: 25px;
+  border-radius: 5px;
   background-color: #eee;
 }
 
@@ -67,10 +98,10 @@
 }
 
 .checklist-item .checkmark:after {
-  left: 5.5px;
+  left: 9px;
   top: 3px;
-  width: 2px;
-  height: 5px;
+  width: 5px;
+  height: 12px;
   border: solid white;
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
@@ -79,21 +110,18 @@
 }
 
 .right-index {
-  padding-left: 30px;
   width: 100%;
 }
-
-.right-header {
-  font-size: 20px;
-  font-weight: 600;
-  padding-bottom: 10px;
-  margin-bottom: 15px;
+.right-index-listings {
+  justify-content: center;
 }
 
 .right-index-listings > .index-item {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 400px;
+  grid-auto-rows: 370px;
+  justify-items: center;
+  align-items: center;
 }
 
 .index-listing-component {
@@ -101,9 +129,8 @@
   background-color: #E6F2E2;
   border-radius: 20px;
   margin-bottom: 30px;
-  width: 260px;
+  width: 280px;
   height: 320px;
-  align-items: center;
 }
 
 .index-listing-content {
