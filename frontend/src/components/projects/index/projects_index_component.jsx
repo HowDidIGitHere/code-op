@@ -27,11 +27,9 @@ class ProjectsIndex extends React.Component {
         <div className="underline"></div>
         <div className='right-index'>
           <div className='right-index-listings'>
-            <div className='index-item'>
               {this.props.projects.map((project) => {
                 return <IndexProjectListing key={project.id} project={project}/>
-              })}
-            </div>                 
+              })}             
           </div>
         </div>
       </div>
