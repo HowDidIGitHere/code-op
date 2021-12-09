@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-
+import "./notifications.css"
 class Notifications extends React.Component{
   constructor(props){
     super(props)
@@ -38,28 +38,25 @@ class Notifications extends React.Component{
         {this.state.requests.map((request, idx) =>
           <div className="single-request" key={idx}>
             <div className="note-info">
-              <Link to={`/users/${request.senderId}`} onClick={() => this.props.closeModal()}> 
-                <h1>{request.senderName}</h1>
+              <Link className="request-link" to={`/users/${request.senderId}`} onClick={() => this.props.closeModal()}> 
+                <h5>{request.senderName}</h5>
               </Link>
               <h5>is requesting to join</h5>
-              <Link to={`/projects/${request.projectId}`} onClick={() => this.props.closeModal()}> 
-                <h1>{request.projectName}</h1>
+              <Link className="request-link2" to={`/projects/${request.projectId}`} onClick={() => this.props.closeModal()}> 
+                <h5>{request.projectName}</h5>
               </Link>
-            <div className="line"></div>
-              <div className="note-message">
-                <h1>Message:</h1>
-                <div>{request.message}</div>
-              </div>
-            <div className="line"></div>
-              <div className="note-buttons">
-                <button className="accept" 
-                  onClick={() => this.handleAccept(request.projectId, request.senderId, request._id, idx)}
-                >Accept
-                </button>
-                <button className="decline" onClick={() => this.props.deleteRequest(request._id)}>Decline</button>
-              </div>
             </div>
-
+            <div className="note-message">
+              <div>{request.message}</div>
+            </div>
+            <div className="note-line"></div>
+            <div className="note-buttons">
+              <button className="accept" 
+                onClick={() => this.handleAccept(request.projectId, request.senderId, request._id, idx)}
+              >Accept
+              </button>
+              <button className="decline" onClick={() => this.props.deleteRequest(request._id)}>Decline</button>
+            </div>
           </div>
         )}
       </div>

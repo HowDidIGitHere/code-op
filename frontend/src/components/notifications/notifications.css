@@ -1,0 +1,68 @@
+
+.single-request{
+  padding: 0.5vw;
+  border-radius: 10px;
+  border-bottom: 3px solid rgb(155, 148, 148)
+}
+
+.note-info{
+  display: flex;
+  background-color: lightseagreen;
+
+}
+
+.note-info > h5{
+  padding-right: 0.5vw;
+  padding-left: 0.5vw;
+  font-size: 1vw;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.request-link > h5{
+  font-size: 1vw;
+  color: white;
+  margin-top: 0;
+  margin-left: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.request-link2 > h5{
+  font-size: 1vw;
+  color: white;
+  margin-top: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.note-message{
+  padding: 5px;
+}
+
+.note-line{
+  background-color: #d1d1d1;
+  width: 100%;
+  padding: 0.5px;
+}
+.note-buttons{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.note-buttons > .accept{
+  background-color: mediumseagreen;
+  padding: 12px;
+  margin-top: 5px;
+  border-radius: 5px;
+  color: white;
+}
+
+.note-buttons > .decline{
+  background-color: rgb(136, 136, 136);
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 5px;
+    color: white;
+}
+
