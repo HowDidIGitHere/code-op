@@ -8,5 +8,5 @@ const data = { errorCount: 0 };
 export default combineReducers({
   session: SessionErrorsReducer(data),
   user: UserErrorsReducer(data),
-  tags: TagErrorsReducer(data),
+  tag: TagErrorsReducer(data),
 });

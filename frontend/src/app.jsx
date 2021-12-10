@@ -14,10 +14,12 @@ import MainPageContainer from './components/main/main_page_container';
 import ProjectsNewContainer from './components/projects/create/projects_new_container';
 import ProjectsShowContainer from './components/projects/show/projects_show_container';
 import GoalsCreateContainer from './components/goals/goals_create_container';
+import Toaster from './components/toasts/toaster_container';
 
 const App = () => (
   <div>
     <NavBarContainer />
+    <Toaster />
     <Modal />
 
     <Switch>

@@ -7,7 +7,7 @@ import { fetchTags } from '../../../actions/tag_actions';
 
 const mapStateToProps = (state) => {
   return {
-    projects: Object.keys(state.entities.projects).map(key => state.entities.projects[key]),
+    projects: Object.values(state.entities.projects),
     tags: state.entities.tags.namesByCategory
   };
 };
