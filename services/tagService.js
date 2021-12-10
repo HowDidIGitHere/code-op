@@ -36,10 +36,10 @@ class TagService extends Service {
     let doc;
     if (data.names) {
       const tagNames = data.names.split(',');
-      doc = await this.model.insertMany(tagNames.map(tagName => {
-        const category = findTagNameCategory(tagName);
+      doc = await this.model.insertMany(tagNames.map(name => {
+        const category = findTagNameCategory(name);
         return { 
-          name: tagName, 
+          name, 
           it: data.it, 
           modelType: data.modelType, 
           category 
