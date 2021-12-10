@@ -8,6 +8,7 @@ import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 import * as userActions from './actions/user_actions'
 import * as tagActions from './actions/tag_actions'
+import * as projectActions from './actions/project_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -34,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.store = store
   window.userActions = userActions;
   window.tagActions = tagActions;
+  window.projectActions = projectActions;
   
   ReactDOM.render(<Root store={store} />, root);
 });
