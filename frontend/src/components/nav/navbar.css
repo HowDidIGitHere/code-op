@@ -117,6 +117,7 @@ margin-top: 10px;
 
 .hidden-project {
   text-align: right;
+  color: lightseagreen;
 }
 
 .current-project:focus {
