@@ -1,4 +1,3 @@
-
 import * as APIUtil from '../util/session_api_util';
 import jwt_decode from 'jwt-decode';
 
@@ -40,14 +39,6 @@ export const signup = user => dispatch => (
             dispatch(receiveUserSignIn()) 
             dispatch(receiveCurrentUser(decoded))
         }).catch(({ response }) => (dispatch(receiveErrors(response.data.errors))))
-    
-    // APIUtil.login(user).then(res => {
-    //     const { token } = res.data;
-    //     dispatch(receiveCurrentUser(decoded))
-    // })
-    // .catch(({ response }) => (
-    //     dispatch(receiveErrors(response.data.errors))
-    // ))
 );
 
 // Upon login, set the session token and dispatch the current user. Dispatch errors on failure.
