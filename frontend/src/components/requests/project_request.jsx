@@ -21,7 +21,8 @@ class ProjectRequest extends React.Component {
     request['projectId'] = project._id;
     request['projectName'] = project.title;
 
-    this.props.createRequest(request);
+    this.props.createRequest(request)
+      .then(this.props.closeModal())
   }
 
   render() {
