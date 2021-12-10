@@ -13,7 +13,8 @@ const PositionSchema = new Schema({
 const UserSchema = new Schema({
   username: {
     type: String,
-    required: true
+    required: true,
+    minlength: [3, 'Usernames must be longer than 3 characters']
   },
   email: {
     type: String,
