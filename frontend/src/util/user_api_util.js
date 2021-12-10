@@ -5,7 +5,7 @@ export const getCollaborators = collaborators => {
   return axios.get('/api/users', { params: { _id: collaborators } });
 }
 
-export const getUsers = params => {
+export const getUsers = (params={}) => {
   return axios.get(`/api/users`, { params })
 }
 
