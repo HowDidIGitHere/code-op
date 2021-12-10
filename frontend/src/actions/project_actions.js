@@ -29,7 +29,7 @@ export const removeProject = projectId => ({
   projectId
 })
 
-export const receiveProjectErrors = errors => ({
+export const receiveProjectErrors = ({ errors }) => ({
   type: RECEIVE_PROJECT_ERRORS,
   errors
 })

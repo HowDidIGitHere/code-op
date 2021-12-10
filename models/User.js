@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const PositionSchema = new Schema({
   role: {
     type: String,
-    required: [true, 'Please enter the posiion's role]
+    required: [true, "Please enter the posiion's role"]
   }
 });
 
@@ -49,7 +49,7 @@ const UserSchema = new Schema({
   github: {
     type: String,
     validate: {
-      validator: Validator.isURL,
+      validator: validator.isURL,
       message: "Please enter a valid Github URL"
     }
   }

@@ -14,7 +14,8 @@ const TagErrorsReducer = data => {
         case RECEIVE_TAG:
           return {};
       case RECEIVE_TAG_ERRORS:
-        nextState[data.errorCount+=1] = action.errors.message;
+        const errors = action.errors;
+        errors.forEach(error => { nextState[data.errorCount+=1] = error; });
         return nextState;
       case REMOVE_ERROR:
         if (nextState[action.id]) delete nextState[action.id]
