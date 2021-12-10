@@ -1,22 +1,23 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 
 import "./user_profile.css"
 
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
-    
+    this.state = {}
   }
     
   componentWillMount() {
     this.props.fetchUser();
     this.props.fetchCreatorProjects();
+    this.props.receiveCollaboratedProjects()
+      .then(res => {this.setState(res); console.log(res)})
   }
     
   render() {
     if (!this.props.user) return "loading...";
-
+    console.log(this.state)
     return (
       <div className="user-profile">
         <div className="header-bg">
@@ -38,14 +39,21 @@ class UserProfile extends React.Component {
             <div onClick={() => this.props.openUpdateModal()}>Edit</div>
           </div>
 
-          <div className="column-right">
-            <h1>Projects:</h1>
-              {this.props.projects.map((project, idx) => 
-                <div className="project-list-item" key={idx}>
-                  <Link className="project-list-title" to={`/projects/${project._id}`}>{project.title}</Link>
-                  <div className="project-list-github">{project.github}</div>
-                </div>
-                )}
+          <div className="column-right1">
+            <div className="column-right">
+              <h1>Created Projects:</h1>
+                {this.props.projects.map((project, idx) => 
+                  <div className="project-list-item" key={idx}>
+                    <div className="project-list-title" to={`/projects/${project._id}`}>{project.title}</div>
+                    <div className="project-list-github">{project.github}</div>
+                  </div>
+                  )}
+            </div>
+
+            <div className="column-right">
+              <h1>Collaborated Projects:</h1>
+
+            </div>
           </div>
         </div>
       </div>

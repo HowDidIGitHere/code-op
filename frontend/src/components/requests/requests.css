@@ -1,6 +1,6 @@
 .project-request {
-  width: 380px;
-  height: 190px;
+  width: 400px;
+  height: 240px;
   background-color: whitesmoke;
   border-radius: 15px;
   padding: 15px;
@@ -21,7 +21,7 @@
 }
 
 .roles > p {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .submit {
@@ -34,4 +34,18 @@
   padding: 10px;
   margin: 10px;
   /* padding-right: 30px; */
+}
+
+.position-request {
+  columns: 2;
+  margin: 5px;
+}
+
+.radio-item {
+  padding: 3px;
+  font-size: 16px;
+}
+
+.position-label {
+  padding-left: 5px;
 }

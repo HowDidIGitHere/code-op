@@ -121,8 +121,13 @@ margin-top: 10px;
 
 .hidden-project {
   text-align: right;
+  color: lightseagreen;
 }
 
 .current-project:focus {
   display: block;
+}
+
+#profile{
+  border-top: 0.5px solid #d5d2d2;
 }

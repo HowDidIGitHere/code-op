@@ -5,10 +5,14 @@ import './navbar.css'
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      show: false
+    }
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.projectClick = this.projectClick.bind(this);
+    
   }
 
   projectClick(e) {
@@ -29,6 +33,10 @@ class NavBar extends React.Component {
     this.props.history.push("/");
   }
 
+  toggle(){
+    this.setState({show: !this.state.show});
+  }
+
   // Selectively render links dependent on whether the user is logged in
   getLinks() {
       if (this.props.loggedIn) {
@@ -36,15 +44,18 @@ class NavBar extends React.Component {
           <div className='dropdown'>
             <button className="dropdown-btn"><i class="fas fa-bars fa-2x"></i></button>
             <div className='dropdown-content-2'>
-                <Link className='drop-item' to={'/projects/new'}>Create a Project</Link>
+                <p className='drop-item' onClick={() => this.props.openNotificationsModal()}>Notifications</p>
                 <Link className='drop-item' to={'/projects'}>Discover Page</Link>
-                <p className='drop-item' >Notifications</p>
-                <p className='drop-item current-project' tabIndex='1'>Current Projects</p>
-                <div className='hidden-projects'>
-                  {this.props.projects.map((project) => {
+                <Link className='drop-item' to={'/projects/new'}>Create a Project</Link>
+                <p className='drop-item current-project' tabIndex='1' onClick={() => this.toggle()}>Current Projects</p>
+                <div 
+                  className='hidden-projects' 
+                  style={this.state.show ? {display: "block"} : {display: "none"}}
+                >
+                  {this.props.projects.map((project, idx) => {
                     if (project.creator === this.props.user.id)
                       return (
-                        <div>
+                        <div key={idx}>
                           <button 
                             id={project._id} 
                             className='hidden-project' 
@@ -53,16 +64,16 @@ class NavBar extends React.Component {
                         </div>
                   )})}
                 </div>
-                  {this.props.user.id ? <Link className='drop-item' to={`/users/${this.props.user.id}`}>Profile</Link> : ""}
+                  {this.props.user.id ? <Link className='drop-item' id="profile" to={`/users/${this.props.user.id}`}>Profile</Link> : ""}
                 <p className='drop-item logout' onClick={(e) => this.logoutUser(e)}>Logout</p>
-                </div>
             </div>
+          </div>
         );
       } else {
         return (
             <div>
-              <button className='signup' onClick={() => this.props.openSignupModal('signup')}>Sign Up</button>
-              <button className='login' onClick={() => this.props.openLoginModal('login')}>Login</button>
+              <button className='signup' onClick={() => this.props.openSignupModal()}>Sign Up</button>
+              <button className='login' onClick={() => this.props.openLoginModal()}>Login</button>
             </div>
         );
       }

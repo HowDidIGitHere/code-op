@@ -44,15 +44,15 @@
 }
 
 .column-left{
-  padding-top: 30vh;
+  padding-top: 32vh;
   padding-left: 3vw;
-  width: 40%;
+  width: 20%;
   height: 100vh;
   font-size: 20px;
   background-color: #ececec;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
   0px 6px 10px 0px rgba(0, 0, 0, 0.14),
   0px 1px 18px 0px rgba(0, 0, 0, 0.12);
@@ -61,10 +61,21 @@
 .column-left > h1 {
   color: lightseagreen;
   font-size: large;
+  
+}
+
+.column-left > h2{
+  margin-bottom: 20px;
+}
+
+.column-right1{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .column-right{
-  padding-top: 25vh;
+  padding-top: 30vh;
   font-family: sans-serif;
   width: 50%;
   height: 400px;
