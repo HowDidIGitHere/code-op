@@ -44,10 +44,22 @@ class NavBar extends React.Component {
           <div className='dropdown'>
             <button className="dropdown-btn"><i class="fas fa-bars fa-2x"></i></button>
             <div className='dropdown-content-2'>
-                <p className='drop-item' onClick={() => this.props.openNotificationsModal()}>Notifications</p>
-                <Link className='drop-item' to={'/projects'}>Discover Page</Link>
-                <Link className='drop-item' to={'/projects/new'}>Create a Project</Link>
-                <p className='drop-item current-project' tabIndex='1' onClick={() => this.toggle()}>Current Projects</p>
+                <div className='drop-item'>
+                  <i className="fas fa-bell"></i>
+                  <p  onClick={() => this.props.openNotificationsModal()}>Notifications</p>
+                </div>
+                <div className='drop-item'>
+                  <i className="fas fa-search"></i>
+                  <Link to={'/projects'}>Discover Page</Link>
+                </div>
+                <div className='drop-item'>
+                  <i class="fas fa-hammer"></i>
+                  <Link  to={'/projects/new'}>Create a Project</Link>
+                </div>
+                <div className='drop-item current-project'>
+                  <i class="fas fa-tasks"></i>
+                  <p  tabIndex='1' onClick={() => this.toggle()}>Current Projects</p>
+                </div>
                 <div 
                   className='hidden-projects' 
                   style={this.state.show ? {display: "block"} : {display: "none"}}
