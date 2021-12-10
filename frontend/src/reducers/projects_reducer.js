@@ -7,7 +7,6 @@ import {
 const ProjectsReducer = (state = {}, action) => {
   Object.freeze(state);
   let nextState = Object.assign({}, state);
-  console.log(action);
 
   switch (action.type) {
     case RECEIVE_PROJECTS:

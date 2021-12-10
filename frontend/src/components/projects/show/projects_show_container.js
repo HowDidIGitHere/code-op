@@ -9,7 +9,8 @@ import { withRouter } from 'react-router';
 
 const mapStateToProps = (state, ownProps)=> {
   return {
-    user: state.session.user
+    user: state.session.user,
+    tags: state.entities.tags.namesByCategory
   };
 };
 

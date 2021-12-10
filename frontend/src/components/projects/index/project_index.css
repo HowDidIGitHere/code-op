@@ -1,5 +1,5 @@
 .projects-index {
-  margin: 30px 40px 40px 40px;
+  margin: 25px 40px 40px 40px;
 }
 .category-filters {
   display: flex;
@@ -9,7 +9,7 @@
 .underline {
   border-bottom: 2px solid #6F6D74;
   align-self: center;
-  margin-bottom: 20px;
+  margin: 5px 0 25px 0;
 }
 
 .checklist {

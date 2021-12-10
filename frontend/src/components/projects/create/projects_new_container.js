@@ -3,6 +3,7 @@ import { withRouter } from 'react-router';
 import { createProject, fetchProjects } from '../../../actions/project_actions';
 import { fetchTags, createTag } from '../../../actions/tag_actions'
 import ProjectsNew from './projects_new_component';
+import {createDiagram} from '../../../actions/diagram_actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -16,7 +17,8 @@ const mapDispatchToProps = dispatch => {
     createProject: data => dispatch(createProject(data)),
     fetchTags: params => dispatch(fetchTags(params)),
     fetchCreatorProjects: id => dispatch(fetchProjects({ creator: id })),
-    createTag: data => dispatch(createTag(data))
+    createTag: data => dispatch(createTag(data)),
+    createDiagram: data => dispatch(createDiagram(data))
   };
 };
 
