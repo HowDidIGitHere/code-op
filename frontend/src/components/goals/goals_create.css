@@ -15,7 +15,7 @@
 .goals-description {
   background-color: white;
   padding: 5px;
-  /* border-radius: 0 0 7px 7px; */
+  padding-left: 8px;
 }
 
 .goals-create-title > h4{
@@ -65,8 +65,12 @@
   padding: 0 5px 5px 5px;
   position: relative;
   background-color: white;
-  color: #565263;
+  color: black;
   font-size: 15px;
+}
+
+.edit-goal:hover, .view-tasks:hover {
+  color: lightseagreen;
 }
 
 .goals-create-task-list > h4{

@@ -82,14 +82,33 @@ class GoalsShow extends React.Component{
           </div>
         <div className='goals-title-edit-form' style={this.state.editToggle ? {display: "block"} : {display: "none"}}>
           <form onSubmit={this.handleGoalEdit}>
-            <input onChange={this.handleGoalChange('title')} value={this.state.title}/>
-            <textarea onChange={this.handleGoalChange('description')} value={this.state.description}></textarea>
-            <button type='submit'>Submit</button>
+            <input 
+              className='goals-title' 
+              onChange={this.handleGoalChange('title')} 
+              value={this.state.title}/>
+            <textarea
+              className='goals-description' 
+              onChange={this.handleGoalChange('description')} 
+              value={this.state.description}></textarea>
+            <button className='submit-edit' type='submit'>Submit</button>
           </form>
         </div>
-        <div className='goal-buttons'>
+        <div className='hidden-tasks' style={this.state.toggle ? {display: "block"} : {display: "none"}}>
+          <h4 className='task-header'>Tasks:</h4>
+          {this.state.tasks.map((task, idx) => 
+            <li className="goal-tasks" key={idx}>
+              <div>
+                <p>{task.body}</p>
+                <div>
+                  <button className='delete-task' onClick={this.handleTaskDelete(idx)}>Delete</button>
+                </div>
+              </div>
+            </li>
+          )}
+        </div>
+        <div className='goal-buttons' style={!this.state.editToggle ? {display: "block"} : {display: "none"}}>
           <div className='test-wrap'>
-          <button className='edit-goal' onClick={this.handleTaskEdit()}>Edit</button>
+          <button className='edit-goal' onClick={this.handleTaskEdit()} style={!this.state.toggle ? {display: "block"} : {display: "none"}}>Edit</button>
           <br/>
           <button className='view-tasks' onClick={this.handleToggle}>View Tasks</button> 
         </div>
@@ -106,34 +125,21 @@ class GoalsShow extends React.Component{
               <div className='add-task-textbox'>
                 <form onSubmit={this.handleTaskSubmit}>
                   <textarea onChange={this.handleTaskChange} value={this.state.task} placeholder="Add a task!"></textarea>
-                  <button type='submit'>Submit</button>
+                  <button className='submit-edit' type='submit'>Submit</button>
                 </form>
               </div>
             </div>
-            <h4>Tasks:</h4>
+            {/* <h4>Tasks:</h4>
             {this.state.tasks.map((task, idx) => 
               <li className="goal-tasks" key={idx}>
-
                 <div>
-                  {/* <div className='task-body-text' style={!this.state.editToggle ? {display: "block"} : {display: "none"}}> */}
-                    <p>{task.body}</p>
-                  {/* </div> */}
-                  {/* <div className='task-edit' style={this.state.editToggle ? {display: "block"} : {display: "none"}}>
-                    <div className='add-task-textbox'>
-                      <form onSubmit={this.handleTaskSubmit}>
-                        <textarea onChange={this.handleTaskChange} value={this.state.task} placeholder="Add a task!"></textarea>
-                        <button type='submit'>Submit</button>
-                      </form>
-                    </div>
-                  </div> */}
+                  <p>{task.body}</p>
                   <div>
-                    {/* <button onClick={this.handleMark(idx)}>Mark Done</button> */}
-                    {/* <button onClick={this.handleTaskEdit(idx)}>Edit</button> */}
                     <button onClick={this.handleTaskDelete(idx)}>Delete</button>
                   </div>
                 </div>
               </li>
-            )}
+            )} */}
           </div>
         </div>
 

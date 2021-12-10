@@ -90,6 +90,7 @@ class ProjectsShow extends React.Component {
             <div className='left-body'>
               <div className='creator-container'>
                   <h1>Creator</h1>
+                  {/* <p>{this.state.creator.name}</p> */}
               </div>
               <div className='collaborators-container'>
                 <h1>Collaborators</h1>
@@ -147,8 +148,8 @@ class ProjectsShow extends React.Component {
                   </div>
                   <div className='diagram-textbox'>
                     <form onSubmit={this.handleDiagramSubmit}>
-                      <textarea onChange={this.handleDiagramChange} value={this.state.diagram ? this.state.diagram.content : ""} cols="30" rows="10"></textarea>
-                      <button type='submit'>Finalize</button>
+                      <textarea className='diagram-text' onChange={this.handleDiagramChange} value={this.state.diagram ? this.state.diagram.content : ""} cols="30" rows="10"></textarea>
+                      <button className='finalize' type='submit'>Finalize</button>
                     </form>
                   </div>
                 </div>
