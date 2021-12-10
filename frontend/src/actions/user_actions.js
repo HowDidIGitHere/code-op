@@ -41,7 +41,7 @@ export const receiveCollaboratedProjects = (params) => dispatch => (
   UserApiUtil.getCollaboratedProjects(params)
     .then(({data}) => dispatch(receiveUser(data)))
     .catch(({ response }) => (
-      dispatch(receiveUserErrors(response.data.errors))
+      dispatch(receiveUserErrors(response.data))
     ))
 )
 

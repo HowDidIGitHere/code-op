@@ -52,10 +52,10 @@ class NavBar extends React.Component {
                   className='hidden-projects' 
                   style={this.state.show ? {display: "block"} : {display: "none"}}
                 >
-                  {this.props.projects.map((project) => {
+                  {this.props.projects.map((project, idx) => {
                     if (project.creator === this.props.user.id)
                       return (
-                        <div>
+                        <div key={idx}>
                           <button 
                             id={project._id} 
                             className='hidden-project' 
