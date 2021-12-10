@@ -51,7 +51,7 @@ class UserProfile extends React.Component {
                   : this.state.created.map((project, idx) => 
                       <div className="project-list-item" key={idx}>
                         <div className="project-list-title">{project.title}</div>
-                        <div className="project-list-description">{project.description}</div>
+                        {/* <div className="project-list-description">{project.description}</div> */}
                       </div>
                     )
                 }
@@ -64,7 +64,7 @@ class UserProfile extends React.Component {
                   : this.state.collaborated.map((proj, idx) => 
                       <div className="project-list-item" key={idx}>
                         <div className="project-list-title">{proj.title}</div>
-                        <div className="project-list-description">{proj.description}</div>
+                        {/* <div className="project-list-description">{proj.description}</div> */}
                       </div>
                     )
                 }

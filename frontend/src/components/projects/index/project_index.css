@@ -152,7 +152,8 @@
   font-size: 14px;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 7;
+  /* -webkit-line-clamp: 7; */
+  -webkit-line-clamp: 12;
   -webkit-box-orient: vertical;
 }
 
