@@ -49,9 +49,8 @@ class ProjectsNew extends React.Component {
         console.log(res.project._id)
         this.props.createTag(tags)
       })
-      .then(this.props.fetchTags())
-      // .then(this.props.history.push('/projects'))
-      // .then(window.location.reload());
+      .then(this.props.history.push('/projects'))
+      .then(window.location.reload());
   }
 
   render() {

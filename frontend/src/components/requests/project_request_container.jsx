@@ -7,7 +7,8 @@ import { fetchTags } from '../../actions/tag_actions'
 
 const mSTP = (state, ownProps) => ({
   user: state.session.user,
-  project: state.entities.singleProject
+  project: state.entities.singleProject,
+  tags: state.entities.tags.namesByCategory
 })
 
 const mDTP = (dispatch, ownProps) => ({
