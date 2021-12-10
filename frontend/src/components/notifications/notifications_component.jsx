@@ -5,10 +5,12 @@ class Notifications extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      requests: []
+      requests: [],
+      rerendner: false,
     }
 
     this.handleAccept = this.handleAccept.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   componentDidMount(){
@@ -31,8 +33,15 @@ class Notifications extends React.Component{
       })
   }
 
+  handleDelete(requestId) {
+    return (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      this.props.deleteRequest(requestId).then(() => this.setState({ rerendner: !this.state.rerendner }))
+    }
+  }
+
   render(){
-    console.log("render state:", this.state)
     return(
       <div className="notifications">
         {this.state.requests.map((request, idx) =>
@@ -55,7 +64,7 @@ class Notifications extends React.Component{
                 onClick={() => this.handleAccept(request.projectId, request.senderId, request._id, idx)}
               >Accept
               </button>
-              <button className="decline" onClick={() => this.props.deleteRequest(request._id)}>Decline</button>
+              <button className="decline" onClick={this.handleDelete(request._id)}>Decline</button>
             </div>
           </div>
         )}
