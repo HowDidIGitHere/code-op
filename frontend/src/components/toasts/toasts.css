@@ -1,0 +1,96 @@
+@import '../colors.scss';
+
+.toast {
+  position: relative;
+  right: 0;
+  top: 0;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  display: flex;
+  color: $soft-grey;
+  font-size: 14px;
+  font-weight: 300;
+  justify-content: space-between;
+  line-height: 1.25;
+  z-index: 9999;
+
+  margin-bottom: 16px;
+  margin-right: 16px;
+  margin-left: 16px;
+  padding: 16px 16px;
+
+  min-width: 228px;
+  width: 440px;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+
+    padding-bottom: 8px;
+    margin: 0;
+  }
+
+  .title {
+    color: $light-black;
+    display: block;
+    font-size: 1.6rem;
+    line-height: 1.25;
+    text-transform: capitalize;
+
+    margin-left: 16px;
+  }
+
+  .body {
+    color: $light-black;
+    font-size: 14px;
+
+    margin-left: 36px;
+  }
+
+  .type-icon {
+    align-self: flex-start;
+  }
+
+  .close-icon {
+    cursor: pointer;
+    fill: $soft-grey;
+
+    margin-left: 16px;
+    padding: 3px;
+
+    width: 14px;
+    height: 14px;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+  }
+}
+
+.toast:first-child {
+  margin-top: 16px;
+}
+
+.toast.error {
+  background-color: $error-red-light;
+
+  .title {
+    color: $error-red;
+  }
+
+  .type-icon {
+    fill: $error-red;
+
+    width: 20px;
+    height: 20px;
+  }
+}
