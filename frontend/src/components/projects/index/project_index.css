@@ -169,6 +169,7 @@
 }
 
 .learn-more, .apply-now {
+  cursor: pointer;
   border-radius: 4px;
   width: 80px;
   height: 25px;
