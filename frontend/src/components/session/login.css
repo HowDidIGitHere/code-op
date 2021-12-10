@@ -37,6 +37,7 @@
 }
 
 .demo-button {
+  cursor: pointer;
   border: gray solid 1px;
   border-radius: 4px;
   padding: 8px;
