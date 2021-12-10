@@ -1,5 +1,4 @@
 import React from 'react';
-import { fetchTag } from '../../actions/tag_actions';
 import './requests.css'
 
 class ProjectRequest extends React.Component {
@@ -11,9 +10,18 @@ class ProjectRequest extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    const { user, project } = this.props;
     let position = document.querySelector('input[name="radio-options"]:checked').value;
-    
-    let request = {}
+
+    let request = {};
+    request['recipient'] = project.creator;
+    request['senderId'] = user.id;
+    request['senderName'] = user.username;
+    request['message'] = `${user.username} would like to join ${project.title} as a ${position} team member`;
+    request['projectId'] = project._id;
+    request['projectName'] = project.title;
+
+    this.props.createRequest(request);
   }
 
   render() {
