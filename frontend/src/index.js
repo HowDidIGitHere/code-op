@@ -7,6 +7,7 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 import * as userActions from './actions/user_actions'
+import * as tagActions from './actions/tag_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   window.store = store
   window.userActions = userActions;
+  window.tagActions = tagActions;
   
   ReactDOM.render(<Root store={store} />, root);
 });
