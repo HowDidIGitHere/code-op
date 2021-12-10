@@ -9,7 +9,7 @@ const CategoryDropdown = ({category}) => {
         { category[1].map((item) => { 
           return (
             <label class="checklist-item">{item}
-                <input type="checkbox"/>
+                <input type="checkbox" value={item}/>
                 <span className="checkmark"></span>
             </label>
           )
