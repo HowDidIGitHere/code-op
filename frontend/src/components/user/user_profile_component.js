@@ -32,13 +32,13 @@ class UserProfile extends React.Component {
         
         <div className="profile-column">
           <div className="column-left">
-            <h1>Email:</h1>
+            <h1>Email</h1>
             <h2>{this.props.user.email}</h2>
-            <h1>Bio:</h1>
+            <h1>Bio</h1>
             <h2>{this.props.user.bio}</h2>
-            <h1>Github:</h1>
+            <h1>Github</h1>
             <h2>{this.props.user.github}</h2>
-            <h1>Tags:</h1>
+            <h1>Tags</h1>
             
             <div onClick={() => this.props.openUpdateModal()} className="edit-btn">Edit</div>
           </div>

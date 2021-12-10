@@ -33,13 +33,13 @@ class UserUpdateComponent extends React.Component{
 
     return(
       <form className="user-update" onSubmit={this.handleSubmit}>
-        <h3>Username:</h3>
+        <h3>Username</h3>
           <input className="update-username" onChange={this.update('username')} value={this.state.username}/>
-        <h3>Email:</h3>
+        <h3>Email</h3>
           <input className="update-email" onChange={this.update('email')} value={this.state.email}/>
-        <h3>Bio:</h3>
+        <h3>Bio</h3>
           <input className="update-bio" onChange={this.update('bio')} value={this.state.bio}/>
-        <h3>Github:</h3>
+        <h3>Github</h3>
           <input className="update-github" onChange={this.update('github')} value={this.state.github}/>
 
         <button type="submit">Update</button>

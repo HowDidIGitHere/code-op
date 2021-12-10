@@ -92,6 +92,7 @@
 }
 
 .save-button { 
+  cursor: pointer;
   color: white;
   background-color: rgb(30, 160, 154);
   width: 50px;
