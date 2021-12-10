@@ -50,18 +50,29 @@
 }
 
 .login-form-button{
-	border: 1px solid gray;
+  cursor: pointer;
 	border-radius: 3px;
 	text-align: center;
-	padding: 1vh;
-	background-color: lightseagreen;
+	padding: 8px;
 	color: white;
 	font-size: large;
+  background-color: #21A59A;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+  color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+  0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+  0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+
+.login-form-button:hover {
+  color: #ccc;
+  background-color: #21A59Add;
 }
 
 .login-form-footer > h2 {
+  cursor: pointer;
   margin: 15px 0 0 5px;
-  color: lightseagreen;
+  color: #21A59A;
 	padding: 1vh;
   padding: 5px 0 3px 0;
 }
