@@ -77,7 +77,7 @@ class NavBar extends React.Component {
               onClick={this.handleClick}
               src="https://res.cloudinary.com/dzixdb9eu/image/upload/v1638985865/Infinity_t10mft.png" 
               alt="infinity" />
-            <h1>CODE-OP</h1>
+            <h1 onClick={this.handleClick}>CODE-OP</h1>
           </div>
           <div className='right-nav'>
             <div className='right-nav-links'>
