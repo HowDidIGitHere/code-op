@@ -1,6 +1,8 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import ProjectRequest from './project_request'
+import { fetchTags } from '../../actions/tag_actions'
+
 
 
 const mSTP = (state, ownProps) => ({
@@ -9,7 +11,7 @@ const mSTP = (state, ownProps) => ({
 })
 
 const mDTP = (dispatch, ownProps) => ({
-  // createGoal: data => dispatch(createGoal(data))
+  fetchTags: params => dispatch(fetchTags(params)),
 })
 
-export default withRouter(connect(mSTP, null)(ProjectRequest))
+export default withRouter(connect(mSTP, mDTP)(ProjectRequest))

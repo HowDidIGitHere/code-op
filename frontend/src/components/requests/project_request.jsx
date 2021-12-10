@@ -8,6 +8,15 @@ class ProjectRequest extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   };
 
+  componentWillMount() {
+    let tag = {};
+    tag['it'] = this.props.project.id;
+    tag['modelType'] = "Project";
+    tag['category'] ='position'
+    console.log(tag)
+    this.props.fetchTags(tag)
+  }
+
   handleSubmit() {
 
   }
