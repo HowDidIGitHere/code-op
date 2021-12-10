@@ -2,9 +2,9 @@
   position: fixed;
   margin-top: 90px;
   top: 0;
-  left: 0;
+  left: 4%;
   bottom: 0;
-  right: 0;
+  right: 4%;
   overflow: auto;
   background-color: white;
 }
@@ -15,25 +15,48 @@
   margin-bottom: 5px;
 }
 
+.project-title-header > p {
+  font-size: 18px;
+}
+
 .project-title-header {
-  padding: 20px 0 10px 50px;  
+  padding: 20px 0px 20px 0px;  
+  margin-left: 15px;
 }
 
 .project-body {
   display: flex;
 }
 
-.left-body {
+.outer-left {
+  /* position: relative; */
+  left: 0%;
   height: 100%;
-  margin: 15px 0 15px 40px;
-  padding: 5px 0 15px 10px;
-  border-radius: 10px;
-  background-color: #F1F6F9;
+  width: 1100%;
 }
 
-.collaborators-container > h1 {
+.left-body, .goal-container {
+  position: relative;
+  left: 0%;
+  height: 100%;
+  margin: 15px 0 15px 0px;
+  padding: 15px 30px 15px 15px;
+  border-radius: 10px;
+  background-color: #e9edf0;
+  width: 24%;
+  z-index: 1;
+}
+
+
+.collaborators-container > h1, 
+.creator-container > h1, 
+.goal-header >h1 {
   font-size: 25px;
   margin-bottom: 5px;
+}
+
+.goal-header {
+  margin-bottom: 10px;
 }
 
 .collab {
@@ -46,8 +69,12 @@
 }
 
 .mid-body {
+  position: absolute;
   margin: 15px 20px 0 20px;
-  /* width: 50%; */
+  /* margin-left: auto;
+  margin-right: auto; */
+  padding-left: 15%;
+  width: 80%;
 }
 
 .goal {
@@ -63,10 +90,15 @@
 }
 
 .diagram-section {
+  position: relative;
+  width: 80%;
+  height: 20%;
+  margin-left: -100px;
+  margin-right: -50px;
+  float: right;
   background-color: #F1F6F9;
   border-radius: 10px;
   padding: 10px 35px 30px 35px;
-  margin-left: 20px;
 }
 
 .details-container > h1 {
@@ -87,6 +119,11 @@
 .diagram-container {
   display: flex;
   width: 100%;
+  height: 80%;
+}
+
+.test-diagram {
+  width: 90%;
 }
 
 .diagram-viewbox {
@@ -94,10 +131,9 @@
   align-content: center;
   justify-content: center;
   align-items: center;
-  min-height: 500px;
-  min-width: 500px;
+  width: inherit;
   border: 1px solid black;
-  width: 100%;
+  border-radius: 7px;
 }
 
 .diagram-textbox > form {
@@ -112,24 +148,19 @@
   min-width: 220px;
   max-width: 500px;
   border: 1px solid lightgrey;
-  margin: 0px;
-  /* width: 100%; */
-  /* height: 264px; */
-  /* resize: none; */
-}
-
-.goal-container {
-  height: 100%;
-  border: 1px solid lightgrey;
-  margin: 15px 40px 15px 40px;
-  padding: 15px 10px 15px 10px;
+  padding: 5px;
+  border-radius: 7px;
+  margin-left: 8px;
+  color: rgb(90, 88, 88);
 }
 
 .add-task-container textarea {
-  border: 1px solid black;
-  width: 400px;
-  height: 100px;
-  resize: none;
+  width: 96%;
+  resize: none; 
+  border-radius: 7px;
+  background-color: white;
+  padding: 5px;
+  padding-left: 8px;
 }
 
 .goals-title-edit-form > form {
@@ -138,13 +169,53 @@
 }
 
 .goals-title-edit-form input {
-  width: 400px;
-  border: 1px solid black;
+  background-color: rgb(109, 201, 196);
 }
 
 .goals-title-edit-form textarea {
-  width: 400px;
-  height: 100px;
-  resize: none;
-  border: 1px solid black;
+  border-radius: 0 0 7px 7px;
+  padding-bottom: 7px;
+  color: rgb(118, 117, 117);
+}
+
+.submit-edit, .finalize {
+  position: relative;
+  text-align: center;
+  width: 70px;
+  left: 50%;
+  font-size: 13px;
+  font-weight: 300;
+
+  margin: 10px 0 10px -35px;
+  background-color: #534f5f;
+  color: white;
+  padding: 4px;
+  border-radius: 7px;
+}
+
+.hidden-tasks {
+  background-color: white;
+  margin: -22px 0 0px 0;
+  padding-left: 10px;
+}
+
+.task-header {
+  font-weight: 600;
+  padding-top: 10px;
+  margin-bottom: 4px;
+}
+
+.goal-tasks {
+  margin-left: 25px;
+}
+
+.delete-task {
+  font-size: 12px;
+  margin-top: -2px;
+  margin-bottom: 5px;
+  color: lightseagreen
+}
+
+.delete-task:hover {
+  color: red
 }
