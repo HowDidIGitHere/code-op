@@ -16,3 +16,8 @@ export const updateUser = data => {
 export const deleteUser = id => {
   return axios.delete(`/api/users/${id}`)
 }
+
+export const deleteUser = id => {
+  return axios.delete(`/api/users/${id}`)
+}
+
