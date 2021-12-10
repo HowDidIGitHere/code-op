@@ -13,6 +13,7 @@ class ProjectsIndex extends React.Component {
   }
 
   componentWillMount() {
+    this.props.fetchTags({ namesByCategory: "position,software,platform"})
     this.props.fetchProjects();
   }
 
@@ -24,13 +25,22 @@ class ProjectsIndex extends React.Component {
   }
 
   render() {
-    const categories = ['Industry', 'Skill Type', 'Platform', 'Language']
+    if (!this.props.tags) return null
+
+    const { tags } = this.props;
+    const categories = [
+      ['Software', tags.software.slice(0,15)],
+      ['Platform', tags.platform], 
+      ['Position', tags.position], 
+    ]
+
     return(
       <div className="projects-index">
         <div className='category-filters'>
           {categories.map((category) => {
             return <CategoryDropdown category={category}/>
           })}
+          <button className='search-button'>Search</button>
         </div>
         <div className="underline"></div>
         <div className='right-index'>
