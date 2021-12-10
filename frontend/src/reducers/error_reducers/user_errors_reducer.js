@@ -10,7 +10,6 @@ const UserErrorsReducer = data => {
   return (state={}, action) => {
     Object.freeze(state);
     const nextState = Object.assign({}, state);
-    console.log(action);
     switch(action.type) {
       case RECEIVE_CURRENT_USER:
       case RECEIVE_USERS:

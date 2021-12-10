@@ -17,7 +17,6 @@ class UserProfile extends React.Component {
     
   render() {
     if (!this.props.user) return "loading...";
-    console.log(this.state)
     return (
       <div className="user-profile">
         <div className="header-bg">

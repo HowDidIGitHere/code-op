@@ -20,18 +20,20 @@ class ProjectsIndex extends React.Component {
 
   handleSearch(e) {
     e.preventDefault();
-
     let types = "";
     var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
-
+    if (checkboxes.length === 0) 
+      this.props.fetchProjects();
+      
     for (var i = 0; i < checkboxes.length; i++) {
       if (i === checkboxes.length - 1) 
         types = types.concat(checkboxes[i].value)
       else
         types = types.concat(checkboxes[i].value, ",")
-    }
     
-    this.props.fetchProjects({tags: types})
+      this.props.fetchProjects({tags: types})
+    }
+
   }
 
   handleRequest(e) {
