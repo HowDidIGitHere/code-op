@@ -45,6 +45,11 @@
   margin-left: 16px;
   font-size: 14px;
   font-weight: 300;
+  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.right-nav .dropdown-btn:hover {
+  color: #ccc;
 }
 
 .login, .signup {
@@ -189,6 +194,6 @@
 .auth-buttons {
   display: flex;
   align-items: center;
-  margin-left: 16px;
+  margin-left: 24px;
   text-align: center;
 }
