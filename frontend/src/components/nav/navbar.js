@@ -110,12 +110,8 @@ class NavBar extends React.Component {
             <h1 onClick={this.handleClick}>CODE-OP</h1>
           </div>
           <div className='right-nav'>
-            <div className='right-nav-links'>
-              <button className='about-us' onClick={() => this.props.openAboutModal('about')}>About Us</button>
-            </div>
-            <div className='right-nav-button'>
-              { this.getLinks() }
-            </div>
+            <button className='about-us' onClick={() => this.props.openAboutModal('about')}>About Us</button>
+            { this.getLinks() }
           </div>
         </div>
       );
