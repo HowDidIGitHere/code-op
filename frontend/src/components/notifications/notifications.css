@@ -8,19 +8,23 @@
 .note-info{
   display: flex;
   background-color: lightseagreen;
-
+  padding: 7px;
+  font-size: 15px;
+  border-radius: 5px 5px 0 0;
 }
 
 .note-info > h5{
   padding-right: 0.5vw;
   padding-left: 0.5vw;
-  font-size: 0.8vw;
-  margin-top: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 0px;
   margin-bottom: 0;
 }
 
 .request-link > h5{
-  font-size: 1vw;
+  font-size: 17px;
+  font-weight: 500;
   color: white;
   margin-top: 0;
   margin-left: 10px;
@@ -29,7 +33,8 @@
 }
 
 .request-link2 > h5{
-  font-size: 1vw;
+  font-size: 17px;
+  font-weight: 500;
   color: white;
   margin-top: 0;
   margin-right: 10px;

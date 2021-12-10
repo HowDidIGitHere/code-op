@@ -6,17 +6,19 @@ class UserProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      projects: []
+      created: [],
+      collaborated: []
     }
   }
     
   componentWillMount() {
     this.props.fetchUser();
-    this.props.fetchCreatorProjects();
+    this.props.fetchCreatorProjects()
+      .then( res => this.setState({created: Object.values(res.payload)}))
     this.props.receiveCollaboratedProjects()
-      .then(res => {this.setState({projects: Object.values(res.user)}); console.log("res:", Object.values(res.user))})
+    .then ( res => this.setState({collaborated: Object.values(res.payload.projects)}))
   }
-    
+
   render() {
     if (!this.props.user) return "loading...";
     console.log("state:", this.state)
@@ -44,19 +46,19 @@ class UserProfile extends React.Component {
           <div className="column-right1">
             <div className="column-right">
               <h1>Created Projects:</h1>
-                {this.props.projects.map((project, idx) => 
+                {this.state.created.map((project, idx) => 
                   <div className="project-list-item" key={idx}>
-                    <div className="project-list-title" to={`/projects/${project._id}`}>{project.title}</div>
-                    <div className="project-list-github">{project.github}</div>
+                    <div className="project-list-title">{project.title}</div>
                   </div>
                   )}
             </div>
 
             <div className="column-right">
               <h1>Collaborated Projects:</h1>
-                {this.state.projects.map((proj, idx) => 
+                {this.state.collaborated.map((proj, idx) => 
                   <div className="project-list-item" key={idx}>
                     <div className="project-list-title">{proj.title}</div>
+                    <div className="project-list-description">{proj.description}</div>
                   </div>
                   )}
             </div>

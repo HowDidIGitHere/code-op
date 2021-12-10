@@ -8,9 +8,9 @@ export const ONE_PROJECT='ONE_PROJECT';
 
 
 // Actions
-export const receiveProjects = projects => ({
+export const receiveProjects = payload => ({
   type: RECEIVE_PROJECTS,
-  projects
+  payload
 })
 
 export const receiveProject = project => ({
@@ -37,7 +37,11 @@ export const fetchCreatorProjects = (creatorId) => dispatch => (
 // Thunk Action Creators
 export const fetchProjects = params => dispatch => (
   ProjectApiUtil.getProjects(params) 
-    .then(projects => dispatch(receiveProjects(projects.data)))
+    .then(({ data }) => {
+      if (params && params.collaborators) 
+        return dispatch(receiveProjects({ projects: data, inject: true }));
+      return dispatch(receiveProjects({ projects: data }));
+    })
     .catch(err => console.log(err))
 );
 

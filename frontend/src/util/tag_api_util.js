@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const getTags = (params={}) => {
+export const getTags = (params) => {
   return axios.get('/api/tags', { params });
 }
 

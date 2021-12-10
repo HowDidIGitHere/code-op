@@ -13,6 +13,11 @@ export const receiveCollaborators = collaborators => ({
   collaborators
 });
 
+export const receiveUsers = users => ({
+  type: RECEIVE_USER,
+  users
+});
+
 export const receiveUser = user => ({
   type: RECEIVE_USER,
   user
@@ -37,21 +42,12 @@ export const fetchCollaborators = collaborators => dispatch => (
     ))
 )
 
-export const receiveCollaboratedProjects = (params) => dispatch => (
-  UserApiUtil.getCollaboratedProjects(params)
-    .then(({data}) => dispatch(receiveUser(data)))
-    .catch(({ response }) => (
-      dispatch(receiveUserErrors(response.data))
-    ))
-)
-
 export const fetchUsers = params => dispatch => (
-  UserApiUtil.getUser(params)
-    .then(user => dispatch(receiveUser(user.data)))
-    .catch(({ response }) => {
-        console.log(response);
-        return dispatch(receiveUserErrors(response.data));
-    })
+  UserApiUtil.getUsers(params)
+    .then(user => dispatch(receiveUsers(user.data)))
+    .catch(({ response }) => (
+        dispatch(receiveUserErrors(response.data))
+    ))
 )
 
 export const fetchUser = userId => dispatch => (

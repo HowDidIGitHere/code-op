@@ -3,7 +3,7 @@ import ProjectsShow from './projects_show_component';
 import './project_show.css'
 import { fetchGoals, updateGoal } from '../../../actions/goal_actions';
 import { fetchCollaborators } from '../../../actions/user_actions';
-import { fetchCreatorProjects, fetchProject } from '../../../actions/project_actions';
+import { fetchProjects, fetchProject } from '../../../actions/project_actions';
 import { fetchDiagram, updateDiagram } from '../../../actions/diagram_actions';
 import { withRouter } from 'react-router';
 
@@ -16,7 +16,7 @@ const mapStateToProps = (state, ownProps)=> {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     fetchProject: () => dispatch(fetchProject(ownProps.match.params.id)),
-    fetchCreatorProjects: id => dispatch(fetchCreatorProjects(id)),
+    fetchCreatorProjects: id => dispatch(fetchProjects({ creator: id })),
     fetchCollaborators: collaboratorsArr => dispatch(fetchCollaborators(collaboratorsArr)),
     fetchGoals: goalsArr => dispatch(fetchGoals(goalsArr)),
     fetchDiagram: diagramId => dispatch(fetchDiagram(diagramId)),
