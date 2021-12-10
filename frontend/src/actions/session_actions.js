@@ -18,7 +18,7 @@ export const receiveUserSignIn = () => ({
 });
 
 // We dispatch this one to show authentication errors on the frontend
-export const receiveErrors = errors => ({
+export const receiveErrors = ({ errors }) => ({
     type: RECEIVE_SESSION_ERRORS,
     errors
 });
@@ -38,7 +38,10 @@ export const signup = user => dispatch => (
             const decoded = jwt_decode(token);
             dispatch(receiveUserSignIn()) 
             dispatch(receiveCurrentUser(decoded))
-        }).catch(({ response }) => (dispatch(receiveErrors(response.data.errors))))
+        })
+        .catch(({ response }) => (
+          dispatch(receiveErrors(response.data))
+        ))
 );
 
 // Upon login, set the session token and dispatch the current user. Dispatch errors on failure.
@@ -51,7 +54,7 @@ export const login = user => dispatch => (
         dispatch(receiveCurrentUser(decoded))
     })
     .catch(({ response }) => (
-        dispatch(receiveErrors(response.data.errors))
+        dispatch(receiveErrors(response.data))
     ))
 )
 

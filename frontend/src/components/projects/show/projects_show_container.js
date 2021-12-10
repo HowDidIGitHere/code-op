@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import ProjectsShow from './projects_show_component';
 import './project_show.css'
 import { fetchGoals, updateGoal } from '../../../actions/goal_actions';
-import { fetchCollaborators } from '../../../actions/user_actions';
+import { fetchCollaborators, fetchUser } from '../../../actions/user_actions';
 import { fetchProjects, fetchProject } from '../../../actions/project_actions';
 import { fetchDiagram, updateDiagram } from '../../../actions/diagram_actions';
 import { fetchTags } from '../../../actions/tag_actions';
@@ -25,6 +25,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     updateDiagram: diagram => dispatch(updateDiagram(diagram)),
     updateGoal: goal => dispatch(updateGoal(goal)),
     fetchTags: params => dispatch(fetchTags(params)),
+    fetchUser: userId => dispatch(fetchUser(userId))
   };
 };
 

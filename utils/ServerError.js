@@ -1,6 +1,7 @@
 class ServerError extends Error {
-  constructor(message , statusCode) {
-    super(message);
+  constructor(errors , statusCode) {
+    super();
+    this.errors = errors;
     this.statusCode = statusCode;
     this.status = statusCode % 100 === 4 ? "fail" : "error";
     this.isOperational = true;

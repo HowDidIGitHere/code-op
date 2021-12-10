@@ -10,6 +10,7 @@ class ProjectsShow extends React.Component {
     super(props);
 
     this.state = {
+      creator: undefined,
       project: undefined,
       collaborators: undefined,
       goals: undefined,
@@ -45,7 +46,13 @@ class ProjectsShow extends React.Component {
               this.setState(nextState);
             })
         }
-      }));
+
+      }))
+      .then(res => {
+        this.props.fetchUser(this.state.project.creator)
+          .then(res => {
+            this.setState({ creator: res.user })})
+      });
 
     this.props.fetchCreatorProjects(this.props.user.id);
   }
@@ -95,7 +102,7 @@ class ProjectsShow extends React.Component {
               <div className='collaborators-container'>
                 <h1>Collaborators</h1>
                 <div className='collaborator-list'>
-                  {this.state.collaborators ? <Collaborators collaborators={this.state.collaborators} /> : null}
+                  {this.state.collaborators ? <Collaborators creator={this.state.creator} collaborators={this.state.collaborators} /> : null}
                 </div>
               </div>
             </div>

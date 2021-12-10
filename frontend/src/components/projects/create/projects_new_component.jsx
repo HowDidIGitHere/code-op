@@ -25,39 +25,41 @@ class ProjectsNew extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     let diagram = { 
       name: "Example Diagram",
-      content: `classDiagram
-        GrandParent <|-- Parent
-        Parent <|-- ChildOne
-        Parent <|-- ChildTwo
-        GrandParent <|-- Uncle
-        GrandParent <|-- Aunt
-        class GrandParent {
-        +Integer age
-        +giveHardCandy()
-        }
-        class Parent {
-        +String profession
-        +takeToSchool(...children)
-        }
-        class Uncle {
-        +Array coinCollection
-        }
-        class Aunt {
-        +Bool employeeOfTheYear
-        +pinchCheeks()
-        }
-        class ChildOne {
-        +String favoriteBlankie
-        +throwFit()
-        }
-        class ChildTwo {
-        +Boolean hatesCelery
-        +reacPictureBook()
-        }`
-      }
-    e.preventDefault();
+      content: (
+`classDiagram
+GrandParent <|-- Parent
+Parent <|-- ChildOne
+Parent <|-- ChildTwo
+GrandParent <|-- Uncle
+GrandParent <|-- Aunt
+class GrandParent {
++Integer age
++giveHardCandy()
+}
+class Parent {
++String profession
++takeToSchool(...children)
+}
+class Uncle {
++Array coinCollection
+}
+class Aunt {
++Bool employeeOfTheYear
++pinchCheeks()
+}
+class ChildOne {
++String favoriteBlankie
++throwFit()
+}
+class ChildTwo {
++Boolean hatesCelery
++reacPictureBook()
+}`
+      )
+    }
 
     let types = "";
     var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
@@ -81,16 +83,14 @@ class ProjectsNew extends React.Component {
           }
         this.props.createProject(project)
           .then(res => { 
-          let tags = {}
-          tags['it'] = res.project._id;
-          tags['modelType'] = 'Project';
-          tags['names']= types
-          this.props.createTag(tags).then(this.props.history.push('/projects')).then(this.props.history.reload)
-        })
+            let tags = {}
+            if (!res.project) return;
+            tags['it'] = res.project._id;
+            tags['modelType'] = 'Project';
+            tags['names']= types
+            this.props.createTag(tags).then(this.props.history.push('/projects')).then(this.props.history.reload)
+          })
       })
-      ;
-
-    ;
   }
 
   render() {

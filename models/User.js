@@ -1,24 +1,30 @@
 const bcrypt = require('bcryptjs');
-const Validator = require("validator");
+const validator = require("validator");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const PositionSchema = new Schema({
   role: {
     type: String,
-    required: true
+    required: [true, "Please enter the posiion's role"]
   }
 });
 
 const UserSchema = new Schema({
   username: {
     type: String,
-    required: true,
+    unique: true,
+    required: [true, 'Please enter a username'],
     minlength: [3, 'Usernames must be longer than 3 characters']
   },
   email: {
     type: String,
-    required: true
+    unique: true,
+    required: [true, 'Please enter an email'],
+    validate: {
+      validator: validator.isEmail,
+      message: 'Please enter a valid email (example@domain.com)'
+    }
   },
   password: {
     type: String,
@@ -43,7 +49,7 @@ const UserSchema = new Schema({
   github: {
     type: String,
     validate: {
-      validator: Validator.isURL,
+      validator: validator.isURL,
       message: "Please enter a valid Github URL"
     }
   }

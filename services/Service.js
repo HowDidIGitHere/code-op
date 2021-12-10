@@ -13,7 +13,7 @@ class Service {
 
     fields = fields ? fields.join(' ') : '-__v';
     skip = skip ? Number(skip) : 0;
-    limit = limit ? Number(limit) : 10;
+    limit = limit ? Number(limit) : 100;
     sort = sort ? sort.join(' ') : '-createdAt';
 
     delete query.fields;
@@ -114,23 +114,3 @@ function parseFieldSets(fieldSets) {
 }
 
 module.exports = Service;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// EOF

@@ -24,7 +24,7 @@ export const removeTag = tagId => ({
   tagId
 })
 
-export const receiveTagErrors = errors => ({
+export const receiveTagErrors = ({ errors }) => ({
   type: RECEIVE_TAG_ERRORS,
   errors
 })

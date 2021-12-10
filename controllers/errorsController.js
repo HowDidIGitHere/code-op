@@ -3,28 +3,29 @@ const keys = require('../config/keys')
 
 const handleCastErrorDB = err => {
   const message = `Invalid ${err.path}: ${err.value}`;
-  return new ServerError(message, 400);
+  return new ServerError([message], 400);
 };
 
 const handleDuplicateKeyError = err => {
   const errValue = Object.values(err.keyValue)[0];
   const message = `'${errValue}' is taken`;
-  return new ServerError(message, 400);
+  return new ServerError([message], 400);
 };
 
 const handleValidationErrorDB = err => {
-  const errors = Object.values(err.errors).map(el => el.message);
-  return new ServerError(message, 400);
+  console.log(err.errors);
+  const messages = Object.values(err.errors).map(el => el.message);
+  return new ServerError(messages, 400);
 };
 
 const handleJWTValidationError = () => {
   const message = 'Invalid token.';
-  return new ServerError(message, 401);
+  return new ServerError([message], 401);
 };
 
 const handleJWTExpireError = () => {
   const message = 'Token expired. Please login again';
-  return new ServerError(message, 401);
+  return new ServerError([message], 401);
 };
 
 const sendErrorDev = (err, res) => {
@@ -41,7 +42,7 @@ const sendErrorProd = (err, res) => {
   if (err.isOperational) {
     res.status(err.statusCode).json({
       status: err.status,
-      message: err.message
+      errors: err.errors
     });
 
   // Programming or other unknown error: don't leak error details
@@ -66,7 +67,7 @@ module.exports = (err, req, res, next) => {
   } else if (process.env.NODE_ENV === 'production') {
     // make copy of err object
     let error = JSON.parse(JSON.stringify(err));
-    error.message = err.message;
+    error.message = err.errors ? err._message : err.message;
 
     if(error.code === 11000) {
       error = handleDuplicateKeyError(error);
