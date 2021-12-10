@@ -6,19 +6,17 @@
   bottom: 0;
   right: 0;
   overflow: auto;
-  background-color: rgb(214, 214, 214);
-}
-
-.project-show-container {
   background-color: white;
-  border-radius: 10px;
-  margin: 30px;
-  /* height: 90%; */
 }
 
 .project-title-header > h1 {
   font-size: 40px;
-  padding: 15px 0 15px 40px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.project-title-header {
+  padding: 20px 0 10px 50px;  
 }
 
 .project-body {
@@ -27,29 +25,29 @@
 
 .left-body {
   height: 100%;
-  border: 1px solid lightgrey;
   margin: 15px 0 15px 40px;
-  padding: 15px 0 15px 10px;
-  width: 200px;
+  padding: 5px 0 15px 10px;
+  border-radius: 10px;
+  background-color: #F1F6F9;
 }
 
 .collaborators-container > h1 {
   font-size: 25px;
+  margin-bottom: 5px;
 }
 
-.collaborator > p {
-  font-size: 15px;
-  padding: 5px 0 5px 0;
+.collab {
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.collab:hover {
+  color: rgb(28, 153, 147)
 }
 
 .mid-body {
   margin: 15px 20px 0 20px;
   /* width: 50%; */
-}
-
-.goal-header > h1,
-.diagram-header > h1 {
-  font-size: 40px;
 }
 
 .goal {
@@ -64,8 +62,21 @@
   width: 200px;
 }
 
+.diagram-section {
+  background-color: #F1F6F9;
+  border-radius: 10px;
+  padding: 10px 35px 30px 35px;
+  margin-left: 20px;
+}
+
 .details-container > h1 {
   font-size: 25px;
+  margin-top: 30px;
+}
+
+.diagram-header > h1 {
+  font-size:  30px;
+  padding-bottom: 10px ;
 }
 
 .details-container > p {
