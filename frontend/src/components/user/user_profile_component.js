@@ -5,19 +5,21 @@ import "./user_profile.css"
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      projects: []
+    }
   }
     
   componentWillMount() {
     this.props.fetchUser();
     this.props.fetchCreatorProjects();
     this.props.receiveCollaboratedProjects()
-      .then(res => {this.setState(res); console.log(res)})
+      .then(res => {this.setState({projects: Object.values(res.user)}); console.log("res:", Object.values(res.user))})
   }
     
   render() {
     if (!this.props.user) return "loading...";
-    console.log(this.state)
+    console.log("state:", this.state)
     return (
       <div className="user-profile">
         <div className="header-bg">
@@ -52,7 +54,11 @@ class UserProfile extends React.Component {
 
             <div className="column-right">
               <h1>Collaborated Projects:</h1>
-
+                {this.state.projects.map((proj, idx) => 
+                  <div className="project-list-item" key={idx}>
+                    <div className="project-list-title">{proj.title}</div>
+                  </div>
+                  )}
             </div>
           </div>
         </div>
