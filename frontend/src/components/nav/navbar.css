@@ -70,51 +70,57 @@
   background-color:#21A59A;
 }
 
-.logout {
-  padding-bottom: 5px;
-}
-
 .signup:hover, .about-us:hover, .login:hover, .logout:hover, .hidden-project:hover{
   cursor: pointer;
 }
 
 .about-us {
   font-size: 18px;
+  font-weight: 200;
   background-color:#494553;
 }
 
 .dropdown-content-2 {
-  display: none;
+  /* display: none; */
+  max-height: 0;
   position: absolute;
   background-color: #fdfdfd;
   border-radius: 5px;
-  padding: 10px;
-  width: 10px;
+  width: 200px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  color: #494553;
+  color: #6B6E76;
+  font-weight: 300;
+  overflow-y: hidden;
+  right:0;
+  left: auto;
+  text-align: right;
+  transition: max-height .5s ease-out
 }
 
 .dropdown:hover .dropdown-content-2 {
   display: block;
-  right:0;
-  left: auto;
-  width: 150px;
-  text-align: right;
+  max-height: 100vh;
+  transition: max-height 1s
 }
 
 .dropdown-btn {
-margin-top: 10px;
+  margin-top: 10px;
 } 
 
 .drop-item {
-  display: block;
+  display: flex;
+  align-items: center;
   position: relative;
   font-size: 18px;
-  padding-top: 5px;
+  margin: 8px;
+  padding: 8px;
+  transition: color .3s;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
 .drop-item:hover {
+  /* background-color: ; */
   color: lightseagreen
 }
 
@@ -124,14 +130,26 @@ margin-top: 10px;
   color: lightseagreen;
 }
 
+.current-project {
+  cursor: pointer;
+}
+
 .current-project:focus {
   display: block;
 }
 
-#profile{
-  border-top: 0.5px solid #d5d2d2;
-}
-
 .hidden-project:hover {
   color: #494553;
+}
+
+.hidden-projects {
+  border-bottom: 0.5px solid #d5d2d2;
+}
+
+.dropdown-content-2 * {
+  cursor: pointer;
+}
+
+.right-nav-links, .right-nav-button * {
+  cursor: pointer;
 }
