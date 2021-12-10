@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 
 import "./user_profile.css"
 
@@ -12,6 +11,8 @@ class UserProfile extends React.Component {
   componentWillMount() {
     this.props.fetchUser();
     this.props.fetchCreatorProjects();
+    this.props.receiveCollaboratedProjects
+      .then(res => {this.setState(res); console.log(res)})
   }
     
   render() {
@@ -42,7 +43,7 @@ class UserProfile extends React.Component {
             <h1>Projects:</h1>
               {this.props.projects.map((project, idx) => 
                 <div className="project-list-item" key={idx}>
-                  <Link className="project-list-title" to={`/projects/${project._id}`}>{project.title}</Link>
+                  <div className="project-list-title" to={`/projects/${project._id}`}>{project.title}</div>
                   <div className="project-list-github">{project.github}</div>
                 </div>
                 )}

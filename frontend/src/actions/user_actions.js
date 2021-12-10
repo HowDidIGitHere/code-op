@@ -37,6 +37,14 @@ export const fetchCollaborators = collaborators => dispatch => (
     ))
 )
 
+export const receiveCollaboratedProjects = (params) => dispatch => (
+  UserApiUtil.getCollaboratedProjects(params)
+    .then(({data}) => dispatch(receiveUser(data)))
+    .catch(({ response }) => (
+      dispatch(receiveUserErrors(response.data.errors))
+    ))
+)
+
 export const fetchUser = userId => dispatch => (
   UserApiUtil.getUser(userId)
     .then(user => dispatch(receiveUser(user.data)))

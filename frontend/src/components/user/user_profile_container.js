@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
-import { fetchUser } from '../../actions/user_actions';
+import { fetchUser, receiveCollaboratedProjects } from '../../actions/user_actions';
 import {fetchCreatorProjects} from '../../actions/project_actions'
 import { openModal } from '../../actions/modal_actions';
 
@@ -20,6 +20,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
     fetchUser: () => dispatch(fetchUser(ownProps.match.params.id)),
     fetchCreatorProjects: () => dispatch(fetchCreatorProjects(ownProps.match.params.id)),
+    receiveCollaboratedProjects: () => dispatch(receiveCollaboratedProjects(ownProps.match.params.id))
   };
 };
 
