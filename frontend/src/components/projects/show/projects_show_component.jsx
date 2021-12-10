@@ -110,6 +110,8 @@ class ProjectsShow extends React.Component {
             <div className='goal-container'>
             <div className='goal-header'>
                 <h1>Goals</h1>
+                <button className="create-goal"
+                  onClick={() => this.props.openGoalModal()}>Create Goal</button>
             </div>
             <div className='goal-list'>
               {

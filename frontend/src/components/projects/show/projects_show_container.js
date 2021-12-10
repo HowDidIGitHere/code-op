@@ -7,6 +7,7 @@ import { fetchProjects, fetchProject } from '../../../actions/project_actions';
 import { fetchDiagram, updateDiagram } from '../../../actions/diagram_actions';
 import { fetchTags } from '../../../actions/tag_actions';
 import { withRouter } from 'react-router';
+import { openModal } from '../../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps)=> {
   return {
@@ -25,7 +26,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     updateDiagram: diagram => dispatch(updateDiagram(diagram)),
     updateGoal: goal => dispatch(updateGoal(goal)),
     fetchTags: params => dispatch(fetchTags(params)),
-    fetchUser: userId => dispatch(fetchUser(userId))
+    fetchUser: userId => dispatch(fetchUser(userId)),
+    openGoalModal: () => dispatch(openModal('create-goal'))
   };
 };
 

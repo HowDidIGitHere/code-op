@@ -40,7 +40,7 @@
   left: 0%;
   height: 100%;
   margin: 15px 0 15px 0px;
-  padding: 15px 30px 15px 15px;
+  padding: 15px 20px 15px 20px;
   border-radius: 10px;
   background-color: #e9edf0;
   width: 24%;
@@ -220,4 +220,15 @@
 
 .delete-task:hover {
   color: red
+}
+
+.create-goal {
+  position: relative;
+  float: right;
+  margin-top: -28px;
+  font-size: 18px;
+}
+
+.create-goal:hover {
+  color:lightseagreen;
 }
