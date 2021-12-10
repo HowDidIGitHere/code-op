@@ -76,12 +76,14 @@ class ProjectsShow extends React.Component {
     if (!this.state.project) {
       return "...loading";
     }
+    console.log(this.props.tags);
 
     return(
       <div className="projects-show-page">
         <div className='project-show-container'>
           <div className='project-title-header'>
             <h1>{this.state.project.title}</h1>
+            <p>{this.state.project.description}</p>
           </div>
           <div className='project-body'>
             <div className='left-body'>
@@ -94,11 +96,10 @@ class ProjectsShow extends React.Component {
               <div className='tag-detail-container'>
 
               </div>
-              <div className='details-container'>
-                <h1>Project Details</h1>
-                <p>Language: Ruby, Javascript</p>
-                <p>Github Link: Link</p>
-              </div>
+              {/* <div className='details-container'> */}
+                {/* <h1>Project Details</h1>
+                  {this.state.project.description}
+              </div> */}
             </div>
             {/* <div className='right-body'>
             </div> */}

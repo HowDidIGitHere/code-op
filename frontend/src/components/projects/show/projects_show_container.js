@@ -5,12 +5,13 @@ import { fetchGoals, updateGoal } from '../../../actions/goal_actions';
 import { fetchCollaborators } from '../../../actions/user_actions';
 import { fetchProjects, fetchProject } from '../../../actions/project_actions';
 import { fetchDiagram, updateDiagram } from '../../../actions/diagram_actions';
+import { fetchTags } from '../../../actions/tag_actions';
 import { withRouter } from 'react-router';
 
 const mapStateToProps = (state, ownProps)=> {
   return {
     user: state.session.user,
-    tags: state.entities.tags.namesByCategory
+    tags: state.entities.tags.namesByCategoty
   };
 };
 
@@ -22,7 +23,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     fetchGoals: goalsArr => dispatch(fetchGoals(goalsArr)),
     fetchDiagram: diagramId => dispatch(fetchDiagram(diagramId)),
     updateDiagram: diagram => dispatch(updateDiagram(diagram)),
-    updateGoal: goal => dispatch(updateGoal(goal))
+    updateGoal: goal => dispatch(updateGoal(goal)),
+    fetchTags: params => dispatch(fetchTags(params))
   };
 };
 

@@ -11,8 +11,12 @@
 
 .project-title-header > h1 {
   font-size: 40px;
-  padding: 20px 0 10px 50px;
   font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.project-title-header {
+  padding: 20px 0 10px 50px;  
 }
 
 .project-body {
@@ -22,19 +26,13 @@
 .left-body {
   height: 100%;
   margin: 15px 0 15px 40px;
-  padding: 15px 0 15px 10px;
+  padding: 5px 0 15px 10px;
   border-radius: 10px;
-  width: 200px;
   background-color: #F1F6F9;
-}
-
-.collaborators-container {
-  padding-left: 10px;
 }
 
 .collaborators-container > h1 {
   font-size: 25px;
-  background-color: #F1F6F9;
   margin-bottom: 5px;
 }
 
@@ -52,11 +50,6 @@
   /* width: 50%; */
 }
 
-.goal-header > h1,
-.diagram-header > h1 {
-  font-size: 40px;
-}
-
 .goal {
   border: 1px solid lightgrey;
 }
@@ -69,9 +62,21 @@
   width: 200px;
 }
 
+.diagram-section {
+  background-color: #F1F6F9;
+  border-radius: 10px;
+  padding: 10px 35px 30px 35px;
+  margin-left: 20px;
+}
+
 .details-container > h1 {
   font-size: 25px;
   margin-top: 30px;
+}
+
+.diagram-header > h1 {
+  font-size:  30px;
+  padding-bottom: 10px ;
 }
 
 .details-container > p {
