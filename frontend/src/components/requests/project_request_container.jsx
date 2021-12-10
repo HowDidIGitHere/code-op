@@ -3,6 +3,7 @@ import { withRouter } from "react-router";
 import ProjectRequest from './project_request'
 import { fetchTags } from '../../actions/tag_actions'
 import { createRequest } from "../../actions/request_actions";
+import { closeModal } from "../../actions/modal_actions";
 
 
 
@@ -13,6 +14,7 @@ const mSTP = (state, ownProps) => ({
 })
 
 const mDTP = (dispatch, ownProps) => ({
+  closeModal: () => dispatch(closeModal()),
   fetchTags: params => dispatch(fetchTags(params)),
   createRequest: request => dispatch(createRequest(request))
 })
