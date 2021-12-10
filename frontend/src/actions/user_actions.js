@@ -28,7 +28,7 @@ export const removeUser = userId => ({
   userId
 })
 
-export const receiveUserErrors = errors => ({
+export const receiveUserErrors = ({ errors }) => ({
   type: RECEIVE_USER_ERRORS,
   errors
 })
