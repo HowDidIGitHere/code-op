@@ -25,6 +25,7 @@ class ProjectsNew extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     let diagram = { 
       name: "Example Diagram",
       content: (
@@ -56,9 +57,9 @@ class ChildOne {
 class ChildTwo {
 +Boolean hatesCelery
 +reacPictureBook()
-}`)
-      }
-    e.preventDefault();
+}`
+      )
+    }
 
     let types = "";
     var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
@@ -82,16 +83,14 @@ class ChildTwo {
           }
         this.props.createProject(project)
           .then(res => { 
-          let tags = {}
-          tags['it'] = res.project._id;
-          tags['modelType'] = 'Project';
-          tags['names']= types
-          this.props.createTag(tags).then(this.props.history.push('/projects')).then(this.props.history.reload)
-        })
+            let tags = {}
+            if (!res.project) return;
+            tags['it'] = res.project._id;
+            tags['modelType'] = 'Project';
+            tags['names']= types
+            this.props.createTag(tags).then(this.props.history.push('/projects')).then(this.props.history.reload)
+          })
       })
-      ;
-
-    ;
   }
 
   render() {
