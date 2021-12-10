@@ -44,9 +44,9 @@ class NavBar extends React.Component {
           <div className='dropdown'>
             <button className="dropdown-btn"><i class="fas fa-bars fa-2x"></i></button>
             <div className='dropdown-content-2'>
-                <Link className='drop-item' to={'/projects/new'}>Create a Project</Link>
+                <p className='drop-item' onClick={() => this.props.openNotificationsModal()}>Notifications</p>
                 <Link className='drop-item' to={'/projects'}>Discover Page</Link>
-                <p className='drop-item' >Notifications</p>
+                <Link className='drop-item' to={'/projects/new'}>Create a Project</Link>
                 <p className='drop-item current-project' tabIndex='1' onClick={() => this.toggle()}>Current Projects</p>
                 <div 
                   className='hidden-projects' 
@@ -66,7 +66,6 @@ class NavBar extends React.Component {
                 </div>
                   {this.props.user.id ? <Link className='drop-item' to={`/users/${this.props.user.id}`}>Profile</Link> : ""}
                 <p className='drop-item logout' onClick={(e) => this.logoutUser(e)}>Logout</p>
-                <h1 onClick={() => this.props.openNotificationsModal()}>Notifications</h1>
             </div>
           </div>
         );
