@@ -5,7 +5,7 @@ export const getCreatorProjects = (id) => {
 }
 
 export const getProjects = () => {
-  return axios.get('/api/projects?limit=20')
+  return axios.get('/api/projects?limit=25')
 }
 
 export const getProject = id => {

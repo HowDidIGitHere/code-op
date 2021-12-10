@@ -15,8 +15,9 @@
   text-align: center;
   background-color: white;
   left: 50%;
-  width: 650px;
-  height: 530px;
+  width: 680px;
+  height: 790px;
+  padding-right: 20px;
   margin: 50px 0px 50px -325px;
   border-radius: 10px;
 }
@@ -39,6 +40,10 @@
   text-align: left;
 }
 
+.input-field {
+  margin-right: 10px;
+}
+
 .project-title, .project-git {
   width: 300px;
   font-size: 15px;
@@ -55,6 +60,7 @@
   width: 400px;
   height: 80px;
   border: 1px solid lightgrey;
+  color: black;
 }
 
 .right-form {
@@ -84,4 +90,12 @@
   font-size: 15px;
   padding: 10px;
   border-radius: 10px;
+}
+
+.checklist-container {
+  margin-left: -20px;
+}
+
+.create-category-header {
+  padding-bottom: 10px;
 }
