@@ -1,5 +1,6 @@
 .goals-create-form{
   width: 30vw;
+  padding: 20px;
 }
 
 .goals-title {
@@ -91,7 +92,7 @@
 .goals-create-task > div > input{
   border: 1px solid gray;
   border-radius: 5px;
-  width: 100%;
+  width: 265px;
   padding: 0.5vw;
 }
 .add-task{
