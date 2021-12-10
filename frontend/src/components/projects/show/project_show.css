@@ -44,7 +44,7 @@
 
 .mid-body {
   margin: 15px 20px 0 20px;
-  width: 50%;
+  /* width: 50%; */
 }
 
 .goal-header > h1,
@@ -89,10 +89,17 @@
   width: 100%;
 }
 
+.diagram-textbox > form {
+  display: flex;
+  flex-direction: column;
+}
+
 .diagram-textbox textarea {
   width: 200px;
   resize: horizontal;
   min-height: 460px;
+  min-width: 220px;
+  max-width: 500px;
   border: 1px solid lightgrey;
   margin: 0px;
   /* width: 100%; */
@@ -105,4 +112,28 @@
   border: 1px solid lightgrey;
   margin: 15px 40px 15px 40px;
   padding: 15px 10px 15px 10px;
+}
+
+.add-task-container textarea {
+  border: 1px solid black;
+  width: 400px;
+  height: 100px;
+  resize: none;
+}
+
+.goals-title-edit-form > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.goals-title-edit-form input {
+  width: 400px;
+  border: 1px solid black;
+}
+
+.goals-title-edit-form textarea {
+  width: 400px;
+  height: 100px;
+  resize: none;
+  border: 1px solid black;
 }
