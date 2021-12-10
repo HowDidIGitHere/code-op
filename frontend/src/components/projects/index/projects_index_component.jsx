@@ -30,7 +30,8 @@ class ProjectsIndex extends React.Component {
       else
         types = types.concat(checkboxes[i].value, ",")
     }
-    console.log(types)
+    
+    this.props.fetchProjects({tags: types})
   }
 
   handleRequest(e) {

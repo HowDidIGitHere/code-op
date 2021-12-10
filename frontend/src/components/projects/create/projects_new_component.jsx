@@ -46,10 +46,12 @@ class ProjectsNew extends React.Component {
         tags['it'] = res.project._id;
         tags['modelType'] = 'Project';
         tags['names']= types
+        console.log(res.project._id)
         this.props.createTag(tags)
       })
-      .then(this.props.history.push('/projects'))
-      .then(window.location.reload());
+      .then(this.props.fetchTags())
+      // .then(this.props.history.push('/projects'))
+      // .then(window.location.reload());
   }
 
   render() {
