@@ -34,7 +34,7 @@ class UserService extends Service {
       passwordConfirm: userInfo.passwordConfirm
     });
   
-    const token = this.createJwt(user);
+    const token = this.createJwt(newUser);
     return {
       statusCode: 200,
       token: 'Bearer ' + token
