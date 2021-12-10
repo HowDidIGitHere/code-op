@@ -1,16 +1,16 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
-const tagNames = require('../utils/tags');
+const tagNamesByCategory = require('../utils/tags');
 const Schema = mongoose.Schema;
 
 const TagSchema = new Schema({
   name: {
     type: String,
     required: [true, 'Please enter a tag name'],
-    enum: Object.values(tagNames).flat(),
+    enum: Object.values(tagNamesByCategory).flat(),
     validate: {
       validator: function(val) {
-        const tagCategoryNames = tagNames[this.category];
+        const tagCategoryNames = tagNamesByCategory[this.category];
         return tagCategoryNames ? tagCategoryNames.includes(val): false;
       },
       message: 'Tag names must match their category'
