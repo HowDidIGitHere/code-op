@@ -1,11 +1,10 @@
 import { connect } from "react-redux";
-import { withRouter } from "react-router";
 import { removeError } from "../../actions/error_actions";
 import orderToastMessages from '../../util/order_toast_messages';
 import Toaster from "./toaster";
 
-const mapStateToProps = ({ errors }) => ({
-  messages: orderToastMessages(errors)
+const mapStateToProps = (state) => ({
+  messages: orderToastMessages(state)
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -17,4 +16,4 @@ const mapDispatchToProps = (dispatch) => ({
   }
 })
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Toaster));
+export default connect(mapStateToProps, mapDispatchToProps)(Toaster);

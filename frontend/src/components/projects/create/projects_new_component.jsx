@@ -27,35 +27,36 @@ class ProjectsNew extends React.Component {
   handleSubmit(e) {
     let diagram = { 
       name: "Example Diagram",
-      content: `classDiagram
-        GrandParent <|-- Parent
-        Parent <|-- ChildOne
-        Parent <|-- ChildTwo
-        GrandParent <|-- Uncle
-        GrandParent <|-- Aunt
-        class GrandParent {
-        +Integer age
-        +giveHardCandy()
-        }
-        class Parent {
-        +String profession
-        +takeToSchool(...children)
-        }
-        class Uncle {
-        +Array coinCollection
-        }
-        class Aunt {
-        +Bool employeeOfTheYear
-        +pinchCheeks()
-        }
-        class ChildOne {
-        +String favoriteBlankie
-        +throwFit()
-        }
-        class ChildTwo {
-        +Boolean hatesCelery
-        +reacPictureBook()
-        }`
+      content: (
+`classDiagram
+GrandParent <|-- Parent
+Parent <|-- ChildOne
+Parent <|-- ChildTwo
+GrandParent <|-- Uncle
+GrandParent <|-- Aunt
+class GrandParent {
++Integer age
++giveHardCandy()
+}
+class Parent {
++String profession
++takeToSchool(...children)
+}
+class Uncle {
++Array coinCollection
+}
+class Aunt {
++Bool employeeOfTheYear
++pinchCheeks()
+}
+class ChildOne {
++String favoriteBlankie
++throwFit()
+}
+class ChildTwo {
++Boolean hatesCelery
++reacPictureBook()
+}`)
       }
     e.preventDefault();
 
