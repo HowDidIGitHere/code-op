@@ -64,7 +64,7 @@ class NavBar extends React.Component {
                         </div>
                   )})}
                 </div>
-                  {this.props.user.id ? <Link className='drop-item' to={`/users/${this.props.user.id}`}>Profile</Link> : ""}
+                  {this.props.user.id ? <Link className='drop-item' id="profile" to={`/users/${this.props.user.id}`}>Profile</Link> : ""}
                 <p className='drop-item logout' onClick={(e) => this.logoutUser(e)}>Logout</p>
             </div>
           </div>
