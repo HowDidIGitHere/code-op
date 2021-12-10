@@ -30,7 +30,11 @@ class GoalsCreate extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.createGoal(this.state);
+
+    this.props.createGoal(this.state)
+      .then(res => {
+        this.props.project.goals.push(res.goal._id)
+      });
   }
 
   render(){
