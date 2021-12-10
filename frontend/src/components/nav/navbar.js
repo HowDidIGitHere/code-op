@@ -5,10 +5,14 @@ import './navbar.css'
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      show: false
+    }
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.projectClick = this.projectClick.bind(this);
+    
   }
 
   projectClick(e) {
@@ -29,6 +33,10 @@ class NavBar extends React.Component {
     this.props.history.push("/");
   }
 
+  toggle(){
+    this.setState({show: !this.state.show});
+  }
+
   // Selectively render links dependent on whether the user is logged in
   getLinks() {
       if (this.props.loggedIn) {
@@ -39,8 +47,11 @@ class NavBar extends React.Component {
                 <Link className='drop-item' to={'/projects/new'}>Create a Project</Link>
                 <Link className='drop-item' to={'/projects'}>Discover Page</Link>
                 <p className='drop-item' >Notifications</p>
-                <p className='drop-item current-project' tabIndex='1'>Current Projects</p>
-                <div className='hidden-projects'>
+                <p className='drop-item current-project' tabIndex='1' onClick={() => this.toggle()}>Current Projects</p>
+                <div 
+                  className='hidden-projects' 
+                  style={this.state.show ? {display: "block"} : {display: "none"}}
+                >
                   {this.props.projects.map((project) => {
                     if (project.creator === this.props.user.id)
                       return (
