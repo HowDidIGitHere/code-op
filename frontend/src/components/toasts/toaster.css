@@ -6,14 +6,3 @@
   max-height: calc(100% - 121px);
   overflow-y: scroll;
 }
-
-.toaster-main-view {
-  top: 0;
-  right: 0;
-
-  max-height: 100%;
-}
-
-.toaster-login-view {
-  max-height: calc(100% - 79px);
-}
