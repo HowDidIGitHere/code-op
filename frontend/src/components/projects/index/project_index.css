@@ -30,7 +30,7 @@
   font-size: 20px;
   font-weight: 300;
   padding-left: 20px;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .search-button {
@@ -41,7 +41,7 @@
   color: white;
   font-size: 20px;
   font-weight: 500;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .dropdownbtn > i {
@@ -53,7 +53,7 @@
   display: none;
   position: absolute;
   background-color: #fdfdfd;
-  border-radius: 5px;
+  border-radius: 4px;
   padding: 10px;
   width: 170px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -134,7 +134,7 @@
 }
 .index-listing-component {
   background-color: #E6F2E2;
-  border-radius: 20px;
+  border-radius: 8px;
   margin:0 10px 40px 10px;
 }
 
@@ -168,7 +168,7 @@
 }
 
 .learn-more, .apply-now {
-  border-radius: 8px;
+  border-radius: 4px;
   width: 80px;
   height: 25px;
 }
