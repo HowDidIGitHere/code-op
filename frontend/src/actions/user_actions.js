@@ -40,10 +40,9 @@ export const fetchCollaborators = collaborators => dispatch => (
 export const fetchUsers = params => dispatch => (
   UserApiUtil.getUser(params)
     .then(user => dispatch(receiveUser(user.data)))
-    .catch(({ response }) => {
-        console.log(response);
-        return dispatch(receiveUserErrors(response.data));
-    })
+    .catch(({ response }) => (
+        dispatch(receiveUserErrors(response.data))
+    ))
 )
 
 export const fetchUser = userId => dispatch => (
