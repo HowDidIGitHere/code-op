@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { createProject, fetchCreatorProjects } from '../../../actions/project_actions';
+import { createProject, fetchProjects } from '../../../actions/project_actions';
 import { fetchTags, createTag } from '../../../actions/tag_actions'
 import ProjectsNew from './projects_new_component';
 
@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => {
   return {
     createProject: data => dispatch(createProject(data)),
     fetchTags: params => dispatch(fetchTags(params)),
-    fetchCreatorProjects: id => dispatch(fetchCreatorProjects(id)),
+    fetchCreatorProjects: id => dispatch(fetchProjects({ creator: id })),
     createTag: data => dispatch(createTag(data))
   };
 };
