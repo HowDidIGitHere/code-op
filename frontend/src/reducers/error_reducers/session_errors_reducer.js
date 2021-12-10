@@ -6,7 +6,7 @@ import {
 import { REMOVE_ERROR } from "../../actions/error_actions";
 
 const SessionErrorsReducer = data => {
-  return (state=[], action) => {
+  return (state={}, action) => {
     Object.freeze(state);
     const nextState = Object.assign({}, state);
     switch(action.type) {

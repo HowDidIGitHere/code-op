@@ -2,7 +2,7 @@ import {
   RECEIVE_TAG,
   RECEIVE_TAGS,
   RECEIVE_TAG_ERRORS 
-} from "../../actions/user_actions";
+} from "../../actions/tag_actions";
 import { REMOVE_ERROR } from "../../actions/error_actions";
 
 const TagErrorsReducer = data => {  
@@ -11,8 +11,8 @@ const TagErrorsReducer = data => {
     const nextState = Object.assign({}, state);
     switch(action.type) {
       case RECEIVE_TAGS:
-      case RECEIVE_TAG:
-        return {};
+        case RECEIVE_TAG:
+          return {};
       case RECEIVE_TAG_ERRORS:
         nextState[data.errorCount+=1] = action.errors.message;
         return nextState;

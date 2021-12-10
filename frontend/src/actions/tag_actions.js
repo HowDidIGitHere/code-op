@@ -5,7 +5,7 @@ export const RECEIVE_TAGS='RECEIVE_TAGS';
 export const RECEIVE_TAG='RECEIVE_TAG';
 export const REMOVE_TAG='REMOVE_TAG';
 export const ONE_TAG='ONE_TAG';
-export const RECEIVE_TAG_ERRORS = "RECEIVE_USER_ERRORS";
+export const RECEIVE_TAG_ERRORS = "RECEIVE_TAG_ERRORS";
 
 
 // Actions
