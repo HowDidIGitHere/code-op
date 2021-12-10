@@ -10,11 +10,27 @@ class ProjectsIndex extends React.Component {
     this.state = {
     }
     this.handleRequest = this.handleRequest.bind(this)
+    this.handleSearch = this.handleSearch.bind(this)
   }
 
   componentWillMount() {
     this.props.fetchTags({ namesByCategory: "position,software,platform"})
     this.props.fetchProjects();
+  }
+
+  handleSearch(e) {
+    e.preventDefault();
+
+    let types = "";
+    var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+
+    for (var i = 0; i < checkboxes.length; i++) {
+      if (i === checkboxes.length - 1) 
+        types = types.concat(checkboxes[i].value)
+      else
+        types = types.concat(checkboxes[i].value, ",")
+    }
+    console.log(types)
   }
 
   handleRequest(e) {
@@ -40,7 +56,10 @@ class ProjectsIndex extends React.Component {
           {categories.map((category) => {
             return <CategoryDropdown category={category}/>
           })}
-          <button className='search-button'>Search</button>
+          <button 
+            className='search-button'
+            onClick={this.handleSearch}
+          >Search</button>
         </div>
         <div className="underline"></div>
         <div className='right-index'>
