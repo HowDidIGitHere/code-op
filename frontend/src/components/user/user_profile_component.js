@@ -11,7 +11,7 @@ class UserProfile extends React.Component {
   componentWillMount() {
     this.props.fetchUser();
     this.props.fetchCreatorProjects();
-    this.props.receiveCollaboratedProjects(this.props.user)
+    this.props.receiveCollaboratedProjects()
       .then(res => {this.setState(res); console.log(res)})
   }
     
