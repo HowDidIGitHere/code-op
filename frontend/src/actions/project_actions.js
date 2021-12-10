@@ -29,7 +29,7 @@ export const removeProject = projectId => ({
   projectId
 })
 
-export const receiveUserErrors = errors => ({
+export const receiveProjectErrors = errors => ({
   type: RECEIVE_PROJECT_ERRORS,
   errors
 })
@@ -37,7 +37,9 @@ export const receiveUserErrors = errors => ({
 export const fetchCreatorProjects = (creatorId) => dispatch => (
   ProjectApiUtil.getCreatorProjects(creatorId)
     .then(projects => dispatch(receiveProjects(projects.data)))
-    .catch(err => console.log(err))
+    .catch(({ response }) => (
+        dispatch(receiveProjectErrors(response.data))
+    ))
 )
 
 // Thunk Action Creators
@@ -48,35 +50,47 @@ export const fetchProjects = params => dispatch => (
         return dispatch(receiveProjects({ projects: data, inject: true }));
       return dispatch(receiveProjects({ projects: data }));
     })
-    .catch(err => console.log(err))
+    .catch(({ response }) => (
+        dispatch(receiveProjectErrors(response.data))
+    ))
 );
 
 export const fetchProject = id => dispatch => (
   ProjectApiUtil.getProject(id) 
     .then(project => dispatch(receiveProject(project.data)))
-    .catch(err => console.log(err))
+    .catch(({ response }) => (
+        dispatch(receiveProjectErrors(response.data))
+    ))
 );
 
 export const oneProject = id => dispatch => (
   ProjectApiUtil.getProject(id) 
     .then(project => dispatch(singleProject(project.data)))
-    .catch(err => console.log(err))
+    .catch(({ response }) => (
+        dispatch(receiveProjectErrors(response.data))
+    ))
 );
 
 export const createProject = data => dispatch => (
   ProjectApiUtil.createProject(data) 
     .then(project => dispatch(receiveProject(project.data)))
-    .catch(err => console.log(err))
+    .catch(({ response }) => (
+        dispatch(receiveProjectErrors(response.data))
+    ))
 );
 
 export const updateProject = data => dispatch => (
   ProjectApiUtil.updateProject(data) 
     .then(project => dispatch(receiveProject(project.data)))
-    .catch(err => console.log(err))
+    .catch(({ response }) => (
+        dispatch(receiveProjectErrors(response.data))
+    ))
 );
 
 export const deleteProject = id => dispatch => (
   ProjectApiUtil.deleteProject(id) 
     .then(() => dispatch(removeProject(id)))
-    .catch(err => console.log(err))
+    .catch(({ response }) => (
+        dispatch(receiveProjectErrors(response.data))
+    ))
 );

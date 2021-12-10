@@ -36,6 +36,7 @@ const ProjectSchema = new Schema({
 
 ProjectSchema.pre(/^find/, async function(next) {
   const { tags } = this._conditions;
+  console.log(tags);
   if (tags) {
     const tagDocs = await Tag.find({ name: tags, modelType: 'Project' });
     this._conditions._id = tagDocs.map( tagDoc => tagDoc.it)
