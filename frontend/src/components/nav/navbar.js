@@ -90,7 +90,7 @@ class NavBar extends React.Component {
         );
       } else {
         return (
-            <div>
+            <div className='auth-buttons'>
               <button className='signup' onClick={() => this.props.openSignupModal()}>Sign Up</button>
               <button className='login' onClick={() => this.props.openLoginModal()}>Login</button>
             </div>
