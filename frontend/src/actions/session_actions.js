@@ -1,4 +1,3 @@
-
 import * as APIUtil from '../util/session_api_util';
 import jwt_decode from 'jwt-decode';
 
@@ -34,7 +33,7 @@ export const signup = user => dispatch => (
     APIUtil.signup(user).then(() => (
         dispatch(receiveUserSignIn())
     ), ({ response }) => (
-        dispatch(receiveErrors(response.data.errors))
+      dispatch(receiveErrors(response.data.errors))
     ))
 );
 
