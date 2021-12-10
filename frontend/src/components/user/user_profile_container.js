@@ -9,7 +9,6 @@ import UserProfile from './user_profile_component';
 const mapStateToProps = (state, ownProps) => {
   return {
     user: state.entities.users[ownProps.match.params.id],
-    projects: Object.values(state.entities.projects)
   };
 };
 
