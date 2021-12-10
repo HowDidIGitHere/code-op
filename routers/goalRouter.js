@@ -6,7 +6,7 @@ const router = express.Router();
 
 
 // Restrict to Collaborators
-router.get("/", protect, restrict, goalController.get);
+router.get("/", goalController.get);
 router.get("/:id", protect, restrict, goalController.getSingle);
 router.post("/", protect, restrict, goalController.create);
 router.put("/:id", protect, restrict, goalController.update);

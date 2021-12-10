@@ -10,15 +10,14 @@ const UserErrorsReducer = data => {
   return (state={}, action) => {
     Object.freeze(state);
     const nextState = Object.assign({}, state);
+    console.log(action);
     switch(action.type) {
       case RECEIVE_CURRENT_USER:
       case RECEIVE_USERS:
       case RECEIVE_USER:
         return {};
       case RECEIVE_USER_ERRORS:
-        const errors = action.errors;
-        errors.forEach(error => { nextState[data.errorCount+=1] = error; });
-        return nextState;
+        return action.errors.message;
       case REMOVE_ERROR:
         if (nextState[action.id]) delete nextState[action.id]
         return nextState;
