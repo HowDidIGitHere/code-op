@@ -16,7 +16,8 @@ const UserErrorsReducer = data => {
       case RECEIVE_USER:
         return {};
       case RECEIVE_USER_ERRORS:
-        return action.errors.message;
+        nextState[data.errorCount+=1] = action.errors.message;
+        return nextState;
       case REMOVE_ERROR:
         if (nextState[action.id]) delete nextState[action.id]
         return nextState;

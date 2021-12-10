@@ -5,7 +5,7 @@ import {
 } from "../../actions/user_actions";
 import { REMOVE_ERROR } from "../../actions/error_actions";
 
-const UserErrorsReducer = data => {  
+const TagErrorsReducer = data => {  
   return (state={}, action) => {
     Object.freeze(state);
     const nextState = Object.assign({}, state);
@@ -25,4 +25,4 @@ const UserErrorsReducer = data => {
   }
 }
 
-export default UserErrorsReducer;
+export default TagErrorsReducer;

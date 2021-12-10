@@ -14,7 +14,7 @@ export const receiveCollaborators = collaborators => ({
 });
 
 export const receiveUsers = users => ({
-  type: RECEIVE_USER,
+  type: RECEIVE_USERS,
   users
 });
 
