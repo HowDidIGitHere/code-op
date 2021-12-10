@@ -21,19 +21,16 @@ class UserProfile extends React.Component {
 
   render() {
     if (!this.props.user) return "loading...";
-    console.log("state:", this.state)
-    console.log(this.state.created.length)
-    console.log(this.state.created[0])
-    console.log(this.state.created)
+
     return (
       <div className="user-profile">
         <div className="header-bg">
-          <div>
+          <div className="banner">
             <h2>welcome, {this.props.user.username}</h2>
           </div>
         </div>
+        
         <div className="profile-column">
-
           <div className="column-left">
             <h1>Email:</h1>
             <h2>{this.props.user.email}</h2>
@@ -54,8 +51,10 @@ class UserProfile extends React.Component {
                   : this.state.created.map((project, idx) => 
                       <div className="project-list-item" key={idx}>
                         <div className="project-list-title">{project.title}</div>
+                        <div className="project-list-description">{project.description}</div>
                       </div>
-                  )}
+                    )
+                }
             </div>
 
             <div className="column-right">
@@ -63,11 +62,12 @@ class UserProfile extends React.Component {
                 {this.state.collaborated.length === 0 ? 
                   <Link to="/projects" className="project-list-item">Join a Project</Link> 
                   : this.state.collaborated.map((proj, idx) => 
-                  <div className="project-list-item" key={idx}>
-                    <div className="project-list-title">{proj.title}</div>
-                    <div className="project-list-description">{proj.description}</div>
-                  </div>
-                  )}
+                      <div className="project-list-item" key={idx}>
+                        <div className="project-list-title">{proj.title}</div>
+                        <div className="project-list-description">{proj.description}</div>
+                      </div>
+                    )
+                }
             </div>
           </div>
         </div>
