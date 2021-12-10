@@ -8,6 +8,7 @@ import UserUpdateContainer from '../user/user_update_container';
 import GoalsCreateContainer from '../goals/goals_create_container';
 import Notifications from "../../components/notifications/notifications_container"
 import ProjectRequestContainer from '../requests/project_request_container';
+import LearnMoreContainer from '../projects/index/learn_more_container';
 import './modal.css'
 
 function Modal({modal, closeModal}) {
@@ -37,6 +38,10 @@ function Modal({modal, closeModal}) {
     case 'request':
       component = <ProjectRequestContainer/>;
       break;
+    case 'learn':
+      component = <LearnMoreContainer/>;
+      break;
+      
     default:
       return null;
   }

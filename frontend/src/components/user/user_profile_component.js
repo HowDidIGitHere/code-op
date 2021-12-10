@@ -50,7 +50,13 @@ class UserProfile extends React.Component {
                   <Link to="/projects/new" className="project-list-item" id="new">Start a new Project</Link> 
                   : this.state.created.map((project, idx) => 
                       <div className="project-list-item" key={idx}>
-                        <div className="project-list-title">{project.title}</div>
+                        {
+                          this.props.currentUserId === this.props.match.params.id ? (
+                            <Link className="project-list-title" to={`/projects/${project._id}`}>{project.title}</Link>
+                          ) : (
+                            <div className="project-list-title">{project.title}</div>
+                          )
+                        }
                         {/* <div className="project-list-description">{project.description}</div> */}
                       </div>
                     )
@@ -63,7 +69,13 @@ class UserProfile extends React.Component {
                   <Link to="/projects" className="project-list-item" id="new">Join a Project</Link> 
                   : this.state.collaborated.map((proj, idx) => 
                       <div className="project-list-item" key={idx}>
-                        <div className="project-list-title">{proj.title}</div>
+                        {
+                          this.props.currentUserId === this.props.match.params.id ? (
+                            <Link className="project-list-title" to={`/projects/${proj._id}`}>{proj.title}</Link>
+                          ) : (
+                            <div className="project-list-title">{proj.title}</div>
+                          )
+                        }
                         {/* <div className="project-list-description">{proj.description}</div> */}
                       </div>
                     )
