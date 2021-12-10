@@ -57,8 +57,9 @@ class NavBar extends React.Component {
                       return (
                         <div key={idx}>
                           <button 
+                            id={project._id} 
                             className='hidden-project' 
-                            onClick={() => this.projectClick()}
+                            onClick={this.projectClick}
                           >{project.title}</button>
                         </div>
                       )
