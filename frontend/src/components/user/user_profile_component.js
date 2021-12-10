@@ -40,14 +40,14 @@ class UserProfile extends React.Component {
             <h2>{this.props.user.github}</h2>
             <h1>Tags:</h1>
             
-            <div onClick={() => this.props.openUpdateModal()}>Edit</div>
+            <div onClick={() => this.props.openUpdateModal()} className="edit-btn">Edit</div>
           </div>
 
           <div className="column-right1">
             <div className="column-right">
               <h1>Created Projects:</h1>
                 {this.state.created.length === 0 ? 
-                  <Link to="/projects/new" className="project-list-item">Start a Project</Link> 
+                  <Link to="/projects/new" className="project-list-item" id="new">Start a new Project</Link> 
                   : this.state.created.map((project, idx) => 
                       <div className="project-list-item" key={idx}>
                         <div className="project-list-title">{project.title}</div>
@@ -60,7 +60,7 @@ class UserProfile extends React.Component {
             <div className="column-right">
               <h1>Collaborated Projects:</h1>
                 {this.state.collaborated.length === 0 ? 
-                  <Link to="/projects" className="project-list-item">Join a Project</Link> 
+                  <Link to="/projects" className="project-list-item" id="new">Join a Project</Link> 
                   : this.state.collaborated.map((proj, idx) => 
                       <div className="project-list-item" key={idx}>
                         <div className="project-list-title">{proj.title}</div>

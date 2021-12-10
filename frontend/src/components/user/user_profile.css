@@ -44,7 +44,7 @@
 }
 
 .column-left{
-  padding-top: 32vh;
+  padding-top: 25vh;
   padding-left: 3vw;
   width: 20%;
   height: 100vh;
@@ -68,6 +68,12 @@
   margin-bottom: 20px;
 }
 
+.edit-btn{
+  margin-top: 5vh;
+  color: blue;
+  font-weight: 600;
+}
+
 .column-right1{
   display: flex;
   justify-content: space-between;
@@ -75,7 +81,7 @@
 }
 
 .column-right{
-  padding-top: 30vh;
+  padding-top: 20vh;
   font-family: sans-serif;
   width: 50%;
   height: 400px;
@@ -103,4 +109,10 @@
 .project-list-item > .project-list-title{
   font-size: x-large;
   color: #3c8585;
+}
+
+#new{
+  font-size: 2vw;
+  text-align: center;
+  color: burlywood;
 }
