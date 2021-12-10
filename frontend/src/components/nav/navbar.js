@@ -57,12 +57,12 @@ class NavBar extends React.Component {
                       return (
                         <div key={idx}>
                           <button 
-                            id={project._id} 
                             className='hidden-project' 
-                            onClick={this.projectClick}
-                            >{project.title}</button>
+                            onClick={() => this.projectClick()}
+                          >{project.title}</button>
                         </div>
-                  )})}
+                      )
+                  })}
                 </div>
                   {this.props.user.id ? <Link className='drop-item' id="profile" to={`/users/${this.props.user.id}`}>Profile</Link> : ""}
                 <p className='drop-item logout' onClick={(e) => this.logoutUser(e)}>Logout</p>

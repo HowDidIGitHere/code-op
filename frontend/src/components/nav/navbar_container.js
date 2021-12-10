@@ -1,14 +1,13 @@
 import { connect } from 'react-redux';
-import { logout, login } from '../../actions/session_actions';
 import { withRouter } from 'react-router';
+import { logout, login } from '../../actions/session_actions';
 import {openModal, closeModal} from "../../actions/modal_actions"
-
 import NavBar from './navbar';
 
 const mapStateToProps = (state, ownProps) => ({
   loggedIn: state.session.isAuthenticated,
   user: state.session.user,
-  projects: Object.keys(state.entities.projects).map(key => state.entities.projects[key])
+  projects: Object.values(state.entities.projects)
 
 });
 
@@ -19,7 +18,7 @@ const mapDispatchToProps = dispatch => ({
   openCreateGoalModal: () => dispatch(openModal('create-goal')),
   openUpdateGoalModal: () => dispatch(openModal('update-goal')),
   openNotificationsModal: () => dispatch(openModal('notifications')),
-  
+
   closeModal: () => dispatch(closeModal()),
   login: (user) => dispatch(login(user)),
   logout: () => dispatch(logout())
