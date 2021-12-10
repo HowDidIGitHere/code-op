@@ -4,6 +4,7 @@ import Collaborators from './collaborators';
 import GoalItem from './goals';
 import mermaid from 'mermaid';
 import GoalsShow from '../../goals/goals_show_component';
+import { Link } from 'react-router-dom';
 
 class ProjectsShow extends React.Component {
   constructor(props) {
@@ -97,7 +98,7 @@ class ProjectsShow extends React.Component {
             <div className='left-body'>
               <div className='creator-container'>
                   <h1>Creator</h1>
-                  {/* <p>{this.state.creator.name}</p> */}
+                  {this.state.creator ? <p className='collab'><Link to={`/users/${this.state.creator._id}`}>{this.state.creator.username}</Link></p> : null}
               </div>
               <div className='collaborators-container'>
                 <h1>Collaborators</h1>
