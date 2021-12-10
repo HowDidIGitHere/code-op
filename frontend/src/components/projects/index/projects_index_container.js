@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchProjects:() => dispatch(fetchProjects()),
+    fetchProjects: data => dispatch(fetchProjects(data)),
     fetchTags: params => dispatch(fetchTags(params)),
     oneProject: id => dispatch(oneProject(id)),
     requestModal: () => dispatch(openModal('request'))
