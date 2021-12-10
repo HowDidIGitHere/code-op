@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const Model = require('./BaseModel');
 const Schema = mongoose.Schema;
 
 const Validator = require("validator");
@@ -15,4 +15,10 @@ const DiagramSchema = new Schema({
   timestamps: true
 });
 
-module.exports = mongoose.models.Diagram || mongoose.model("Diagram", DiagramSchema);
+class Diagram extends Model {
+  constructor(schema) {
+    return super(schema);
+  }
+}
+
+module.exports = new Diagram(DiagramSchema);
