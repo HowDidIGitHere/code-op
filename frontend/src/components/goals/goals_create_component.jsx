@@ -32,9 +32,9 @@ class GoalsCreate extends React.Component{
     e.preventDefault();
 
     this.props.createGoal(this.state)
-      .then(res => {
-        this.props.project.goals.push(res.goal._id)
-      });
+      // .then(res => {
+      //   this.props.project.goals.push(res.goal._id)
+      // });
   }
 
   render(){
