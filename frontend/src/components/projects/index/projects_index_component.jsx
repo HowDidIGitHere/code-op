@@ -10,6 +10,7 @@ class ProjectsIndex extends React.Component {
     this.state = {
     }
     this.handleRequest = this.handleRequest.bind(this)
+    this.handleRequest2 = this.handleRequest2.bind(this)
     this.handleSearch = this.handleSearch.bind(this)
   }
 
@@ -43,6 +44,21 @@ class ProjectsIndex extends React.Component {
     this.props.oneProject(e.target.id)
   }
 
+  handleRequest2(e) {
+    e.preventDefault();
+
+    this.props.openLearnModal();
+    this.props.oneProject(e.target.id)
+  }
+
+  toggleLearnModal(){
+    if (this.state.openLearnModal){
+      this.setState({openLearnModal: false})
+    } else {
+      this.setState({openLearnModal: true})
+    }
+  }
+  
   render() {
     if (!this.props.tags) return null
 
@@ -73,6 +89,7 @@ class ProjectsIndex extends React.Component {
                   project={project}
                   id={project._id}
                   handleRequest={this.handleRequest}
+                  handleRequest2={this.handleRequest2}
                 />
               })}             
           </div>

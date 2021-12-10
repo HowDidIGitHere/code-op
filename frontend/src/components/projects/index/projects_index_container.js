@@ -17,7 +17,8 @@ const mapDispatchToProps = dispatch => {
     fetchProjects: data => dispatch(fetchProjects(data)),
     fetchTags: params => dispatch(fetchTags(params)),
     oneProject: id => dispatch(oneProject(id)),
-    requestModal: () => dispatch(openModal('request'))
+    requestModal: () => dispatch(openModal('request')),
+    openLearnModal: () => dispatch(openModal('learn')),
   };
 };
 
