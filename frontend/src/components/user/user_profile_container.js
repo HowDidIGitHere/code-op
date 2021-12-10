@@ -20,7 +20,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
     fetchUser: () => dispatch(fetchUser(ownProps.match.params.id)),
     fetchCreatorProjects: () => dispatch(fetchCreatorProjects(ownProps.match.params.id)),
-    receiveCollaboratedProjects: () => dispatch(receiveCollaboratedProjects(ownProps.match.params.id))
+    // receiveCollaboratedProjects: () => dispatch(receiveCollaboratedProjects(ownProps.match.params.id))
   };
 };
 
