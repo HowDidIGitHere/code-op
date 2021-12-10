@@ -35,8 +35,8 @@ export const fetchCreatorProjects = (creatorId) => dispatch => (
 )
 
 // Thunk Action Creators
-export const fetchProjects = () => dispatch => (
-  ProjectApiUtil.getProjects() 
+export const fetchProjects = params => dispatch => (
+  ProjectApiUtil.getProjects(params) 
     .then(projects => dispatch(receiveProjects(projects.data)))
     .catch(err => console.log(err))
 );

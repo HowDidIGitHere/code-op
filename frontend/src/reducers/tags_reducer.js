@@ -19,7 +19,12 @@ const TagsReducer = (state = {}, action) => {
       }
       return nextState;
     case RECEIVE_TAG:
-      nextState[action.tag._id] = action.tag
+      if (Array.isArray(action.tag))
+        action.tag.forEach(tag => {
+          nextState[tag.id] = tag;
+        });
+      else
+        nextState[action.tag._id] = action.tag
       return nextState;
     case REMOVE_TAG:
       delete nextState[action.tagId]

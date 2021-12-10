@@ -33,7 +33,7 @@ export const fetchCollaborators = collaborators => dispatch => (
   UserApiUtil.getCollaborators(collaborators)
     .then(collaborators => dispatch(receiveCollaborators(collaborators.data)))
     .catch(({ response }) => (
-        dispatch(receiveUserErrors(response.data.errors))
+        dispatch(receiveUserErrors(response.data))
     ))
 )
 
@@ -45,11 +45,20 @@ export const receiveCollaboratedProjects = (params) => dispatch => (
     ))
 )
 
+export const fetchUsers = params => dispatch => (
+  UserApiUtil.getUser(params)
+    .then(user => dispatch(receiveUser(user.data)))
+    .catch(({ response }) => {
+        console.log(response);
+        return dispatch(receiveUserErrors(response.data));
+    })
+)
+
 export const fetchUser = userId => dispatch => (
   UserApiUtil.getUser(userId)
     .then(user => dispatch(receiveUser(user.data)))
-    .catch(({ response }) => (
-        dispatch(receiveUserErrors(response.data.errors))
+    .catch(({ response }) => 
+      dispatch(receiveUserErrors(response.data)
     ))
 )
 
@@ -57,7 +66,7 @@ export const updateUser = user => dispatch => (
   UserApiUtil.updateUser(user)
     .then(user => dispatch(receiveUser(user.data)))
     .catch(({ response }) => (
-        dispatch(receiveUserErrors(response.data.errors))
+        dispatch(receiveUserErrors(response.data))
     ))
 )
 
@@ -65,6 +74,6 @@ export const deleteUser = userId => dispatch => (
   UserApiUtil.deleteUser(userId)
     .then(() => dispatch(removeUser(userId)))
     .catch(({ response }) => (
-        dispatch(receiveUserErrors(response.data.errors))
+        dispatch(receiveUserErrors(response.data))
     ))
 )
