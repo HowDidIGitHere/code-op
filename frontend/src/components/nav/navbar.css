@@ -86,7 +86,7 @@
   position: absolute;
   background-color: #fdfdfd;
   border-radius: 5px;
-  width: 317px;
+  width: 188px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   color: #6B6E76;
@@ -156,6 +156,9 @@
 }
 
 .hidden-projects {
+  justify-content: flex-start;
+  margin: 0 16px;
+  padding: 8px 0;
   border-bottom: 0.5px solid #d5d2d2;
 }
 

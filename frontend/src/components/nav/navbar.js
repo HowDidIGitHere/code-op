@@ -62,23 +62,29 @@ class NavBar extends React.Component {
                 </div>
                 <div 
                   className='hidden-projects' 
-                  style={this.state.show ? {display: "block"} : {display: "none"}}
+                  style={this.state.show ? {display: "flex"} : {display: "none"}}
                 >
                   {this.props.projects.map((project, idx) => {
                     if (project.creator === this.props.user.id)
                       return (
-                        <div key={idx}>
-                          <button 
-                            id={project._id} 
-                            className='hidden-project' 
-                            onClick={this.projectClick}
-                          >{project.title}</button>
-                        </div>
+                        <button 
+                          key={idx}
+                          id={project._id} 
+                          className='hidden-project' 
+                          onClick={this.projectClick}
+                        >{project.title}</button>
                       )
                   })}
                 </div>
-                  {this.props.user.id ? <Link className='drop-item' id="profile" to={`/users/${this.props.user.id}`}>Profile</Link> : ""}
-                <p className='drop-item logout' onClick={(e) => this.logoutUser(e)}>Logout</p>
+                  {this.props.user.id ? 
+                    <div className='drop-item'>
+                      <i class="fas fa-user"></i>
+                      <Link id="profile" to={`/users/${this.props.user.id}`}>Profile</Link>
+                    </div> : ""}
+                <div className='drop-item logout'>
+                  <i class="fas fa-sign-out-alt"></i>
+                  <p onClick={(e) => this.logoutUser(e)}>Logout</p>
+                </div>
             </div>
           </div>
         );
