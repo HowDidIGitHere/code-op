@@ -64,7 +64,7 @@
   margin-bottom: 5px;
 }
 
-.collab:hover {
+.collab > a:hover {
   color: rgb(28, 153, 147)
 }
 
@@ -173,6 +173,8 @@
 }
 
 .goals-title-edit-form textarea {
+  resize: vertical;
+  height: 10vh;
   border-radius: 0 0 7px 7px;
   padding-bottom: 7px;
   color: rgb(118, 117, 117);
@@ -202,7 +204,7 @@
 .task-header {
   font-weight: 600;
   padding-top: 10px;
-  margin-bottom: 4px;
+  margin-bottom: 0;
 }
 
 .goal-tasks {
