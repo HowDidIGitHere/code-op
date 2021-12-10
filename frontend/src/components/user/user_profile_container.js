@@ -13,7 +13,6 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  console.log(typeof ownProps.match.params.id)
   return {
     openUpdateModal: () => dispatch(openModal('update')),
 

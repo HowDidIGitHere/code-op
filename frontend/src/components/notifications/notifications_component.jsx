@@ -33,11 +33,12 @@ class Notifications extends React.Component{
       })
   }
 
-  handleDelete(requestId) {
+  handleDelete(requestId, idx) {
     return (e) => {
       e.preventDefault();
-      e.stopPropagation();
-      this.props.deleteRequest(requestId).then(() => this.setState({ rerendner: !this.state.rerendner }))
+        this.state.requests.splice(idx, 1)
+        this.setState({requests: this.state.requests});
+        this.props.deleteRequest(requestId);
     }
   }
 
@@ -64,7 +65,7 @@ class Notifications extends React.Component{
                 onClick={() => this.handleAccept(request.projectId, request.senderId, request._id, idx)}
               >Accept
               </button>
-              <button className="decline" onClick={this.handleDelete(request._id)}>Decline</button>
+              <button className="decline" onClick={this.handleDelete(request._id, idx)}>Decline</button>
             </div>
           </div>
         )}
