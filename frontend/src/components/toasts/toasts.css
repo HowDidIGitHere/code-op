@@ -31,8 +31,8 @@
 }
 
 .toast .header {
-  display: flex;
   align-items: center;
+  display: flex;
 
   padding-bottom: 8px;
   margin: 0;
@@ -41,8 +41,10 @@
 .toast .title {
   color: #2f3033;
   display: block;
-  font-size: 1.6rem;
+  font-size: 1rem;
   line-height: 1.25;
+  margin-block-end: 0;
+  margin-block-start: 0;
   text-transform: capitalize;
 
   margin-left: 16px;
@@ -75,13 +77,12 @@
   border: none;
 }
 
-.toast .toast:first-child {
+.toast:first-child {
   margin-top: 16px;
 }
 
-.toast .toast.error {
+.toast.error {
   background-color: #FCF4F5;
-
 }
 
 .toast .title {

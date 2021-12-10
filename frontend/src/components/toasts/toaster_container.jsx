@@ -3,8 +3,8 @@ import { removeError } from "../../actions/error_actions";
 import orderToastMessages from '../../util/order_toast_messages';
 import Toaster from "./toaster";
 
-const mapStateToProps = ({ errors }) => ({
-  messages: orderToastMessages(errors)
+const mapStateToProps = (state) => ({
+  messages: orderToastMessages(state)
 })
 
 const mapDispatchToProps = (dispatch) => ({

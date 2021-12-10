@@ -1,5 +1,7 @@
 import React from 'react';
 import Toast from './toast';
+import './toasts.css';
+import './toaster.css';
 
 export default class Toaster extends React.Component {
   constructor(props) {
