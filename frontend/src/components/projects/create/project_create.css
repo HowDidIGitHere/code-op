@@ -14,16 +14,18 @@
   position: relative;
   text-align: center;
   background-color: white;
+  color: rgb(127, 127, 127);
   left: 50%;
   width: 680px;
   height: 790px;
   padding-right: 20px;
   margin: 50px 0px 50px -325px;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .main-form {
   display: flex;
+  padding-bottom: 10px;
 }
 
 .form-header > p {
@@ -31,6 +33,7 @@
   font-weight: 600;
   padding-top: 30px;
   margin-left: 8px;
+  color: #494553;
 }
 
 .form-body {
@@ -61,6 +64,8 @@
   height: 80px;
   border: 1px solid lightgrey;
   color: black;
+  padding: 8px;
+  resize: none;
 }
 
 .right-form {
@@ -74,7 +79,8 @@
 
 
 .form-footer {
-  align-items: center;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .user-checks {
@@ -86,10 +92,10 @@
 .save-button { 
   color: white;
   background-color: rgb(30, 160, 154);
-  margin-top: 18px;
+  width: 50px;
   font-size: 15px;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .checklist-container {
