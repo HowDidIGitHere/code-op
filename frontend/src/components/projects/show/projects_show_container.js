@@ -24,7 +24,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     fetchDiagram: diagramId => dispatch(fetchDiagram(diagramId)),
     updateDiagram: diagram => dispatch(updateDiagram(diagram)),
     updateGoal: goal => dispatch(updateGoal(goal)),
-    fetchTags: params => dispatch(fetchTags(params))
+    fetchTags: params => dispatch(fetchTags(params)),
   };
 };
 

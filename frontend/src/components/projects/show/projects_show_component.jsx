@@ -46,6 +46,7 @@ class ProjectsShow extends React.Component {
             })
         }
       }));
+
     this.props.fetchCreatorProjects(this.props.user.id);
   }
 
@@ -76,8 +77,7 @@ class ProjectsShow extends React.Component {
     if (!this.state.project) {
       return "...loading";
     }
-    console.log(this.props.tags);
-
+    console.log(this.state.project);
     return(
       <div className="projects-show-page">
         <div className='project-show-container'>
@@ -86,13 +86,38 @@ class ProjectsShow extends React.Component {
             <p>{this.state.project.description}</p>
           </div>
           <div className='project-body'>
+            <div className='outer-left'>
             <div className='left-body'>
+              <div className='creator-container'>
+                  <h1>Creator</h1>
+              </div>
               <div className='collaborators-container'>
                 <h1>Collaborators</h1>
                 <div className='collaborator-list'>
                   {this.state.collaborators ? <Collaborators collaborators={this.state.collaborators} /> : null}
                 </div>
               </div>
+            </div>
+            <div className='goal-container'>
+            <div className='goal-header'>
+                <h1>Goals</h1>
+            </div>
+            <div className='goal-list'>
+              {
+                this.state.goals ? (
+                  <ul>
+                    {
+                      this.state.goals.map((goal, idx) => {
+                        return <GoalsShow key={`goals-list-item-${idx}`} goal={goal} updateGoal={this.props.updateGoal} />
+                      })
+                    }
+                  </ul>
+                ) : (
+                  null
+                )
+              }
+            </div>
+          </div>
               <div className='tag-detail-container'>
 
               </div>
@@ -112,7 +137,7 @@ class ProjectsShow extends React.Component {
                   <div className='diagram-viewbox'>
                     {
                       this.state.diagram ? (
-                        <div>
+                        <div className='test-diagram'>
                           <Diagram chart={this.state.staticDiagram.content} />
                         </div>
                         ) : (
@@ -130,28 +155,8 @@ class ProjectsShow extends React.Component {
               </div>
             </div>
           </div>
-          <div className='goal-container'>
-            <div className='goal-header'>
-                <h1>Goals:</h1>
-            </div>
-            <div className='goal-list'>
-              {
-                this.state.goals ? (
-                  <ul>
-                    {
-                      this.state.goals.map((goal, idx) => {
-                        return <GoalsShow key={`goals-list-item-${idx}`} goal={goal} updateGoal={this.props.updateGoal} />
-                      })
-                    }
-                  </ul>
-                ) : (
-                  null
-                )
-              }
-            </div>
           </div>
         </div>
-      </div>
     )
   }
 }

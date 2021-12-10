@@ -37,13 +37,6 @@ class GoalsShow extends React.Component{
     this.props.updateGoal(updatedGoal).then(res => this.setState({ task: "", tasks: res.goal.tasks }))
   }
 
-  // handleMark(idx) {
-  //   return e => {
-  //     e.preventDefault();
-  //     e.stopPropagation();
-  //   }
-  // }
-
   handleTaskEdit(idx) {
     return e => {
       e.preventDefault();
@@ -83,8 +76,10 @@ class GoalsShow extends React.Component{
       <div className="goals-show">
         <div className="goals-title" style={!this.state.editToggle ? {display: "block"} : {display: "none"}}>
           <h1>{this.state.title}</h1>
-          <div className="goals-description">{this.state.description}</div>
         </div>
+          <div className='goal-description' style={!this.state.editToggle ? {display: "block"} : {display: "none"}}>
+            <div className="goals-description">{this.state.description}</div>
+          </div>
         <div className='goals-title-edit-form' style={this.state.editToggle ? {display: "block"} : {display: "none"}}>
           <form onSubmit={this.handleGoalEdit}>
             <input onChange={this.handleGoalChange('title')} value={this.state.title}/>
@@ -92,10 +87,13 @@ class GoalsShow extends React.Component{
             <button type='submit'>Submit</button>
           </form>
         </div>
-          <button onClick={this.handleTaskEdit()}>Edit</button>
+        <div className='goal-buttons'>
+          <div className='test-wrap'>
+          <button className='edit-goal' onClick={this.handleTaskEdit()}>Edit</button>
           <br/>
-          <button onClick={this.handleToggle}>View Tasks</button> 
-
+          <button className='view-tasks' onClick={this.handleToggle}>View Tasks</button> 
+        </div>
+        </div>
         <div className="goals-dropdown" style={this.state.toggle ? {display: "block"} : {display: "none"}}>
 
           {/* <div className="line"></div> */}

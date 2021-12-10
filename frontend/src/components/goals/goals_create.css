@@ -2,6 +2,22 @@
   width: 30vw;
 }
 
+.goals-title {
+  background-color: lightseagreen;
+  color: whitesmoke;
+  font-size: 16px;
+  border-radius: 7px 7px 0 0;
+  padding: 5px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.goals-description {
+  background-color: white;
+  padding: 5px;
+  /* border-radius: 0 0 7px 7px; */
+}
+
 .goals-create-title > h4{
   margin-bottom: 0.5vh;
 }
@@ -21,6 +37,36 @@
   width: 97%;
   padding: 0.5vw;
   padding-bottom: 8vh;
+}
+.goal-buttons {
+  display: flex;
+  background-color: white;
+  height: 25px;
+  border-radius: 0 0 7px 7px;
+  margin-bottom: 15px;
+}
+.test-wrap {
+  display: flex;
+  position: absolute;
+  right: 0;
+  padding-right: 30px;
+}
+.edit-goal {
+  border-radius: 0 0 0 7px;
+}
+
+.view-tasks {
+  border-radius: 0 0 7px 0;;
+  right: 0;
+  margin-right: 5px;
+}
+
+.edit-goal, .view-tasks {
+  padding: 0 5px 5px 5px;
+  position: relative;
+  background-color: white;
+  color: #565263;
+  font-size: 15px;
 }
 
 .goals-create-task-list > h4{
