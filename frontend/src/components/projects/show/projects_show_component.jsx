@@ -23,6 +23,7 @@ class ProjectsShow extends React.Component {
     this.handleDiagramSubmit = this.handleDiagramSubmit.bind(this);
   }
 
+
   componentWillMount() {
     this.props.fetchProject()
       .then(res => this.setState({ project: res.project }, () => {

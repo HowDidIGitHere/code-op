@@ -13,6 +13,7 @@ const GoalsReducer = (state = {}, action) => {
       return Object.assign({}, action.goals)
     case RECEIVE_GOAL:
       nextState[action.goal._id] = action.goal
+      return nextState
     case REMOVE_GOAL:
       delete nextState[action.goalId]
       return nextState

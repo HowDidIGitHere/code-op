@@ -12,7 +12,7 @@ import { openModal } from '../../../actions/modal_actions';
 const mapStateToProps = (state, ownProps)=> {
   return {
     user: state.session.user,
-    tags: state.entities.tags.namesByCategoty
+    tags: state.entities.tags.namesByCategoty,
   };
 };
 

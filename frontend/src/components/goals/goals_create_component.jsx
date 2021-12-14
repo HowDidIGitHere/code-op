@@ -30,8 +30,9 @@ class GoalsCreate extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    
-    this.props.createGoal(this.state)
+    let newState = Object.assign({}, this.state)
+
+    this.props.createGoal(newState)
       .then((res) => {
         let project = this.props.project
 

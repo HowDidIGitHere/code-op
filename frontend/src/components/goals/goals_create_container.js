@@ -15,7 +15,8 @@ const mSTP = (state, ownProps) => {
 const mDTP = (dispatch, ownProps) => ({
   createGoal: data => dispatch(createGoal(data)),
   closeModal: () => dispatch(closeModal()),
-  updateProject: (data) => dispatch(updateProject(data))
+  updateProject: (data) => dispatch(updateProject(data)),
+
 })
 
 export default withRouter(connect(mSTP, mDTP)(GoalsCreate))
