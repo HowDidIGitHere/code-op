@@ -26,15 +26,16 @@ class GoalsCreate extends React.Component{
   addSubTaskToArray(){
     this.setState({tasks: this.state.tasks.concat([this.state.subTask])})
     this.setState({subTask: {body: "", completed: false}})
+    console.log(this.state)
   }
 
   handleSubmit(e){
     e.preventDefault();
+    console.log("handling submit")
 
     this.props.createGoal(this.state)
-      // .then(res => {
-      //   this.props.project.goals.push(res.goal._id)
-      // });
+      // .then(res => this.props.project.goals.push(res.goal._id))
+      .then(() => this.props.closeModal())
   }
 
   render(){
@@ -60,7 +61,7 @@ class GoalsCreate extends React.Component{
             <input className="subtask" onChange={this.updateSubTask('body')} type="text" placeholder="'Deploy for staging'" value={this.state.subTask.body}/>
           </div>
           <div className="add-task">
-            <button className="button" onClick={this.addSubTaskToArray}>Add Task</button>
+            <button className="button" type="button" onClick={() => this.addSubTaskToArray()}>Add Task</button>
           </div>
         </div>
 
