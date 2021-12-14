@@ -1,7 +1,7 @@
 import React from 'react';
 import Diagram from '../../diagram/diagram';
 import Collaborators from './collaborators';
-import GoalItem from './goals';
+// import GoalItem from './goals';
 import mermaid from 'mermaid';
 import GoalsShow from '../../goals/goals_show_component';
 import { Link } from 'react-router-dom';
