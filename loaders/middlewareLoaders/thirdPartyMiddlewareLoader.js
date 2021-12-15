@@ -7,7 +7,6 @@ const morgan = require("morgan");
 const rateLimit = require("express-rate-limit");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-const xss = require("../../utils/xssClean");
 
 module.exports = app => {
   // Sets security http headers
@@ -33,11 +32,6 @@ module.exports = app => {
 
   // Sanitize data against NoSQL query injections
   app.use(mongoSanitize());
-
-  // Sanitize data against XSS
-  app.use(xss({ 
-    allowlist: { body: ['content'] }
-  }));
 
   // Prevent parameter pollution
   app.use(hpp({ whitelist: [] }));
