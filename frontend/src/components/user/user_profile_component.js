@@ -49,16 +49,15 @@ class UserProfile extends React.Component {
                 {this.state.created.length === 0 ? 
                   <Link to="/projects/new" className="project-list-item" id="new">Start a new Project</Link> 
                   : this.state.created.map((project, idx) => 
-                      <div className="project-list-item" key={idx}>
+                      <Link to={`/projects/${project._id}`} className="project-list-item" key={idx}>
                         {
                           this.props.currentUserId === this.props.match.params.id ? (
-                            <Link className="project-list-title" to={`/projects/${project._id}`}>{project.title}</Link>
+                            <div className="project-list-title" >{project.title}</div>
                           ) : (
                             <div className="project-list-title">{project.title}</div>
                           )
                         }
-                        {/* <div className="project-list-description">{project.description}</div> */}
-                      </div>
+                      </Link>
                     )
                 }
             </div>

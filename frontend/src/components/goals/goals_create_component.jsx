@@ -39,6 +39,7 @@ class GoalsCreate extends React.Component{
         project.goals = project.goals.concat([res.goal._id]);
         this.props.updateProject(project)      
           .then(() => this.props.closeModal())
+          .then(() => window.location.reload())
       })
   }
 
