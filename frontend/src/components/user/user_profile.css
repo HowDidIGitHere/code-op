@@ -94,6 +94,7 @@
   color: lightseagreen;
   font-size: x-large;
   margin-bottom: 1vh;
+  margin-right: 130px;
 }
 
 .project-list{
@@ -120,13 +121,16 @@
   justify-content: center;
   align-items: center;
   align-content: center;
-  box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
   width: 70%;
   height: 20%;
   padding: 1vw;
   margin-bottom: 1vh;
   border-radius: 5px;
   border: 1px solid #bbb8b8;
+}
+
+.project-list-item:hover{
+  box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
 }
 
 .project-list-title{
