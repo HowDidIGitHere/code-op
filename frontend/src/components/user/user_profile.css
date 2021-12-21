@@ -64,8 +64,10 @@
   
 }
 
-.column-left > h2{
+.column-left > h2 {
   margin-bottom: 20px;
+  overflow-wrap: break-word;
+  padding-right: 4.5pc;
 }
 
 .edit-btn{
