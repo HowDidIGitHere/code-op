@@ -44,21 +44,21 @@ class NavBar extends React.Component {
           <div className='dropdown'>
             <button className="dropdown-btn"><i class="fas fa-bars fa-2x"></i></button>
             <div className='dropdown-content-2'>
-                <div className='drop-item'>
+                <div className='drop-item' onClick={() => this.props.openNotificationsModal()}>
                   <i className="fas fa-bell"></i>
-                  <p  onClick={() => this.props.openNotificationsModal()}>Notifications</p>
+                  <p  >Notifications</p>
                 </div>
-                <div className='drop-item'>
+                <Link className='drop-item' to={'/projects'}>
                   <i className="fas fa-search"></i>
-                  <Link to={'/projects'}>Discover Page</Link>
-                </div>
-                <div className='drop-item'>
+                  <div >Discover Page</div>
+                </Link>
+                <Link className='drop-item' to={'/projects/new'}>
                   <i class="fas fa-hammer"></i>
-                  <Link  to={'/projects/new'}>Create a Project</Link>
-                </div>
-                <div className='drop-item current-project'>
+                  <div  >Create a Project</div>
+                </Link>
+                <div className='drop-item current-project'  onClick={() => this.toggle()}>
                   <i class="fas fa-tasks"></i>
-                  <p  tabIndex='1' onClick={() => this.toggle()}>Current Projects</p>
+                  <p  tabIndex='1'>Current Projects</p>
                 </div>
                 <div 
                   className='hidden-projects' 
@@ -77,13 +77,13 @@ class NavBar extends React.Component {
                   })}
                 </div>
                   {this.props.user.id ? 
-                    <div className='drop-item'>
+                    <Link to={`/users/${this.props.user.id}`} className='drop-item'>
                       <i class="fas fa-user"></i>
-                      <Link id="profile" to={`/users/${this.props.user.id}`}>Profile</Link>
-                    </div> : ""}
-                <div className='drop-item logout'>
+                      <div id="profile" >Profile</div>
+                    </Link> : ""}
+                <div className='drop-item logout' onClick={(e) => this.logoutUser(e)}>
                   <i class="fas fa-sign-out-alt"></i>
-                  <p onClick={(e) => this.logoutUser(e)}>Logout</p>
+                  <p >Logout</p>
                 </div>
             </div>
           </div>
