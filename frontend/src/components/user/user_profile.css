@@ -96,6 +96,25 @@
   margin-bottom: 1vh;
 }
 
+.project-list{
+  display: flex;
+  border-radius: 5px;
+  width: 80%;
+  height: 20%;
+}
+
+.project-list > i{
+  height: 24px;
+  border-radius: 5px;
+  margin: 10px 0 0 10px;
+  font-size: x-large;
+}
+
+.project-list >i:hover{
+  cursor: pointer;
+  box-shadow: 2px 5px 7px 1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
+}
+
 .project-list-item{
   display: flex;
   justify-content: center;
@@ -110,7 +129,7 @@
   border: 1px solid #bbb8b8;
 }
 
-.project-list-item > .project-list-title{
+.project-list-title{
   font-size: x-large;
   color: #3c8585;
 }

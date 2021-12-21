@@ -3,6 +3,7 @@ import { withRouter } from "react-router";
 import { fetchUser } from '../../actions/user_actions';
 import { fetchProjects } from '../../actions/project_actions'
 import { openModal } from '../../actions/modal_actions';
+import { deleteProject } from '../../actions/project_actions';
 
 import UserProfile from './user_profile_component';
 
@@ -16,7 +17,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     openUpdateModal: () => dispatch(openModal('update')),
-
+    deleteProject: (id) => dispatch(deleteProject(id)),
     fetchUser: () => dispatch(fetchUser(ownProps.match.params.id)),
     fetchCreatorProjects: () => dispatch(fetchProjects({ creator: ownProps.match.params.id })),
     receiveCollaboratedProjects: () => dispatch(fetchProjects({ 
