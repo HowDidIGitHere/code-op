@@ -43,7 +43,7 @@
   display: flex;
   background-color: white;
   height: 25px;
-  border-radius: 0 0 7px 7px;
+  /* border-radius: 0 0 7px 7px; */
   margin-bottom: 15px;
 }
 
@@ -79,7 +79,6 @@
 .view-tasks {
   width: 100%;
   text-align: center;
-  padding: 0 65px 0 65px;
 }
 
 .edit-goal, .view-tasks {

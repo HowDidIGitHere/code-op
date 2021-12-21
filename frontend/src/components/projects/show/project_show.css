@@ -278,6 +278,10 @@
   font-size: 18px;
 }
 
+.create-goal:hover{
+  cursor: pointer;
+}
+
 .create-goal:hover {
   color:lightseagreen;
 }
