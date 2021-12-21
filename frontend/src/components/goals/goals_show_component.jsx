@@ -96,11 +96,12 @@ class GoalsShow extends React.Component{
         
         <div className='goal-buttons' style={!this.state.editToggle ? {display: "block"} : {display: "none"}}>
           <div className='test-wrap'>
-            <button className='edit-goal' onClick={this.handleTaskEdit()} >Edit</button>
-            <button className='view-tasks' onClick={this.handleToggle} >View Tasks</button>
-            <div className="delete-wrap">
+            <div className="function-wrap">
+              <button className='edit-goal' onClick={this.handleTaskEdit()} >Edit</button>
+              <button className='view-tasks' onClick={this.handleToggle} >View Tasks</button>
               <button className="delete-goal" onClick={()=>this.props.deleteGoal()}>Delete</button>
             </div>
+            
           </div>
         </div>
         <div className='hidden-tasks' style={this.state.toggle ? {display: "block"} : {display: "none"}}>

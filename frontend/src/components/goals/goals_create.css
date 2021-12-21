@@ -46,40 +46,43 @@
   border-radius: 0 0 7px 7px;
   margin-bottom: 15px;
 }
-.test-wrap {
+
+.function-wrap{
   display: flex;
-  justify-content: flex-start;
-  /* position: absolute;
-  right: 0;
-  padding-right: 30px; */
+  height: 100%;
 }
+
 .edit-goal {
-  width: 10%;
+  width: 15%;
+  height: 100%;
+  margin-left: 8px;
 }
 
 .delete-wrap{
   display: flex;
   justify-content: flex-end;
   width: 100%;
+  height: 100%;
 }
 .delete-goal{
-  padding: 0 5px 5px 5px;
+  padding-right: 5px;
   position: relative;
   background-color: white;
-  color: rgb(235, 0, 0);
+  color: rgb(3, 3, 3);
   font-size: 15px;
 }
 
+.delete-goal:hover{
+  color: red;
+}
+
 .view-tasks {
-  border-radius: 0 0 7px 0;;
-  right: 0;
-  margin-right: 5px;
-  width: 40%;
+  width: 100%;
+  text-align: center;
+  padding: 0 65px 0 65px;
 }
 
 .edit-goal, .view-tasks {
-  padding: 0 5px 5px 5px;
-  position: relative;
   background-color: white;
   color: black;
   font-size: 15px;
