@@ -16,6 +16,7 @@ class GoalsShow extends React.Component{
     this.handleTaskChange = this.handleTaskChange.bind(this);
     this.handleTaskSubmit = this.handleTaskSubmit.bind(this);
     this.handleGoalEdit = this.handleGoalEdit.bind(this);
+    // this.goalStyle = {display: "block", border-radius: ""}
   }
 
   handleToggle(){
@@ -94,7 +95,7 @@ class GoalsShow extends React.Component{
           </form>
         </div>
         
-        <div className='goal-buttons' style={!this.state.editToggle ? {display: "block"} : {display: "none"}}>
+        <div className='goal-buttons' style={!this.state.toggle ? {display: "block", borderRadius: '0 0 7px 7px'} : {display: "block"}}>
           <div className="function-wrap">
             <button className='edit-goal' onClick={this.handleTaskEdit()} >Edit</button>
             <button className='view-tasks' onClick={this.handleToggle} >View Tasks</button>
