@@ -26,6 +26,9 @@ class ProjectsShow extends React.Component {
   componentWillMount() {
     this.props.fetchProject()
       .then(res => this.setState({ project: res.project }, () => {
+        if (this.state.project.creator !== this.props.user.id && (this.state.project.collaborators && !this.state.project.collaborators.includes(this.props.user.id))) {
+          this.props.history.goBack();
+        }
         if (this.state.project.collaborators.length !== 0) {
           this.props.fetchCollaborators(this.state.project.collaborators)
             .then(res => {
@@ -84,9 +87,6 @@ class ProjectsShow extends React.Component {
   render() {
     if (!this.state.project) {
       return "...loading";
-    }
-    if (this.state.creator !== this.props.user.id || this.state.collaborators.includes(this.props.user.id)) {
-      this.props.history.goBack();
     }
     return(
       <div className="projects-show-page">
