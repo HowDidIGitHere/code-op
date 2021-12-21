@@ -93,6 +93,16 @@ class GoalsShow extends React.Component{
             <button className='submit-edit' type='submit'>Submit</button>
           </form>
         </div>
+        
+        <div className='goal-buttons' style={!this.state.editToggle ? {display: "block"} : {display: "none"}}>
+          <div className='test-wrap'>
+            <button className='edit-goal' onClick={this.handleTaskEdit()} >Edit</button>
+            <button className='view-tasks' onClick={this.handleToggle} >View Tasks</button>
+            <div className="delete-wrap">
+              <button className="delete-goal" onClick={()=>this.props.deleteGoal()}>Delete</button>
+            </div>
+          </div>
+        </div>
         <div className='hidden-tasks' style={this.state.toggle ? {display: "block"} : {display: "none"}}>
           <h4 className='task-header'>Tasks:</h4>
           {this.state.tasks.map((task, idx) => 
@@ -106,17 +116,7 @@ class GoalsShow extends React.Component{
             </li>
           )}
         </div>
-        <div className='goal-buttons' style={!this.state.editToggle ? {display: "block"} : {display: "none"}}>
-          <div className='test-wrap'>
-          <button className='edit-goal' onClick={this.handleTaskEdit()} style={!this.state.toggle ? {display: "block"} : {display: "none"}}>Edit</button>
-          <br/>
-          <button className='view-tasks' onClick={this.handleToggle}>View Tasks</button> 
-        </div>
-        </div>
         <div className="goals-dropdown" style={this.state.toggle ? {display: "block"} : {display: "none"}}>
-
-          {/* <div className="line"></div> */}
-
           <div className="goals-tasks">
             <div className="add-task-container">
               {/* <div className="add-task-header">

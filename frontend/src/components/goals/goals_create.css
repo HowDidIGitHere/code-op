@@ -48,18 +48,33 @@
 }
 .test-wrap {
   display: flex;
-  position: absolute;
+  justify-content: flex-start;
+  /* position: absolute;
   right: 0;
-  padding-right: 30px;
+  padding-right: 30px; */
 }
 .edit-goal {
-  border-radius: 0 0 0 7px;
+  width: 10%;
+}
+
+.delete-wrap{
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.delete-goal{
+  padding: 0 5px 5px 5px;
+  position: relative;
+  background-color: white;
+  color: rgb(235, 0, 0);
+  font-size: 15px;
 }
 
 .view-tasks {
   border-radius: 0 0 7px 0;;
   right: 0;
   margin-right: 5px;
+  width: 40%;
 }
 
 .edit-goal, .view-tasks {

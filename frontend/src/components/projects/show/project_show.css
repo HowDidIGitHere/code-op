@@ -161,6 +161,7 @@
   background-color: white;
   padding: 5px;
   padding-left: 8px;
+  margin-top: 10px;
 }
 
 .goals-title-edit-form > form {
@@ -197,8 +198,9 @@
 
 .hidden-tasks {
   background-color: white;
-  margin: -22px 0 0px 0;
+  margin: -20px 0 0px 0;
   padding-left: 10px;
+  border-radius: 0 0 7px 7px;
 }
 
 .task-header {

@@ -86,7 +86,7 @@ class ProjectsShow extends React.Component {
     if (!this.state.project) {
       return "...loading";
     }
-    console.log(this.state.project);
+    console.log("goals:", this.state.goals);
     return(
       <div className="projects-show-page">
         <div className='project-show-container'>
@@ -120,7 +120,7 @@ class ProjectsShow extends React.Component {
                   <ul>
                     {
                       this.state.goals.map((goal, idx) => {
-                        return <GoalsShow key={`goals-list-item-${idx}`} goal={goal} updateGoal={this.props.updateGoal} />
+                        return <GoalsShow key={`goals-list-item-${idx}`} goal={goal} updateGoal={this.props.updateGoal} deleteGoal={this.props.deleteGoal}/>
                       })
                     }
                   </ul>
