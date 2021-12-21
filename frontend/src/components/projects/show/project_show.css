@@ -24,6 +24,53 @@
   margin-left: 15px;
 }
 
+.project-title-header > button{
+  font-weight: 100;
+}
+
+.project-title-header > button:hover{
+  cursor: pointer;
+  color: rgb(28, 153, 147)
+}
+
+.project-title-header-edit{
+  padding: 20px 0px 20px 0px;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-title-header-edit > textarea:first-child {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  height: 60px;
+  width: 24vw;
+  border: 0.5px solid #d8d8d8;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.project-title-header-edit > textarea:nth-child(2) {
+  font-size: 18px;
+  height: 60px;
+  width: 24vw;
+  border: 0.5px solid #d8d8d8;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.proj-edit-btns{
+  display: flex;
+  justify-content: space-between;
+  width: 24vw;
+}
+
+.proj-edit-btns>button:hover{
+  cursor: pointer;
+  color: rgb(28, 153, 147)
+}
+
 .project-body {
   display: flex;
 }

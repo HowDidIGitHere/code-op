@@ -15,7 +15,8 @@ class ProjectsShow extends React.Component {
       collaborators: undefined,
       goals: undefined,
       staticDiagram: undefined,
-      diagram: undefined
+      diagram: undefined,
+      edit: false
     }
 
     this.handleDiagramChange = this.handleDiagramChange.bind(this);
@@ -84,17 +85,52 @@ class ProjectsShow extends React.Component {
     });
   }
 
+  updateTitle() {
+    return e => {
+      this.setState({ project: {...this.state.project, title: e.currentTarget.value} })
+    }
+  }
+
+  updateDescription() {
+    return e => {
+      this.setState({ project: {...this.state.project, description: e.currentTarget.value} })
+    }
+  }
+
+  toggleEdit(){
+    console.log(this.state.edit)
+    this.setState({edit: !this.state.edit})
+  }
+
+  handleUpdate(e){
+    e.preventDefault()
+    this.props.updateProject(this.state.project)
+  }
+
   render() {
     if (!this.state.project) {
       return "...loading";
     }
+
     return(
       <div className="projects-show-page">
         <div className='project-show-container'>
-          <div className='project-title-header'>
-            <h1>{this.state.project.title}</h1>
-            <p>{this.state.project.description}</p>
-          </div>
+          {!this.state.edit ?
+            <div className='project-title-header'>
+              <h1>{this.state.project.title}</h1>
+              <p>{this.state.project.description}</p>
+              <button onClick={() => this.toggleEdit()}>Edit</button>
+            </div>
+            :
+            <div className='project-title-header-edit'>
+              <textarea onChange={this.updateTitle()}>{this.state.project.title}</textarea>
+              <textarea onChange={this.updateDescription()}>{this.state.project.description}</textarea>
+              <div className='proj-edit-btns'>
+                <button onClick={(e) => this.toggleEdit(e)}>Close</button>
+                <button onClick={(e) => {this.handleUpdate(e); this.toggleEdit(e)}}>Update</button>
+              </div>
+            </div>
+          }
           <div className='project-body'>
             <div className='outer-left'>
             <div className='left-body'>
