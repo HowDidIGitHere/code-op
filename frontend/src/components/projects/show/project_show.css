@@ -285,3 +285,25 @@
 .create-goal:hover {
   color:lightseagreen;
 }
+
+.collab-flex {
+  display: flex;
+}
+
+.collab-name-container {
+  margin-right: 5px;
+}
+
+.collab-delete {
+  display: flex;
+  padding-top: 1px;
+}
+
+.collab-delete > svg {
+  width: 20px;
+  height: 20px;
+}
+
+.collab-delete > svg:hover {
+  color: red;
+}
