@@ -6,13 +6,19 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      show: false
+      show: false,
+      collaborated: []
     }
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.projectClick = this.projectClick.bind(this);
     
+  }
+
+  componentDidMount(){
+    this.props.receiveCollaboratedProjects({collaborators: this.props.user.id})
+      .then(projects => this.setState({collaborated: Object.values(projects.payload.projects)}))
   }
 
   projectClick(e) {
@@ -57,7 +63,7 @@ class NavBar extends React.Component {
                   <div  >Create a Project</div>
                 </Link>
                 <div className='drop-item current-project'  onClick={() => this.toggle()}>
-                  <i class="fas fa-tasks"></i>
+                  <i className="fas fa-tasks"></i>
                   <p  tabIndex='1'>Current Projects</p>
                 </div>
                 <div 
@@ -75,10 +81,18 @@ class NavBar extends React.Component {
                         >{project.title}</button>
                       )
                   })}
+                  {this.state.collaborated.map((project, idx) =>
+                    <button 
+                      key={idx}
+                      id={project._id} 
+                      className='hidden-project' 
+                      onClick={this.projectClick}
+                    >{project.title}</button>
+                  )}
                 </div>
                   {this.props.user.id ? 
                     <Link to={`/users/${this.props.user.id}`} className='drop-item'>
-                      <i class="fas fa-user"></i>
+                      <i className="fas fa-user"></i>
                       <div id="profile" >Profile</div>
                     </Link> : ""}
                 <div className='drop-item logout' onClick={(e) => this.logoutUser(e)}>
