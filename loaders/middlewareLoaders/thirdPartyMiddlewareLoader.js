@@ -17,7 +17,7 @@ module.exports = app => {
 
   // Limits user requests so we don't get swamped
   app.use("/", rateLimit({
-    max: 150,
+    max: 1000,
     windowMs: 60 * 60 * 1000,
     message: "Too many requests. Please try again in an hour!"
   }));
