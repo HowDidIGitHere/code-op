@@ -1,4 +1,11 @@
-
+.no-request{
+  padding: 0.5vw;
+  border-radius: 10px;
+  border-bottom: 3px solid rgb(155, 148, 148);
+  width: 15vw;
+  text-align: center;
+  color: #989898;
+}
 .single-request{
   padding: 0.5vw;
   border-radius: 10px;

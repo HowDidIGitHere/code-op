@@ -43,9 +43,12 @@ class Notifications extends React.Component{
   }
 
   render(){
+    console.log("requests:", this.state.requests)
     return(
       <div className="notifications">
-        {this.state.requests.map((request, idx) =>
+        {this.state.requests.length === 0 ? 
+        <div className="no-request">All up to date!</div> :
+        this.state.requests.map((request, idx) =>
           <div className="single-request" key={idx}>
             <div className="note-info">
               <Link className="request-link" to={`/users/${request.senderId}`} onClick={() => this.props.closeModal()}> 
