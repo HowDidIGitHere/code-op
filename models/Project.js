@@ -17,6 +17,14 @@ const ProjectSchema = new Schema({
     type: Boolean,
     default: false
   },
+  url: {
+    type: String,
+    default: ''
+  },
+  likes: {
+    type: Number,
+    default: 0
+  },
   description: {
     type: String,
     required: [true, "Please add a brief description"]
