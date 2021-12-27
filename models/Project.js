@@ -13,6 +13,10 @@ const ProjectSchema = new Schema({
     type: String,
     required: [true, "Please enter a project title"]
   },
+  featured: {
+    type: Boolean,
+    default: false
+  },
   description: {
     type: String,
     required: [true, "Please add a brief description"]
