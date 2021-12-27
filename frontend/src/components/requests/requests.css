@@ -36,6 +36,10 @@
   /* padding-right: 30px; */
 }
 
+.submit:hover{
+  cursor: pointer;
+}
+
 .position-request {
   columns: 2;
   margin: 5px;
