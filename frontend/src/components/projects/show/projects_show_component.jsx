@@ -107,6 +107,11 @@ class ProjectsShow extends React.Component {
     this.props.updateProject(this.state.project)
   }
 
+  // handleCollaboratorUpdate(e) {
+  //   e.preventDefault();
+  //   this.props.update
+  // }
+
   render() {
     if (!this.state.project) {
       return "...loading";
@@ -141,7 +146,7 @@ class ProjectsShow extends React.Component {
               <div className='collaborators-container'>
                 <h1>Collaborators</h1>
                 <div className='collaborator-list'>
-                  {this.state.collaborators ? <Collaborators creator={this.state.creator} collaborators={this.state.collaborators} /> : null}
+                  {this.state.collaborators ? <Collaborators currentUser={this.props.user} creator={this.state.creator} collaborators={this.state.collaborators} /> : null}
                 </div>
               </div>
             </div>
