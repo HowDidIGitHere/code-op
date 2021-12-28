@@ -67,7 +67,7 @@ class UserProfile extends React.Component {
           <div className="column-right1">
             <div className="column-right">
               <h1>Created Projects:</h1>
-                {this.state.created.length === 0  ? 
+                {this.state.created.length === 0 ? 
                   this.props.currentUserId === this.props.match.params.id ?
                     <Link to="/projects/new" className="project-list-item" id="new">Start a new Project</Link> 
                     :
@@ -77,7 +77,11 @@ class UserProfile extends React.Component {
                       <Link to={`/projects/${project._id}`} className="project-list-item">
                         <div className="project-list-title">{project.title}</div>
                       </Link>
-                      <i className="fas fa-trash-alt" onClick={() => this.handleDelete(project._id, idx)}></i>                    
+                      {this.props.currentUserId === this.props.match.params.id ? 
+                        <i className="fas fa-trash-alt" onClick={() => this.handleDelete(project._id, idx)}></i>    
+                        :
+                        null
+                      }                
                     </div>
                     )
                 }
