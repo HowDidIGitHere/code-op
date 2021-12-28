@@ -3,7 +3,11 @@ import React from 'react';
 function FeaturedProjects({ projects }) {
   console.log(projects);
   return (
-    <div id="featured-projects" className="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div 
+      id="featured-projects" 
+      className="carousel slide carousel-fade container-sm" 
+      data-bs-ride="carousel"
+    >
       <div className="carousel-inner">
       { projects ? projects.map((project, index) => {
         return (

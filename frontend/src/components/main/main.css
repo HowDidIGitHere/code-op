@@ -64,12 +64,21 @@
   height: 280px;
 }
 
-#featured-projects {
+#featured-projects {  
+  padding-top: 48px;
+  
   height: 100vh;
 }
 
+@media only screen and (max-width: 575px) {
+  #featured-projects {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
 #featured-projects .carousel-inner {
-  background: linear-gradient(#494553, #5b5764);
+  background-color: white;
   
   height: 100vh;
 }

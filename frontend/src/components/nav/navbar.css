@@ -15,8 +15,16 @@
 .navbar [class^='container'] {
   display: flex;
 
+  padding: 0;
+
   align-items: center;
   justify-content: space-between;
+}
+
+@media only screen and (max-width: 575px) {
+  .navbar [class^='container'] {
+    padding: 0 16px;
+  }
 }
 
 .left-nav {
