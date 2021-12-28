@@ -22,7 +22,6 @@ class Service {
     delete query.sort;
 
     if (groupBy) {
-      
       var docs = await this.model
         .aggregate()
         .group(createAggregation({ 
