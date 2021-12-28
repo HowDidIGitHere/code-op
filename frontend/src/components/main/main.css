@@ -1,10 +1,10 @@
 /* splash content */
-.splash-content {
+.splash-header {
   height: 280px;
   position: relative;
 }
 
-.splash-content > img {
+.splash-header > img {
   position: absolute;
   height: 280px;
   width: 100%;
@@ -52,7 +52,7 @@
   color: #ccc;
 }
 
-.splash-content .banner {
+.splash-header .banner {
   background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80');
   min-height: 290px;
   margin-bottom: -290px;

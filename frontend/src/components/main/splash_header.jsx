@@ -1,8 +1,8 @@
 import React from 'react';
 
-const SplashContent = ({ handleClick }) => {
+const SplashHeader = ({ handleClick }) => {
   return (
-    <div className='splash-content'>
+    <div className='splash-header'>
       <div className='banner'></div>
       {/* <img src="https://res.cloudinary.com/dzixdb9eu/image/upload/v1638986282/unsplash_wD1LRb9OeEo_2_me7jle.png" alt="banner" /> */}
       <div className='overlay'>
@@ -16,4 +16,4 @@ const SplashContent = ({ handleClick }) => {
   )
 }
 
-export default SplashContent
+export default SplashHeader

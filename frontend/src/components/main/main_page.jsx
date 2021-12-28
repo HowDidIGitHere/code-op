@@ -1,5 +1,5 @@
 import React from 'react';
-import SplashContent from './splash_content';
+import SplashHeader from './splash_header';
 import './main.css'
 // import ProjectListingRow from './project_listing_row';
 import FeaturedProjects from './featured_projects';
@@ -21,7 +21,7 @@ class MainPage extends React.Component {
   render() {
     return (
       <div>
-        <SplashContent handleClick={this.handleClick.bind(this)}/>
+        <SplashHeader handleClick={this.handleClick.bind(this)}/>
         {/* <div className='featured-projects'>
           <ProjectListingRow projects={this.props.projects} />
         </div> */}
