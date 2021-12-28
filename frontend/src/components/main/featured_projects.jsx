@@ -19,10 +19,10 @@ export default class FeaturedProjects extends React.Component {
             <svg className="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Third slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#555"></rect><text x="50%" y="50%" fill="#333" dy=".3em">Third slide</text></svg>
           </div>
         </div>
-        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+        <button className="carousel-control-prev" type="button" data-bs-target="#featured-projects" data-bs-slide="prev">
           <span className="visually-hidden">Previous</span>
         </button>
-        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+        <button className="carousel-control-next" type="button" data-bs-target="#featured-projects" data-bs-slide="next">
           <span className="visually-hidden">Next</span>
         </button>
       </div>
