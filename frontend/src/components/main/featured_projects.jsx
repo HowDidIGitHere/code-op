@@ -5,10 +5,10 @@ function FeaturedProjects({ projects }) {
   return (
     <div 
       id="featured-projects" 
-      className="carousel slide carousel-fade container-sm" 
+      className="carousel slide carousel-fade" 
       data-bs-ride="carousel"
     >
-      <div className="carousel-inner">
+      <div className="carousel-inner container-sm">
       { projects ? projects.map((project, index) => {
         return (
             <div className={`carousel-item ${index === 0 ? 'active' : ''}`}>
