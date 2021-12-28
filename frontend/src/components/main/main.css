@@ -2,7 +2,7 @@
 .splash-header {
   position: relative;
   
-  height: 52vh;
+  height: 65vh;
   min-height: 280px;
 }
 
@@ -15,8 +15,10 @@
   position: absolute;
   top: 26vh;
   left: 0;
-  transform: translateY(-50%);
+  transform: translateY(-35%);
   z-index: 999;
+
+  box-sizing: border-box;
 }
 
 .overlay > h1{
@@ -55,22 +57,25 @@
 
 .splash-header .banner {
   background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80');
-  height: 56vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50% 85%;
-  height: 360px
+  background-position: 50% -15vw;
+  height: 65vh;
+  min-height: 280px;
 }
 
-/* listings header  */
+#featured-projects {
+  height: 100vh;
+}
 
-/* .featured-projects {
-  margin: 30px 55px 30px 55px;
-  color: #7f7f7f;
-} */
+#featured-projects .carousel-inner {
+  height: 100vh;
+}
 
-.featured-projects {
-  background-color: white;
+#featured-projects .carousel-item {
+  background: linear-gradient(#494553, #5b5764);
+  
+  height: 100vh;
 }
