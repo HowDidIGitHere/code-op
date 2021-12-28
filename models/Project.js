@@ -22,7 +22,7 @@ const ProjectSchema = new Schema({
     default: ''
   },
   likes: [{
-    type: Schema,
+    type: Schema.Types.ObjectId,
     ref: 'User'
   }],
   description: {
