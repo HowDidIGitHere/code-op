@@ -1,7 +1,7 @@
 .navbar {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
   background-color: #494553;
   height: 80px;
   color: whitesmoke;
@@ -15,6 +15,7 @@
 .navbar [class^='container'] {
   display: flex;
 
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -43,7 +44,6 @@
 }
 
 .left-nav > h1 {
-  float: right;
   font-weight: 600;
   font-size: 21px;
   cursor: pointer;
