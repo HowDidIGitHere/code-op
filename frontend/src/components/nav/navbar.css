@@ -127,7 +127,7 @@
   left: auto;
   text-align: right;
   transition: max-height .5s ease-out;
-  margin-top: 23px;
+  margin-top: 31px;
 }
 
 .dropdown:hover .dropdown-content-2 {
