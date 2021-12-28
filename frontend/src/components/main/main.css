@@ -1,25 +1,29 @@
 /* splash content */
 .splash-header {
-  height: 280px;
   position: relative;
-}
-
-.splash-header > img {
-  position: absolute;
-  height: 280px;
-  width: 100%;
-  opacity: 90%;
-  z-index: -1;
+  
+  height: 52vh;
+  min-height: 280px;
 }
 
 .overlay {
   display: block;
   text-align: center;
+
+  padding: 16px;
+
+  position: absolute;
+  top: 26vh;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 999;
+  
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .overlay > h1{
   font-size: 40px;
-  padding-top: 80px;
   font-family: 'Roboto';
   letter-spacing: .25px;
   text-transform: uppercase;
@@ -54,8 +58,7 @@
 
 .splash-header .banner {
   background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80');
-  min-height: 290px;
-  margin-bottom: -290px;
+  height: 56vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
