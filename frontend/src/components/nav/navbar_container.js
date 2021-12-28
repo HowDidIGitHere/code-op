@@ -3,6 +3,7 @@ import { withRouter } from 'react-router';
 import { logout, login } from '../../actions/session_actions';
 import {openModal, closeModal} from "../../actions/modal_actions"
 import NavBar from './navbar';
+import { fetchProjects } from '../../actions/project_actions'
 
 const mapStateToProps = (state, ownProps) => ({
   loggedIn: state.session.isAuthenticated,
@@ -11,13 +12,14 @@ const mapStateToProps = (state, ownProps) => ({
 
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
   openLoginModal: () => dispatch(openModal('login')),
   openSignupModal: () => dispatch(openModal('signup')),
   openAboutModal: () => dispatch(openModal('about')),
   openCreateGoalModal: () => dispatch(openModal('create-goal')),
   openUpdateGoalModal: () => dispatch(openModal('update-goal')),
   openNotificationsModal: () => dispatch(openModal('notifications')),
+  receiveCollaboratedProjects: data => dispatch(fetchProjects(data)),
 
   closeModal: () => dispatch(closeModal()),
   login: (user) => dispatch(login(user)),

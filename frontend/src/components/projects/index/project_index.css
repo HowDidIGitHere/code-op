@@ -6,10 +6,52 @@
   justify-content: space-evenly;
 }
 
-.underline {
+.underline-1 {
+  border-bottom: 2px solid #6F6D74;
+  align-self: center;
+  margin: 5px 0 5px 0;
+}
+.underline-2 {
   border-bottom: 2px solid #6F6D74;
   align-self: center;
   margin: 5px 0 25px 0;
+}
+
+.show-filters {
+  display: flex;
+}
+
+.current-filters {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(30, 160, 154);
+  margin: 0 15px 0px 40px;
+  position: absolute;
+}
+
+.filters {
+  display: flex;
+  width: 100%;
+  margin-left: 250px;
+}
+
+.filter-list {
+  float:right;
+  margin: 2px 0 2px 0;
+}
+
+.clear-button {
+  margin-left: auto;
+  order: 2;
+  margin-right: 40px;
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(30, 160, 154);
+}
+
+.clear-button:hover {
+  color: #494553;
+  cursor: pointer;
 }
 
 .checklist {

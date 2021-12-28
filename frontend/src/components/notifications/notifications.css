@@ -1,4 +1,11 @@
-
+.no-request{
+  padding: 0.5vw;
+  border-radius: 10px;
+  border-bottom: 3px solid rgb(155, 148, 148);
+  width: 15vw;
+  text-align: center;
+  color: #989898;
+}
 .single-request{
   padding: 0.5vw;
   border-radius: 10px;
@@ -63,6 +70,10 @@
   color: white;
 }
 
+.accept:hover{
+  cursor: pointer;
+}
+
 .note-buttons > .decline{
   background-color: rgb(136, 136, 136);
     padding: 12px;
@@ -71,3 +82,6 @@
     color: white;
 }
 
+.decline:hover{
+  cursor: pointer;
+}

@@ -25,8 +25,20 @@ class UserProfile extends React.Component {
     this.setState({created: this.state.created})
   }
 
+  removeCollaboration(project, idx){
+    project.collaborators.indexOf(this.props.user.id)
+    let userIdx = project.collaborators.indexOf(this.props.user.id)
+    project.collaborators.splice(userIdx, 1)
+    this.props.updateProject(project)
+
+    this.state.collaborated.splice(idx, 1)
+    this.setState({collaborated: this.state.collaborated})
+  }
+
   render() {
     if (!this.props.user) return "loading...";
+    console.log("current user", this.props.currentUserId)
+    console.log("profile page params", this.props.match.params.id)
     return (
       <div className="user-profile">
         <div className="header-bg">
@@ -45,20 +57,31 @@ class UserProfile extends React.Component {
             <h2>{this.props.user.github}</h2>
             <h1>Tags</h1>
             
-            <div onClick={() => this.props.openUpdateModal()} className="edit-btn">Edit</div>
+            {this.props.currentUserId === this.props.match.params.id ?
+              <div onClick={() => this.props.openUpdateModal()} className="edit-btn">Edit</div>
+              :
+              ""
+            }
           </div>
 
           <div className="column-right1">
             <div className="column-right">
               <h1>Created Projects:</h1>
                 {this.state.created.length === 0 ? 
-                  <Link to="/projects/new" className="project-list-item" id="new">Start a new Project</Link> 
+                  this.props.currentUserId === this.props.match.params.id ?
+                    <Link to="/projects/new" className="project-list-item" id="new">Start a new Project</Link> 
+                    :
+                    <div>No current projects</div>
                   : this.state.created.map((project, idx) => 
                     <div key={idx} className="project-list">
                       <Link to={`/projects/${project._id}`} className="project-list-item">
                         <div className="project-list-title">{project.title}</div>
                       </Link>
-                      <i className="fas fa-trash-alt" onClick={() => this.handleDelete(project._id, idx)}></i>                    
+                      {this.props.currentUserId === this.props.match.params.id ? 
+                        <i className="fas fa-trash-alt" onClick={() => this.handleDelete(project._id, idx)}></i>    
+                        :
+                        null
+                      }                
                     </div>
                     )
                 }
@@ -67,12 +90,20 @@ class UserProfile extends React.Component {
             <div className="column-right">
               <h1>Collaborated Projects:</h1>
                 {this.state.collaborated.length === 0 ? 
-                  <Link to="/projects" className="project-list-item" id="new">Join a Project</Link> 
+                  this.props.currentUserId === this.props.match.params.id ? 
+                    <Link to="/projects" className="project-list-item" id="new">Join a Project</Link>
+                    :
+                    <div>No current projects</div>
                 : this.state.collaborated.map((proj, idx) => 
                     <div className="project-list" key={idx}>
                           <Link className="project-list-item" to={`/projects/${proj._id}`}>
                             <div className="project-list-title">{proj.title}</div>
                           </Link>
+                          {this.props.currentUserId === this.props.match.params.id ? 
+                            <i className="fas fa-trash-alt" onClick={() => this.removeCollaboration(proj, idx)}></i>                    
+                            :
+                            ""
+                          }
                         {/* <div className="project-list-description">{proj.description}</div> */}
                     </div>
                     )

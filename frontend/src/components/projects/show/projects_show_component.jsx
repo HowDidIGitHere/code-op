@@ -21,6 +21,7 @@ class ProjectsShow extends React.Component {
 
     this.handleDiagramChange = this.handleDiagramChange.bind(this);
     this.handleDiagramSubmit = this.handleDiagramSubmit.bind(this);
+    this.handleCollaboratorUpdate = this.handleCollaboratorUpdate.bind(this);
   }
 
 
@@ -106,6 +107,20 @@ class ProjectsShow extends React.Component {
     this.props.updateProject(this.state.project)
   }
 
+  handleCollaboratorUpdate(user, idx) {
+    let tempSimpCollaborators = [...this.state.project.collaborators];
+    tempSimpCollaborators.splice(idx, 1);
+    let tempProject = Object.assign({}, this.state.project);
+    tempProject.collaborators = tempSimpCollaborators;
+
+    let tempCollaborators = [...this.state.collaborators];
+    tempCollaborators.splice(idx, 1);
+
+    this.props.updateProject(tempProject).then(() => {
+      this.setState({ project: tempProject }, this.setState({ collaborators: tempCollaborators }))
+    });
+  }
+
   render() {
     if (!this.state.project) {
       return "...loading";
@@ -140,7 +155,7 @@ class ProjectsShow extends React.Component {
               <div className='collaborators-container'>
                 <h1>Collaborators</h1>
                 <div className='collaborator-list'>
-                  {this.state.collaborators ? <Collaborators creator={this.state.creator} collaborators={this.state.collaborators} /> : null}
+                  {this.state.collaborators ? <Collaborators handleCollaboratorUpdate={this.handleCollaboratorUpdate} currentUser={this.props.user} creator={this.state.creator} collaborators={this.state.collaborators} /> : null}
                 </div>
               </div>
             </div>
@@ -169,13 +184,7 @@ class ProjectsShow extends React.Component {
               <div className='tag-detail-container'>
 
               </div>
-              {/* <div className='details-container'> */}
-                {/* <h1>Project Details</h1>
-                  {this.state.project.description}
-              </div> */}
             </div>
-            {/* <div className='right-body'>
-            </div> */}
             <div className='mid-body'>
               <div className='diagram-section'>
                 <div className='diagram-header'>

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
 import { fetchUser } from '../../actions/user_actions';
-import { fetchProjects } from '../../actions/project_actions'
+import { fetchProjects, updateProject } from '../../actions/project_actions'
 import { openModal } from '../../actions/modal_actions';
 import { deleteProject } from '../../actions/project_actions';
 
@@ -19,6 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     openUpdateModal: () => dispatch(openModal('update')),
     deleteProject: (id) => dispatch(deleteProject(id)),
     fetchUser: () => dispatch(fetchUser(ownProps.match.params.id)),
+    updateProject: data => dispatch(updateProject(data)),
     fetchCreatorProjects: () => dispatch(fetchProjects({ creator: ownProps.match.params.id })),
     receiveCollaboratedProjects: () => dispatch(fetchProjects({ 
       collaborators: ownProps.match.params.id 
