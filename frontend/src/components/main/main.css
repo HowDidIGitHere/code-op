@@ -1,9 +1,15 @@
 /* splash content */
 .splash-header {
+  background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% -15vw;
+  
   position: relative;
   
-  height: 65vh;
-  min-height: 280px;
+  height: 280px;
 }
 
 .overlay {
@@ -13,9 +19,9 @@
   padding: 16px;
 
   position: absolute;
-  top: 26vh;
+  top: 50%;
   left: 0;
-  transform: translateY(-35%);
+  transform: translateY(-50%);
   z-index: 999;
 
   box-sizing: border-box;
@@ -25,13 +31,10 @@
   font-size: 40px;
   font-family: 'Roboto';
   letter-spacing: .25px;
-  text-transform: uppercase;
-  color: #fdfdfd;
-  font-weight: 500;
-  text-shadow: 0px 3px 5px rgba(0, 0, 0, .6),
-  0px 6px 10px rgba(0, 0, 0, .6),
-  0px 1px 18px rgba(0, 0, 0, .6);
-  /* font-style: italic; */
+  text-transform: capitalize;
+  color: black;
+  font-weight: 400;
+  font-style: italic;
 }
 
 .overlay > button {
@@ -56,14 +59,9 @@
 }
 
 .splash-header .banner {
-  background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80');
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% -15vw;
-  height: 65vh;
-  min-height: 280px;
+  background-color: #ffffff;
+  opacity: 40%;
+  height: 280px;
 }
 
 #featured-projects {
