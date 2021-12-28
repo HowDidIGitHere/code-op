@@ -17,9 +17,6 @@
   left: 0;
   transform: translateY(-50%);
   z-index: 999;
-  
-  box-sizing: border-box;
-  width: 100%;
 }
 
 .overlay > h1{
