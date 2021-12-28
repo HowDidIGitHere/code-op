@@ -1,7 +1,7 @@
 .navbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  /* align-items: center; */
   background-color: #494553;
   height: 80px;
   color: whitesmoke;
@@ -12,18 +12,24 @@
   0px 1px 18px 0px rgba(0, 0, 0, 0.12);
 }
 
+.navbar [class^='container'] {
+  display: flex;
+
+  justify-content: space-between;
+}
+
 .left-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 100px;
+  /* padding-left: 100px; */
   background-color:#494553;
 }
 
 .right-nav {
   display: flex;
   align-items: center;
-  padding-right: 100px;
+  /* padding-right: 100px; */
   background-color: #494553;
 }
   

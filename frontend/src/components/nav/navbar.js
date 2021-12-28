@@ -101,17 +101,19 @@ class NavBar extends React.Component {
   render() {
       return (
         <div className='navbar'>
-          <div className='left-nav'>
-            <img 
-              className='logo' 
-              onClick={this.handleClick}
-              src="https://res.cloudinary.com/dzixdb9eu/image/upload/v1638985865/Infinity_t10mft.png" 
-              alt="infinity" />
-            <h1 onClick={this.handleClick}>CODE-OP</h1>
-          </div>
-          <div className='right-nav'>
-            <button className='about-us' onClick={() => this.props.openAboutModal('about')}>About Us</button>
-            { this.getLinks() }
+          <div className='container-sm'>
+            <div className='left-nav'>
+              <img 
+                className='logo' 
+                onClick={this.handleClick}
+                src="https://res.cloudinary.com/dzixdb9eu/image/upload/v1638985865/Infinity_t10mft.png" 
+                alt="infinity" />
+              <h1 onClick={this.handleClick}>CODE-OP</h1>
+            </div>
+            <div className='right-nav'>
+              <button className='about-us' onClick={() => this.props.openAboutModal('about')}>About Us</button>
+              { this.getLinks() }
+            </div>
           </div>
         </div>
       );
