@@ -1,7 +1,6 @@
 import React from 'react';
 
-function FeaturedProjects(props) {
-  const projects = props.projects;
+function FeaturedProjects({ projects }) {
   console.log(projects);
   return (
     <div id="featured-projects" className="carousel slide carousel-fade" data-bs-ride="carousel">

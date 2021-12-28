@@ -22,7 +22,7 @@ class MainPage extends React.Component {
     return (
       <div>
         <SplashHeader handleClick={this.handleClick.bind(this)}/>
-        <FeaturedProjects projects={this.projects} />
+        <FeaturedProjects projects={this.props.projects} />
       </div>
     );
   }
