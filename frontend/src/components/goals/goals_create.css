@@ -49,11 +49,13 @@
 
 .function-wrap{
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   height: 100%;
 }
 
 .edit-goal {
-  width: 15%;
+  /* width: 15%; */
   height: 100%;
   margin-left: 8px;
 }
@@ -65,7 +67,8 @@
   height: 100%;
 }
 .delete-goal{
-  padding-right: 5px;
+  /* padding-right: 5px; */
+  margin-right: 8px;
   position: relative;
   background-color: white;
   color: rgb(3, 3, 3);
@@ -78,8 +81,9 @@
 }
 
 .view-tasks {
-  width: 100%;
-  text-align: center;
+  /* width: 100%; */
+  /* text-align: center; */
+  margin-left: 18px;
 }
 
 .edit-goal, .view-tasks {
