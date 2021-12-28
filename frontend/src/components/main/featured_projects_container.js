@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
-import { fetchProjects } from '../../actions/project_actions'
-import MainPage from './main_page';
+import { fetchProjects } from '../../actions/project_actions';
+import FeaturedProjects from './featured_projects';
 
 const mSTP = state => ({
   projects: Object.keys(state.entities.projects).map(key => state.entities.projects[key])
@@ -11,4 +10,4 @@ const mDTP = dispatch => ({
   fetchProjects:() => dispatch(fetchProjects())
 })
 
-export default withRouter(connect(mSTP, mDTP)(MainPage));
+export default connect(mSTP, mDTP)(FeaturedProjects);

@@ -6,7 +6,7 @@ export default class FeaturedProjects extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.fetchProjects()
+    this.props.fetchProjects({ featured: true })
   }
 
   render() {

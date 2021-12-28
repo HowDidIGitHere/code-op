@@ -2,7 +2,7 @@ import React from 'react';
 import SplashHeader from './splash_header';
 import './main.css'
 // import ProjectListingRow from './project_listing_row';
-import FeaturedProjects from './featured_projects';
+import FeaturedProjectsContainer from './featured_projects_container';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class MainPage extends React.Component {
         {/* <div className='featured-projects'>
           <ProjectListingRow projects={this.props.projects} />
         </div> */}
-        <FeaturedProjects />
+        <FeaturedProjectsContainer />
       </div>
     );
   }
