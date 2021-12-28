@@ -66,9 +66,13 @@
 
 /* listings header  */
 
-.featured-projects {
+/* .featured-projects {
   margin: 30px 55px 30px 55px;
   color: #7f7f7f;
+} */
+
+.featured-projects {
+  background-color: white;
 }
 
 .listing-heading {

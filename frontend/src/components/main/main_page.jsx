@@ -1,7 +1,8 @@
 import React from 'react';
 import SplashContent from './splash_content';
 import './main.css'
-import ProjectListingRow from './project_listing_row';
+// import ProjectListingRow from './project_listing_row';
+import FeaturedProjects from './featured_projects';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -21,9 +22,10 @@ class MainPage extends React.Component {
     return (
       <div>
         <SplashContent handleClick={this.handleClick.bind(this)}/>
-        <div className='featured-projects'>
+        {/* <div className='featured-projects'>
           <ProjectListingRow projects={this.props.projects} />
-        </div>
+        </div> */}
+        <FeaturedProjects />
       </div>
     );
   }
