@@ -71,11 +71,11 @@
 }
 
 #featured-projects .carousel-inner {
+  background: linear-gradient(#494553, #5b5764);
+  
   height: 100vh;
 }
 
-#featured-projects .carousel-item {
-  background: linear-gradient(#494553, #5b5764);
-  
+#featured-projects .carousel-item {  
   height: 100vh;
 }

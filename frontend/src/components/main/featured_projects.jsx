@@ -8,8 +8,8 @@ function FeaturedProjects({ projects }) {
       { projects ? projects.map((project, index) => {
         return (
             <div className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-              <h1>project.title</h1>
-              <p>project.description</p>
+              <h1>{ project.title }</h1>
+              <p>{ project.description }</p>
             </div>
         )
       }) : '' }
