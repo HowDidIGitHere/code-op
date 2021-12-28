@@ -202,13 +202,19 @@
 }
 
 .add-task-container textarea {
-  width: 96%;
-  resize: none; 
+  /* width: 96%; */
+  resize: vertical; 
+  min-height: 42px;
   border-radius: 7px;
   background-color: white;
   padding: 5px;
   padding-left: 8px;
   margin-top: 10px;
+}
+
+.add-task-textbox > form {
+  display: flex;
+  flex-direction: column;
 }
 
 .goals-title-edit-form > form {
@@ -245,7 +251,7 @@
 
 .hidden-tasks {
   background-color: white;
-  margin: -20px 0 0px 0;
+  margin: -22px 0 0px 0;
   padding-left: 10px;
   border-radius: 0 0 7px 7px;
 }
@@ -253,7 +259,7 @@
 .task-header {
   font-weight: 600;
   padding-top: 10px;
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 
 .goal-tasks {
