@@ -13,7 +13,6 @@ const handleDuplicateKeyError = err => {
 };
 
 const handleValidationErrorDB = err => {
-  console.log(err.errors);
   const messages = Object.values(err.errors).map(el => el.message);
   return new ServerError(messages, 400);
 };

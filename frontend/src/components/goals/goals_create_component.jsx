@@ -35,7 +35,6 @@ class GoalsCreate extends React.Component{
     this.props.createGoal(newState)
       .then((res) => {
         let project = {...this.props.project};
-        console.log(res)
         project.goals = project.goals.concat([res.goal._id]);
         this.props.updateProject(project)      
           .then(() => this.props.closeModal())

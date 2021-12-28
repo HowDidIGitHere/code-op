@@ -8,7 +8,7 @@ const CategoryChecklist = ({category}) => {
         { category[1].map((item) => { 
           return (
             <div className='checklist-container'>
-            <label class="checklist-item">{item}
+            <label className="checklist-item">{item}
                 <input type="checkbox" value={item}/>
                 <span className="checkmark"></span>
             </label>

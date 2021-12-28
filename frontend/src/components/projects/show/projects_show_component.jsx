@@ -98,7 +98,6 @@ class ProjectsShow extends React.Component {
   }
 
   toggleEdit(){
-    console.log(this.state.edit)
     this.setState({edit: !this.state.edit})
   }
 

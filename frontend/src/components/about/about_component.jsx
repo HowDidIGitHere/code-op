@@ -15,10 +15,10 @@ class AboutComponent extends React.Component{
             <h3>Jamie An</h3>
             <div className="social">
               <a className="github" href="https://github.com/HowDidIGitHere">
-                <i class="fab fa-github"></i>
+                <i className="fab fa-github"></i>
               </a>
               <a className="linkedin" href="https://www.linkedin.com/in/jamie-an-6b9b41114/">
-                <i class="fab fa-linkedin"></i>
+                <i className="fab fa-linkedin"></i>
               </a>
             </div>
           </div>
@@ -28,10 +28,10 @@ class AboutComponent extends React.Component{
             <h3>Abraham Fong Silva</h3>
             <div className="social">
               <a className="github" href="https://github.com/abisfong">
-                <i class="fab fa-github"></i>
+                <i className="fab fa-github"></i>
               </a>
               <a className="linkedin" href="https://www.linkedin.com/in/abraham-fong/">
-                <i class="fab fa-linkedin"></i>            
+                <i className="fab fa-linkedin"></i>            
               </a>
             </div>
           </div>
@@ -41,10 +41,10 @@ class AboutComponent extends React.Component{
             <h3>Nicole Tademaru</h3>
             <div className="social">
               <a className="github" href="https://github.com/nicoletademaru">
-                <i class="fab fa-github"></i>
+                <i className="fab fa-github"></i>
               </a>
               <a className="linkedin" href="https://www.linkedin.com/in/nicole-tademaru-7800abb7/">
-                <i class="fab fa-linkedin"></i>
+                <i className="fab fa-linkedin"></i>
               </a>
             </div>
           </div>
@@ -54,10 +54,10 @@ class AboutComponent extends React.Component{
             <h3>Kenny Cheng</h3>
             <div className="social">
               <a className="github" href="https://github.com/kcheng16">
-                <i class="fab fa-github"></i>
+                <i className="fab fa-github"></i>
               </a>
               <a className="linkedin" href="https://www.linkedin.com/in/kcheng16/">
-                <i class="fab fa-linkedin"></i>
+                <i className="fab fa-linkedin"></i>
               </a>
             </div>
           </div>

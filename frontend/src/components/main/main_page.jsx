@@ -2,7 +2,7 @@ import React from 'react';
 import SplashHeader from './splash_header';
 import './main.css'
 // import ProjectListingRow from './project_listing_row';
-import FeaturedProjectsContainer from './featured_projects_container';
+import FeaturedProjects from './featured_projects';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -15,17 +15,14 @@ class MainPage extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchProjects();
+    this.props.fetchFeaturedProjects();
   }
 
   render() {
     return (
       <div>
         <SplashHeader handleClick={this.handleClick.bind(this)}/>
-        {/* <div className='featured-projects'>
-          <ProjectListingRow projects={this.props.projects} />
-        </div> */}
-        <FeaturedProjectsContainer />
+        <FeaturedProjects projects={this.projects} />
       </div>
     );
   }

@@ -71,8 +71,6 @@ class ChildTwo {
         types = types.concat(checkboxes[i].value, ",")
     }
 
-    console.log(this.props.createDiagram)
-
     this.props.createDiagram(diagram)
       .then(res => {
         let project = {

@@ -3,12 +3,12 @@ import { withRouter } from 'react-router';
 import { fetchProjects } from '../../actions/project_actions'
 import MainPage from './main_page';
 
-const mSTP = state => ({
-  projects: Object.keys(state.entities.projects).map(key => state.entities.projects[key])
+const mSTP = ({ entities }) => ({
+  projects: Object.keys(entities.projects).map(key => entities.projects[key])
 });
 
 const mDTP = dispatch => ({
-  fetchProjects:() => dispatch(fetchProjects())
+  fetchFeaturedProjects:() => dispatch(fetchProjects({ featured: true }))
 })
 
 export default withRouter(connect(mSTP, mDTP)(MainPage));

@@ -6,11 +6,6 @@ class LearnMoreComponent extends React.Component{
     this.handleRequest = this.handleRequest.bind(this)
   }
 
-  // componentDidMount(){
-  //   console.log(this.props.project)
-  //   this.props.oneProject(this.props.project.id)
-  // }
-
   handleRequest(e) {
     e.preventDefault();
 
@@ -19,7 +14,6 @@ class LearnMoreComponent extends React.Component{
   }
 
   render(){
-    console.log("project:", this.props.project)
     return(
       <div className='index-listing-component' id="one">
         <div className='testing123' id="two">

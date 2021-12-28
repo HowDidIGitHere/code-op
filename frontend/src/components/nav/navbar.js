@@ -42,7 +42,7 @@ class NavBar extends React.Component {
       if (this.props.loggedIn) {
         return (
           <div className='dropdown'>
-            <button className="dropdown-btn"><i class="fas fa-bars fa-2x"></i></button>
+            <button className="dropdown-btn"><i className="fas fa-bars fa-2x"></i></button>
             <div className='dropdown-content-2'>
                 <div className='drop-item' onClick={() => this.props.openNotificationsModal()}>
                   <i className="fas fa-bell"></i>
@@ -53,11 +53,11 @@ class NavBar extends React.Component {
                   <div >Discover Page</div>
                 </Link>
                 <Link className='drop-item' to={'/projects/new'}>
-                  <i class="fas fa-hammer"></i>
+                  <i className="fas fa-hammer"></i>
                   <div  >Create a Project</div>
                 </Link>
                 <div className='drop-item current-project'  onClick={() => this.toggle()}>
-                  <i class="fas fa-tasks"></i>
+                  <i className="fas fa-tasks"></i>
                   <p  tabIndex='1'>Current Projects</p>
                 </div>
                 <div 
@@ -78,11 +78,11 @@ class NavBar extends React.Component {
                 </div>
                   {this.props.user.id ? 
                     <Link to={`/users/${this.props.user.id}`} className='drop-item'>
-                      <i class="fas fa-user"></i>
+                      <i className="fas fa-user"></i>
                       <div id="profile" >Profile</div>
                     </Link> : ""}
                 <div className='drop-item logout' onClick={(e) => this.logoutUser(e)}>
-                  <i class="fas fa-sign-out-alt"></i>
+                  <i className="fas fa-sign-out-alt"></i>
                   <p >Logout</p>
                 </div>
             </div>
