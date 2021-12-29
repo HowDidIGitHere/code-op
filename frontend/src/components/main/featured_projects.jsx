@@ -6,7 +6,7 @@ function FeaturedProjects({ projects }) {
     <div className="featured-projects container-sm" >
       <h1>Featured Projects</h1>
       {
-        projects ? projects.map(project => {
+        projects ? projects.map((project, index) => {
           return (
             <div className='featured-project row gx-5 justify-content-center' key={project._id}>
               <div 
@@ -24,7 +24,7 @@ function FeaturedProjects({ projects }) {
               >
                 <div className='featured-project-header row'>
                   <h1 className='col-auto me-auto'> {project.title} </h1>
-                  <a href={project.liveLink || '#'} className='col-auto learn-more'>Live Site</a>
+                  <a target='_blank' rel='noreferrer' href={project.liveLink || '#'} className='col-auto learn-more'>Live Site</a>
                 </div>
                 <div className='featured-project-description row'>
                   { project.description }
