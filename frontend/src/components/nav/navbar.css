@@ -73,13 +73,13 @@
   border-radius: 3px;
   width: fit-content;
   font-size: 16px;
+  font-weight: 500;
   padding: 8px;
   text-align: center;
 }
 
 
 .login {
-  font-weight: 300;
   margin-left: 10px;
   background-color: #e5e5e5;
   color: #21A59A;
@@ -93,7 +93,6 @@
 }
 
 .signup {
-  font-weight: 300;
   background-color:#21A59A;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
   color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -110,7 +109,7 @@
 
 .about-us {
   font-size: 18px;
-  font-weight: 200;
+  font-weight: 500;
   background-color:#494553;
   transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
