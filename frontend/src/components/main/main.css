@@ -80,17 +80,10 @@
 }
 
 @media only screen and (max-width: 575px) {
-  .featured-projects .container-sm {
+  .featured-projects .container {
     padding-left: 16px;
     padding-right: 16px;
   }
-  
-  .featured-projects > h1 {
-    font-size: 58px;
-    
-    padding-left: 16px;
-    padding-right: 16px;
-  } 
 }
 
 .featured-project {
