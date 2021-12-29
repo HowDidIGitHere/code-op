@@ -23,7 +23,7 @@ function FeaturedProjects({ projects }) {
                 '
               >
                 <div className='featured-project-header row'>
-                  <h1 className='col-auto me-auto'> {project.title} </h1>
+                  <h1 className='col-sm-auto me-auto col-12'> {project.title} </h1>
                   <a target='_blank' rel='noreferrer' href={project.liveLink || '#'} className='col-auto learn-more'>Live Site</a>
                 </div>
                 <div className='featured-project-description row'>
