@@ -114,7 +114,7 @@ class NavBar extends React.Component {
 
   render() {
       return (
-        <div className='navbar-co container-fluid w-100'>
+        <div className='navbar-co container-fluid px-5'>
           <div className='row'>
             <div className='left-nav col-auto me-auto'>
               <img 
