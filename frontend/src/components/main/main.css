@@ -22,7 +22,6 @@
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-  z-index: 999;
 
   box-sizing: border-box;
 }
