@@ -6,12 +6,14 @@ function FeaturedProjects({ projects }) {
       {
         projects ? projects.map(project => {
           return (
-            <div className='featured-project'>
-              <div class="card">
-                <img src="" class="card-img-top" alt={`Image of featured project`} />
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
+            <div className='featured-project row' key={project._id}>
+              <div 
+                className='featured-project-image col-md-6 col-12'
+                style={{ backgroundImage: `url(${project.url})` }} 
+              >
+              </div>
+              <div className='featured-project-description col-md-6 col-12'>
+                { project.description }
               </div>
             </div>
           )

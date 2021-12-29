@@ -69,7 +69,6 @@
   padding-top: 48px;
   
   box-sizing: border-box;
-  height: 100vh;
 }
 
 @media only screen and (max-width: 575px) {
@@ -79,12 +78,16 @@
   }
 }
 
-.featured-projects .carousel-inner {
-  background-color: blueviolet;
-  
-  height: calc(50vh - 48px);
+.featured-project {
 }
 
-.featured-projects .carousel-item {  
-  height: 100%;
+.featured-project-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  height: 25vw;
+}
+
+.featured-project-description {
 }
