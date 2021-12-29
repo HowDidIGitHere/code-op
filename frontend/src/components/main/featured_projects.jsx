@@ -6,14 +6,27 @@ function FeaturedProjects({ projects }) {
       {
         projects ? projects.map(project => {
           return (
-            <div className='featured-project row' key={project._id}>
+            <div className='featured-project row gy-4 gx-5 justify-content-center' key={project._id}>
               <div 
-                className='featured-project-image col-md-6 col-12'
-                style={{ backgroundImage: `url(${project.url})` }} 
+                className='featured-project-image col-md-5 col-12'
               >
+                <div style={{ backgroundImage: `url(${project.url})` }} ></div>
               </div>
-              <div className='featured-project-description col-md-6 col-12'>
-                { project.description }
+              <div 
+                className='
+                  featured-project-details 
+                  col-md-7  
+                  col-12 
+                  container-fluid
+                '
+              >
+                <div className='featured-project-header row'>
+                  <h1 className='col-auto me-auto'> {project.title} </h1>
+                  <button className='col-auto learn-more'>Live Site</button>
+                </div>
+                <div className='featured-project-description row'>
+                  { project.description }
+                </div>
               </div>
             </div>
           )
