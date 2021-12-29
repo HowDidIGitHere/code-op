@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function FeaturedProjects({ projects }) {
   return (
@@ -22,7 +23,7 @@ function FeaturedProjects({ projects }) {
               >
                 <div className='featured-project-header row'>
                   <h1 className='col-auto me-auto'> {project.title} </h1>
-                  <button className='col-auto learn-more'>Live Site</button>
+                  <Link to={project.url} className='col-auto learn-more'>Live Site</Link>
                 </div>
                 <div className='featured-project-description row'>
                   { project.description }
