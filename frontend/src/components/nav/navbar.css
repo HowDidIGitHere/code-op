@@ -81,7 +81,7 @@
 .login {
   font-weight: 300;
   margin-left: 10px;
-  background-color: white;
+  background-color: #e5e5e5;
   color: #21A59A;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
   color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
