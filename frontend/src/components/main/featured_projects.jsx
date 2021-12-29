@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 function FeaturedProjects({ projects }) {
   return (
@@ -11,7 +10,7 @@ function FeaturedProjects({ projects }) {
               <div 
                 className='featured-project-image col-md-5 col-12'
               >
-                <div style={{ backgroundImage: `url(${project.url})` }} ></div>
+                <div style={{ backgroundImage: `url(${project.image})` }} ></div>
               </div>
               <div 
                 className='
@@ -23,7 +22,7 @@ function FeaturedProjects({ projects }) {
               >
                 <div className='featured-project-header row'>
                   <h1 className='col-auto me-auto'> {project.title} </h1>
-                  <Link to={project.url} className='col-auto learn-more'>Live Site</Link>
+                  <a href={project.liveLink || '#'} className='col-auto learn-more'>Live Site</a>
                 </div>
                 <div className='featured-project-description row'>
                   { project.description }

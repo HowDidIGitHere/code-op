@@ -17,7 +17,11 @@ const ProjectSchema = new Schema({
     type: Boolean,
     default: false
   },
-  url: {
+  image: {
+    type: String,
+    default: ''
+  },
+  liveLink: {
     type: String,
     default: ''
   },
