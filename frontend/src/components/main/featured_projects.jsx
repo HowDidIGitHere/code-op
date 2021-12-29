@@ -4,10 +4,11 @@ function FeaturedProjects({ projects }) {
   const tempDefaultImage = 'https://images.unsplash.com/photo-1566413358759-0b36d585f04a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by';
   return (
     <div className="featured-projects container-sm" >
+      <h1>Featured Projects</h1>
       {
         projects ? projects.map(project => {
           return (
-            <div className='featured-project row gy-4 gx-5 justify-content-center' key={project._id}>
+            <div className='featured-project row gx-5 justify-content-center' key={project._id}>
               <div 
                 className='featured-project-image col-md-5 col-12'
               >
