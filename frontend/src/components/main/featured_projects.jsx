@@ -1,29 +1,17 @@
 import React from 'react';
 
 function FeaturedProjects({ projects }) {
-  console.log(projects);
   return (
-    <div 
-      id="featured-projects" 
-      className="carousel slide carousel-fade" 
-      data-bs-ride="carousel"
-    >
-      <div className="carousel-inner container-sm">
-      { projects ? projects.map((project, index) => {
-        return (
-            <div className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-              <h1>{ project.title }</h1>
-              <p>{ project.description }</p>
+    <div className="featured-projects container-sm" >
+      {
+        projects ? projects.map(project => {
+          return (
+            <div className='featured-project'>
+              
             </div>
-        )
-      }) : '' }
-      </div>
-      <button className="carousel-control-prev" type="button" data-bs-target="#featured-projects" data-bs-slide="prev">
-        <span className="visually-hidden">Previous</span>
-      </button>
-      <button className="carousel-control-next" type="button" data-bs-target="#featured-projects" data-bs-slide="next">
-        <span className="visually-hidden">Next</span>
-      </button>
+          )
+        }) : 'Loading...'
+      }
     </div>
   )
 }

@@ -5,7 +5,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50% -15vw;
+  background-position: 50% -17vw;
   
   position: relative;
   
@@ -63,7 +63,9 @@
   height: 280px;
 }
 
-#featured-projects {  
+.featured-projects {  
+  background-color: white;
+  
   padding-top: 48px;
   
   box-sizing: border-box;
@@ -71,18 +73,18 @@
 }
 
 @media only screen and (max-width: 575px) {
-  #featured-projects .container-sm {
+  .featured-projects .container-sm {
     padding-left: 16px;
     padding-right: 16px;
   }
 }
 
-#featured-projects .carousel-inner {
-  background-color: white;
+.featured-projects .carousel-inner {
+  background-color: blueviolet;
   
-  height: 100vh;
+  height: calc(50vh - 48px);
 }
 
-#featured-projects .carousel-item {  
-  height: 100vh;
+.featured-projects .carousel-item {  
+  height: 100%;
 }
