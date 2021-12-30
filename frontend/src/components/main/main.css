@@ -188,6 +188,13 @@
   padding-left: 16px;
 }
 
+@media only screen and (max-width: 400px) {
+  .featured-projects {
+    padding-left: 16px!important;
+    padding-right: 16px!important;
+  }
+}
+
 @media only screen and (max-width: 575px) {
   .featured-projects .container {
     padding-left: 16px;
@@ -211,5 +218,9 @@
   .featured-project-image {
     padding-right: 0;
     margin-bottom: 16px;
+  }
+
+  .reverse-order .featured-project-image {
+    padding-left: 0;
   }
 }
