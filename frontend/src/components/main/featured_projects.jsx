@@ -8,7 +8,15 @@ function FeaturedProjects({ projects }) {
       {
         projects ? projects.map((project, index) => {
           return (
-            <div className='featured-project row justify-content-center' key={project._id}>
+            <div 
+              className={`
+                featured-project 
+                row 
+                justify-content-center
+                ${index % 2 === 1 ? 'reverse-order' : ''}`
+              } 
+              key={project._id}
+            >
               <div 
                 className='featured-project-image col-md-5 col-12'
               >

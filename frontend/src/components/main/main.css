@@ -179,6 +179,15 @@
   color: rgb(47, 48, 51);
 }
 
+.reverse-order {
+  flex-direction: row-reverse;
+}
+
+.reverse-order .featured-project-image {
+  padding-right: 0;
+  padding-left: 16px;
+}
+
 @media only screen and (max-width: 575px) {
   .featured-projects .container {
     padding-left: 16px;
@@ -193,6 +202,9 @@
     font-size: 44px;
   }
 
+  .reverse-order {
+    flex-direction: row;
+  }
 }
 
 @media only screen and (max-width: 767px) {
