@@ -80,13 +80,18 @@
 }
 
 .featured-project {
+  margin: 0;
   margin-bottom: 48px;
+
+  box-sizing: border-box;
 }
 
 .featured-project-image {
   border-radius: 8px;
   
   margin: 0;
+  padding: 0;
+  padding-right: 16px;
   
   box-sizing: border-box;
   height: 25vw;
@@ -98,17 +103,28 @@
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 8px;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 18px 0px rgba(0, 0, 0, 0.12);
 
   height: 100%;
   width: 100%
 }
 
 .featured-project-details {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
 
   margin: 0;
+  padding: 16px;
+  padding-top: 0px;
 
   box-sizing: border-box;
   height: 25vw;
@@ -127,6 +143,7 @@
   background-color: white;
   border-bottom: 1px solid #ccc;
   
+  padding-top: 16px;
   padding-bottom: 8px;
   margin-bottom: 8px;
   
@@ -158,8 +175,8 @@
   box-sizing: content-box;
 }
 
-.featured-project-description {  
-
+.featured-project-description {
+  color: rgb(47, 48, 51);
 }
 
 @media only screen and (max-width: 575px) {
@@ -168,7 +185,19 @@
     padding-right: 16px;
   }
 
+  .featured-project-details {
+    height: auto;
+  }
+
   .featured-project-header > h1 {
     font-size: 44px;
+  }
+
+}
+
+@media only screen and (max-width: 767px) {
+  .featured-project-image {
+    padding-right: 0;
+    margin-bottom: 16px;
   }
 }
