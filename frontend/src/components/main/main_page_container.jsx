@@ -4,7 +4,7 @@ import { fetchProjects } from '../../actions/project_actions'
 import MainPage from './main_page';
 
 const mSTP = ({ entities : { projects } }) => ({
-  projects: Object.values(projects)
+  projects: Object.values(projects).filter(project => project.featured === true)
 });
 
 const mDTP = dispatch => ({
