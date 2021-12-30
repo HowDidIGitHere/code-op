@@ -9,7 +9,7 @@ class AboutComponent extends React.Component{
       <div className="about container-fluid">
         <div className="about-container row">
           <h1 className="connect">Let's connect!</h1>
-          <div className="jamie col-md-3 col-sm-6 col-12">
+          <div className="jamie col-md-3 col-6">
             <div className='head' style={{ backgroundImage: 'url(https://res.cloudinary.com/de8carnhu/image/upload/v1638916172/jamie_hfvbax.png)' }}></div>
             <h3>Jamie An</h3>
             <div className="social">
@@ -22,7 +22,7 @@ class AboutComponent extends React.Component{
             </div>
           </div>
 
-          <div className="abraham col-md-3 col-sm-6 col-12">
+          <div className="abraham col-md-3 col-6">
             <div className='head' style={{ backgroundImage: 'url(https://res.cloudinary.com/de8carnhu/image/upload/v1638916172/abe_os8okd.png)' }}></div>
             <h3>Abraham Fong</h3>
             <div className="social">
@@ -35,7 +35,7 @@ class AboutComponent extends React.Component{
             </div>
           </div>
 
-          <div className="nicole col-md-3 col-sm-6 col-12">
+          <div className="nicole col-md-3 col-6">
             <div className='head' style={{ backgroundImage: 'url(https://res.cloudinary.com/de8carnhu/image/upload/v1638916509/nicole_kbknmp.png)' }}></div>
             <h3>Nicole Tademaru</h3>
             <div className="social">
@@ -48,7 +48,7 @@ class AboutComponent extends React.Component{
             </div>
           </div>
 
-          <div className="kenny col-md-3 col-sm-6 col-12">
+          <div className="kenny col-md-3 col-6">
             <div className='head' style={{ backgroundImage: 'url(https://res.cloudinary.com/de8carnhu/image/upload/v1638916165/Self_portrait_rneteu.jpg)' }}></div>
             <h3>Kenny Cheng</h3>
             <div className="social">

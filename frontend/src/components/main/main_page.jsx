@@ -7,6 +7,7 @@ import FeaturedProjects from './featured_projects';
 class MainPage extends React.Component {
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e) {
@@ -21,7 +22,7 @@ class MainPage extends React.Component {
   render() {
     return (
       <div>
-        <SplashHeader handleClick={this.handleClick.bind(this)}/>
+        <SplashHeader handleClick={this.handleClick}/>
         <FeaturedProjects projects={this.props.projects} />
       </div>
     );

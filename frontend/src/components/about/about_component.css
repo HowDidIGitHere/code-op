@@ -18,10 +18,7 @@
   box-sizing: border-box;
 }
 
-.about-container{
-  overflow-y: scroll;
-  
-  min-height: 80%;
+.about-container{  
 }
 
 .about-container > div {
@@ -54,10 +51,6 @@
   background-size: cover;
 }
 
-.social{
-
-}
-
 .social > a > i{
   font-size: xx-large;
   margin-top: -8px;
@@ -67,8 +60,8 @@
 .github{
   margin-right: 0.5vw;
 }
+
 .linkedin{
   color: rgb(0, 119, 181);
   margin-left: 0.5vw;
 }
-
