@@ -11,7 +11,8 @@ const ProjectSchema = new Schema({
   },
   title: {
     type: String,
-    required: [true, 'Please enter a project title']
+    required: [true, 'Please enter a project title'],
+    maxlength: [21,  'Project names must be shorter than 21 characters']
   },
   featured: {
     type: Boolean,
