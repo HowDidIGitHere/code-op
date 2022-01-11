@@ -81,12 +81,14 @@
   background-color: #21A59Add;
 }
 
+.login-form-footer > h4 {
+  padding: 1vh;
+}
+
 .login-form-footer > h2 {
   cursor: pointer;
-  margin: 15px 0 0 5px;
   color: #21A59A;
 	padding: 1vh;
-  padding: 5px 0 3px 0;
   transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 

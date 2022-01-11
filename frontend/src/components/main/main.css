@@ -224,3 +224,21 @@
     padding-left: 0;
   }
 }
+
+@media only screen and (min-width: 1200px) {
+  .splash-header{
+    height: 400px;
+  }
+
+  .splash-header > .banner{
+    height: 400px;
+  }
+
+  .featured-project-image {
+    height: 20vw;
+  }
+
+  .featured-project-details {
+    height: 20vw;
+  }
+}
