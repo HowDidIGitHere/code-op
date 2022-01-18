@@ -10,7 +10,7 @@ class LoginForm extends React.Component {
     this.state = {
       email: '',
       password: '',
-      errors: {}
+      errors: []
     };
     this.loginDemoUser = this.loginDemoUser.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,11 +23,7 @@ class LoginForm extends React.Component {
     this.props.closeModal()
   }
 
-  // Once the user has been authenticated, redirect to the Tweets page
   componentWillReceiveProps(nextProps) {
-    if (nextProps.currentUser === true) {
-    }
-
     // Set or clear errors
     this.setState({errors: nextProps.errors})
   }
@@ -47,16 +43,24 @@ class LoginForm extends React.Component {
       email: this.state.email,
       password: this.state.password
     };
-    this.props.login(user).then(this.props.closeModal);
+
+    this.props.clearErrors()
+    this.setState({errors: []})
+    this.props.login(user)
+      .then((res) => {
+        if(res === undefined){
+          this.props.closeModal()
+        }
+    });
   }
   
   // Render the session errors if there are any
   renderErrors() {
     return(
       <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
+        {this.state.errors.map((error, i) => (
           <li key={`error-${i}`}>
-            {this.state.errors[error]}
+            {error}
           </li>
         ))}
       </ul>
@@ -81,9 +85,9 @@ class LoginForm extends React.Component {
                 onChange={this.update('password')}
                 placeholder="Password"
               />
+            {this.state.errors ? this.renderErrors() : ""}
             <br/>
             <button className="login-form-button" type="submit" >Login</button>
-            {this.renderErrors()}
             <p className='or'>&nbsp;OR&nbsp;</p>
             <button className="demo-button" onClick={(e) => this.loginDemoUser(e)}>Demo Login</button>
 
