@@ -19,6 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   openCreateGoalModal: () => dispatch(openModal('create-goal')),
   openUpdateGoalModal: () => dispatch(openModal('update-goal')),
   openNotificationsModal: () => dispatch(openModal('notifications')),
+  fetchCreatorProjects: () => dispatch(fetchProjects({ creator: ownProps.match.params.id })),
   receiveCollaboratedProjects: data => dispatch(fetchProjects(data)),
 
   closeModal: () => dispatch(closeModal()),

@@ -7,7 +7,8 @@ class NavBar extends React.Component {
     super(props);
     this.state = {
       show: false,
-      collaborated: []
+      collaborated: [],
+      created: []
     }
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
@@ -17,6 +18,8 @@ class NavBar extends React.Component {
   }
 
   componentDidMount(){
+    this.props.fetchCreatorProjects()
+      .then( res => this.setState({created: Object.values(res.payload.projects)}))
     this.props.receiveCollaboratedProjects({collaborators: this.props.user.id})
       .then(projects => this.setState({collaborated: Object.values(projects.payload.projects)}))
   }
