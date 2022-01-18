@@ -12,7 +12,7 @@ class SignupForm extends React.Component {
       passwordConfirm: '',
       bio: '',
       github: '',
-      errors: {}
+      errors: []
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -43,18 +43,23 @@ class SignupForm extends React.Component {
       bio: this.state.bio,
       github: this.state.github,
     };
-
-    this.props.signup(user);
-    this.props.closeModal();
-    this.props.history.push("/"); 
+    
+    this.props.clearErrors()
+    this.props.signup(user)
+      .then((res) => {
+        if(res === undefined){
+          this.props.closeModal()
+          this.props.history.push("/"); 
+        }
+      });
   }
 
   renderErrors() {
     return(
       <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
+        {this.state.errors.map((error, i) => (
           <li key={`error-${i}`}>
-            {this.state.errors[error]}
+            {this.state.errors[i]}
           </li>
         ))}
       </ul>

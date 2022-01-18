@@ -45,7 +45,6 @@ class LoginForm extends React.Component {
     };
 
     this.props.clearErrors()
-    this.setState({errors: []})
     this.props.login(user)
       .then((res) => {
         if(res === undefined){
