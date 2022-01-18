@@ -32,8 +32,8 @@
 
 .login-form > div > input{
 	border-bottom: 1px solid gray;
-	margin-top: 1vw;
 	margin-bottom: 1vw;
+  padding-top: 0.6vw;
 }
 
 .demo-button {
