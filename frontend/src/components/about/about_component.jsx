@@ -13,10 +13,10 @@ class AboutComponent extends React.Component{
             <div className='head' style={{ backgroundImage: 'url(https://res.cloudinary.com/de8carnhu/image/upload/v1638916172/jamie_hfvbax.png)' }}></div>
             <h3>Jamie An</h3>
             <div className="social">
-              <a className="github" href="https://github.com/HowDidIGitHere">
+              <a target="_blank" className="github" href="https://github.com/HowDidIGitHere">
                 <i className="fab fa-github"></i>
               </a>
-              <a className="linkedin" href="https://www.linkedin.com/in/jamie-an-6b9b41114/">
+              <a target="_blank" className="linkedin" href="https://www.linkedin.com/in/jamie-an-6b9b41114/">
                 <i className="fab fa-linkedin"></i>
               </a>
             </div>
@@ -26,10 +26,10 @@ class AboutComponent extends React.Component{
             <div className='head' style={{ backgroundImage: 'url(https://res.cloudinary.com/de8carnhu/image/upload/v1638916172/abe_os8okd.png)' }}></div>
             <h3>Abraham Fong</h3>
             <div className="social">
-              <a className="github" href="https://github.com/abisfong">
+              <a target="_blank" className="github" href="https://github.com/abisfong">
                 <i className="fab fa-github"></i>
               </a>
-              <a className="linkedin" href="https://www.linkedin.com/in/abraham-fong/">
+              <a target="_blank" className="linkedin" href="https://www.linkedin.com/in/abraham-fong/">
                 <i className="fab fa-linkedin"></i>            
               </a>
             </div>
@@ -39,10 +39,10 @@ class AboutComponent extends React.Component{
             <div className='head' style={{ backgroundImage: 'url(https://res.cloudinary.com/de8carnhu/image/upload/v1638916509/nicole_kbknmp.png)' }}></div>
             <h3>Nicole Tademaru</h3>
             <div className="social">
-              <a className="github" href="https://github.com/nicoletademaru">
+              <a target="_blank" className="github" href="https://github.com/nicoletademaru">
                 <i className="fab fa-github"></i>
               </a>
-              <a className="linkedin" href="https://www.linkedin.com/in/nicole-tademaru-7800abb7/">
+              <a target="_blank" className="linkedin" href="https://www.linkedin.com/in/nicole-tademaru-7800abb7/">
                 <i className="fab fa-linkedin"></i>
               </a>
             </div>
@@ -52,10 +52,10 @@ class AboutComponent extends React.Component{
             <div className='head' style={{ backgroundImage: 'url(https://res.cloudinary.com/de8carnhu/image/upload/v1638916165/Self_portrait_rneteu.jpg)' }}></div>
             <h3>Kenny Cheng</h3>
             <div className="social">
-              <a className="github" href="https://github.com/kcheng16">
+              <a target="_blank" className="github" href="https://github.com/kcheng16">
                 <i className="fab fa-github"></i>
               </a>
-              <a className="linkedin" href="https://www.linkedin.com/in/kcheng16/">
+              <a target="_blank" className="linkedin" href="https://www.linkedin.com/in/kcheng16/">
                 <i className="fab fa-linkedin"></i>
               </a>
             </div>
