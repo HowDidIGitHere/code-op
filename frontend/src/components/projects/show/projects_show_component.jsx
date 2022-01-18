@@ -16,11 +16,12 @@ class ProjectsShow extends React.Component {
       goals: undefined,
       staticDiagram: undefined,
       diagram: undefined,
-      edit: false
+      edit: false,
     }
 
     this.handleDiagramChange = this.handleDiagramChange.bind(this);
     this.handleDiagramSubmit = this.handleDiagramSubmit.bind(this);
+    this.toggleDeleteGoal = this.toggleDeleteGoal.bind(this);
     this.handleCollaboratorUpdate = this.handleCollaboratorUpdate.bind(this);
   }
 
@@ -39,6 +40,7 @@ class ProjectsShow extends React.Component {
             })
         }
         if (this.state.project.goals.length !== 0) {
+          console.log(this.state)
           this.props.fetchGoals(this.state.project.goals)
             .then(res => {
               const nextState = Object.assign({}, this.state, { goals: Object.values(res.goals) })
@@ -98,8 +100,18 @@ class ProjectsShow extends React.Component {
     }
   }
 
-  toggleEdit(){
+  toggleEdit() {
     this.setState({edit: !this.state.edit})
+  }
+
+  toggleDeleteGoal(idx) {
+    let tempGoals = [];
+    for (let i = 0; i < this.state.goals.length; i++) {
+      if (i !== idx) {
+        tempGoals.push(this.state.goals[i]);
+      }
+    }
+    this.setState({ goals: tempGoals });
   }
 
   handleUpdate(e){
@@ -171,7 +183,7 @@ class ProjectsShow extends React.Component {
                   <ul>
                     {
                       this.state.goals.map((goal, idx) => {
-                        return <GoalsShow key={`goals-list-item-${idx}`} goal={goal} updateGoal={this.props.updateGoal} deleteGoal={this.props.deleteGoal}/>
+                        return <GoalsShow key={`goals-list-item-${idx}`} idx={idx} goal={goal} updateGoal={this.props.updateGoal} deleteGoal={this.props.deleteGoal} toggleDeleteGoal={this.toggleDeleteGoal} />
                       })
                     }
                   </ul>

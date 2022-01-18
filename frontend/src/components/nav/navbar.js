@@ -97,7 +97,7 @@ class NavBar extends React.Component {
                     </Link> : ""}
                 <div className='drop-item logout' onClick={(e) => this.logoutUser(e)}>
                   <i className="fas fa-sign-out-alt"></i>
-                  <p >Logout</p>
+                  <p>Logout</p>
                 </div>
             </div>
           </div>

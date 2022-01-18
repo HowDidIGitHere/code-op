@@ -16,6 +16,7 @@ class GoalsShow extends React.Component{
     this.handleTaskChange = this.handleTaskChange.bind(this);
     this.handleTaskSubmit = this.handleTaskSubmit.bind(this);
     this.handleGoalEdit = this.handleGoalEdit.bind(this);
+    this.handleGoalDelete = this.handleGoalDelete.bind(this);
     // this.goalStyle = {display: "block", border-radius: ""}
   }
 
@@ -72,6 +73,16 @@ class GoalsShow extends React.Component{
     }
   }
 
+  handleGoalDelete(id, idx) {
+    return e => {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log(id, idx)
+      this.props.deleteGoal(id)
+        .then(() => this.props.toggleDeleteGoal(idx));
+    }
+  }
+
   render(){
     return(
       <div className="goals-show">
@@ -97,9 +108,9 @@ class GoalsShow extends React.Component{
         
         <div className='goal-buttons' style={!this.state.toggle ? {display: "block", borderRadius: '0 0 7px 7px'} : {display: "block"}}>
           <div className="function-wrap">
-            <button className='edit-goal' onClick={this.handleTaskEdit()} >Edit</button>
-            <button className='view-tasks' onClick={this.handleToggle} >View Tasks</button>
-            <button className="delete-goal" onClick={()=>this.props.deleteGoal()}>Delete</button>
+            <button className='edit-goal' onClick={this.handleTaskEdit()}>Edit</button>
+            <button className='view-tasks' onClick={this.handleToggle}>View Tasks</button>
+            <button className="delete-goal" onClick={this.handleGoalDelete(this.props.goal._id, this.props.idx)}>Delete</button>
           </div>
         </div>
         <div className='hidden-tasks' style={this.state.toggle ? {display: "block"} : {display: "none"}}>
@@ -118,9 +129,6 @@ class GoalsShow extends React.Component{
         <div className="goals-dropdown" style={this.state.toggle ? {display: "block"} : {display: "none"}}>
           <div className="goals-tasks">
             <div className="add-task-container">
-              {/* <div className="add-task-header">
-                <p>Add a task</p>
-              </div> */}
               <div className='add-task-textbox'>
                 <form onSubmit={this.handleTaskSubmit}>
                   <textarea onChange={this.handleTaskChange} value={this.state.task} placeholder="Add a task!"></textarea>
@@ -128,17 +136,6 @@ class GoalsShow extends React.Component{
                 </form>
               </div>
             </div>
-            {/* <h4>Tasks:</h4>
-            {this.state.tasks.map((task, idx) => 
-              <li className="goal-tasks" key={idx}>
-                <div>
-                  <p>{task.body}</p>
-                  <div>
-                    <button onClick={this.handleTaskDelete(idx)}>Delete</button>
-                  </div>
-                </div>
-              </li>
-            )} */}
           </div>
         </div>
 
