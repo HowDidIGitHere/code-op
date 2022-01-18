@@ -21,5 +21,5 @@ export const updateGoal = data => {
 }
 
 export const deleteGoal = id => {
-  return axios.put(`/api/goals/${id}`)
+  return axios.delete(`/api/goals/${id}`)
 }
