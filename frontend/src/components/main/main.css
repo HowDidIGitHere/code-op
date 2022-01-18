@@ -58,7 +58,7 @@
 
 .splash-header .banner {
   background-color: #ffffff;
-  opacity: 40%;
+  opacity: 40% !important;
   height: 280px;
 }
 
