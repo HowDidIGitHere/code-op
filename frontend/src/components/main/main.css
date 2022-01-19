@@ -57,8 +57,8 @@
 }
 
 .splash-header .banner {
-  background-color: #ffffff;
-  opacity: 40% !important;
+  background-color: #ffffff69;
+  background-blend-mode: overlay;
   height: 280px;
 }
 
@@ -231,8 +231,6 @@
   }
 
   .splash-header > .banner{
-    background-color: #ffffff;
-    opacity: 40%;
     height: 400px;
   }
 
