@@ -29,9 +29,9 @@ function Modal({modal, closeModal}) {
     case 'update':
       component = <UserUpdateContainer />;
       break;
-    case 'create-goal':
-      component = <GoalsCreateContainer />;
-      break;
+    // case 'create-goal':
+    //   component = <GoalsCreateContainer />;
+    //   break;
     case 'notifications':
       component = <Notifications />;
       break;

@@ -4,6 +4,7 @@ import Collaborators from './collaborators';
 import mermaid from 'mermaid';
 import GoalsShow from '../../goals/goals_show_component';
 import { Link } from 'react-router-dom';
+import CreateGoalModal from '../../modals/create_goal_modal';
 
 class ProjectsShow extends React.Component {
   constructor(props) {
@@ -17,14 +18,27 @@ class ProjectsShow extends React.Component {
       staticDiagram: undefined,
       diagram: undefined,
       edit: false,
+      toggleNewGoal: false
     }
 
     this.handleDiagramChange = this.handleDiagramChange.bind(this);
     this.handleDiagramSubmit = this.handleDiagramSubmit.bind(this);
-    this.toggleDeleteGoal = this.toggleDeleteGoal.bind(this);
+    // this.toggleDeleteGoal = this.toggleDeleteGoal.bind(this);
+    this.handleGoalDelete = this.handleGoalDelete.bind(this);
     this.handleCollaboratorUpdate = this.handleCollaboratorUpdate.bind(this);
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.project && prevProps.project.goals && prevProps.project.goals.length !== this.props.project.goals.length) {
+      if (this.props.project.goals.length !== 0) {
+        this.props.fetchGoals(this.props.project.goals)
+          .then(res => {
+            const nextState = Object.assign({}, this.state, { goals: Object.values(res.goals) });
+            this.setState(nextState);
+          })
+      }
+    }
+  }
 
   componentWillMount() {
     this.props.fetchProject()
@@ -40,7 +54,6 @@ class ProjectsShow extends React.Component {
             })
         }
         if (this.state.project.goals.length !== 0) {
-          console.log(this.state)
           this.props.fetchGoals(this.state.project.goals)
             .then(res => {
               const nextState = Object.assign({}, this.state, { goals: Object.values(res.goals) })
@@ -104,19 +117,30 @@ class ProjectsShow extends React.Component {
     this.setState({edit: !this.state.edit})
   }
 
-  toggleDeleteGoal(idx) {
-    let tempGoals = [];
-    for (let i = 0; i < this.state.goals.length; i++) {
-      if (i !== idx) {
-        tempGoals.push(this.state.goals[i]);
-      }
-    }
-    this.setState({ goals: tempGoals });
-  }
-
   handleUpdate(e){
     e.preventDefault()
     this.props.updateProject(this.state.project)
+  }
+  
+  handleGoalDelete(goal, idx) {
+    let tempGoalIds = [];
+    for (let i = 0; i < this.state.goals.length; i++) {
+      if (goal._id !== this.state.goals[i]._id) {
+        tempGoalIds.push(this.state.goals[i]._id);
+      }
+    }
+    let tempProject = Object.assign({}, this.state.project);
+    tempProject.goals = tempGoalIds;
+
+    let tempGoals = [...this.state.goals];
+    tempGoals.splice(idx, 1);
+
+    this.props.updateProject(tempProject)
+      .then(() => {
+        this.props.deleteGoal(goal._id)
+          .then(() => this.setState({ project: tempProject, goals: tempGoals }));
+        });
+
   }
 
   handleCollaboratorUpdate(user, idx) {
@@ -128,10 +152,18 @@ class ProjectsShow extends React.Component {
     let tempCollaborators = [...this.state.collaborators];
     tempCollaborators.splice(idx, 1);
 
-    this.props.updateProject(tempProject).then(() => {
-      this.setState({ project: tempProject }, this.setState({ collaborators: tempCollaborators }))
-    });
+    this.props.updateProject(tempProject)
+      .then(() => {
+        this.setState({ project: tempProject }, this.setState({ collaborators: tempCollaborators }))
+      });
   }
+
+  // handleCreateNewGoal(proj) {
+  //   this.props.updateProject(proj)
+  //     .then(res => {
+  //       console.log(res);
+  //     })
+  // }
 
   render() {
     if (!this.state.project) {
@@ -140,6 +172,7 @@ class ProjectsShow extends React.Component {
 
     return(
       <div className="projects-show-page">
+        <CreateGoalModal />
         <div className='project-show-container'>
           {!this.state.edit ?
             <div className='project-title-header'>
@@ -183,7 +216,7 @@ class ProjectsShow extends React.Component {
                   <ul>
                     {
                       this.state.goals.map((goal, idx) => {
-                        return <GoalsShow key={`goals-list-item-${idx}`} idx={idx} goal={goal} updateGoal={this.props.updateGoal} deleteGoal={this.props.deleteGoal} toggleDeleteGoal={this.toggleDeleteGoal} />
+                        return <GoalsShow key={`goals-list-item-${idx}`} idx={idx} goal={goal} updateGoal={this.props.updateGoal} handleGoalDelete={this.handleGoalDelete} />
                       })
                     }
                   </ul>
