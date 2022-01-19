@@ -5,6 +5,7 @@
   align-content: center;
   justify-content: center;
   flex-direction: column;
+  border-top: 10px solid #494553;
 }
 
 .header{
