@@ -52,19 +52,19 @@ class NavBar extends React.Component {
             <div className='dropdown-content-2'>
                 <div className='drop-item' onClick={() => this.props.openNotificationsModal()}>
                   <i className="fas fa-bell"></i>
-                  <p  >Notifications</p>
+                  <p>Notifications</p>
                 </div>
                 <Link className='drop-item' to={'/projects'}>
                   <i className="fas fa-search"></i>
-                  <div >Discover Page</div>
+                  <div>Discover Page</div>
                 </Link>
                 <Link className='drop-item' to={'/projects/new'}>
                   <i className="fas fa-hammer"></i>
-                  <div  >Create a Project</div>
+                  <div>Create a Project</div>
                 </Link>
-                <div className='drop-item current-project'  onClick={() => this.toggle()}>
+                <div className='drop-item current-project' onClick={() => this.toggle()}>
                   <i className="fas fa-tasks"></i>
-                  <p  tabIndex='1'>Current Projects</p>
+                  <p tabIndex='1'>Current Projects</p>
                 </div>
                 <div 
                   className='hidden-projects' 
@@ -104,10 +104,10 @@ class NavBar extends React.Component {
         );
       } else {
         return (
-            <div className='auth-buttons'>
-              <button className='signup' onClick={() => this.props.openSignupModal()}>Sign Up</button>
-              <button className='login' onClick={() => this.props.openLoginModal()}>Login</button>
-            </div>
+          <div className='auth-buttons'>
+            <button className='signup' onClick={() => this.props.openSignupModal()}>Sign Up</button>
+            <button className='login' onClick={() => this.props.openLoginModal()}>Login</button>
+          </div>
         );
       }
   }
@@ -119,7 +119,6 @@ class NavBar extends React.Component {
             <div className='left-nav col-auto me-auto' onClick={this.handleClick}>
               <img 
                 className='logo' 
-                
                 src="https://res.cloudinary.com/dzixdb9eu/image/upload/v1638985865/Infinity_t10mft.png" 
                 alt="infinity" />
               <h1>CODE-OP</h1>

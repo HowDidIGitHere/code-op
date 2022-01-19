@@ -13,6 +13,7 @@ const mapStateToProps = (state, ownProps)=> {
   return {
     user: state.session.user,
     tags: state.entities.tags.namesByCategoty,
+    project: state.entities.projects[ownProps.match.params.id]
   };
 };
 
