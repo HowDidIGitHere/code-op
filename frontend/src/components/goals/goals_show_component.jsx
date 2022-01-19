@@ -16,8 +16,22 @@ class GoalsShow extends React.Component{
     this.handleTaskChange = this.handleTaskChange.bind(this);
     this.handleTaskSubmit = this.handleTaskSubmit.bind(this);
     this.handleGoalEdit = this.handleGoalEdit.bind(this);
-    this.handleGoalDelete = this.handleGoalDelete.bind(this);
+    // this.handleGoalDelete = this.handleGoalDelete.bind(this);
     // this.goalStyle = {display: "block", border-radius: ""}
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.goal !== this.props.goal) {
+      this.setState({
+        title: this.props.goal.title,
+        description: this.props.goal.description,
+        tasks: this.props.goal.tasks,
+        task: '',
+        toggle: false,
+        editToggle: false,
+        rerenderPlease: false
+      })
+    }
   }
 
   handleToggle(){
@@ -73,15 +87,14 @@ class GoalsShow extends React.Component{
     }
   }
 
-  handleGoalDelete(id, idx) {
-    return e => {
-      e.preventDefault();
-      e.stopPropagation();
-      console.log(id, idx)
-      this.props.deleteGoal(id)
-        .then(() => this.props.toggleDeleteGoal(idx));
-    }
-  }
+  // handleGoalDelete(id, idx) {
+  //   return e => {
+  //     e.preventDefault();
+  //     e.stopPropagation();
+  //     this.props.deleteGoal(id)
+  //       .then(() => this.props.toggleDeleteGoal(id, idx));
+  //   }
+  // }
 
   render(){
     return(
@@ -110,7 +123,7 @@ class GoalsShow extends React.Component{
           <div className="function-wrap">
             <button className='edit-goal' onClick={this.handleTaskEdit()}>Edit</button>
             <button className='view-tasks' onClick={this.handleToggle}>View Tasks</button>
-            <button className="delete-goal" onClick={this.handleGoalDelete(this.props.goal._id, this.props.idx)}>Delete</button>
+            <button className="delete-goal" onClick={() => this.props.handleGoalDelete(this.props.goal, this.props.idx)}>Delete</button>
           </div>
         </div>
         <div className='hidden-tasks' style={this.state.toggle ? {display: "block"} : {display: "none"}}>
@@ -138,7 +151,6 @@ class GoalsShow extends React.Component{
             </div>
           </div>
         </div>
-
       </div>
     )
   }
