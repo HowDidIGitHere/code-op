@@ -102,7 +102,6 @@ class ProjectsIndex extends React.Component {
     ]
 
     var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
-    console.log(checkboxes)
 
     return(
       <div className="projects-index">

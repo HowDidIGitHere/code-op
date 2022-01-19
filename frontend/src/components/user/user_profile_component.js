@@ -37,8 +37,7 @@ class UserProfile extends React.Component {
 
   render() {
     if (!this.props.user) return "loading...";
-    console.log("current user", this.props.currentUserId)
-    console.log("profile page params", this.props.match.params.id)
+
     return (
       <div className="user-profile">
         <div className="header-bg">

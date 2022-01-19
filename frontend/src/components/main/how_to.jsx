@@ -11,7 +11,6 @@ class howTo extends React.Component{
 
   toggleLearnMore(){
     this.setState({show: !this.state.show})
-    console.log("show:", this.state.show)
   }
 
   isLearnMoreOpen(){

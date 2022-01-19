@@ -43,7 +43,6 @@ class Notifications extends React.Component{
   }
 
   render(){
-    console.log("requests:", this.state.requests)
     return(
       <div className="notifications">
         {this.state.requests.length === 0 ? 
