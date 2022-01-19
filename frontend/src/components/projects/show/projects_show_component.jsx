@@ -4,6 +4,7 @@ import Collaborators from './collaborators';
 import mermaid from 'mermaid';
 import GoalsShow from '../../goals/goals_show_component';
 import { Link } from 'react-router-dom';
+import CreateGoalModal from '../../modals/create_goal_modal';
 
 class ProjectsShow extends React.Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class ProjectsShow extends React.Component {
       staticDiagram: undefined,
       diagram: undefined,
       edit: false,
+      toggleNewGoal: false
     }
 
     this.handleDiagramChange = this.handleDiagramChange.bind(this);
@@ -26,6 +28,17 @@ class ProjectsShow extends React.Component {
     this.handleCollaboratorUpdate = this.handleCollaboratorUpdate.bind(this);
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.project && prevProps.project.goals && prevProps.project.goals.length !== this.props.project.goals.length) {
+      if (this.props.project.goals.length !== 0) {
+        this.props.fetchGoals(this.props.project.goals)
+          .then(res => {
+            const nextState = Object.assign({}, this.state, { goals: Object.values(res.goals) });
+            this.setState(nextState);
+          })
+      }
+    }
+  }
 
   componentWillMount() {
     this.props.fetchProject()
@@ -104,31 +117,6 @@ class ProjectsShow extends React.Component {
     this.setState({edit: !this.state.edit})
   }
 
-  // toggleDeleteGoal(goal, idx) {
-  //   console.log(this.state.goals)
-  //   let tempGoalIds = [];
-  //   let tempGoals = [];
-  //   for (let i = 0; i < this.state.goals.length; i++) {
-  //     if (this.state.goals[i]._id !== id) {
-  //       tempGoalIds.push(this.state.goals[i]._id);
-  //       tempGoals.push(this.state.goals[i]);
-  //     }
-  //   }
-  //   console.log(tempGoals)
-  //   // this.setState({ goals: tempGoals });
-  //   const tempProject = Object.assign({}, this.state.project, { goals: tempGoalIds });
-  //   console.log(tempProject)
-  //   this.props.updateProject(tempProject)
-  //     .then(res => this.setState({ goals: tempGoals }));
-  //     // .then(
-  //     //   this.props.fetchGoals(this.state.project.goals)
-  //     //     .then(res => {
-  //     //       const nextState = Object.assign({}, this.state, { goals: Object.values(res.goals) })
-  //     //       this.setState(nextState);
-  //     //     })
-  //     // )
-  // }
-
   handleUpdate(e){
     e.preventDefault()
     this.props.updateProject(this.state.project)
@@ -170,6 +158,13 @@ class ProjectsShow extends React.Component {
       });
   }
 
+  // handleCreateNewGoal(proj) {
+  //   this.props.updateProject(proj)
+  //     .then(res => {
+  //       console.log(res);
+  //     })
+  // }
+
   render() {
     if (!this.state.project) {
       return "...loading";
@@ -177,6 +172,7 @@ class ProjectsShow extends React.Component {
 
     return(
       <div className="projects-show-page">
+        <CreateGoalModal />
         <div className='project-show-container'>
           {!this.state.edit ?
             <div className='project-title-header'>
