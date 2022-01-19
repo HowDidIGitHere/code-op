@@ -19,8 +19,10 @@ class howTo extends React.Component{
     return(
       <div className="how-to-container">
         <div className="how-to-banner">
-          <div>Project Collaboration Reimagined</div>
-          <div>We're on a mission to unite people with the right skills for the right job. Become part of a team.</div>
+          <div className="header">
+            <div>Project Collaboration Reimagined</div>
+            <div>We're on a mission to unite people with the right skills for the right job. Become part of a team.</div>
+          </div>
           <div className="learn-more" onClick={() => this.toggleLearnMore()}>Learn More</div>
         </div>
         <div 
