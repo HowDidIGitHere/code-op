@@ -8,11 +8,21 @@
 }
 
 .header{
+  width: 80%;
   font-size: 1.5vw;
-  background-color: white;
+  background-color: #168882;
   margin: 4vw auto 0 auto;
   text-align: center;
   padding: 5px 15px;
+  margin-bottom: 2vh;
+}
+
+.header>div{
+  color: white;
+}
+
+.header>div:last-child{
+  font-size: 1vw;
 }
 
 .learn-button{
@@ -31,14 +41,108 @@
   background-color: #1a666b;
 }
 
+/* ==============dropdown============== */
+.how-to-dropdown{
+  background-color: #e8e6e659;
+  transition: 
+    color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    max-height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  overflow: hidden;
+}
+
 #title, #desc{
   text-align: center;
 }
 
 #title{
-
+  font-size: 1.5vw;
+  font-weight: 600;
+  margin-top: 4vh;
 }
 
 #desc{
-  
+  font-size: 1vw;
+}
+
+/* ==============cards */
+.cards-container{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5vh;
+  padding-bottom: 3vh;
+}
+
+.learn-card{
+  width: 25%;
+  padding: 1vw;
+}
+
+.card-one{
+  background-image: url("https://res.cloudinary.com/de8carnhu/image/upload/v1642624904/marvin-meyer-SYTO3xs06fU-unsplash_xe9wh0.jpg");
+}
+.card-two{
+  background-image: url("https://res.cloudinary.com/de8carnhu/image/upload/v1642624904/tim-van-der-kuip-CPs2X8JYmS8-unsplash_l3gtqu.jpg");
+}
+.card-three{
+  background-image: url("https://res.cloudinary.com/de8carnhu/image/upload/v1642624904/brooke-cagle-g1Kr4Ozfoac-unsplash_qzfkeb.jpg");
+}
+.card-four{
+  background-image: url("https://res.cloudinary.com/de8carnhu/image/upload/v1642624904/jo-szczepanska-5aiRb5f464A-unsplash_cbxnyf.jpg");
+}
+
+.card-title{
+  font-size: 1.5vw;
+  font-weight: 600;
+  color: black;
+  padding: 20vh 0 5vh 2vh;
+  background-size: cover;
+  background-blend-mode: overlay;
+  background-color: #ffffff54;
+  text-shadow: 1px 1px 0px white;
+}
+
+.bottom-card-1{
+  background-color: lightblue;
+  padding: 1vw;
+}
+.bottom-card-2{
+  background-color: rgb(99, 202, 236);
+  padding: 1vw;
+}
+.bottom-card-3{
+  background-color: lightblue;
+  padding: 1vw;
+}
+.bottom-card-4{
+  background-color: rgb(99, 202, 236);
+  padding: 1vw;
+}
+
+.card-text{
+  text-align: center;
+}
+
+.redirect{
+  cursor: pointer;
+  width: 80%;
+  margin: 0.5vw auto;
+  padding: 0.5vw;
+  background-color: lightseagreen;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.close{
+  display: block;
+  text-align: center;
+  background-color: #e7e5e5;
+  width: 80%;
+  margin: 0vw auto;
+  border-radius: 0 0 5px 5px;
+  cursor: pointer;
+}
+
+.close:hover{
+  background-color: #cccccc;
 }

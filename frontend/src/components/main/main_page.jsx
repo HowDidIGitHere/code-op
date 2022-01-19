@@ -1,6 +1,6 @@
 import React from 'react';
 import SplashHeader from './splash_header';
-import HowTo from './how_to'
+import HowTo from './how_to_container';
 import './main.css'
 // import ProjectListingRow from './project_listing_row';
 import FeaturedProjects from './featured_projects';
