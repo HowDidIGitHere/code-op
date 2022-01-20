@@ -29,7 +29,7 @@ class ProjectsShow extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.project && prevProps.project.goals && prevProps.project.goals.length !== this.props.project.goals.length) {
+    if (prevProps.project && prevProps.project.goals && this.props.project && this.props.project.goals && prevProps.project.goals.length !== this.props.project.goals.length) {
       if (this.props.project.goals.length !== 0) {
         this.props.fetchGoals(this.props.project.goals)
           .then(res => {
