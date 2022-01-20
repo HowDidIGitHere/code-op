@@ -25,7 +25,7 @@ class howTo extends React.Component{
     if(!this.props.isAuthenticated){
       return(
         <div className="learn-card">
-          <div className="card-title card-two">Send a request:</div>
+          <div className="card-title card-two">Send A Request:</div>
           <div className="bottom-card-2">
             <div className="card-text">See a fun or interesting project you like? Make your own request to join in and build something big!</div>
             <div className="redirect" id="sign-up" onClick={() => this.props.openSignUpModal()}>Sign Up</div>
@@ -71,7 +71,7 @@ class howTo extends React.Component{
             <div className="learn-card">
               <div className="card-title card-three">Manage Your Projects:</div>
               <div className="bottom-card-3">
-                <div className="card-text">View all your projects all in one place and manage them as you grow. Start your contribution.</div>
+                <div className="card-text">View all your projects all in one place and manage them as you grow. Start your contribution today!</div>
                 <div className="redirect" id="manage-now" onClick={() => this.props.isAuthenticated ? this.props.history.push(`users/${this.props.currentUser.id}`) : this.props.openSignUpModal()}>Manage Now</div>
               </div>
             </div>
