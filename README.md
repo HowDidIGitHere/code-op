@@ -18,6 +18,10 @@ When starting a project, it may be difficult to keep track of who's working on w
 * Interactive UML
 * Intra-project communication
 
+# Figma
+[Figma sketch](https://www.figma.com/file/6YZ8SPE6g9JrOCrAGftBs8/CODE-OP?node-id=0%3A1)
+![image](https://user-images.githubusercontent.com/88124383/159811667-8a1aba92-da90-44fb-b5cb-3339641e397c.png)
+
 # Technologies and Technical Challenges
 
 ## Technologies:
@@ -35,12 +39,16 @@ When starting a project, it may be difficult to keep track of who's working on w
 ## Technical Challenges:
 * Becoming comfortable with implementing newly introduced backend database and technology.
 * Establishing database architecture to increase ease of extrapolation from front-end database.
+* Implementing newly introduced Figma sketches with UX designer requests
 
 # Group Members and Work Breakdown
 
 ***
 
-### Jamie An, Abraham Fong, Nicole Tademaru, Kenny Cheng
+### Jamie An, Abraham Fong, Nicole Tademaru, Kenny Cheng, Lori Wu
+
+###
+* Design homescreen, user login, user profile, project page - **Lori**
 
 ### December 5-6
 * Create User Auth backend - **Jamie**
