@@ -2,7 +2,7 @@
 [Code-Op Live](https://code-op.herokuapp.com/)
 
 When starting a project, it may be difficult to keep track of who's working on what, what needs to be accomplished, and identifying strength and weaknesses of the team. If you've ever encountered an area of your project you're unfamiliar with, where will you turn to? Spend a few days learning a new language? Read through countless forums for ambiguous answers? code-op will allow you to find the experts you need, quickly, and get your project moving into production by taking advantage of user's strength and skills. Code-op will be used by individuals and groups of people to come together and collaborate on a single project. Users can manage their documents, goals, and invite other users to join.
-![codeop splash](https://user-images.githubusercontent.com/88124383/147510056-d99b0583-269b-4995-a395-23a06713215f.jpg)
+![codeop splash](https://user-images.githubusercontent.com/88124383/159812081-d9fa99d2-5a24-4bd1-b20f-e1d014f388be.png)
 ![code-op-(project show)](https://user-images.githubusercontent.com/88124383/147510083-75cd92e1-d201-445d-bfc5-8753da274967.jpg)
 
 # Functionality and MVP
